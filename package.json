@@ -5,8 +5,8 @@
   "main": "app.js",
   "scripts": {
     "server:debug": "nodemon --inspect app.js",
-    "start": "node app.js",
-    "server": "nodemon app.js"
+    "server": "nodemon app.js",
+    "start": "node app.js"
   },
   "author": "Chris Vo",
   "license": "ISC",
