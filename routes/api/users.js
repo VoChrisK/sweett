@@ -12,6 +12,18 @@ router.get("/test", (req, res) => {
     res.json({ msg: "This is the user route" });
 });
 
+// router.get(
+//   "/current",
+//   passport.authenticate("jwt", { session: false }),
+//   (req, res) => {
+//     res.json({
+//       id: req.user.id,
+//       username: req.user.username,
+//       email: req.user.email
+//     });
+//   }
+// );
+
 router.post('/register', (req, res) => {
     const { errors, isValid } = validateRegisterInput(req.body);
 
@@ -79,7 +91,7 @@ router.post('/login', (req, res) => {
                             }
                         );
                     } else {
-                        return res.status(400).json({ password: "Incoreect password" });
+                        return res.status(400).json({ password: "Incorrect password" });
                     }
                 })
         })
