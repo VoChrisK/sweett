@@ -65,8 +65,6 @@ class NavBar extends React.Component {
         return (
             <div className="navbar">
                 <h1 className="logo" onClick={this.handleClick.bind(this)}>SWETT</h1>
-
-            <div>
                 <Modal />
                 <h1>SWETT</h1>
                 {this.getLinks()}

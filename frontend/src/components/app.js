@@ -5,20 +5,13 @@ import NavBarContainer from './nav/navbar_container';
 import DashboardContainer from './dashboard/dashboard_container';
 import Splash from './splash/splash';
 const App = () => (
-  <div className="big-boi">
+  <div className="app">
     <NavBarContainer />
     <Switch>
       <ProtectedRoute path="/dashboard" component={DashboardContainer} />
-      <AuthRoute path="/login" component={LoginFormContainer} />
-      <AuthRoute path="/signup" component={SignupFormContainer} />
-      <Route path="/" component={MainPage} />
-  <div id="app">
-    <NavBarContainer />
-    <Switch>
-      <ProtectedRoute exact path="/dashboard" component={DashboardContainer} />
       <AuthRoute exact path="/" component={Splash} />
     </Switch>
-  </div>
+    </div>
 );
 
 export default App;
