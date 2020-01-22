@@ -1,0 +1,102 @@
+.signin-component {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    background-color: white;
+    width: 800px;
+}
+
+.signup-container {
+    width: 30%;
+    height: 260px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #3aaf9f;
+    justify-content: center;
+    padding: 100px 40px;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+.signin-form-container {
+    width: 70%;
+    display: flex;
+    justify-content: center;
+}
+
+.signin-form-container form {
+    width: 100%;
+}
+
+.signin-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-title {
+    font-size: 24px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+.auth-form-title p {
+    margin: 0px;
+}
+
+.auth-description {
+    font-size: 14px;
+    text-align: center;
+    color: white;
+    margin-bottom: 36px;
+}
+
+.auth-button {
+    padding: 12px 45px;
+    background-color: #3aaf9f;
+    border: 1px solid white;
+    border-radius: 25px;
+    color: white;
+    font-size: 10px;
+}
+
+.auth-form-title {
+    color: #3aaf9f;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.auth-form-email {
+    background-color: #f7f7f7;
+    width: 240px;
+    height: 32px;
+    padding: 6px 16px;
+    margin-bottom: 8px;
+    border: none;
+    border-radius: 4px;
+}
+
+.auth-form-password {
+    background-color: #f7f7f7;
+    width: 240px;
+    height: 32px;
+    padding: 6px 16px;
+    margin-bottom: 8px;
+    border: none;
+    border-radius: 4px;
+
+}
+
+.auth-form-submit {
+    background-color: #3aaf9f;
+    padding: 12px 55px;
+    color: white;
+    border-radius: 25px;
+    margin-top: 24px;
+}
+
+

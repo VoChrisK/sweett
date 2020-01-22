@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import Modal from '../modal/modal';
+
 // import './navbar.css'
 
 class NavBar extends React.Component {
@@ -50,10 +52,11 @@ class NavBar extends React.Component {
             );
         } else {
             return (
-                <div>
-                    <Link to={'/signup'}>Signup</Link>
-                    <Link to={'/login'}>Login</Link>
-                </div>
+                <nav className="login-signup">
+                    <button onClick={this.props.login}>Login</button>
+                    &nbsp;or&nbsp;
+                    <button onClick={this.props.signup}>Signup</button>
+                </nav>
             );
         }
     }
@@ -62,6 +65,10 @@ class NavBar extends React.Component {
         return (
             <div className="navbar">
                 <h1 className="logo" onClick={this.handleClick.bind(this)}>SWETT</h1>
+
+            <div>
+                <Modal />
+                <h1>SWETT</h1>
                 {this.getLinks()}
             </div>
         );

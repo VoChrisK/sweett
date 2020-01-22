@@ -17,6 +17,8 @@ class Dashboard extends React.Component {
         console.log('henlo')
     }
 
+
+class Dashboard extends React.Component {
     componentDidMount() {
         library.add(fas)
         const plus = findIconDefinition({ prefix: 'fas', iconName: 'plus-circle'})
