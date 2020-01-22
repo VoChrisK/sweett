@@ -9,7 +9,7 @@ import Splash from './splash/splash';
 
 const App = () => (
   <div>
-    {/* <NavBarContainer /> */}
+    <NavBarContainer />
     <Switch>
       <ProtectedRoute exact path="/dashboard" component={DashboardContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />

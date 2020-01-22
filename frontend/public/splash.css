@@ -1,5 +1,7 @@
 .splash-text {
     font-family: 'Lobster Two', cursive;
+    color: white;
+    font-size: 40px;
 }
 
 .first {
@@ -29,17 +31,17 @@
 
 .float-down-1 {
     animation: fadeIn1 3s;
-    font-size: 20px;
 }
 
 .float-down-2 {
     animation: fadeIn2 6s;
-    font-size: 20px;
 }
 
 .float-down-3 {
     animation: fadeIn3 9s;
-    font-size: 20px;
+    background-color: teal;
+    border: none;
+    cursor: pointer;
 }
 
 @keyframes fadeIn1 {

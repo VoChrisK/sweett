@@ -4,7 +4,20 @@ import Background from './splash.png';
 
 
 class Splash extends React.Component {
+    // constructor(props) {
+    //     super(props)
+    // }
+
+    componentDidMount() {
+        //hide navbar
+    }
+
+    componentWillUnmount() {
+        //show navbar
+    }
+
     render() {
+        // https://vincentgarreau.com/particles.js/#bubble Custom made json from self input
         const particleOpt = {
             "particles": {
                 "number": {
@@ -117,7 +130,7 @@ class Splash extends React.Component {
                             Get on track now!
                         </div>
                         <button className="float-down-3 splash-text">
-                            Lezgetit
+                            Get Started
                         </button>
                     </div>
                 </div>
