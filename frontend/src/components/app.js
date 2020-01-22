@@ -8,7 +8,7 @@ const App = () => (
   <div className="app">
     <NavBarContainer />
     <Switch>
-      <ProtectedRoute exact path="/dashboard" component={DashboardContainer} />
+      <ProtectedRoute path="/dashboard" component={DashboardContainer} />
       <AuthRoute exact path="/" component={Splash} />
     </Switch>
     </div>
