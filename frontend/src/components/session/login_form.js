@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 
+
 class LoginForm extends React.Component {
     constructor(props) {
         super(props);
@@ -17,7 +18,7 @@ class LoginForm extends React.Component {
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.currentUser === true) {
-            this.props.history.push('/dashboard');
+            window.history.push('/dashboard');
         }
 
         // Set or clear errors
@@ -34,13 +35,11 @@ class LoginForm extends React.Component {
     // Handle form submission
     handleSubmit(e) {
         e.preventDefault();
-
         let user = {
             email: this.state.email,
             password: this.state.password
         };
-
-        this.props.login(user);
+        this.props.processForm(user).then(this.props.closeModal);
     }
 
     // Render the session errors if there are any
@@ -58,25 +57,37 @@ class LoginForm extends React.Component {
 
     render() {
         return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
-                    <div>
-                        <input type="text"
-                            value={this.state.email}
-                            onChange={this.update('email')}
-                            placeholder="Email"
-                        />
-                        <br />
-                        <input type="password"
-                            value={this.state.password}
-                            onChange={this.update('password')}
-                            placeholder="Password"
-                        />
-                        <br />
-                        <input type="submit" value="Submit" />
-                        {this.renderErrors()}
-                    </div>
-                </form>
+            <div className="signin-component">
+                <div className="signin-form-container">
+                    <form onSubmit={this.handleSubmit}>
+                        <div className="signin-form">
+                            <p className="auth-form-title">
+                                <span>Sign in to SWETT</span>
+                            </p>
+                            {this.renderErrors()}
+                            <input className="auth-form-email" type="text"
+                                value={this.state.email}
+                                onChange={this.update('email')}
+                                placeholder="Email"
+                            />
+                            <input className="auth-form-password" type="password"
+                                value={this.state.password}
+                                onChange={this.update('password')}
+                                placeholder="Password"
+                            />
+                            <input className="auth-form-submit" type="submit" value="SIGN IN" />
+                        </div>
+                    </form>
+                </div>
+                <div className="signup-container">
+                    <p className="auth-title">
+                        <span>Hello, Friend!</span>
+                    </p>
+                    <p className="auth-description">
+                        <span>Enter your personal details and start journey with us</span>
+                    </p>
+                    {this.props.otherForm}
+                </div>
             </div>
         );
     }
