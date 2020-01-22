@@ -1,45 +1,77 @@
-.splash {
-    display: flex;
-}
-
-#bg {
-    background-position: center;
-    position: fixed; 
-    top: 0; 
-    left: 0; 
-    z-index: -1;
-        
-    /* Preserve aspet ratio */
-    min-width: 100%;
-    min-height: 100%;
-}
-
 .splash-text {
-    font-family: 'Shadows Into Light', cursive;
+    font-family: 'Lobster Two', cursive;
 }
 
-.boss-quote {
-    transform: rotate(-30deg);
+.first {
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
 }
 
-.hook {
+.second {
     position: relative;
-    top: 100px;
-    font-family: 'Caveat', cursive;
-    font-size: 100px;
+    top: -50%;
+    left: -50%;
 }
 
-@media screen and (max-width: 1000px) {
-    .hook {
-        font-size: 50px;
-        background-color: aqua;
+.column {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 0px;
+}
+
+.column div {
+    margin: 20px;
+}
+
+.float-down-1 {
+    animation: fadeIn1 3s;
+    font-size: 20px;
+}
+
+.float-down-2 {
+    animation: fadeIn2 6s;
+    font-size: 20px;
+}
+
+.float-down-3 {
+    animation: fadeIn3 9s;
+    font-size: 20px;
+}
+
+@keyframes fadeIn1 {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
     }
 }
 
-@media screen and (max-width: 400px) {
+@keyframes fadeIn2 {
+    from {
+        z-index: -1;
+        opacity: -1;
+    }
 
-  .hook {
-    font-size: 25px;
-    background-color: black;
-  }
+    to {
+        z-index: 1;
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn3 {
+    from {
+        z-index: -2;
+        opacity: -2;
+    }
+
+    to {
+        z-index: 2;
+        opacity: 1;
+    }
 }
