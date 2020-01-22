@@ -1,23 +1,17 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
 class Dashboard extends React.Component {
-    constructor(props) {
-        super(props)
-        console.log(props, 'props')
-    }
-
-    componentDidMount() {
-        return (
-            <div>henlo</div>
-        )
-    }
+    // constructor(props) {
+    //     super(props)
+    //     // console.log(props, 'props')
+    // }
 
     render() {
         return(
             <div className="dashboard">
-                <header>
-                    <h1>dashboard</h1>
+                <header className="title">
+                    <h1>Tasks</h1>
                 </header>
                 <div className="catIndex">
                     <div className="cat"></div>

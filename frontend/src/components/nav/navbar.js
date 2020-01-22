@@ -16,10 +16,10 @@ class NavBar extends React.Component {
 
     handleDropdown() {
         let dropdown = document.getElementById("dropdown");
-        if (dropdown.style.display === "none") {
-          dropdown.style.display = "block";
-        } else {
+        if (dropdown.style.display === "block") {
           dropdown.style.display = "none";
+        } else {
+          dropdown.style.display = "block";
         }
     }
 
@@ -35,12 +35,16 @@ class NavBar extends React.Component {
             return (
               <div className="dropdown-parent">
                 <img
-                    onClick={this.handleDropdown.bind(this)}
-                    className="thumbnail"
-                    src="https://en.meming.world/images/en/thumb/2/2c/Surprised_Pikachu_HD.jpg/300px-Surprised_Pikachu_HD.jpg"
+                  onClick={this.handleDropdown.bind(this)}
+                  className="thumbnail"
+                  alt=""
+                  src="https://en.meming.world/images/en/thumb/2/2c/Surprised_Pikachu_HD.jpg/300px-Surprised_Pikachu_HD.jpg"
                 ></img>
                 <div id="dropdown">
-                    <button onClick={this.logoutUser}>Logout</button>
+                  <ul className="dropdown-list">
+                    <li className="dropdown-profile">Profile</li>
+                    <li className="dropdown-logout" onClick={this.logoutUser}>Logout</li>
+                  </ul>
                 </div>
               </div>
             );
