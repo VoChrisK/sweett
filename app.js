@@ -3,9 +3,8 @@ const mongoose = require("mongoose");
 const app = express();
 const db = require("./config/keys").mongoURI;
 const users = require("./routes/api/users");
-const User= require("./models/User");
+const categories = require("./routes/api/categories");
 const bodyParser = require("body-parser");
-
 
 mongoose //connect to Mongoose
     .connect(db, { useNewUrlParser: true,
@@ -30,6 +29,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/users", users);
+app.use("/api/categories", categories);
 
 const port = process.env.PORT || 5000; //which port to run on
 
