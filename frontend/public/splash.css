@@ -1,0 +1,45 @@
+.splash {
+    display: flex;
+}
+
+#bg {
+    background-position: center;
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    z-index: -1;
+        
+    /* Preserve aspet ratio */
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.splash-text {
+    font-family: 'Shadows Into Light', cursive;
+}
+
+.boss-quote {
+    transform: rotate(-30deg);
+}
+
+.hook {
+    position: relative;
+    top: 100px;
+    font-family: 'Caveat', cursive;
+    font-size: 100px;
+}
+
+@media screen and (max-width: 1000px) {
+    .hook {
+        font-size: 50px;
+        background-color: aqua;
+    }
+}
+
+@media screen and (max-width: 400px) {
+
+  .hook {
+    font-size: 25px;
+    background-color: black;
+  }
+}
