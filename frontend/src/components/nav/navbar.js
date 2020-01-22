@@ -14,16 +14,35 @@ class NavBar extends React.Component {
         this.props.logout();
     }
 
+    handleDropdown() {
+        let dropdown = document.getElementById("dropdown");
+        if (dropdown.style.display === "none") {
+          dropdown.style.display = "block";
+        } else {
+          dropdown.style.display = "none";
+        }
+    }
+
+    handleClick() {
+        return (
+            console.log('henlo')
+        )
+    }
+
     // Selectively render links dependent on whether the user is logged in
     getLinks() {
         if (this.props.loggedIn) {
             return (
-                <div>
-                    <Link to={'/'}>placeholder</Link>
-                    <Link to={'/'}>placeholder</Link>
-                    <Link to={'/'}>placeholder</Link>
+              <div className="dropdown-parent">
+                <img
+                    onClick={this.handleDropdown.bind(this)}
+                    className="thumbnail"
+                    src="https://en.meming.world/images/en/thumb/2/2c/Surprised_Pikachu_HD.jpg/300px-Surprised_Pikachu_HD.jpg"
+                ></img>
+                <div id="dropdown">
                     <button onClick={this.logoutUser}>Logout</button>
                 </div>
+              </div>
             );
         } else {
             return (
@@ -37,8 +56,8 @@ class NavBar extends React.Component {
 
     render() {
         return (
-            <div>
-                <h1>SWETT</h1>
+            <div className="navbar">
+                <h1 className="logo" onClick={this.handleClick.bind(this)}>SWETT</h1>
                 {this.getLinks()}
             </div>
         );

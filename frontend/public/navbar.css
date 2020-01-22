@@ -1,0 +1,39 @@
+.navbar {
+    display: flex;
+    background: rgb(185, 211, 253);
+    justify-content: space-between;
+    position: fixed;
+    width: 100vw;
+    height: 60px;
+    -moz-box-shadow: 3px 3px 5px 6px #ccc;
+    -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+    box-shadow: 3px 3px 5px 6px #ccc;
+    /* -moz-box-shadow:    inset 0 0 10px #000000;
+   -webkit-box-shadow: inset 0 0 10px #000000;
+   box-shadow:         inset 0 0 10px #000000; */
+}
+
+.logo {
+    font-size: 40px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;   
+    margin-top: 10px; 
+    margin-left: 10px;
+}
+
+.logo:hover {
+    cursor: pointer;
+}
+
+.thumbnail {
+    height: 50px;
+    width: 50px;
+    margin-top: 5px;
+    margin-right: 10px;
+    border-radius: 25px;
+}
+
+.thumbnail:hover {
+    cursor: pointer;
+}
+
+

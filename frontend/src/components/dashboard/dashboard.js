@@ -4,6 +4,7 @@ import { Link, withRouter } from 'react-router-dom'
 class Dashboard extends React.Component {
     constructor(props) {
         super(props)
+        console.log(props, 'props')
     }
 
     componentDidMount() {
@@ -14,8 +15,17 @@ class Dashboard extends React.Component {
 
     render() {
         return(
-            <div>henlo</div>
-            // null
+            <div className="dashboard">
+                <header>
+                    <h1>dashboard</h1>
+                </header>
+                <div className="catIndex">
+                    <div className="cat"></div>
+                    <div className="cat"></div>
+                    <div className="cat"></div>
+                    <div className="cat"></div>
+                </div>
+            </div>
         )
     }
 }
