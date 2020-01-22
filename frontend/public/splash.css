@@ -17,6 +17,25 @@
     left: -50%;
 }
 
+.first-title {
+    z-index: 1;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+}
+
+.second-title {
+    position: relative;
+    top: -25%;
+    left: -50%;
+}
+
+.splash-title {
+    font-size: 65px;
+    white-space: nowrap;
+    color: white;
+}
+
 .column {
     display: flex;
     justify-content: center;
@@ -42,6 +61,23 @@
     background-color: teal;
     border: none;
     cursor: pointer;
+}
+
+.footer {
+    display: flex;
+    background: rgb(185, 211, 253);
+    position: fixed;
+    height: 60px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 0.5;
+    -moz-box-shadow: 5px 6px 3px 3px #ccc;
+    -webkit-box-shadow: 5px 6px 3px 3px #ccc;
+    box-shadow: 5px 6px 3px 3px rgb(77, 77, 77);
+}
+
+.footer-icons {
+    justify-content: flex-end;
 }
 
 @keyframes fadeIn1 {
@@ -76,4 +112,60 @@
         z-index: 2;
         opacity: 1;
     }
+}
+
+@media screen and (max-width: 1500px) {
+  .splash-title {
+    font-size: 60px;
+  }
+
+  .splash-text {
+    font-size: 37.5px;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .splash-title {
+    font-size: 50px;
+  }
+
+  .splash-text {
+    font-size: 35px;
+  }
+}
+
+@media screen and (max-width: 1250px) {
+  .splash-title {
+    font-size: 40px;
+  }
+
+  .splash-text {
+    font-size: 32.5px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .splash-title {
+    font-size: 35px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .splash-title {
+    font-size: 30px;
+  }
+
+  .splash-text {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .splash-title {
+    font-size: 25px;
+  }
+
+  .splash-text {
+    font-size: 25px;
+  }
 }
