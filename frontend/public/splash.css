@@ -73,14 +73,21 @@
     height: 60px;
     bottom: 0px;
     left: 0px;
+    width: 100vw;
     opacity: 0.5;
     -moz-box-shadow: 5px 6px 3px 3px #ccc;
     -webkit-box-shadow: 5px 6px 3px 3px #ccc;
     box-shadow: 5px 6px 3px 3px rgb(77, 77, 77);
 }
 
+.github {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .footer-icons {
-    justify-content: flex-end;
+  
 }
 
 @keyframes fadeIn1 {

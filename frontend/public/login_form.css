@@ -42,10 +42,12 @@
     color: white;
     text-align: center;
     font-weight: bold;
+    margin-bottom: 40px;
 }
 
 .auth-form-title p {
     margin: 0px;
+    
 }
 
 .auth-description {
@@ -68,6 +70,7 @@
     color: #3aaf9f;
     font-size: 24px;
     font-weight: bold;
+    margin-bottom: 40px;
 }
 
 .auth-form-email {
