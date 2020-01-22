@@ -10,9 +10,6 @@ class Dashboard extends React.Component {
     render() {
         return(
             <div className="dashboard">
-                <header className="title">
-                    <h1>Tasks</h1>
-                </header>
                 <div className="catIndex">
                     <div className="cat"></div>
                     <div className="cat"></div>
