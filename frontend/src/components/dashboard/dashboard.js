@@ -8,22 +8,15 @@ import {
 import { fas } from "@fortawesome/free-solid-svg-icons";
 
 class Dashboard extends React.Component {
-    // constructor(props) {
-    //     super(props)
-    //     // console.log(props, 'props')
-    // }
-
-    clickPlus() {
-        console.log('henlo')
-    }
-
-
-class Dashboard extends React.Component {
     componentDidMount() {
         library.add(fas)
         const plus = findIconDefinition({ prefix: 'fas', iconName: 'plus-circle'})
         const plusIcon = icon(plus)
         Array.from(plusIcon.node).map(n => document.getElementsByClassName('plus-sign')[0].appendChild(n))
+    }
+
+    clickPlus() {
+        console.log('henlo')
     }
 
     render() {
