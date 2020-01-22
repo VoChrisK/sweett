@@ -132,7 +132,10 @@ class Splash extends React.Component {
                 <div className="first-title">
                     <div className="second-title">
                         <div className="splash-title">
-                            Software Engineering Employment Time Tracker
+                            Software Engineering
+                        </div>
+                        <div className="splash-title">
+                            Employment Time Tracker
                         </div>
                     </div>
                 </div>

@@ -31,9 +31,12 @@
 }
 
 .splash-title {
+    animation: fadeIn3 9s;
     font-size: 65px;
     white-space: nowrap;
     color: white;
+    display: flex;
+    justify-content: center;
 }
 
 .column {
