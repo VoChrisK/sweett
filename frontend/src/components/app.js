@@ -8,7 +8,7 @@ import SignupFormContainer from './session/signup_form_container';
 import DashboardContainer from './dashboard/dashboard_container'
 
 const App = () => (
-  <div>
+  <div className="big-boi">
     <NavBarContainer />
     <Switch>
       <ProtectedRoute path="/dashboard" component={DashboardContainer} />

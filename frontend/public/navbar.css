@@ -8,6 +8,7 @@
     -moz-box-shadow: 3px 3px 5px 6px #ccc;
     -webkit-box-shadow: 3px 3px 5px 6px #ccc;
     box-shadow: 3px 3px 5px 6px rgb(77, 77, 77);
+    z-index: 1;
     /* -moz-box-shadow:    inset 0 0 10px #000000;
    -webkit-box-shadow: inset 0 0 10px #000000;
    box-shadow:         inset 0 0 10px #000000; */
@@ -17,7 +18,7 @@
     font-size: 40px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;   
     margin-top: 10px; 
-    margin-left: 10px;
+    margin-left: 15px;
 }
 
 .logo:hover {

@@ -4,6 +4,8 @@
     width: 100%;
     height: 100vh;
     padding-top: 60px;
+    display: flex;
+    justify-content: center;
 }
 
 .title {
@@ -14,23 +16,70 @@
 }
 
 .catIndex {
-    margin-top: 60px;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    margin-top: 300px;
+    width: 90%;
+    height: 90%;
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 23% 23% 23% 23%;
+    grid-template-rows: 40% 40% 40% 40%;
 }
 
-.cat {
-    min-width: 250px;
-    height: 30%;
-    min-height: 250px;
-    /* border: 2px black solid; */
-    border-radius: 3px;
+#cat1 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
     -moz-box-shadow: 3px 3px 5px 6px #ccc;
     -webkit-box-shadow: 3px 3px 5px 6px #ccc;
-    box-shadow: 3px 3px 5px 6px rgb(99, 99, 99);
+    box-shadow: 3px 3px 5px 6px rgb(160, 160, 160);
     background: rgb(185, 211, 253);
-    padding-bottom: 0px;
+}
+#cat2 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    -moz-box-shadow: 3px 3px 5px 6px #ccc;
+    -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+    box-shadow: 3px 3px 5px 6px rgb(160, 160, 160);
+    background: rgb(185, 211, 253);
+}
+#cat3{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    -moz-box-shadow: 3px 3px 5px 6px #ccc;
+    -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+    box-shadow: 3px 3px 5px 6px rgb(160, 160, 160);
+    background: rgb(185, 211, 253);
+}
+#cat4 {
+    grid-column-start: 4;
+    grid-column-end: 5;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    -moz-box-shadow: 3px 3px 5px 6px #ccc;
+    -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+    box-shadow: 3px 3px 5px 6px rgb(160, 160, 160);
+    background: rgb(185, 211, 253);
+}
+
+.plus-box {
+    height: auto;
+    width: auto;
+}
+
+.plus-sign {
+    width: 50px;
+}
+
+.dash-header {
+    position: absolute;
+    margin-top: 15px;
+    margin-left: 15px;
+    width: 100vw;
+    height: 60px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;   
 }
