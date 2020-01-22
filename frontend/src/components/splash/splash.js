@@ -1,6 +1,7 @@
 import React from "react";
 import Particles from "react-particles-js";
 import Background from './splash.png';
+import SplashFooter from './splash_footer';
 
 
 class Splash extends React.Component {
@@ -121,6 +122,13 @@ class Splash extends React.Component {
         }
         return (
             <div>
+                <div className="first-title">
+                    <div className="second-title">
+                        <div className="splash-title">
+                            Software Engineering Employment Time Tracker
+                        </div>
+                    </div>
+                </div>
                 <div className="first">
                     <div className="second column">
                         <div className="float-down-1 splash-text">
@@ -144,6 +152,7 @@ class Splash extends React.Component {
                         backgroundImage: `url(${Background})`
                     }}
                 />
+                <SplashFooter />
             </div>
         );
     }
