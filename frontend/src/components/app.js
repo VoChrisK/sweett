@@ -8,12 +8,10 @@ import DashboardContainer from './dashboard/dashboard_container';
 import Splash from './splash/splash';
 
 const App = () => (
-  <div>
+  <div id="app">
     <NavBarContainer />
     <Switch>
       <ProtectedRoute exact path="/dashboard" component={DashboardContainer} />
-      <AuthRoute exact path="/login" component={LoginFormContainer} />
-      <AuthRoute exact path="/signup" component={SignupFormContainer} />
       <AuthRoute exact path="/" component={Splash} />
     </Switch>
   </div>
