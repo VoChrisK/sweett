@@ -31,9 +31,12 @@
 }
 
 .splash-title {
+    animation: fadeIn3 9s;
     font-size: 65px;
     white-space: nowrap;
     color: white;
+    display: flex;
+    justify-content: center;
 }
 
 .column {
@@ -45,8 +48,7 @@
 }
 
 .column div {
-    white-space: nowrap;
-    margin: 20px;
+    margin: 10px;
 }
 
 .float-down-1 {
@@ -71,14 +73,37 @@
     height: 60px;
     bottom: 0px;
     left: 0px;
+    width: 100vw;
     opacity: 0.5;
     -moz-box-shadow: 5px 6px 3px 3px #ccc;
     -webkit-box-shadow: 5px 6px 3px 3px #ccc;
     box-shadow: 5px 6px 3px 3px rgb(77, 77, 77);
 }
 
+
 .footer-icons {
-    justify-content: flex-end;
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  align-content: center;
+}
+
+.github {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  margin-right: 25px;
+  cursor: pointer;
+}
+
+.linkedIn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  margin-right: 25px;
+  cursor: pointer;
 }
 
 @keyframes fadeIn1 {
