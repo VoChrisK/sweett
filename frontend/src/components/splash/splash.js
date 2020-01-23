@@ -5,9 +5,16 @@ import SplashFooter from './splash_footer';
 
 
 class Splash extends React.Component {
-    // constructor(props) {
-    //     super(props)
-    // }
+    constructor(props) {
+        super(props)
+
+        this.handleStart = this.handleStart.bind(this);
+    }
+
+    handleStart(e) {
+        e.preventDefault();
+        
+    }
 
     componentDidMount() {
         //hide navbar
@@ -125,7 +132,10 @@ class Splash extends React.Component {
                 <div className="first-title">
                     <div className="second-title">
                         <div className="splash-title">
-                            Software Engineering Employment Time Tracker
+                            Software Engineering
+                        </div>
+                        <div className="splash-title">
+                            Employment Time Tracker
                         </div>
                     </div>
                 </div>
@@ -137,7 +147,7 @@ class Splash extends React.Component {
                         <div className="float-down-2 splash-text">
                             Get on track now!
                         </div>
-                        <button className="float-down-3 splash-text">
+                        <button onClick={this.handleStart} className="float-down-3 splash-text">
                             Get Started
                         </button>
                     </div>
