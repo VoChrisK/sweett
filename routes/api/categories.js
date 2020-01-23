@@ -4,8 +4,9 @@ const Category = require("../../models/Category");
 const validateCategoryInput = require("../../validation/categories");
 const passport = require("passport");
 
-router.get("/", (req, res) => {
-    Category.find()
+//fetch all categories based on user id
+router.get("/:user_id", (req, res) => {
+    Category.find({user_id: req.params.user_id })
     .then(categories => res.json(categories))
     .catch(errors => res.status(400).json({ errors }));
 });

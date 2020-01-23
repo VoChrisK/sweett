@@ -4,7 +4,8 @@ import { requestCategories } from './../../actions/category_actions';
 
 const mapStateToProps = (state) => {
     return ({
-        categories: Object.values(state.entities.categories)
+        categories: Object.values(state.entities.categories),
+        currentUserId: state.session.id
     });
 };
 
