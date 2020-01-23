@@ -22,7 +22,7 @@ class CategoryIndex extends React.Component {
             library.add(fas)
             const plus = findIconDefinition({ prefix: 'fas', iconName: 'plus-circle' })
             const plusIcon = icon(plus)
-            Array.from(plusIcon.node).map(n => document.getElementsByClassName('plus-sign')[0].appendChild(n))
+            // Array.from(plusIcon.node).map(n => document.getElementsByClassName('plus-sign')[0].appendChild(n))
         });
 
     }
