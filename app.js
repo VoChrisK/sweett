@@ -4,6 +4,9 @@ const app = express();
 const db = require("./config/keys").mongoURI;
 const users = require("./routes/api/users");
 const categories = require("./routes/api/categories");
+const goals = require("./routes/api/goals");
+const questions = require("./routes/api/questions");
+const attempts = require("./routes/api/attempts");
 const bodyParser = require("body-parser");
 
 mongoose //connect to Mongoose
@@ -30,6 +33,9 @@ app.get("/", (req, res) => {
 
 app.use("/api/users", users);
 app.use("/api/categories", categories);
+app.use("/api/goals", goals);
+app.use("/api/questions", questions);
+app.use("/api/attempts", attempts);
 
 const port = process.env.PORT || 5000; //which port to run on
 

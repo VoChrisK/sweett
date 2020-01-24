@@ -17,7 +17,6 @@ router.get("/:id", (req, res) => {
     .catch(errors => res.status(404).json({ errors }));
 });
 
-//passport.authenticate("jwt", { session: false }) <-- add this later
 router.post("/", (req, res) => {
     const { errors, isValid } = validateCategoryInput({title: req.body.title});
 

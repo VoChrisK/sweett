@@ -13,6 +13,10 @@ const CategorySchema = new Schema({
         required: true,
         default: 0
     },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: "users"
+    },
     actual: {
         type: Number,
         required: true,

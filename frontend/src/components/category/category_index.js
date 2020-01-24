@@ -24,12 +24,11 @@ class CategoryIndex extends React.Component {
             const plusIcon = icon(plus)
             // Array.from(plusIcon.node).map(n => document.getElementsByClassName('plus-sign')[0].appendChild(n))
         });
-
     }
 
     render() {
         if(this.props.categories.length === 0) return null; 
-        
+
         return (
             <div className="catIndex">
                 {
