@@ -11,7 +11,7 @@ class GoalIndex extends React.Component {
     render() {
         return (
             <div className="goal-index">
-                <p>Goals</p>
+                <p>GOALS</p>
                 <GoalIndexItem />
             </div>
         );
