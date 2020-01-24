@@ -38,7 +38,7 @@ export const createAttempt = attempt => dispatch => {
 
 export const deleteAttempt = attemptId => dispatch => {
     return AttemptsApiUtil.deleteAttempt(attemptId)
-        .then(() => dispatch(removeGoal(attemptId)))
+        .then(() => dispatch(removeAttempt(attemptId)))
 };
 
 export const RECEIVE_ATTEMPTS = "RECEIVE_ATTEMPTS";

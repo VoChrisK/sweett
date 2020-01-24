@@ -12,6 +12,6 @@ export const createAttempt = attempt => {
     return axios.post('/api/attempts', attempt);
 };
 
-export const deleteGoal = goalId => {
-    return axios.delete(`/api/goals/${goalId}`);
+export const deleteAttempt = attemptId => {
+    return axios.delete(`/api/attempts/${attemptId}`);
 };
