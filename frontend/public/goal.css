@@ -1,0 +1,12 @@
+.goal-index {
+    background-color: yellow;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px;
+
+}
+
+.goal-index p {
+}
