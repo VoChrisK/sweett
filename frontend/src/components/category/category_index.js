@@ -16,9 +16,9 @@ class CategoryIndex extends React.Component {
     if (prevProps.categories.length !== this.props.categories.length) {
       this.props.requestCategories(this.props.currentUserId);
     }
-    // if (this.props.categories.length >= 27) {
-    //     document.getElementsByClassName("plus-box")[0].style.visibility ="hidden";
-    // }
+    if (this.props.categories.length >= 27) {
+        document.getElementsByClassName("plus-box")[0].style.visibility ="hidden";
+    }
 
   }
 
@@ -63,9 +63,9 @@ class CategoryIndex extends React.Component {
         {this.props.categories.map((category, idx) => (
           <CategoryIndexItem key={idx} category={category} idx={idx} />
         ))}
-        {/* <div className="plus-box">
+        <div className="plus-box">
           <div onClick={this.props.addCat} className="plus-sign"></div>
-        </div> */}
+        </div>
         {this.idontwantanotherfunction()}
       </div>
     );
