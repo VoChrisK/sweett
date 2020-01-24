@@ -22,14 +22,14 @@ const CategorySchema = new Schema({
         ref: "users"
     },
     actual: {
-        type: Number,
+        type: Date,
         required: true,
-        default: 0
+        default: new Date("January 1, 2020 00:00:00")
     },
     expected: {
-        type: Number,
+        type: Date,
         required: true,
-        default: 0
+        default: new Date("January 1, 2020 00:00:00")
     },
     important: {
         type: Boolean,
