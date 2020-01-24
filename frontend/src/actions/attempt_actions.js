@@ -21,31 +21,26 @@ const removeAttempt = attemptId => {
     });
 }
 
-// export const requestGoals = categoryId => dispatch => {
-//     return GoalsApiUtil.fetchGoals(categoryId)
-//         .then(goals => dispatch(receiveGoals(goals)))
-// };
+export const requestAttempts = questionId => dispatch => {
+    return AttemptsApiUtil.fetchAttempts(questionId)
+        .then(attempts => dispatch(receiveAttempts(attempts)))
+};
 
-// export const requestGoal = goalId => dispatch => {
-//     return GoalsApiUtil.fetchGoal(goalId)
-//         .then(goal => dispatch(receiveGoal(goal)))
-// };
+export const requestAttempt = attemptId => dispatch => {
+    return AttemptsApiUtil.fetchAttempt(attemptId)
+        .then(attempt => dispatch(receiveAttempt(attempt)))
+};
 
-// export const createGoal = goal => dispatch => {
-//     return GoalsApiUtil.createGoal(goal)
-//         .then(newGoal => dispatch(receiveGoal(newGoal)))
-// };
+export const createAttempt = attempt => dispatch => {
+    return AttemptsApiUtil.createAttempt(attempt)
+        .then(newAttempt => dispatch(receiveAttempt(newAttempt)))
+};
 
-// export const updateGoal = goal => dispatch => {
-//     return GoalsApiUtil.updateGoal(goal)
-//         .then(updatedGoal => dispatch(receiveGoal(updatedGoal)))
-// };
+export const deleteAttempt = attemptId => dispatch => {
+    return AttemptsApiUtil.deleteAttempt(attemptId)
+        .then(() => dispatch(removeGoal(attemptId)))
+};
 
-// export const deleteGoal = goalId => dispatch => {
-//     return GoalsApiUtil.deleteGoal(goalId)
-//         .then(() => dispatch(removeGoal(goalId)))
-// };
-
-// export const RECEIVE_GOALS = "RECEIVE_GOALS";
-// export const RECEIVE_GOAL = "RECEIVE_GOAL";
-// export const REMOVE_GOAL = "REMOVE_GOAL";
+export const RECEIVE_ATTEMPTS = "RECEIVE_ATTEMPTS";
+export const RECEIVE_ATTEMPT = "RECEIVE_ATTEMPT";
+export const REMOVE_ATTEMPT = "REMOVE_ATTEMPT";
