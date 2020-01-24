@@ -8,38 +8,68 @@ import {
 import { fas } from "@fortawesome/free-solid-svg-icons";
 
 class CategoryIndex extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+  constructor(props) {
+    super(props)
+  }
 
-    clickPlus() {
-        console.log('henlo')
+  componentDidUpdate(prevProps) {
+    if (prevProps.categories.length !== this.props.categories.length) {
+      this.props.requestCategories(this.props.currentUserId);
     }
+    // if (this.props.categories.length >= 27) {
+    //     document.getElementsByClassName("plus-box")[0].style.visibility ="hidden";
+    // }
 
-    componentDidMount() {
-        this.props.requestCategories()
-        .then(() => {
-            library.add(fas)
-            const plus = findIconDefinition({ prefix: 'fas', iconName: 'plus-circle' })
-            const plusIcon = icon(plus)
-            // Array.from(plusIcon.node).map(n => document.getElementsByClassName('plus-sign')[0].appendChild(n))
-        });
+  }
+
+  idontwantanotherfunction() {
+
+    let addBox;
+
+    if (this.props.categories.length > 29) {
+      addBox = null;
+    } else {
+      addBox = (
+        <div className="plus-box">
+          <div onClick={this.props.addCat} className="plus-sign"></div>
+        </div>
+      );
     }
+    return addBox;
+  }
 
-    render() {
-        if(this.props.categories.length === 0) return null; 
+  componentDidMount() {
+    console.log(this.props.currentUserId);
+    this.props.requestCategories(this.props.currentUserId).then(() => {
+      library.add(fas);
+      const plus = findIconDefinition({
+        prefix: "fas",
+        iconName: "plus-circle"
+      });
+      const plusIcon = icon(plus);
+      if (this.props.categories.length > 0 && this.props.categories.length < 29) {
+        Array.from(plusIcon.node).map(n =>
+          document.getElementsByClassName("plus-sign")[0].appendChild(n)
+        );
+        }
+    })
+  }
 
-        return (
-            <div className="catIndex">
-                {
-                    this.props.categories.map((category, idx) => < CategoryIndexItem key={idx} category={category} idx={idx}/>)
-                }
-                <div className="plus-box">
-                    <div onClick={this.clickPlus.bind(this)} className="plus-sign"></div>
-                </div>
-            </div>
-        )
-    }
+  render() {
+    if (this.props.categories.length === 0) return null;
+
+    return (
+      <div className="catIndex">
+        {this.props.categories.map((category, idx) => (
+          <CategoryIndexItem key={idx} category={category} idx={idx} />
+        ))}
+        {/* <div className="plus-box">
+          <div onClick={this.props.addCat} className="plus-sign"></div>
+        </div> */}
+        {this.idontwantanotherfunction()}
+      </div>
+    );
+  }
 }
 
 export default CategoryIndex;

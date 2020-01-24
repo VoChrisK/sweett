@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const fetchCategories = userId => {
-    return axios.get(`/api/categories/${userId}`);
+    return axios.get(`/api/categories/user/${userId}`);
 };
 
 export const fetchCategory = categoryId => {

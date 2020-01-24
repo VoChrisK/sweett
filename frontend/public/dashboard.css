@@ -15,69 +15,41 @@
 }
 
 .catIndex {
+    position: absolute;
     margin-top: 300px;
     width: 90%;
-    height: 90%;
+    height: fit-content;
     display: grid;
-    gap: 30px;
-    grid-template-columns: 23% 23% 23% 23%;
-    grid-template-rows: 40% 40% 40% 40%;
-}
-
-#cat1 {
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row-start: 1;
-    grid-row-end: 2;
-    -moz-box-shadow: 3px 3px 5px 6px #ccc;
-    -webkit-box-shadow: 3px 3px 5px 6px #ccc;
-    box-shadow: 3px 3px 5px 6px rgb(160, 160, 160);
-    background: rgb(185, 211, 253);
-}
-#cat2 {
-    grid-column-start: 2;
-    grid-column-end: 3;
-    grid-row-start: 1;
-    grid-row-end: 2;
-    -moz-box-shadow: 3px 3px 5px 6px #ccc;
-    -webkit-box-shadow: 3px 3px 5px 6px #ccc;
-    box-shadow: 3px 3px 5px 6px rgb(160, 160, 160);
-    background: rgb(185, 211, 253);
-}
-#cat3{
-    grid-column-start: 3;
-    grid-column-end: 4;
-    grid-row-start: 1;
-    grid-row-end: 2;
-    -moz-box-shadow: 3px 3px 5px 6px #ccc;
-    -webkit-box-shadow: 3px 3px 5px 6px #ccc;
-    box-shadow: 3px 3px 5px 6px rgb(160, 160, 160);
-    background: rgb(185, 211, 253);
-}
-#cat4 {
-    grid-column-start: 4;
-    grid-column-end: 5;
-    grid-row-start: 1;
-    grid-row-end: 2;
-    -moz-box-shadow: 3px 3px 5px 6px #ccc;
-    -webkit-box-shadow: 3px 3px 5px 6px #ccc;
-    box-shadow: 3px 3px 5px 6px rgb(160, 160, 160);
-    background: rgb(185, 211, 253);
+    gap: 75px;
+    grid-template-columns: 300px 300px 300px 300px;
+    grid-template-rows: 225px 225px 225px 225px 225px 225px 225px 225px 225px;
+    justify-content: center;
 }
 
 .plus-box {
     height: auto;
     width: auto;
+    display: flex;
+    border: lightgray dashed 2px;
+    border-radius: 5px;
 }
 
 .plus-sign {
     width: 50px;
+    position: relative;
+    top: 41%;
+    left: 44%;
+    color: gray;
+}
+
+.plus-sign:hover {
+    cursor: pointer;
 }
 
 .dash-header {
     position: absolute;
-    margin-top: 15px;
-    margin-left: 15px;
+    padding-top: 20px;
+    padding-left: 20px;
     width: 100vw;
     height: 60px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;   

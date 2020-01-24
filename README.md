@@ -1,5 +1,5 @@
-# SWETT
+# SWEETT
 
-## Software Engineer Time Tracker specifically catered towards job search.
+## Software Engineer Employment Time Tracker specifically catered towards job search.
 
 ## Work in Progress
