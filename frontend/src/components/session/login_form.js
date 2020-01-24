@@ -13,6 +13,7 @@ class LoginForm extends React.Component {
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDemoSubmit = this.handleDemoSubmit.bind(this);
         this.renderErrors = this.renderErrors.bind(this);
     }
 
@@ -32,6 +33,17 @@ class LoginForm extends React.Component {
         });
     }
 
+
+    demoButton() {
+        return (
+            <button className="auth-form-submit auth-form-submit-demo"
+                onClick={this.handleDemoSubmit}
+                value="Demo Sign In">
+                <span>DEMO</span>
+            </button>
+        );
+    }
+
     // Handle form submission
     handleSubmit(e) {
         e.preventDefault();
@@ -40,6 +52,51 @@ class LoginForm extends React.Component {
             password: this.state.password
         };
         this.props.processForm(user).then(this.props.closeModal);
+    }
+
+    demo(user) {
+        const intervalSpeed = 75;
+        const { email, password } = user;
+        const demoEmailTime = email.length * intervalSpeed;
+        const demoPasswordTime = password.length * intervalSpeed;
+        const buffer = intervalSpeed * 2;
+        const totalDemoTime = demoEmailTime + demoPasswordTime + buffer;
+        this.demoEmail(email, intervalSpeed);
+        setTimeout(() => this.demoPassword(password, intervalSpeed), demoEmailTime);
+        setTimeout(() => this.props.processForm(user), totalDemoTime)
+        setTimeout(() => this.props.closeModal(), totalDemoTime + buffer)
+    }
+
+    demoEmail(email, intervalSpeed) {
+        let i = 0;
+        setInterval(() => {
+            if (i <= email.length) {
+                this.setState({ email: email.slice(0, i) })
+                i++
+            } else {
+                clearInterval()
+            }
+        }, intervalSpeed);
+    }
+
+    demoPassword(password, intervalSpeed) {
+        let j = 0;
+        setInterval(() => {
+            if (j <= password.length) {
+                this.setState({ password: password.slice(0, j) })
+                j++
+            } else {
+                clearInterval();
+            }
+        }, intervalSpeed);
+    }
+
+    handleDemoSubmit() {
+        const user = {
+            email: "demo@swett.com",
+            password: "123123"
+        };
+        this.demo(user);
     }
 
     // Render the session errors if there are any
@@ -78,6 +135,7 @@ class LoginForm extends React.Component {
                             <input className="auth-form-submit" type="submit" value="SIGN IN" />
                         </div>
                     </form>
+                    {this.demoButton()}
                 </div>
                 <div className="signup-container">
                     <p className="auth-title">
