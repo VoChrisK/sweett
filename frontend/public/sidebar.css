@@ -1,0 +1,16 @@
+#sidebar {
+    background-color: blue;
+    width: 16%;
+    margin-top: 60px;
+}
+
+#sidebar-toggle-button {
+    position: absolute;
+    left: 16%;
+    margin-top: 12px;
+    margin-left: 12px;
+}
+
+.sidebar-hide {
+    display: none;
+}

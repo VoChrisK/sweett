@@ -1,0 +1,12 @@
+.question-index {
+    background-color: red;
+    width: 64%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px;
+
+}
+
+.question-index p {
+}
