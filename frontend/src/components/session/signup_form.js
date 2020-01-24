@@ -31,10 +31,9 @@ class SignupForm extends React.Component {
             password2: this.state.password2
         };
 
-        this.props.processForm(user, this.props.history).then(() => {
-            this.props.history.push('/dashboard')
-        });
-        this.props.processForm(user).then(this.props.closeModal);
+        this.props.processForm(user, this.props.history)
+            .then(() => this.props.history.push('/dashboard'))
+            .then(this.props.closeModal);
     }
 
     renderErrors() {

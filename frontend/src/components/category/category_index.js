@@ -16,7 +16,6 @@ class CategoryIndex extends React.Component {
     if (prevProps.categories.length !== this.props.categories.length) {
       this.props.requestCategories(this.props.currentUserId);
     }
-
     // if (this.props.categories.length >= 27) {
     //     document.getElementsByClassName("plus-box")[0].style.visibility ="hidden";
     // }
