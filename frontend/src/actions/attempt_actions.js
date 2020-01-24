@@ -21,10 +21,15 @@ const removeAttempt = attemptId => {
     });
 }
 
-export const requestAttempts = questionId => dispatch => {
-    return AttemptsApiUtil.fetchAttempts(questionId)
+export const requestQuestionAttempts = questionId => dispatch => {
+    return AttemptsApiUtil.fetchQuestionAttempts(questionId)
         .then(attempts => dispatch(receiveAttempts(attempts)))
 };
+
+export const requestCategoryAttempts = categoryId => dispatch => {
+    return AttemptsApiUtil.fetchCategoryAttempts(categoryId)
+        .then(attempts => dispatch(receiveAttempts(attempts)))
+}
 
 export const requestAttempt = attemptId => dispatch => {
     return AttemptsApiUtil.fetchAttempt(attemptId)

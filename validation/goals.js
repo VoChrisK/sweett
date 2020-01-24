@@ -13,11 +13,6 @@ module.exports = function validateGoalsInput(data) {
         errors.description = "Description is required";
     }
 
-
-    if (!Validator.isInt(data.progress, { min: 0, max: 100 })) {
-        errors.progress = "Progress must be between 0 and 100"
-    }
-
     if (!Validator.isBoolean(data.addToTotal)) {
         errors.addToTotal = "Add to total"
     }

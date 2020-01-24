@@ -1,7 +1,11 @@
 import axios from "axios";
 
-export const fetchAttempts = questionId => {
+export const fetchQuestionAttempts = questionId => {
     return axios.get(`/api/attempts/questions/${questionId}`);
+};
+
+export const fetchCategoryAttempts = categoryId => {
+    return axios.get(`/api/attempts/categories/${categoryId}`)
 };
 
 export const fetchAttempt = questionId => {
