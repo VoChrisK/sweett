@@ -33,16 +33,12 @@ class GoalIndex extends React.Component {
     // }
 
     render() {
-        console.log(this.state.goals)
-        return null
-        // if (!!Object.values(this.state.goals)) return null
-        // return (
-        //     <div className="goal-index">
-        //         <p>Goals</p>
-                
-        //         <GoalIndexItem />
-        //     </div>
-        // );
+        return (
+            <div className="goal-index">
+                <p>GOALS</p>
+                <GoalIndexItem />
+            </div>
+        );
     }
 }
 
