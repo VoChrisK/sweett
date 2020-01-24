@@ -66,3 +66,32 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
+
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+input[type="password"],
+input[type="email"],
+input[type="text"],
+input[type="submit"],
+textarea,
+button {
+  /*
+  Get rid of native styling. Read more here:
+  http://css-tricks.com/almanac/properties/a/appearance/
+  */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+button,
+input[type="submit"] {
+    cursor: pointer;
+}
+
+button:focus {outline:0;}
+input:focus {outline:0;}
