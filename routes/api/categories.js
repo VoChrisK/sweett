@@ -5,10 +5,19 @@ const validateCategoryInput = require("../../validation/categories");
 const passport = require("passport");
 
 //fetch all categories based on user id
-router.get("/:user_id", (req, res) => {
-    Category.find({user_id: req.params.user_id })
+router.get("/user/:user_id", (req, res) => {
+    Category.find({user: req.params.user_id })
     .then(categories => res.json(categories))
     .catch(errors => res.status(400).json({ errors }));
+});
+
+router.get("/user/:user_id", (req, res) => {
+  Tweet.find({ user: req.params.user_id })
+    .sort({ date: -1 })
+    .then(tweets => res.json(tweets))
+    .catch(err =>
+      res.status(404).json({ notweetsfound: "No tweets found from that user" })
+    );
 });
 
 router.get("/:id", (req, res) => {
@@ -18,14 +27,21 @@ router.get("/:id", (req, res) => {
 });
 
 //passport.authenticate("jwt", { session: false }) <-- add this later
-router.post("/", (req, res) => {
-    const { errors, isValid } = validateCategoryInput({title: req.body.title});
+router.post("/", 
+    passport.authenticate("jwt", { session: false }),
+    (req, res) => {
+    const { errors, isValid } = validateCategoryInput(req.body);
 
     if(!isValid) {
         return res.status(400).json(errors);
     }
 
-    const category = new Category({ title: req.body.title });
+    // console.log(req, 'request')
+
+    const category = new Category({ 
+        title: req.body.title,
+        user: req.user.id
+    });
     category.save()
     .then(category => res.json(category))
     .catch(errors => res.status(400).json({ errors }));

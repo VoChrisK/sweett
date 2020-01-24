@@ -6,6 +6,10 @@ const CategorySchema = new Schema({
         type: String,
         required: true
     },
+    user: {
+        type: Schema.Types.ObjectId,
+        ref: 'users'
+    },
     progress: {
         type: Number,
         min: 0,
