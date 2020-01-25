@@ -34,7 +34,26 @@ class QuestionIndex extends React.Component {
                 <p className="question-index-title">QUESTIONS</p>
                 <p className="question-index-description">37 / 90 minutes completed</p>
                 <div id="question-index-container">
-                    <QuestionIndexItem />
+                    <div className="question-container">
+                        <p className="question-container-title">Easy</p>
+                        <QuestionIndexItem />
+                        <QuestionIndexItem />
+                        <QuestionIndexItem />
+
+                    </div>
+                    <div className="question-container">
+                        <p className="question-container-title">Medium</p>
+                        <QuestionIndexItem />
+                        <QuestionIndexItem />
+                        <QuestionIndexItem />
+
+                    </div>
+                    <div className="question-container">
+                        <p className="question-container-title">Hard</p>
+                        <QuestionIndexItem />
+                        <QuestionIndexItem />
+                        <QuestionIndexItem />
+                    </div>
                 </div>
             </div>
         );
