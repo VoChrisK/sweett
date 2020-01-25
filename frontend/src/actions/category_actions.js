@@ -24,13 +24,13 @@ const removeCategory = categoryId => {
 export const requestCategories = userId => dispatch => {
     return CategoriesApiUtil.fetchCategories(userId)
     .then(categories => {
-        console.log(categories, 'cats')
+
         dispatch(receiveCategories(categories.data))})
 };
 
 export const requestCategory = categoryId => dispatch => {
     return CategoriesApiUtil.fetchCategory(categoryId)
-    .then(category => dispatch(receiveCategory(category)))
+    .then(category => dispatch(receiveCategory(category.data)))
 };
 
 export const createCategory = category => dispatch => {
@@ -44,8 +44,12 @@ export const updateCategory = category => dispatch => {
 };
 
 export const deleteCategory = categoryId => dispatch => {
+    
     return CategoriesApiUtil.deleteCategory(categoryId)
-    .then(() => dispatch(removeCategory(categoryId)))
+    .then( response => {
+        dispatch(removeCategory(categoryId))
+    })
+    // .then(() => dispatch(removeCategory(categoryId)))
 };
 
 export const RECEIVE_CATEGORIES = "RECEIVE_CATEGORIES";

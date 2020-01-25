@@ -36,7 +36,6 @@ router.post("/",
         return res.status(400).json(errors);
     }
 
-    // console.log(req, 'request')
 
     const category = new Category({ 
         title: req.body.title,
