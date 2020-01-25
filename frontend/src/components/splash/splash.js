@@ -15,7 +15,6 @@ class Splash extends React.Component {
     //hide navbar
     // let nav = document.getElementsByClassName("navbar")[0];
     // nav.style.display = "none";
-    // console.log(this.props, "props");
   }
 
   componentWillUnmount() {
