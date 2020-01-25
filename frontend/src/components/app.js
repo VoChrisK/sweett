@@ -14,7 +14,9 @@ const App = () => (
     <Switch>
       <ProtectedRoute path="/dashboard" component={DashboardContainer} />
       <AuthRoute exact path="/" component={Splash} />
+      
       <ProtectedRoute path="/leetcode" component={LeetcodeContainer} />
+
     </Switch>
     </div>
 );
