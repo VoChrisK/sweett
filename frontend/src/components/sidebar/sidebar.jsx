@@ -12,7 +12,6 @@ class Sidebar extends React.Component {
     }
 
     categories() {
-        console.log(this.props.categories, "!@#!@#!@#");
         return (
             <ul id="sidebar-categories">
                 {
