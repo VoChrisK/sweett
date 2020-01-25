@@ -17,7 +17,9 @@ class CategoryIndex extends React.Component {
     if (prevProps.categories.length !== this.props.categories.length) {
       this.props.requestCategories(this.props.currentUserId);
     }
+
     if (this.props.categories.length >= 12) {
+
         document.getElementsByClassName("plus-box")[0].style.visibility ="hidden";
     }
 
@@ -113,6 +115,7 @@ class CategoryIndex extends React.Component {
           <div onClick={this.props.addCat} className="plus-sign"></div>
         </div> */}
         {this.addPlusIcon()}
+
       </div>
     );
   }

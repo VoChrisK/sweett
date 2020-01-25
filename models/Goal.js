@@ -6,10 +6,13 @@ const GoalSchema = new Schema({
         type: String,
         required: true
     },
-    progress: {
+    attempted: {
         type: Number,
-        min: 0,
-        max: 100,
+        required: true,
+        default: 0
+    },
+    expected: {
+        type: Number,
         required: true,
         default: 0
     },

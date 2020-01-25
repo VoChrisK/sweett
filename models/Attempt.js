@@ -16,6 +16,11 @@ const AttemptSchema = new Schema({
         ref: 'questions',
         required: true
     },
+    category_id: {
+        type: Schema.Types.ObjectId,
+        ref: 'categories',
+        required: true
+    },
     date: {
         type: Date,
         default: Date.now

@@ -8,6 +8,7 @@ import {
 } from "@fortawesome/fontawesome-svg-core";
 
 const CategoryIndexItem = ({ category, idx }) => {
+
     // library.add(fas);
     
 
