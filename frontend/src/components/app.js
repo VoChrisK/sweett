@@ -15,7 +15,7 @@ const App = () => (
     <Switch>
       <ProtectedRoute path="/dashboard" component={DashboardContainer} />
       <AuthRoute exact path="/" component={SplashContainer} />
-      <ProtectedRoute path="/leetcode" component={LeetcodeContainer} />
+      <ProtectedRoute path="/categories/:categoryId" component={LeetcodeContainer} />
       <Route path="*">
         <Redirect to="/" />
       </Route>
