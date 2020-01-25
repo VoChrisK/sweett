@@ -27,14 +27,13 @@ class CategoryForm extends React.Component {
   render() {
     return (
       <div className="cat-modal">
-        <form onSubmit={this.handleSubmit.bind(this)}>
+        <form className="cat-form" onSubmit={this.handleSubmit.bind(this)}>
           <h1>Add a Category</h1>
           <h3>Title:</h3>
           <input
             type="text"
             className="cat-title-input"
-            autofocus="autofocus"
-            onfocus="this.select()"
+            autoFocus="autofocus"
             value={this.state.title}
             onChange={this.update("title")}
             placeholder="Title"

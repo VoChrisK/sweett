@@ -15,6 +15,7 @@ import { setAuthToken } from "./util/session_api_util";
 
 // We have not created this action yet, but will do so in the next step
 import { logout } from "./actions/session_actions";
+import { requestCategories } from '../src/actions/category_actions'
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -48,7 +49,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   // Render our root component and pass in the store as a prop
   const root = document.getElementById("root");
-  window.store = store;
+  // window.store = store;
+  window.requestCategories = requestCategories;
+  window.dispatch = store.dispatch;
 
   ReactDOM.render(<Root store={store} />, root);
 });

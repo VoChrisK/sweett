@@ -13,20 +13,21 @@ class CategoryIndex extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
+    console.log(prevProps, 'props')
     if (prevProps.categories.length !== this.props.categories.length) {
       this.props.requestCategories(this.props.currentUserId);
     }
-    // if (this.props.categories.length >= 27) {
-    //     document.getElementsByClassName("plus-box")[0].style.visibility ="hidden";
-    // }
+    if (this.props.categories.length >= 12) {
+        document.getElementsByClassName("plus-box")[0].style.visibility ="hidden";
+    }
 
   }
 
-  idontwantanotherfunction() {
+  addPlusIcon() {
 
     let addBox;
 
-    if (this.props.categories.length > 29) {
+    if (this.props.categories.length > 11) {
       addBox = null;
     } else {
       addBox = (
@@ -38,6 +39,16 @@ class CategoryIndex extends React.Component {
     return addBox;
   }
 
+  // addEcks(category) {
+  //   library.add(fas);
+  //   const ecks = findIconDefinition({
+  //     prefix: "fas",
+  //     iconName: "times-circle"
+  //   });
+  //   const ecksButton = icon(ecks);
+  //   category.append(ecksButton)
+  // }
+
   componentDidMount() {
     console.log(this.props.currentUserId);
     this.props.requestCategories(this.props.currentUserId).then(() => {
@@ -46,27 +57,62 @@ class CategoryIndex extends React.Component {
         prefix: "fas",
         iconName: "plus-circle"
       });
+      const ecks = findIconDefinition({
+        prefix: "fas",
+        iconName: "times-circle"
+      });
       const plusIcon = icon(plus);
-      if (this.props.categories.length > 0 && this.props.categories.length < 29) {
+      const ecksButton = icon(ecks);
+      if (
+        this.props.categories.length > 0 &&
+        this.props.categories.length < 32
+      ) {
         Array.from(plusIcon.node).map(n =>
           document.getElementsByClassName("plus-sign")[0].appendChild(n)
         );
-        }
+      }
+
+      // let categories = Array.from(document.getElementsByClassName("category"));
+      // categories.forEach(this.addEcks)
     })
+    
+  }
+
+  deleteCat(e) {
+    e.preventDefault();
+    // console.log(e.target.id, 'target')
+    console.log(this.props.categories[e.target.id]._id, 'id');
+    this.props.delCat(this.props.categories[e.target.id]._id).then(() => {
+
+      this.forceUpdate();
+    })
+    // this.props.delCat(this.props.categories.findIndex(category => category._id === e.target.id))
   }
 
   render() {
     if (this.props.categories.length === 0) return null;
+    console.log(this.props)
 
     return (
+      
       <div className="catIndex">
         {this.props.categories.map((category, idx) => (
-          <CategoryIndexItem key={idx} category={category} idx={idx} />
+          <div className="cat-body">
+            <div className="cat-header" onClick={this.deleteCat.bind(this)} id={idx}>
+              stop
+            </div>
+            <CategoryIndexItem
+              key={idx}
+              category={category}
+              idx={idx}
+            />
+          </div>
         ))}
+        {/* <i class="fas fa-times-circle"></i> */}
         {/* <div className="plus-box">
           <div onClick={this.props.addCat} className="plus-sign"></div>
         </div> */}
-        {this.idontwantanotherfunction()}
+        {this.addPlusIcon()}
       </div>
     );
   }
