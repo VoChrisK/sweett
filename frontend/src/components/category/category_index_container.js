@@ -1,9 +1,10 @@
 import { connect } from 'react-redux';
 import CategoryIndex from './category_index';
-import { requestCategories } from './../../actions/category_actions';
+import { requestCategories, deleteCategory } from './../../actions/category_actions';
 import {openModal} from '../../actions/modal_actions'
 
 const mapStateToProps = (state) => {
+
     return ({
         categories: Object.values(state.entities.categories),
         currentUserId: state.session.user.id
@@ -12,6 +13,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
+      delCat: categoryId => dispatch(deleteCategory(categoryId)),
       addCat: () => dispatch(openModal("addCategory")),
       requestCategories: currentUserId =>
         dispatch(requestCategories(currentUserId))

@@ -126,6 +126,7 @@ class LoginForm extends React.Component {
                                 value={this.state.email}
                                 onChange={this.update('email')}
                                 placeholder="Email"
+                                autoFocus="autofocus"
                             />
                             <input className="auth-form-password" type="password"
                                 value={this.state.password}
