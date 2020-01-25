@@ -2,11 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { signup } from '../../actions/session_actions';
 import { openModal, closeModal } from '../../actions/modal_actions';
-
+import { createCategory } from './../../actions/category_actions';
 import SignupForm from './signup_form';
 
 const mapStateToProps = (state) => {
-    console.log(state, "state")
     return {
         signedIn: state.session.isSignedIn,
         errors: state.errors.session,
@@ -22,6 +21,7 @@ const mapDispatchToProps = (dispatch) => {
                 Login
             </button>
         ),
+        createCategory: category => dispatch(createCategory(category)),
         closeModal: () => dispatch(closeModal())
     }
 }

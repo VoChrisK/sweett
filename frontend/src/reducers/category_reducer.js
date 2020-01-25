@@ -5,10 +5,14 @@ const categoryReducer = (state = {}, action) => {
     let nextState;
     switch(action.type) {
         case RECEIVE_CATEGORIES:
-            return Object.assign({}, action.categories);
+            nextState = {};
+            Object.keys(action.categories).forEach(id => nextState[id] = state[id]);
+            console.log(nextState);
+            return nextState;
         case RECEIVE_CATEGORY:
-            nextState = Object.assign({}, state);
-            nextState[action.category.id] = action.category;
+            nextState = {};
+            Object.keys(state).forEach((id) => nextState[id] = state[id])
+            nextState[action.category.data._id] = action.category.data;
             return nextState;
         case REMOVE_CATEGORY:
             nextState = Object.assign({}, state);

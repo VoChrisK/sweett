@@ -32,8 +32,13 @@ class SignupForm extends React.Component {
         };
 
         this.props.processForm(user, this.props.history)
-            .then(() => this.props.history.push('/dashboard'))
-            .then(this.props.closeModal);
+        .then(() => {
+            this.props.createCategory({title: "Leetcode"})
+            .then(() => {
+                this.props.history.push('/dashboard');
+                this.props.closeModal();
+            })
+        })
     }
 
     renderErrors() {
