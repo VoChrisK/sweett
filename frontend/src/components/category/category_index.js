@@ -52,7 +52,6 @@ class CategoryIndex extends React.Component {
   // }
 
   componentDidMount() {
-    console.log(this.props.currentUserId);
     this.props.requestCategories(this.props.currentUserId).then(() => {
       library.add(fas);
       const plus = findIconDefinition({

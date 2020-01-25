@@ -25,7 +25,7 @@ const removeCategory = categoryId => {
 export const requestCategories = userId => dispatch => {
     return CategoriesApiUtil.fetchCategories(userId)
     .then(categories => {
-        // console.log(categories,'cats')
+
         dispatch(receiveCategories(categories.data))})
 };
 

@@ -6,7 +6,7 @@ import DashboardContainer from './dashboard/dashboard_container';
 import Splash from './splash/splash';
 import LeetcodeContainer from './leetcode/leetcode_container';
 import SplashContainer from './splash/splash_container'
-
+import CategoryShowContainer from './category/category_show_container';
 
 
 const App = () => (
@@ -19,6 +19,7 @@ const App = () => (
       <Route path="*">
         <Redirect to="/" />
       </Route>
+
     </Switch>
   </div>
 );

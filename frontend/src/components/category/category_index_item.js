@@ -9,9 +9,6 @@ import {
 
 const CategoryIndexItem = ({ category, idx }) => {
 
-    // library.add(fas);
-    
-
     return (
       <div to="#" id={`cat${idx + 1}`} className="category">
         <h1 className="cat-title">{category.title}</h1>
@@ -20,6 +17,7 @@ const CategoryIndexItem = ({ category, idx }) => {
         </h1>
         <h1 className="cat-progress">Progress: {category.progress}%</h1>
       </div>
+
     );
 };
 

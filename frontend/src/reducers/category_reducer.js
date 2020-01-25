@@ -14,6 +14,7 @@ const categoryReducer = (state = {}, action) => {
             // return Object.assign({}, action.categories);
         case RECEIVE_CATEGORY:
             nextState = Object.assign({}, state);
+
             nextState[action.category.data._id] = action.category.data;
             return nextState;
         case REMOVE_CATEGORY:
