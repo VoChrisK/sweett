@@ -1,5 +1,12 @@
 import * as QuestionsApiUtil from './../util/questions_util';
 
+export const recordQuestion = idx => {
+    return ({
+        type: RECORD_QUESTION,
+        idx
+    });
+}
+
 const receiveQuestions = questions => {
     return ({
         type: RECEIVE_QUESTIONS,
@@ -49,3 +56,4 @@ export const deleteQuestion = questionId => dispatch => {
 export const RECEIVE_QUESTIONS = "RECEIVE_QUESTIONS";
 export const RECEIVE_QUESTION = "RECEIVE_QUESTION";
 export const REMOVE_QUESTION = "REMOVE_QUESTION";
+export const RECORD_QUESTION = "RECORD_QUESTION";

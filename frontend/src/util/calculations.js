@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 export const formatTime = (time) => {
     let hours = 0;
     let minutes = 0;
@@ -16,6 +17,9 @@ export const formatTime = (time) => {
 };
 
 export const calculateExpectedTime = (goals, attempts) => {
+=======
+export const calculateExpectedTime = (attempts, goals) => {
+>>>>>>> master
     let totalTime = 0;
     for(let i = 0; i < attempts.length; i++) {
         if (goals[i].addToTotal) totalTime += attempts[i].time;
@@ -49,4 +53,9 @@ export const calculateTotalProgress = (goals) => {
     }
 
     return parseFloat(((attempted / expected) * 100).toFixed(2));
+}
+
+export const calculateDays = (date1, date2) => {
+    let differenceInTime = date2 - date1.getTime();
+    return Math.floor(differenceInTime / (1000 * 3600 * 24)) + 1;
 }

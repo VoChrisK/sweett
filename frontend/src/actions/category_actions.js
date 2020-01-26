@@ -1,6 +1,7 @@
 import * as CategoriesApiUtil from './../util/categories_util';
 
 const receiveCategories = categories => {
+
     return ({
         type: RECEIVE_CATEGORIES,
         categories

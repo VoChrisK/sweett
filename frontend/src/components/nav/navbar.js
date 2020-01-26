@@ -1,7 +1,7 @@
 import React from 'react';
 import Modal from '../modal/modal';
-
-// import './navbar.css'
+import { withRouter } from 'react-router-dom';
+import { calculateDays } from './../../util/calculations';
 
 class NavBar extends React.Component {
     constructor(props) {
@@ -10,9 +10,29 @@ class NavBar extends React.Component {
         this.getLinks = this.getLinks.bind(this);
     }
 
+    // componentDidMount() {
+    //   if(!this.props.loggedIn) {
+    //     document.getElementsByClassName("navbar")[0].classList.add("onsplash");
+    //   } else {
+    //     document.getElementsByClassName("navbar")[0].classList.remove("onsplash");
+    //   }
+    // }
+
+    componentDidUpdate(preProps) {
+      if(this.props.location.path !== preProps.location.path) {
+        console.log("hi")
+        if (!this.props.loggedIn) {
+          document.getElementsByClassName("navbar")[0].classList.add("onsplash");
+        } else {
+          document.getElementsByClassName("navbar")[0].classList.remove("onsplash");
+        }
+      }
+    }
+
     logoutUser(e) {
         e.preventDefault();
-        this.props.logout();
+        this.props.logout()
+        this.props.history.push("/");
     }
 
     handleDropdown() {
@@ -25,9 +45,11 @@ class NavBar extends React.Component {
     }
 
     handleClick() {
-        return (
-            console.log('henlo')
-        )
+      if(this.props.loggedIn) {
+        this.props.history.push("/dashboard");
+      } else {
+        this.props.history.push("/");
+      }
     }
 
     // Selectively render links dependent on whether the user is logged in
@@ -64,15 +86,15 @@ class NavBar extends React.Component {
         return (
           <div className="navbar">
             <h1 className="logo" onClick={this.handleClick.bind(this)}>
-              SWEETT
+              Sweett
             </h1>
 
-            <p id="txt"></p>
             <Modal />
+            {Object.keys(this.props.currentUser).length > 0 ? <h1 className="days-counter">Day: {calculateDays(new Date(this.props.currentUser.date), Date.now())}</h1> : null}
             {this.getLinks()}
           </div>
         );
     }
 }
 
-export default NavBar;
+export default withRouter(NavBar);

@@ -2,6 +2,7 @@
     background-color: white;
     width: 16%;
     margin-top: 60px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
 }
 
 #sidebar-toggle-button {
@@ -23,7 +24,7 @@
 }
 
 #sidebar-categories {
-    margin-top: 52px;
+    margin-top: 60px;
     margin-left: 12px;
 }
 
