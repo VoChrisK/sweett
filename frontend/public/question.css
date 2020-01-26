@@ -5,12 +5,20 @@
     flex-direction: column;
     align-items: center;
     margin-top: 60px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
+
 }
 
 .question-index-title {
-    margin-top: 48px;
+    margin-top: 16px;
     font-size: 28px;
     margin-bottom: 6px;
+}
+
+.question-title-description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .question-index-description {
@@ -19,9 +27,84 @@
 }
 
 #question-index-container {
-    margin-top: 36px;
+    margin-top: 24px;
     width: 94%;
-    height: 100%;
     background-color: #f3f3f3;
     border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow: auto;
+}
+
+.question-container {
+    margin: 16px;
+    width: 96.4%;
+}
+
+.question-container-title {
+    font-size: 22px;
+    margin-bottom: 24px;
+}
+
+.question-index-item {
+    height: 40px;
+    border-radius: 2px;
+    margin-top: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 12px;
+    background-color: white;
+}
+
+.record-button {
+    background: transparent url("./icons/record.png") no-repeat top;
+    width: 32px;
+    height: 32px;
+    border: none;
+    transition: .2s;
+}
+
+.stop-button {
+    background: transparent url("./icons/stop.png") no-repeat top;
+    width: 32px;
+    height: 32px;
+    border: none;
+    transition: .2s;
+}
+
+.pause-button {
+    background: transparent url("./icons/pause.png") no-repeat top;
+    width: 32px;
+    height: 32px;
+    border: none;
+    transition: .2s;
+    margin-left: 6px;
+}
+
+.cancel-button {
+
+}
+
+.question-title-description-add {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    right: 0;
+    width: 100%;
+}
+
+#question-add {
+    width: 32px;
+    height: 32px;
+    margin-right: 52px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+#question-add:hover {
+    transform: rotate(90deg) scale(1.1);
 }
