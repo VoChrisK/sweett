@@ -1,7 +1,7 @@
 import * as CategoriesApiUtil from './../util/categories_util';
 
 const receiveCategories = categories => {
-    console.log(categories, 'cat')
+    // console.log(categories, 'cat')
     return ({
         type: RECEIVE_CATEGORIES,
         categories
@@ -48,7 +48,7 @@ export const deleteCategory = categoryId => dispatch => {
     
     return CategoriesApiUtil.deleteCategory(categoryId)
     .then( response => {
-        console.log(response, 'res');
+        // console.log(response, 'res');
         dispatch(removeCategory(categoryId))
     })
     // .then(() => dispatch(removeCategory(categoryId)))

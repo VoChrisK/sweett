@@ -97,4 +97,12 @@
     background-color: rgb(99, 159, 250);
 }
 
+#txt {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 500;
+}
+
 

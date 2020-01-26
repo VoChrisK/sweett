@@ -2,7 +2,7 @@ import { RECEIVE_CATEGORIES, RECEIVE_CATEGORY, REMOVE_CATEGORY } from './../acti
 
 const categoryReducer = (state = {}, action) => {
     Object.freeze(state);
-    console.log(state, 'reducer state')
+    // console.log(state, 'reducer state')
     let nextState;
     switch(action.type) {
         case RECEIVE_CATEGORIES:
@@ -20,7 +20,7 @@ const categoryReducer = (state = {}, action) => {
         case REMOVE_CATEGORY:
             // console.log(action)
             nextState = Object.assign({}, state);
-            console.log(state, 'remove state')
+            // console.log(state, 'remove state')
             delete nextState[action.categoryId];
             return nextState;
         default:
