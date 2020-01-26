@@ -5,9 +5,7 @@ import QuestionIndexItem from './question_index_item';
 class QuestionIndex extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            idx = -1 //keeps track of which question is being recorded
-        }
+        
     }
 
     toggleSidebar() {
