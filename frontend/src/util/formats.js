@@ -12,6 +12,18 @@ export const formatTime = (time) => {
         minutes -= 59;
     }
 
+    if (hours < 10) {
+        hours = "0" + hours;
+    }
+
+    if(minutes < 10) {
+        minutes = "0" + minutes;
+    }
+
+    if (time < 10) {
+        time = "0" + time;
+    }
+
     return `${hours}:${minutes}:${time}`;
 };
 

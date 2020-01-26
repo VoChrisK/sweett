@@ -34,6 +34,8 @@ router.get("/:id", (req, res) => {
 router.post("/", (req, res) => {
     const attempt = new Attempt({
         question_id: req.body.question_id,
+        category_id: req.body.category_id,
+        time: req.body.time
     });
     attempt.save()
         .then(attempt => res.json(attempt))

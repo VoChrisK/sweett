@@ -5,10 +5,17 @@ const questionsReducer = (state = {}, action) => {
     let nextState;
     switch (action.type) {
         case RECEIVE_QUESTIONS:
-            return Object.assign({}, action.goals);
+            nextState = {}
+            Object.keys(action.questions).forEach(key => {
+                nextState[action.questions[key]._id] = action.questions[key]
+            });
+            return nextState;
         case RECEIVE_QUESTION:
-            nextState = Object.assign({}, state);
-            nextState[action.question.id] = action.question;
+            nextState = {};
+            Object.keys(state).forEach(key => {
+                nextState[state[key]._id] = state[key];
+            });
+            nextState[action.question._id] = action.question;
             return nextState;
         case REMOVE_QUESTION:
             nextState = Object.assign({}, state);

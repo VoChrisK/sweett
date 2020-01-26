@@ -1,7 +1,9 @@
 import React from 'react';
-import AttemptIndex from './../attempt/attempt_index';
 import { withRouter } from 'react-router-dom';
+import { formatTime } from './../../util/formats';
 import { urlencoded } from 'body-parser';
+import AttemptIndex from './../attempt/attempt_index';
+
 
 class QuestionIndexItem extends React.Component {
     constructor(props) {
@@ -17,8 +19,9 @@ class QuestionIndexItem extends React.Component {
     }
 
     handleRecordButton(e) {
-        this.setState({ isRecording: true });
-        // this.recordTime();
+        this.setState({ isRecording: true }, () => {
+            this.recordTime();
+        });
     }
 
     recordButton() {
@@ -53,20 +56,18 @@ class QuestionIndexItem extends React.Component {
     }
 
     recordTime() {
-        setInterval(() => {
+        this.interval = setInterval(() => {
             const { isRecording, time } = this.state;
 
-            if(!isRecording) {
+            if(isRecording) {
                 this.setState({ time: time + 1});
             } else {
-                this.props.createAttempt({ question_id: this.props.question._id, category_id: this.props.match.params.categoryId, time: this.state.time })
-                .then(() => {
-                    this.props.recordQuestion(this.props.idx)
+                clearInterval(this.interval);
+                this.props.createAttempt({ question_id: this.props.question._id, category_id: this.props.question.category_id, time: this.state.time })
                     .then(() => {
-                        clearInterval();
-                        this.setState({ time: 0 });
-                    })}
-                );
+                        this.props.recordQuestion(this.props.idx)
+                        this.setState({ time: 0 });    
+                    });
             }
         }, 1000);
     }
@@ -76,7 +77,9 @@ class QuestionIndexItem extends React.Component {
             <div className="question-index-item">
                 <p>question title</p>
                 {this.timeTrackerButtons()}
-
+                <div className="question-stats invisible">
+                    <h1>{formatTime(this.state.time)}</h1>
+                </div>
                 {/* <AttemptIndex question={this.props.question} /> */}
             </div>
         );
