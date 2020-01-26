@@ -1,7 +1,7 @@
 import * as CategoriesApiUtil from './../util/categories_util';
 
 const receiveCategories = categories => {
-    // console.log(categories, 'cat')
+
     return ({
         type: RECEIVE_CATEGORIES,
         categories
@@ -31,7 +31,7 @@ export const requestCategories = userId => dispatch => {
 
 export const requestCategory = categoryId => dispatch => {
     return CategoriesApiUtil.fetchCategory(categoryId)
-    .then(category => dispatch(receiveCategory(category)))
+    .then(category => dispatch(receiveCategory(category.data)))
 };
 
 export const createCategory = category => dispatch => {
@@ -48,7 +48,6 @@ export const deleteCategory = categoryId => dispatch => {
     
     return CategoriesApiUtil.deleteCategory(categoryId)
     .then( response => {
-        // console.log(response, 'res');
         dispatch(removeCategory(categoryId))
     })
     // .then(() => dispatch(removeCategory(categoryId)))

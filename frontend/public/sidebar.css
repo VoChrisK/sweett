@@ -2,6 +2,7 @@
     background-color: white;
     width: 16%;
     margin-top: 60px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
 }
 
 #sidebar-toggle-button {
@@ -14,8 +15,29 @@
     height: 32px;
     border: none;
     background-image: url("./menu.png");
+    transition: .2s;
 }
 
-#menu {
+#sidebar-toggle-button:hover {
+    background-color: #f9f9f9;
+    transform: rotate(10deg);
+}
 
+#sidebar-categories {
+    margin-top: 60px;
+    margin-left: 12px;
+}
+
+.sidebar-category {
+    padding: 12px 6px;
+    border-bottom: 1px solid lightgrey;
+    border-radius: 2px;
+    transition: .2s;
+    margin-right: 12px;
+    font-weight: bold;
+}
+
+.sidebar-category:hover {
+    cursor: pointer;
+    background-color: #f3f3f3;
 }

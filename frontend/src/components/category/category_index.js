@@ -15,7 +15,6 @@ class CategoryIndex extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    // console.log(prevProps, 'props')
     if (prevProps.categories.length !== this.props.categories.length) {
       this.props.requestCategories(this.props.currentUserId);
     }
@@ -91,7 +90,7 @@ class CategoryIndex extends React.Component {
         this.forceUpdate();
       });
     }
-    
+
     // this.props.delCat(this.props.categories.findIndex(category => category._id === e.target.id))
   }
 
@@ -112,8 +111,6 @@ class CategoryIndex extends React.Component {
 
   render() {
     if (this.props.categories.length === 0) return null;
-    console.log(this.props, 'render props')
-      
 
     return (
       <div className="catIndex">
@@ -131,6 +128,7 @@ class CategoryIndex extends React.Component {
                   onClick={this.deleteCat.bind(this)}
                 ></div>
               </div>
+
             </div>
             <CategoryIndexItem key={idx} category={category} idx={idx} />
           </div>

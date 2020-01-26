@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from '../modal/modal';
+import { withRouter } from 'react-router-dom';
 
 // import './navbar.css'
 
@@ -25,9 +26,11 @@ class NavBar extends React.Component {
     }
 
     handleClick() {
-        return (
-            console.log('henlo')
-        )
+      if(this.props.loggedIn) {
+        this.props.history.push("/dashboard");
+      } else {
+        this.props.history.push("/");
+      }
     }
 
     // Selectively render links dependent on whether the user is logged in
@@ -75,4 +78,4 @@ class NavBar extends React.Component {
     }
 }
 
-export default NavBar;
+export default withRouter(NavBar);
