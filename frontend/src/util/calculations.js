@@ -1,20 +1,3 @@
-export const formatTime = (time) => {
-    let hours = 0;
-    let minutes = 0;
-
-    while(time > 59) {
-        minutes += 1;
-        time -= 59;
-    }
-
-    while(minutes > 59) {
-        hours += 1;
-        minutes -= 59;
-    }
-
-    return `${hours}:${minutes}:${time}`;
-};
-
 export const calculateExpectedTime = (attempts, goals) => {
     let totalTime = 0;
     for(let i = 0; i < attempts.length; i++) {
@@ -52,6 +35,6 @@ export const calculateTotalProgress = (goals) => {
 }
 
 export const calculateDays = (date1, date2) => {
-    let differenceInTime = date2.getTime() - date1.getTime();
-    return differenceInTime / (1000 * 3600 * 24);
+    let differenceInTime = date2 - date1.getTime();
+    return Math.floor(differenceInTime / (1000 * 3600 * 24)) + 1;
 }
