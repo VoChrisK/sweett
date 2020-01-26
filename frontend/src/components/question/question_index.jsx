@@ -13,6 +13,7 @@ class QuestionIndex extends React.Component {
         const goalIndex = document.getElementsByClassName("goal-index")[0];
         const sidebarToggleButton = document.getElementById("sidebar-toggle-button");
 
+        // re-style question, goal divs
         if (sidebar.style.display === "none") {
             sidebar.style.display = "block";
             questionIndex.style.width = "64%";
