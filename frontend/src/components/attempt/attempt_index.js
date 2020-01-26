@@ -1,4 +1,5 @@
 import React from 'react';
+import AttemptIndexItemContainer from './attempt_index_item_container';
 
 class AttemptIndex extends React.Component {
     constructor(props) {
