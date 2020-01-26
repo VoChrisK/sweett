@@ -5,14 +5,18 @@ const goalsReducer = (state = {}, action) => {
     let nextState;
     switch (action.type) {
         case RECEIVE_GOALS:
-            return Object.assign({}, action.goals);
+            nextState = new Object()
+            action.goals.forEach(goal => {
+                nextState[goal._id] = goal
+            })           
+            return nextState;
         case RECEIVE_GOAL:
             nextState = Object.assign({}, state);
-            nextState[action.goal.id] = action.goal;
+            nextState[action.goal._id] = action.goal
             return nextState;
         case REMOVE_GOAL:
             nextState = Object.assign({}, state);
-            delete nextState[action.goalId];
+            delete nextState[action.goal._Id];
             return nextState;
         default:
             return state;

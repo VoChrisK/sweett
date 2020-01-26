@@ -2,12 +2,13 @@ import { connect } from 'react-redux';
 import GoalForm from './goal_form';
 import { createGoal } from '../../actions/goal_actions'
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
     return ({
         goal: {
             description: '',
-            expected: '',
-            addToTotal: true
+            expected: 1,
+            addToTotal: false,
+            category_id: ownProps.categoryId
         },
         formType: 'Create'
     })

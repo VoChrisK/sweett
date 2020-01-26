@@ -20,7 +20,7 @@ class CategoryShow extends React.Component {
         if(!this.props.category) return null;
         
         if(this.props.category.title === "Leetcode") {
-            return <LeetCodeContainer />
+            return <LeetCodeContainer category={this.props.category}/>
         } else {
             return (
                 <h1>hi</h1>

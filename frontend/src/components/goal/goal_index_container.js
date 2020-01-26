@@ -5,8 +5,7 @@ import { requestGoals, createGoal, deleteGoal } from '../../actions/goal_actions
 const mapStateToProps = (state, ownProps) => {
     return ({
         goals: state.entities.goals,
-        // categoryId: ownProps.match.params.categoryId
-        categoryId: "5e2cb386dd8bb11061344d4f"
+        categoryId: ownProps.categoryId
     })
 };
 
