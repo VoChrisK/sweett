@@ -93,7 +93,7 @@ class LoginForm extends React.Component {
 
     handleDemoSubmit() {
         const user = {
-            email: "demo@swett.com",
+            email: "demo@swett.io",
             password: "123123"
         };
         this.demo(user);
