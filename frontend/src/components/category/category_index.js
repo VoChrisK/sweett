@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import CategoryIndexItem from './category_index_item';
 import {
     library,
@@ -6,8 +7,8 @@ import {
     findIconDefinition
 } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
-import { Icon } from "react-icons-kit";
-import { timesCircle } from "react-icons-kit/fa/timesCircle";
+// import { Icon } from "react-icons-kit";
+// import { timesCircle } from "react-icons-kit/fa/timesCircle";
 
 class CategoryIndex extends React.Component {
   constructor(props) {
@@ -115,7 +116,7 @@ class CategoryIndex extends React.Component {
     return (
       <div className="catIndex">
         {this.props.categories.map((category, idx) => (
-          <div className="cat-body">
+          <Link key={idx} to={`/categories/${category._id}`} id={`cat${idx + 1}`} className="cat-body">
             <div className="header-format">
               <div
                 className="cat-header"
@@ -131,7 +132,7 @@ class CategoryIndex extends React.Component {
 
             </div>
             <CategoryIndexItem key={idx} category={category} idx={idx} />
-          </div>
+          </Link>
         ))}
         {this.addPlusIcon()}
       </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { formatTime } from './../../util/calculations';
+import { formatTime } from './../../util/formats';
 
 const AttemptIndexItem = ({ attempt, deleteAttempt, idx }) => {
 
