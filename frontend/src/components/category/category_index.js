@@ -6,6 +6,8 @@ import {
     findIconDefinition
 } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
+import { Icon } from "react-icons-kit";
+import { timesCircle } from "react-icons-kit/fa/timesCircle";
 
 class CategoryIndex extends React.Component {
   constructor(props) {
@@ -80,37 +82,58 @@ class CategoryIndex extends React.Component {
 
   deleteCat(e) {
     e.preventDefault();
-    this.props.delCat(this.props.categories[e.target.id]._id).then(() => {
+    console.log(e.target.id)
+    
+    // console.log(this.props.categories[e.target.id]._id, 'id');
+    if (e.target.id > 0) {
+      this.props.delCat(this.props.categories[e.target.id]._id).then(() => {
+        this.forceUpdate();
+      });
+    }
 
-      this.forceUpdate();
-    })
     // this.props.delCat(this.props.categories.findIndex(category => category._id === e.target.id))
   }
 
+  // editCatModal(e) {
+  //   console.log(this.props.categories[e.target.id], 'edit cat');
+
+  //   e.preventDefault();
+  //   this.props.editCat(this.props.categories[e.target.id]);
+  // }
+
+  updateCat(e) {
+    // console.log(`num${e.target.id}`);
+    let editText = document.getElementById(`num${e.target.id}`)
+    editText.style.visibility = "visible"
+  }
+
+  
+
   render() {
     if (this.props.categories.length === 0) return null;
-    //onClick={this.deleteCat.bind(this)}
+
     return (
-      
       <div className="catIndex">
         {this.props.categories.map((category, idx) => (
           <div className="cat-body">
-            <div className="cat-header" id={idx}>
-              stop
+            <div className="header-format">
+              <div
+                className="cat-header"
+                id={idx}
+                // onClick={this.deleteCat.bind(this)}
+              >
+                <div
+                  className="x-box"
+                  id={idx}
+                  onClick={this.deleteCat.bind(this)}
+                ></div>
+              </div>
+
             </div>
-            <CategoryIndexItem
-              key={idx}
-              category={category}
-              idx={idx}
-            />
+            <CategoryIndexItem key={idx} category={category} idx={idx} />
           </div>
         ))}
-        {/* <i class="fas fa-times-circle"></i> */}
-        {/* <div className="plus-box">
-          <div onClick={this.props.addCat} className="plus-sign"></div>
-        </div> */}
         {this.addPlusIcon()}
-
       </div>
     );
   }

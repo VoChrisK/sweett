@@ -51,10 +51,6 @@
     cursor: pointer;
 }
 
-#txt {
-    z-index: 500;
-}
-
 .dash-header {
     position: absolute;
     width: 100vw;
