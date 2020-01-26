@@ -15,7 +15,7 @@ export const formatTime = (time) => {
     return `${hours}:${minutes}:${time}`;
 };
 
-export const calculateExpectedTime = (attempts) => {
+export const calculateExpectedTime = (attempts, goals) => {
     let totalTime = 0;
     for(let i = 0; i < attempts.length; i++) {
         if (goals[i].addToTotal) totalTime += attempts[i].time;

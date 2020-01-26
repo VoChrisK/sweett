@@ -1,6 +1,7 @@
 import React from 'react';
 import AttemptIndex from './../attempt/attempt_index';
 import { withRouter } from 'react-router-dom';
+import { urlencoded } from 'body-parser';
 
 class QuestionIndexItem extends React.Component {
     constructor(props) {
@@ -9,19 +10,52 @@ class QuestionIndexItem extends React.Component {
             time: 0,
             isRecording: false
         }
+
+        this.handleRecordButton = this.handleRecordButton.bind(this);
+        this.handleStopButton = this.handleStopButton.bind(this);
+
+    }
+
+    handleRecordButton(e) {
+        this.setState({ isRecording: true });
+        // this.recordTime();
+    }
+
+    recordButton() {
+        return (
+            <button className="record-button" onClick={this.handleRecordButton}>
+
+            </button>
+        );
+    }
+
+    handleStopButton(e) {
+        this.setState({ isRecording: false });
+    }
+
+    stopPauseCancelButtons() {
+        return (
+            <div className="stop-pause-cancel-buttons">
+                <button className="stop-button" onClick={this.handleStopButton}></button>
+                <button className="pause-button"></button>
+            </div>
+        );
     }
 
     timeTrackerButtons() {
+        const buttons = this.state.isRecording ? this.stopPauseCancelButtons() : this.recordButton()
+
         return (
-            <button className="record-button" onClick={() => {
-                this.setState({isRecording: true});
-                this.recordTime();
-            }}></button>
+            <div className="time-track-buttons">
+                {buttons}
+            </div>
         );
     }
 
     recordTime() {
         setInterval(() => {
+            const { isRecording, time } = this.state;
+
             if(!isRecording) {
                 this.setState({ time: time + 1});
             } else {
@@ -43,7 +77,7 @@ class QuestionIndexItem extends React.Component {
                 <p>question title</p>
                 {this.timeTrackerButtons()}
 
-                <AttemptIndex question={this.props.question} />
+                {/* <AttemptIndex question={this.props.question} /> */}
             </div>
         );
     }
