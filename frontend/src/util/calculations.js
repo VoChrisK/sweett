@@ -50,3 +50,8 @@ export const calculateTotalProgress = (goals) => {
 
     return parseFloat(((attempted / expected) * 100).toFixed(2));
 }
+
+export const calculateDays = (date1, date2) => {
+    let differenceInTime = date2.getTime() - date1.getTime();
+    return differenceInTime / (1000 * 3600 * 24);
+}
