@@ -63,7 +63,7 @@
 .dashboard-header {
     position: relative;
     margin-top: 35px;
-    padding-top: 50px;
+    padding: 25px;
     width: 60%;
     height: 20%;
     z-index: 30;
@@ -81,9 +81,9 @@
 
 .categories-header {
     height: 50px;
-    margin-top: 30px;
     font-size: 56px;
     z-index: 30;
+    padding-top: 65px;
 }
 
 #txt {

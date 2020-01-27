@@ -112,6 +112,12 @@ class CategoryIndex extends React.Component {
 
   render() {
     if (this.props.categories.length === 0) return null;
+    let noDel = document.getElementById('header0')
+    if (noDel) {
+      noDel.style.visibility = "hidden"
+    }
+
+
 
     return (
       <div className="catIndex">
@@ -120,8 +126,7 @@ class CategoryIndex extends React.Component {
             <div className="header-format">
               <div
                 className="cat-header"
-                id={idx}
-                // onClick={this.deleteCat.bind(this)}
+                id={`header${idx}`}
               >
                 <div
                   className="x-box"
