@@ -5,10 +5,14 @@ const attemptsReducer = (state = {}, action) => {
     let nextState;
     switch (action.type) {
         case RECEIVE_ATTEMPTS:
-            return Object.assign({}, action.attempts);
+            nextState = new Object();
+            action.attempts.forEach(attempt => {
+                nextState[attempt._id] = attempt
+            })
+            return nextState;
         case RECEIVE_ATTEMPT:
             nextState = Object.assign({}, state);
-            nextState[action.attempt.id] = action.attempt;
+            nextState[action.attempt._id] = action.attempt;
             return nextState;
         case REMOVE_ATTEMPT:
             nextState = Object.assign({}, state);
