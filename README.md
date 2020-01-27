@@ -44,7 +44,7 @@ This will help visualize and understand what areas users need to improve and spe
 
 ## Technologies and Challenges
 
-SWETT's core application is tracking time for each task and setting goals for each category. Upon logging in/signing up, users are greeted with a dashboard containing four default categories: Leetcode, Cracking the Coding Interview, Mock Interviews, and Side Projects. Users can create more categories as needed and can visit any one of them at anytime. Depending on the category, users can create, modify, and delete entries and goals, and time themselves and record them as attempts.
+Sweett's core application is tracking time for each task and setting goals for each category. Upon logging in/signing up, users are greeted with a dashboard containing four default categories: Leetcode, Cracking the Coding Interview, Mock Interviews, and Side Projects. Users can create more categories as needed and can visit any one of them at anytime. Depending on the category, users can create, modify, and delete entries and goals, and time themselves and record them as attempts.
 
 Frontend: 
 
