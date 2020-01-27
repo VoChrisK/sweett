@@ -10,17 +10,8 @@ class NavBar extends React.Component {
         this.getLinks = this.getLinks.bind(this);
     }
 
-    // componentDidMount() {
-    //   if(!this.props.loggedIn) {
-    //     document.getElementsByClassName("navbar")[0].classList.add("onsplash");
-    //   } else {
-    //     document.getElementsByClassName("navbar")[0].classList.remove("onsplash");
-    //   }
-    // }
-
     componentDidUpdate(preProps) {
       if(this.props.location.path !== preProps.location.path) {
-        console.log("hi")
         if (!this.props.loggedIn) {
           document.getElementsByClassName("navbar")[0].classList.add("onsplash");
         } else {

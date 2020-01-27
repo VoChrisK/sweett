@@ -7,8 +7,6 @@ import {
     findIconDefinition
 } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
-// import { Icon } from "react-icons-kit";
-// import { timesCircle } from "react-icons-kit/fa/timesCircle";
 
 class CategoryIndex extends React.Component {
   constructor(props) {
@@ -43,16 +41,6 @@ class CategoryIndex extends React.Component {
     return addBox;
   }
 
-  // addEcks(category) {
-  //   library.add(fas);
-  //   const ecks = findIconDefinition({
-  //     prefix: "fas",
-  //     iconName: "times-circle"
-  //   });
-  //   const ecksButton = icon(ecks);
-  //   category.append(ecksButton)
-  // }
-
   componentDidMount() {
     this.props.requestCategories(this.props.currentUserId).then(() => {
       library.add(fas);
@@ -75,35 +63,23 @@ class CategoryIndex extends React.Component {
         );
       }
 
-      // let categories = Array.from(document.getElementsByClassName("category"));
-      // categories.forEach(this.addEcks)
     })
     
   }
 
   deleteCat(e) {
     e.preventDefault();
-    console.log(e.target.id)
     
-    // console.log(this.props.categories[e.target.id]._id, 'id');
     if (e.target.id > 0) {
       this.props.delCat(this.props.categories[e.target.id]._id).then(() => {
         this.forceUpdate();
       });
     }
 
-    // this.props.delCat(this.props.categories.findIndex(category => category._id === e.target.id))
   }
 
-  // editCatModal(e) {
-  //   console.log(this.props.categories[e.target.id], 'edit cat');
-
-  //   e.preventDefault();
-  //   this.props.editCat(this.props.categories[e.target.id]);
-  // }
 
   updateCat(e) {
-    // console.log(`num${e.target.id}`);
     let editText = document.getElementById(`num${e.target.id}`)
     editText.style.visibility = "visible"
   }

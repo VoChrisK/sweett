@@ -14,20 +14,12 @@ class GoalIndexItem extends React.Component {
 
         this.increment = this.increment.bind(this);
         this.decrement = this.decrement.bind(this);
-        // this.handleDelete = this.handleDelete.bind(this);
     }
-
-    // handleDelete(e) {
-    //     e.preventDefault();
-    //     this.props.deleteGoal(this.state.goal._id);
-    // }
 
     increment(e) {
         e.preventDefault();
         const newGoal = Object.assign({}, this.props.goal);
-        console.log(newGoal, "before")
         newGoal.attempted += 1;
-        console.log(newGoal, "after")
         this.props.updateGoal(newGoal)
             .then(goal => {
                 const newCategory = Object.assign({}, this.props.category)
@@ -40,9 +32,7 @@ class GoalIndexItem extends React.Component {
     decrement(e) {
         e.preventDefault();
         const newGoal = Object.assign({}, this.props.goal);
-        console.log(newGoal, "before")
         newGoal.attempted -= 1;
-        console.log(newGoal, "after")
         this.props.updateGoal(newGoal)
             .then(goal => {
                 const newCategory = Object.assign({}, this.props.category)
@@ -87,7 +77,6 @@ class GoalIndexItem extends React.Component {
                     </div>
                 </div>
                 <br/>
-                {/* <button onClick={this.handleDelete}>Delete me fam</button> */}
             </div>
         )
     }
