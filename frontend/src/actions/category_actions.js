@@ -41,7 +41,7 @@ export const createCategory = category => dispatch => {
 
 export const updateCategory = category => dispatch => {
     return CategoriesApiUtil.updateCategory(category)
-    .then(updatedCategory => dispatch(receiveCategory(updatedCategory)))
+    .then(updatedCategory => dispatch(receiveCategory(updatedCategory.data)))
 };
 
 export const deleteCategory = categoryId => dispatch => {

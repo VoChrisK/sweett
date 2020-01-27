@@ -13,7 +13,7 @@ export const createCategory = category => {
 };
 
 export const updateCategory = category => {
-    return axios.patch(`/api/categories/${category.id}`, category);
+    return axios.patch(`/api/categories/${category._id}`, category);
 };
 
 export const deleteCategory = categoryId => {
