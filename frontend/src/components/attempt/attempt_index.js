@@ -20,7 +20,7 @@ class AttemptIndex extends React.Component {
         if(this.props.attempts.length === 0) return null;
 
         return (
-            <ul className="attempts-list">
+            <ul className="attempts-list invisible">
                 {
                     this.props.attempts.map((attempt, idx) => <AttemptIndexItemContainer key={idx} attempt={attempt} idx={idx} />)
                 }

@@ -23,22 +23,22 @@ const removeAttempt = attemptId => {
 
 export const requestQuestionAttempts = questionId => dispatch => {
     return AttemptsApiUtil.fetchQuestionAttempts(questionId)
-        .then(attempts => dispatch(receiveAttempts(attempts)))
+        .then(attempts => dispatch(receiveAttempts(attempts.data)))
 };
 
 export const requestCategoryAttempts = categoryId => dispatch => {
     return AttemptsApiUtil.fetchCategoryAttempts(categoryId)
-        .then(attempts => dispatch(receiveAttempts(attempts)))
+        .then(attempts => dispatch(receiveAttempts(attempts.data)))
 }
 
 export const requestAttempt = attemptId => dispatch => {
     return AttemptsApiUtil.fetchAttempt(attemptId)
-        .then(attempt => dispatch(receiveAttempt(attempt)))
+        .then(attempt => dispatch(receiveAttempt(attempt.data)))
 };
 
 export const createAttempt = attempt => dispatch => {
     return AttemptsApiUtil.createAttempt(attempt)
-        .then(newAttempt => dispatch(receiveAttempt(newAttempt)))
+        .then(newAttempt => dispatch(receiveAttempt(newAttempt.data)))
 };
 
 export const deleteAttempt = attemptId => dispatch => {
