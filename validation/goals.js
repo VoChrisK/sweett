@@ -12,11 +12,12 @@ module.exports = function validateGoalsInput(data) {
     if (Validator.isEmpty(data.description)) {
         errors.description = "Description is required";
     }
-
-    if (!Validator.isBoolean(data.addToTotal)) {
-        errors.addToTotal = "Add to total"
-    }
     
+    let expectedString = data.expected.toString();
+    if (!Validator.isInt(expectedString, { min: 1 })) {
+        errors.expected = "Expected must be an integer greater than 0";
+    }
+    console.log(typeof data.expected)
     return {
         errors,
         isValid: Object.keys(errors).length === 0

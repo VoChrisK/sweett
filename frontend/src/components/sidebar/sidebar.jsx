@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom'
 class Sidebar extends React.Component {
     constructor(props) {
         super(props);
+        console.log(props, 'sidebar props')
     }
 
     componentDidMount() {
@@ -16,7 +17,7 @@ class Sidebar extends React.Component {
             <ul id="sidebar-categories">
                 {
                     this.props.categories.map((category, i) => 
-                        <li className="sidebar-category" key={i}>{category.title}</li>)
+                        <li onClick={() => this.props.history.push(`${category._id}`)} className="sidebar-category" id={category._id} key={i}>{category.title}</li>)
                 }
             </ul>
         );
