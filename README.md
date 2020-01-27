@@ -51,10 +51,10 @@ Frontend:
 ## Group Members & Work Breakdown
 
 ## Team members:
-* **Chris Vo**
-* **Han Kim**
-* **Brian Tran**
-* **Herman Xie**
+* **Chris Vo** - Team Lead
+* **Han Kim** - Frontend-focused, flex
+* **Brian Tran** - Flex
+* **Herman Xie** - Backend-focused, flex
 
 ## Day 1 (01/21/20)
 * **Chris Vo** - Write database schema and prepare wireframes for dashboard and leetcode category
@@ -73,3 +73,16 @@ Frontend:
 * **Han Kim** - Begin working on UI for Leetcode category
 * **Brian Tran** - Incorporate categories to dashboard
 * **Herman Xie** - Work on incoporating backend for Goals, Questions, and Attempts
+
+## Day 4 (01/24/20)
+* **Chris Vo** - 
+* **Han Kim** - 
+* **Brian Tran** - Work on 
+* **Herman Xie** -
+
+## Day 5 (01/25/20)
+* **Chris Vo** - Create calculations for time and progression and begin working on attempts section
+* **Han Kim** - Finish implementing UI for Leetcode category and begin working questions section
+* **Herman Xie** - Finish implementing backend and work on goals section
+
+## Day 6 (01/26/20)
