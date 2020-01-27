@@ -39,7 +39,8 @@ router.post('/register', (req, res) => {
                                 const payload = {
                                     id: user.id,
                                     username: user.username,
-                                    email: user.email
+                                    email: user.email,
+                                    date: user.date
                                 }
                                 jwt.sign(
                                     payload,
@@ -85,7 +86,8 @@ router.post('/login', (req, res) => {
                         const payload = {
                             id: user.id,
                             username: user.username,
-                            email: user.email
+                            email: user.email,
+                            date: user.date
                         }
                         jwt.sign(
                             payload,

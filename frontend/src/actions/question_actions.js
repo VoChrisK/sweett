@@ -28,9 +28,11 @@ const removeQuestion = questionId => {
     });
 }
 
-export const requestQuestions = questionId => dispatch => {
-    return QuestionsApiUtil.fetchQuestions(questionId)
-        .then(questions => dispatch(receiveQuestions(questions)))
+export const requestQuestions = categoryId => dispatch => {
+    return QuestionsApiUtil.fetchQuestions(categoryId)
+        .then(questions => {
+            dispatch(receiveQuestions(questions.data))
+        })
 };
 
 export const requestQuestion = questionId => dispatch => {

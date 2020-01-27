@@ -1,4 +1,5 @@
 .cat-body {
+    display: block;
     text-decoration: none;
     -moz-box-shadow: 3px 3px 5px 6px rgb(41, 41, 41);
     -webkit-box-shadow: 3px 3px 5px 6px rgb(41, 41, 41);
@@ -13,8 +14,42 @@
     /* padding-bottom: 40px; */
 }
 
-.cat-header:hover {
+.x-box:hover {
     cursor: pointer;
+}
+
+.penciru:hover {
+    cursor: pointer;
+}
+
+.header-format {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.cat-header {
+    display: flex;
+    height: 20px;
+    width: 20px;
+    visibility: visible;
+}
+
+.cat-header:hover .x-box {
+    height: 20px;
+    width: 20px;
+    background-image: url('real-ecks.png');
+    background-position: center;
+    background-size: contain;
+}
+
+.cat-header:hover .penciru {
+    height: 20px;
+    width: 20px;
+    background-image: url('penciru.png');
+    background-position: center;
+    background-size: contain;
+    color: gray;
 }
 
 .cat-title {
@@ -58,14 +93,94 @@
     padding-bottom: 20px;
 }
 
-.fa {
-    height: 50px;
-    width: 50px;
-}
 
 i {
     font-size: 50px;
-    height: 50px;
-    width: 50px;
+    height: 40px;
+    width: 40px;
+}
+
+.x-box {
+    /* height: 20px;
+    width: 20px;
+    background-image: url('x.png');
+    background-position: center;
+    background-size: contain; */
+}
+
+
+/* CATEGORY SHOW STYLE */
+.show-category {
+    width: 100vw;
+    height: 100vh;
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    
+}
+
+.cat-info {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 100vh;
+    width: 70%;
+    background: rgb(185, 211, 253);
+    align-items: center;
+    padding-top: 100px;
+
+}
+
+.show-title {
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
+}
+
+.show-title:hover {
+    cursor: pointer;
+}
+
+.show-actual {
+    font-size: 36px;
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
+
+}
+
+.show-progress {
+    font-size: 36px;
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
+
+}
+
+
+.sidebar {
+    position: relative;
+    display: block;
+    align-self: flex-start;
+    background-color: white;
+    width: fit-content;
+    /* margin-top: 60px; */
+    /* visibility: hidden; */
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
+}
+
+#cat-show-title {
+    font-size: 60px;
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
+}
+
+#cat-show-title:hover {
+    cursor: pointer;
+}
+
+#edit-form {
+    visibility: hidden;
 }
 

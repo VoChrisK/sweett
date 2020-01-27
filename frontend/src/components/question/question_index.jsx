@@ -1,11 +1,14 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom'
-import QuestionIndexItem from './question_index_item';
+import QuestionIndexItemContainer from './question_index_item_container';
 
 class QuestionIndex extends React.Component {
     constructor(props) {
         super(props);
-        
+    }
+
+    componentDidMount() {
+        this.props.requestQuestions(this.props.match.params.categoryId);
     }
 
     toggleSidebar() {
@@ -43,28 +46,28 @@ class QuestionIndex extends React.Component {
                     </div>
                     <div id="question-add" onClick={() => this.props.addQuestion()}>
                         <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus-circle" class="svg-inline--fa fa-plus-circle fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm144 276c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92h-92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z"></path></svg>
+
                     </div>
                 </div>
+
                 <div id="question-index-container">
                     <div className="question-container">
                         <p className="question-container-title">Easy</p>
-                        <QuestionIndexItem />
-                        <QuestionIndexItem />
-                        <QuestionIndexItem />
-
+                        {
+                            this.props.easyQuestions.map((question, idx) => <QuestionIndexItemContainer key={idx} question={question} idx={idx} />)
+                        }
                     </div>
                     <div className="question-container">
                         <p className="question-container-title">Medium</p>
-                        <QuestionIndexItem />
-                        <QuestionIndexItem />
-                        <QuestionIndexItem />
-
+                        {
+                            this.props.mediumQuestions.map((question, idx) => <QuestionIndexItemContainer key={idx} question={question} idx={idx} />)
+                        }
                     </div>
                     <div className="question-container">
                         <p className="question-container-title">Hard</p>
-                        <QuestionIndexItem />
-                        <QuestionIndexItem />
-                        <QuestionIndexItem />
+                        {
+                            this.props.hardQuestions.map((question, idx) => <QuestionIndexItemContainer key={idx} question={question} idx={idx} />)
+                        }
                     </div>
                 </div>
             </div>

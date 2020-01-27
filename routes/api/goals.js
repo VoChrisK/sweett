@@ -5,7 +5,7 @@ const validateGoalInput = require("../../validation/goals");
 const passport = require("passport");
 
 //fetch all goals based on category id
-router.get("/category/:category_id", (req, res) => {
+router.get("/categories/:category_id", (req, res) => {
     Goal.find({ category_id: req.params.category_id })
         .then(goals => res.json(goals))
         .catch(errors => res.status(400).json({ errors }));
@@ -29,7 +29,12 @@ router.post("/", (req, res) => {
     if (!isValid) {
         return res.status(400).json(errors);
     }
-    const goal = new Goal({ description: req.body.description, category_id: req.body.category_id });
+    const goal = new Goal({ 
+        description: req.body.description, 
+        category_id: req.body.category_id, 
+        expected: req.body.expected, 
+        addToTotal: req.body.addToTotal
+    });
     goal.save()
         .then(goal => res.json(goal))
         .catch(errors => res.status(400).json({ errors }));
@@ -45,7 +50,7 @@ router.patch("/:id", (req, res) => {
     Goal.findById(req.params.id)
         .then(goal => {
             goal.description = req.body.description;
-            goal.progress = req.body.progress;
+            goal.attempted = req.body.attempted
             goal.addToTotal = req.body.addToTotal;
             goal.save()
                 .then(goal => res.json(goal))

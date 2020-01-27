@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const fetchQuestions = categoryId => {
-    return axios.get(`/api/questions/categories/${categoryId}`);
+    return axios.get(`/api/questions/category/${categoryId}`);
 };
 
 export const fetchQuestion = questionId => {
@@ -13,7 +13,7 @@ export const createQuestion = question => {
 };
 
 export const updateQuestion = question => {
-    return axios.patch(`/api/questions/${question.id}`, question);
+    return axios.patch(`/api/questions/${question._id}`, question);
 };
 
 export const deleteQuestion = questionId => {
