@@ -4,7 +4,6 @@ import { formatTime } from './../../util/formats';
 import { urlencoded } from 'body-parser';
 import AttemptIndexContainer from './../attempt/attempt_index_container';
 
-
 class QuestionIndexItem extends React.Component {
     constructor(props) {
         super(props);
@@ -89,6 +88,8 @@ class QuestionIndexItem extends React.Component {
                     <h1>{formatTime(this.state.time)}</h1>
                 </div>
                 <AttemptIndexContainer question={this.props.question} />
+                
+                <a href={`https://leetcode.com/problems/${this.props.question.name.toLowerCase().split(" ").join("-")}`}>Link</a>
             </div>
         );
     }
