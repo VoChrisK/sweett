@@ -10,15 +10,22 @@
     "frontend-install": "npm install --prefix frontend",
     "frontend": "npm start --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run frontend\"",
+<<<<<<< HEAD
     "postInstall": "webpack"
   },
   "engines": {
     "node":"12.13.0",
     "npm":"6.13.4"
+=======
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix frontend && npm run build --prefix frontend"
+>>>>>>> 839d3e61d58714e5a89435bbef45ea7a71c2255f
   },
   "author": "Chris Vo",
   "license": "ISC",
   "dependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/preset-react": "^7.8.3",
     "@fortawesome/fontawesome-svg-core": "^1.2.26",
     "@fortawesome/free-brands-svg-icons": "^5.12.0",
     "bcryptjs": "^2.4.3",
