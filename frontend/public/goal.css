@@ -21,12 +21,112 @@
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    margin-top: 10px;
 }
 
 .goal-form-render {
     display: none;
+    border-bottom: 1px solid black;
 }
 
 .active {
     display: flex;
 }
+
+.goal-ul {
+    display: flex;
+    flex-direction: column-reverse;
+    background-color:#f1f1f1;
+    margin-top: 24px;
+    border-radius: 20px;
+    width: 80%;
+}
+
+.goal-index-item {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-bottom: 1px solid black;
+}
+
+.goal-index-item:first-child {
+    border-bottom: 0px solid black;
+}
+
+.row-me-up {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.goal-attempt-buttons {
+    display: flex;
+    width: 40%;
+    justify-content: space-evenly;
+    border: 1px solid gray;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.add-attempt-button {
+    width: 50%;
+    border-right: 1px solid gray;
+    color: gray;
+    padding: 2px 0;
+    cursor: pointer;
+}
+
+.minus-attempt-button {
+    width: 50%;
+    color: gray;
+    padding: 2px 0;
+}
+
+.goal-description {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.progress-bar {
+    height: 5px;
+    border: 1px solid black;
+    overflow: hidden;
+}
+
+.progress-completed {
+    background-color: green;
+    height: 100%;
+}
+
+.goal-form-container {
+    width: 100%;
+}
+
+.goal-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.expected-input {
+    width: 50%;
+}
+
+.bottom-margin {
+    margin-bottom: 5px;
+}
+
+.error-text {
+    color: red;
+}
+
+.submit-or-cancel {
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+

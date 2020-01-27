@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import GoalIndexItem from './goal_index_item';
-import { updateGoal, deleteGoal } from '../../actions/goal_actions';
+import { updateGoal, deleteGoal, requestGoal } from '../../actions/goal_actions';
+import { updateCategory } from '../../actions/category_actions';
 
 const mapStateToProps = (state, ownProps) => {
     return ({
@@ -13,8 +14,10 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
+        requestGoal: (goalId) => dispatch(requestGoal(goalId)),
         updateGoal: (goal) => dispatch(updateGoal(goal)),
-        deleteGoal: (goalId) => dispatch(deleteGoal(goalId))
+        deleteGoal: (goalId) => dispatch(deleteGoal(goalId)),
+        updateCategory: (category) => dispatch(updateCategory(category))
     }
 }
 

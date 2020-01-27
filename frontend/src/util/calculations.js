@@ -1,25 +1,4 @@
-<<<<<<< HEAD
-export const formatTime = (time) => {
-    let hours = 0;
-    let minutes = 0;
-
-    while(time > 59) {
-        minutes += 1;
-        time -= 59;
-    }
-
-    while(minutes > 59) {
-        hours += 1;
-        minutes -= 59;
-    }
-
-    return `${hours}:${minutes}:${time}`;
-};
-
-export const calculateExpectedTime = (goals, attempts) => {
-=======
 export const calculateExpectedTime = (attempts, goals) => {
->>>>>>> master
     let totalTime = 0;
     for(let i = 0; i < attempts.length; i++) {
         if (goals[i].addToTotal) totalTime += attempts[i].time;

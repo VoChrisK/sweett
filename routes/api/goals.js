@@ -50,7 +50,7 @@ router.patch("/:id", (req, res) => {
     Goal.findById(req.params.id)
         .then(goal => {
             goal.description = req.body.description;
-            goal.progress = req.body.progress;
+            goal.attempted = req.body.attempted
             goal.addToTotal = req.body.addToTotal;
             goal.save()
                 .then(goal => res.json(goal))

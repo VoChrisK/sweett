@@ -36,10 +36,10 @@ class GoalIndex extends React.Component {
     }
 
     render() {
-        console.log(this.props, "props")
         return (
             <div className="goal-index">
                 <p>GOALS</p>
+                <div onClick={this.handleGoalForm} className="add-goal-button"/>
                 <ul className="goal-ul">
                     {
                         (!!this.props.goals) ? (
@@ -48,11 +48,10 @@ class GoalIndex extends React.Component {
                             })
                         ) : ('')
                     }
-                    <li className="goal-form-render">
-                        <GoalCreateFormContainer categoryId={this.props.categoryId}/>
-                    </li>
-                </ul>
-                <div onClick={this.handleGoalForm} className="add-goal-button"/>
+                <li className="goal-form-render">
+                    <GoalCreateFormContainer categoryId={this.props.categoryId}/>
+                </li>
+                </ul>   
             </div>
         );
     }

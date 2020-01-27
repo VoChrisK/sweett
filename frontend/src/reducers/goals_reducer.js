@@ -16,7 +16,7 @@ const goalsReducer = (state = {}, action) => {
             return nextState;
         case REMOVE_GOAL:
             nextState = Object.assign({}, state);
-            delete nextState[action.goal._Id];
+            delete nextState[action.goalId];
             return nextState;
         default:
             return state;
