@@ -1,16 +1,23 @@
 import { connect } from 'react-redux';
 import QuestionIndex from './question_index';
+import { createAttempt } from '../../actions/attempt_actions';
+import { openModal } from '../../actions/modal_actions'
 import { requestQuestions } from '../../actions/question_actions';
 
+
 const mapStateToProps = state => ({
+    state,
     easyQuestions: Object.values(state.entities.questions).filter(question => question.difficulty === "Easy"),
     mediumQuestions: Object.values(state.entities.questions).filter(question => question.difficulty === "Medium"),
     hardQuestions: Object.values(state.entities.questions).filter(question => question.difficulty === "Hard")
 });
 
-const mapDispatchToProps = (dispatch) => ({
-    requestQuestions: categoryId => dispatch(requestQuestions(categoryId))
-})
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addQuestion: () => dispatch(openModal("addQuestion")),
+        requestQuestions: categoryId => dispatch(requestQuestions(categoryId))
+    }
+}
 
 export default connect(
     mapStateToProps,
