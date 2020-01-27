@@ -119,7 +119,7 @@ class LoginForm extends React.Component {
                     <form onSubmit={this.handleSubmit}>
                         <div className="signin-form">
                             <p className="auth-form-title">
-                                <span>Sign in to SWETT</span>
+                                <span>Sign in to SWEETT</span>
                             </p>
                             {this.renderErrors()}
                             <input className="auth-form-email" type="text"

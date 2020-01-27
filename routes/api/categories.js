@@ -97,7 +97,7 @@ router.patch("/:id/actual"), (req, res) => {
 // }
 
 router.delete("/:id", (req, res) => {
-    Category.deleteOne({ id: req.params.id })
+    Category.deleteOne({ _id: req.params.id })
     .then(category => res.json(category))
     .catch(errors => res.status(404).json({ errors }));
 });
