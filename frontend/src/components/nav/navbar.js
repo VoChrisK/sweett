@@ -83,6 +83,12 @@ class NavBar extends React.Component {
     }
 
     render() {
+      let clock;
+      if (!!this.props.currentUser) {
+        if (Object.keys(this.props.currentUser).length > 0) {
+          clock = <h1 className="days-counter">Day: {calculateDays(new Date(this.props.currentUser.date), Date.now())}</h1>
+        }
+      }
         return (
           <div className="navbar">
             <h1 className="logo" onClick={this.handleClick.bind(this)}>
@@ -90,7 +96,7 @@ class NavBar extends React.Component {
             </h1>
 
             <Modal />
-            {Object.keys(this.props.currentUser).length > 0 ? <h1 className="days-counter">Day: {calculateDays(new Date(this.props.currentUser.date), Date.now())}</h1> : null}
+            {clock}
             {this.getLinks()}
           </div>
         );
