@@ -36,6 +36,7 @@ class QuestionIndexItem extends React.Component {
     }
 
     handleStopButton(e) {
+        e.currentTarget.parentElement.parentElement.parentElement.style.height = "40px";
         this.setState({ isRecording: false }, () => {
             clearInterval(this.interval);
             this.props.createAttempt({ question_id: this.props.question._id, category_id: this.props.question.category_id, time: this.state.time })
