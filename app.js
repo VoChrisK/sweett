@@ -1,6 +1,6 @@
 const express = require("express"); // creates new express server
-const mongoose = require("mongoose");
 const app = express();
+const mongoose = require("mongoose");
 const db = require("./config/keys").mongoURI;
 const users = require("./routes/api/users");
 const categories = require("./routes/api/categories");
