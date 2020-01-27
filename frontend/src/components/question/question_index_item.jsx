@@ -13,12 +13,12 @@ class QuestionIndexItem extends React.Component {
 
         this.handleRecordButton = this.handleRecordButton.bind(this);
         this.handleStopButton = this.handleStopButton.bind(this);
-
     }
 
     handleRecordButton(e) {
         this.setState({ isRecording: true });
         // this.recordTime();
+        // e.currentTarget.parentElement.parentElement.style.height = "80px";
     }
 
     recordButton() {
@@ -31,6 +31,8 @@ class QuestionIndexItem extends React.Component {
 
     handleStopButton(e) {
         this.setState({ isRecording: false });
+        e.currentTarget.parentElement.parentElement.parentElement.style.height = "40px";
+
     }
 
     stopPauseCancelButtons() {

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import LoginFormContainer from '../session/login_form_container';
 import SignupFormContainer from '../session/signup_form_container';
 import CategoryFormContainer from '../category/category_form_container';
+import QuestionFormContainer from '../question/question_form_container';
 
 function Modal({ modal, closeModal }) {
     if (!modal) {
@@ -19,6 +20,9 @@ function Modal({ modal, closeModal }) {
             break;
         case 'addCategory':
             component = <CategoryFormContainer />;
+            break;
+        case 'addQuestion':
+            component = <QuestionFormContainer />;
             break;
         default:
             return null;

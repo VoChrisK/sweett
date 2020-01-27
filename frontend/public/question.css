@@ -39,13 +39,12 @@
 }
 
 .question-container {
-    margin: 16px;
-    width: 96.4%;
+    width: 100%;
 }
 
 .question-container-title {
     font-size: 22px;
-    margin-bottom: 24px;
+    margin: 16px 0px 20px 12px;
 }
 
 .question-index-item {
@@ -57,7 +56,10 @@
     align-items: center;
     padding: 6px 12px;
     background-color: white;
+    margin: 12px
 }
+
+
 
 .record-button {
     background: transparent url("./icons/record.png") no-repeat top;
@@ -107,4 +109,67 @@
 
 #question-add:hover {
     transform: rotate(90deg) scale(1.1);
+}
+
+.question-form-container {
+    width: 400px;
+    height: 480px;
+    background-color: white;
+    border-radius: 6px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
+
+}
+
+.question-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 16px;
+}
+
+#question-form-title {
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 32px;
+}
+
+.question-form p {
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.question-form input {
+    margin-bottom: 20px;
+    height: 30px;
+}
+
+#question-form-name {
+    height: 32px;
+    padding: 6px 16px;
+    margin-bottom: 8px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f7f7f7;
+    margin-bottom: 32px;
+}
+
+#question-form-submit {
+    width: 160px;
+    height: 40px;
+    background-color: black;
+    padding: 12px 55px;
+    color: white;
+    border-radius: 25px;
+    text-align: center;
+    align-self: center;
+    margin-top: 54px
+}
+
+.radio {
+    display: flex;
+    flex-direction: column;
+}
+
+.radio label input {
+    margin: 12px;
 }
