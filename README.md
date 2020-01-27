@@ -63,10 +63,10 @@ Frontend:
 * **Herman Xie** - Begin working on splash page
 
 ## Day 2 (01/22/20)
-* **Chris Vo** - Manage pull requests and write backend, Redux state management, and components for categories
+* **Chris Vo** - Manage pull requests and designed backend, Redux state management, and components for categories
 * **Han Kim** - Finish building UI for user authentication and fix bugs relating to it
 * **Brian Tran** - Work more on the dashboard
-* **Herman Xie** - Finish working on splash page
+* **Herman Xie** - Finish working on splash page and begin working on backend for categories
 
 ## Day 3 (01/23/20)
 * **Chris Vo** - Assist team members on fixing bugs and prepared more wireframes
