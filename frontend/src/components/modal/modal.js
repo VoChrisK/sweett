@@ -24,9 +24,10 @@ function Modal({ modal, closeModal }) {
             break;
         case 'addQuestion':
             component = <QuestionFormContainer />;
-        case 'updateCategory':
-            component = <CategoryEditFormContainer />;
             break;
+        // case 'updateCategory':
+        //     component = <CategoryEditFormContainer />;
+        //     break;
         default:
             return null;
     }

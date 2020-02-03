@@ -9,6 +9,7 @@ class QuestionIndex extends React.Component {
 
     componentDidMount() {
         this.props.requestQuestions(this.props.match.params.categoryId);
+        console.log(this.props, 'question index props')
     }
 
     toggleSidebar() {

@@ -4,10 +4,12 @@ import { withRouter } from "react-router-dom";
 class QuestionForm extends React.Component {
     constructor(props) {
         super(props);
+        console.log(props, 'constructor props')
         this.state = {
             name: "",
             difficulty: "",
-            categoryId: this.props.location.pathname.slice(12, -1)
+            // categoryId: this.props.match.params.categoryId
+            // categoryId: this.props.location.pathname.slice(12,-1)
         };
     }
 
@@ -29,6 +31,7 @@ class QuestionForm extends React.Component {
     }
 
     render() {
+        console.log(this.props, 'question props')
         return (
             <div className="question-form-container">
                 <form className="question-form" onSubmit={this.handleSubmit.bind(this)}>
@@ -81,4 +84,4 @@ class QuestionForm extends React.Component {
     }
 }
 
-export default withRouter(QuestionForm);
+export default QuestionForm;
