@@ -5,5 +5,7 @@
 
 }
 
-.attempt-number {
+.attempt-time {
+    text-align: right;
 }
+
