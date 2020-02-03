@@ -26,7 +26,6 @@ class QuestionForm extends React.Component {
             category_id: this.state.categoryId
         };
 
-        console.log(question, "!@#!@#!@#")
         this.props.processForm(question).then(this.props.closeModal);
     }
 
