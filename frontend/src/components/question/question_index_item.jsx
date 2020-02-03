@@ -32,9 +32,13 @@ class QuestionIndexItem extends React.Component {
     }
 
     expandQuestion() {
-        document.getElementsByClassName("attempts-list")[0].classList.toggle("invisible");
+        console.log(document.getElementsByClassName("attempts-list"), "@@@");
+        document.getElementsByClassName("attempts-list")[this.props.idx].classList.toggle("invisible");
+
         let caretClassList = document.getElementById("caret").classList;
-        if (caretClassList[1] === "fa-caret-down") {
+        console.log(this.props.idx)
+
+        if (caretClassList[0] === "fa-caret-down") {
             caretClassList.remove("fa-caret-down");
             caretClassList.add("fa-caret-up");
         } else {
@@ -97,8 +101,8 @@ class QuestionIndexItem extends React.Component {
                     <span>New attempt: </span>
                     <span>{formatTime(this.state.time)}</span>
                 </div>
-                <AttemptIndexContainer question={this.props.question} />
                 
+                <AttemptIndexContainer question={this.props.question} />
             </div>
         );
     }

@@ -18,7 +18,7 @@ class AttemptIndex extends React.Component {
     // }
 
     render() {
-        if(this.props.attempts.length === 0) return null;
+        // if(this.props.attempts.length === 0) return null;
 
         return (
             <ul className="attempts-list invisible">

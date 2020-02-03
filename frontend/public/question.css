@@ -129,7 +129,6 @@
 
 .question-form-container {
     width: 400px;
-    height: 480px;
     background-color: white;
     border-radius: 6px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
@@ -178,7 +177,8 @@
     border-radius: 25px;
     text-align: center;
     align-self: center;
-    margin-top: 54px
+    margin-top: 54px;
+    margin-bottom: 0px;
 }
 
 .radio {
