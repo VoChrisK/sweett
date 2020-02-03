@@ -85,7 +85,9 @@ class QuestionIndexItem extends React.Component {
         return (
             <div className="question-index-item">
                 <div className="question">
-                    <p>{this.props.question.name}</p>
+                    <a className="question-link" href={`https://leetcode.com/problems/${this.props.question.name.toLowerCase().split(" ").join("-")}`}>
+                        {this.props.question.name}
+                    </a>
                     <div className="question-btns">
                         {this.timeTrackerButtons()}
                         <i id="caret" onClick={this.expandQuestion.bind(this)} class="fa fa-caret-down"></i>
@@ -97,7 +99,6 @@ class QuestionIndexItem extends React.Component {
                 </div>
                 <AttemptIndexContainer question={this.props.question} />
                 
-                <a href={`https://leetcode.com/problems/${this.props.question.name.toLowerCase().split(" ").join("-")}`}>Link</a>
             </div>
         );
     }
