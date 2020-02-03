@@ -1,8 +1,9 @@
 .attempt {
-    padding: 8px;
+    padding: 16px;
     display: flex;
+    justify-content: space-between;
+
 }
 
 .attempt-number {
-    margin-right: 20px;
 }
