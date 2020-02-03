@@ -41,7 +41,6 @@ export const requestQuestion = questionId => dispatch => {
 };
 
 export const createQuestion = question => dispatch => {
-    console.log('new question')
     return QuestionsApiUtil.createQuestion(question)
         .then(newQuestion => dispatch(receiveQuestion(newQuestion)))
 };

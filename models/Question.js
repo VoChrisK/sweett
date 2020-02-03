@@ -8,6 +8,7 @@ const QuestionSchema = new Schema({
     },
     category_id: {
         type: Schema.Types.ObjectId,
+        // type: String,
         ref: 'categories',
         required: true
     },
