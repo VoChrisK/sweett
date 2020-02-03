@@ -1,6 +1,6 @@
 ## Sweett
 
-Sweett is a time tracker and goal setting app specifically catered towards software engineering job seekers.
+Sweett is a time tracker and goal setting app specifically catered towards software engineering job seekers. [Live Site Link](https://swett.herokuapp.com/#/)
 
 ## Background and Overview
 

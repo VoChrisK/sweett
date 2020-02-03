@@ -77,16 +77,15 @@ class QuestionIndexItem extends React.Component {
         return (
             <div className="question-index-item">
                 <div className="question">
-                    <p>question title</p>
-                    <div>
+                    <p>{this.props.question.name}</p>
+                    <div className="question-btns">
                         {this.timeTrackerButtons()}
                         <i onClick={this.expandQuestion.bind(this)} class="fa fa-caret-down"></i>
                     </div>
-                    
                 </div>
                 <div className="question-stats invisible">
-                    <h1>Attempts: </h1>
-                    <h1>{formatTime(this.state.time)}</h1>
+                    <span>Attempts: </span>
+                    <span>{formatTime(this.state.time)}</span>
                 </div>
                 <AttemptIndexContainer question={this.props.question} />
                 
