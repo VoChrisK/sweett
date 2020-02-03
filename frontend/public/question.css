@@ -109,7 +109,7 @@
 }
 
 .question-stats {
-    margin-top: 20px;
+    padding: 16px;
 }
 
 #question-add {
@@ -199,6 +199,15 @@
     margin-left: 16px;
     cursor: pointer;
     margin-bottom: 22px;
+}
+
+.fa.fa-caret-up {
+    font-size: 24px;
+    width: 0;
+    height: 0;
+    margin-left: 16px;
+    cursor: pointer;
+    margin-bottom: 26px;
 }
 
 .invisible {

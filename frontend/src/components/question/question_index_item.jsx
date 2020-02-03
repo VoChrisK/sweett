@@ -33,7 +33,15 @@ class QuestionIndexItem extends React.Component {
     }
 
     expandQuestion() {
-        document.getElementsByClassName("attempts-list")[0].classList.remove("invisible");
+        document.getElementsByClassName("attempts-list")[0].classList.toggle("invisible");
+        let caretClassList = document.getElementById("caret").classList;
+        if (caretClassList[1] === "fa-caret-down") {
+            caretClassList.remove("fa-caret-down");
+            caretClassList.add("fa-caret-up");
+        } else {
+            caretClassList.remove("fa-caret-up");
+            caretClassList.add("fa-caret-down");
+        }
     }
 
     handleStopButton(e) {
@@ -81,11 +89,11 @@ class QuestionIndexItem extends React.Component {
                     <p>{this.props.question.name}</p>
                     <div className="question-btns">
                         {this.timeTrackerButtons()}
-                        <i onClick={this.expandQuestion.bind(this)} class="fa fa-caret-down"></i>
+                        <i id="caret" onClick={this.expandQuestion.bind(this)} class="fa fa-caret-down"></i>
                     </div>
                 </div>
                 <div className="question-stats invisible">
-                    <span>Attempts: </span>
+                    <span>New attempt: </span>
                     <span>{formatTime(this.state.time)}</span>
                 </div>
                 <AttemptIndexContainer question={this.props.question} />
