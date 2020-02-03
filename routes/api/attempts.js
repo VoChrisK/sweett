@@ -11,11 +11,11 @@ router.get("/questions/:question_id", (req, res) => {
 });
 
 //fetch all attempts in a category
-router.get("/categories/:category_id"), (req, res) => {
+router.get("/categories/:category_id", (req, res) => {
     Attempt.find({ category_id: req.params.category_id })
         .then(attempts => res.json(attempts))
         .catch(errors => res.status(400).json({ errors }));
-}
+});
 
 //fetches an attempt object
 router.get("/:id", (req, res) => {

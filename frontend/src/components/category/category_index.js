@@ -19,7 +19,6 @@ class CategoryIndex extends React.Component {
     }
 
     if (this.props.categories.length >= 12) {
-
         document.getElementsByClassName("plus-box")[0].style.visibility ="hidden";
     }
 

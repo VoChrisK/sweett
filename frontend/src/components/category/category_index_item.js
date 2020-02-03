@@ -12,7 +12,7 @@ const CategoryIndexItem = ({ category, idx }) => {
       <div className="category">
         <h1 className="cat-title">{category.title}</h1>
         <h1 className="cat-time">
-          {category.actual}/{category.expected} minutes
+          {Math.floor(category.actual / 60)}/{Math.floor(category.expected / 60)} minutes
         </h1>
         <h1 className="cat-progress">Progress: {category.progress}%</h1>
       </div>

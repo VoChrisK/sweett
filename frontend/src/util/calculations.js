@@ -1,23 +1,24 @@
-export const calculateExpectedTime = (attempts, goals) => {
-    let totalTime = 0;
-    for(let i = 0; i < attempts.length; i++) {
-        if (goals[i].addToTotal) totalTime += attempts[i].time;
-    }
-
-    return totalTime;
-};
-
-export const calculateActualTime = (actualTime, limits, goals) => {
+export const calculateExpectedTime = (limits, goals) => {
     let totalQuestions = 0;
-    for(let i = 0; i < goals.length; i++) {
-        if(goals[i].addToTotal) totalQuestions += goals[i].actual;
+    for (let i = 0; i < goals.length; i++) {
+        if (goals[i].addToTotal) totalQuestions += goals[i].expected;
     }
 
-    for(let i = 0; i < limits.length; i++) {
+    for (let i = 0; i < limits.length; i++) {
         totalQuestions *= limits[i];
     }
 
-    return (actualTime + totalQuestions);
+    return totalQuestions;
+};
+
+//add goals later for attempted q's
+export const calculateActualTime = (attempts) => {
+    let totalTime = 0;
+    for (let i = 0; i < attempts.length; i++) {
+        totalTime += attempts[i].time;
+    }
+
+    return totalTime;
 };
 export const calculateProgress = (goal) => {
     return parseFloat(((goal.attempted / goal.expected) * 100).toFixed(2));
