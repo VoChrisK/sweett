@@ -5,7 +5,7 @@ export const fetchQuestionAttempts = questionId => {
 };
 
 export const fetchCategoryAttempts = categoryId => {
-    return axios.get(`/api/attempts/categories/${categoryId}`)
+    return axios.get(`/api/attempts/categories/${categoryId}`);
 };
 
 export const fetchAttempt = questionId => {

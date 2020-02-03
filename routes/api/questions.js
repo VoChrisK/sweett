@@ -31,6 +31,7 @@ router.post("/", (req, res) => {
     if (!isValid) {
         return res.status(400).json(errors);
     }
+
     const question = new Question({ 
         name: req.body.name, 
         category_id: req.body.category_id, 

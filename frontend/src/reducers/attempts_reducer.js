@@ -5,9 +5,9 @@ const attemptsReducer = (state = {}, action) => {
     let nextState;
     switch (action.type) {
         case RECEIVE_ATTEMPTS:
-            nextState = new Object();
+            nextState = {};
             action.attempts.forEach(attempt => {
-                nextState[attempt._id] = attempt
+                nextState[attempt._id] = attempt;
             })
             return nextState;
         case RECEIVE_ATTEMPT:
