@@ -40,7 +40,7 @@ class QuestionIndexItem extends React.Component {
 
         let caretClassList = document.getElementById("caret").classList;
 
-        if (caretClassList[0] === "fa-caret-down") {
+        if (caretClassList[1] === "fa-caret-down") {
             caretClassList.remove("fa-caret-down");
             caretClassList.add("fa-caret-up");
         } else {
@@ -74,13 +74,13 @@ class QuestionIndexItem extends React.Component {
                     this.setState({ time: 0 });
                 });
         })
-        .then(() => {
-          this.props.recordQuestion(this.props.idx);
-          document
-            .getElementsByClassName("question-stats")
-            [this.props.idx].classList.add("invisible");
-          this.setState({ time: 0 });
-        });
+        // .then(() => {
+        //   this.props.recordQuestion(this.props.idx);
+        //   document
+        //     .getElementsByClassName("question-stats")
+        //     [this.props.idx].classList.add("invisible");
+        //   this.setState({ time: 0 });
+        // });
     };
   
 
