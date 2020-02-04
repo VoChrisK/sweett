@@ -19,8 +19,7 @@
 }
 
 #sidebar-toggle-button:hover {
-    /* background-color: #f9f9f9; */
-    transform: rotate(10deg);
+    transform: rotate(-10deg);
 }
 
 #sidebar-categories {

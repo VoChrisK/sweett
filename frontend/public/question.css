@@ -223,6 +223,20 @@
 
 }
 
+.question-delete-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.question-delete {
+    padding: 9px 16px;
+    margin: 16px;
+    background-color: red;
+    color: white;
+    border-radius: 3px;
+    font-weight: bold;
+
 .load-more {
     display: flex;
     justify-content: center;
@@ -237,4 +251,5 @@
 
 .load-more:hover {
     background-color: rgb(182, 182, 182);
+
 }

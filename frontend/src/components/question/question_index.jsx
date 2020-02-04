@@ -46,18 +46,17 @@ class QuestionIndex extends React.Component {
         const goalIndex = document.getElementsByClassName("goal-index")[0];
         const sidebarToggleButton = document.getElementById("sidebar-toggle-button");
 
-    // re-style question, goal divs
-    if (sidebar.style.display === "none") {
-      sidebar.style.display = "block";
-      questionIndex.style.width = "64%";
-      goalIndex.style.width = "20%";
-      sidebarToggleButton.style.left = "0.2%";
-    } else {
-      sidebar.style.display = "none";
-      questionIndex.style.width = "72%";
-      goalIndex.style.width = "28%";
-      sidebarToggleButton.style.left = "0.2%";
-    }
+        // re-style question div
+        if (sidebar.style.display === "none") {
+            sidebar.style.display = "block";
+            questionIndex.style.width = "64%";
+            sidebarToggleButton.style.left = "0.2%";
+        } else {
+            sidebar.style.display = "none";
+            questionIndex.style.width = "80%";
+            sidebarToggleButton.style.left = "0.2%";
+        }
+    
   }
 
     render() {
