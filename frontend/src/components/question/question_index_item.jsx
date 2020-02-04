@@ -81,7 +81,7 @@ class QuestionIndexItem extends React.Component {
                     <p>question title</p>
                     <div>
                         {this.timeTrackerButtons()}
-                        <i onClick={this.expandQuestion.bind(this)} class="fa fa-caret-down"></i>
+                        <i onClick={this.expandQuestion.bind(this)} className="fa fa-caret-down"></i>
                     </div>
                     
                 </div>

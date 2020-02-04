@@ -44,13 +44,15 @@ class GoalIndex extends React.Component {
                     {
                         (!!this.props.goals) ? (
                             Object.values(this.props.goals).map((goal, idx) => {
-                                return <GoalIndexItemContainer deleteGoal={this.props.deleteGoal} goal={goal} key={`goal-${idx}`} />
+                                return (
+                                    <GoalIndexItemContainer deleteGoal={this.props.deleteGoal} goal={goal} key={`goal-${idx}`} />
+                                )
                             })
                         ) : ('')
                     }
-                <li className="goal-form-render">
-                    <GoalCreateFormContainer categoryId={this.props.categoryId}/>
-                </li>
+                    <li className="goal-form-render">
+                        <GoalCreateFormContainer categoryId={this.props.categoryId}/>
+                    </li>
                 </ul>   
             </div>
         );

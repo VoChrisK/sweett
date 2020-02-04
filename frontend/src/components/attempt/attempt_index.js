@@ -11,7 +11,7 @@ class AttemptIndex extends React.Component {
     }
 
     componentDidUpdate(preProps) {
-        if(this.props.attempts.length !== preProps.attempts.length) {
+        if (this.props.attempts.length !== preProps.attempts.length) {
             this.props.requestQuestionAttempts(this.props.question._id);
         }
     }
