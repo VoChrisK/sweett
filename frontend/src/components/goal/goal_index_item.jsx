@@ -19,26 +19,28 @@ class GoalIndexItem extends React.Component {
     increment(e) {
         e.preventDefault();
         const newGoal = Object.assign({}, this.props.goal);
+        if (newGoal.attempted === newGoal.expected) return;
         newGoal.attempted += 1;
         this.props.updateGoal(newGoal)
             .then(goal => {
                 const newCategory = Object.assign({}, this.props.category)
                 newCategory["progress"] = calculateTotalProgress(this.props.goals)
                 this.props.updateCategory(newCategory)
-                    .then(() => this.setState({ progress: calculateProgress(goal) }))
+                    // .then(() => this.setState({ progress: calculateProgress(goal) }))
             })
     }
 
     decrement(e) {
         e.preventDefault();
         const newGoal = Object.assign({}, this.props.goal);
+        if (newGoal.attempted === 0) return
         newGoal.attempted -= 1;
         this.props.updateGoal(newGoal)
             .then(goal => {
                 const newCategory = Object.assign({}, this.props.category)
                 newCategory["progress"] = calculateTotalProgress(this.props.goals)
                 this.props.updateCategory(newCategory)
-                    .then(() => this.setState({ progress: calculateProgress(goal) }))
+                    // .then(() => this.setState({ progress: calculateProgress(goal) }))
             })
     }
 
@@ -53,6 +55,19 @@ class GoalIndexItem extends React.Component {
 
     render() {
         let goal = this.props.goal
+        let percentStyles;
+        if (this.state.progress >= 60) {
+            percentStyles = {
+                color: "white"
+            }
+        } else {
+            percentStyles = {
+                color: "black"
+            }
+        }
+        let percent = <h1 style={percentStyles} className="percent">
+            {this.state.progress}%
+        </h1>
         let styles = {  
             width: `${ this.state.progress }%`
         }
@@ -73,6 +88,7 @@ class GoalIndexItem extends React.Component {
                 </div>
                 <br/>
                 <div className="progress-bar">
+                    {percent}
                     <div className="progress-completed" style={styles}>
                     </div>
                 </div>
