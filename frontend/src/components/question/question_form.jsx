@@ -7,7 +7,7 @@ class QuestionForm extends React.Component {
     this.state = {
       name: "",
       difficulty: "Easy",
-      categoryId: this.props.location.pathname.slice(12, -1)
+      categoryId: this.props.location.pathname.slice(12)
     };
   }
 
@@ -26,8 +26,6 @@ class QuestionForm extends React.Component {
       status: "Incomplete",
       category_id: this.state.categoryId
     };
-    this.props.processForm(question).then(this.props.closeModal);
-
     console.log(question, "!@#!@#!@#");
     this.props.processForm(question).then(this.props.closeModal);
   }

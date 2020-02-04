@@ -5,6 +5,7 @@ import QuestionIndexItemContainer from "./question_index_item_container";
 class QuestionIndex extends React.Component {
   constructor(props) {
     super(props);
+    
   }
 
   componentDidMount() {
@@ -34,6 +35,7 @@ class QuestionIndex extends React.Component {
   }
 
     render() {
+      console.log(this.props, 'props')
         return (
             <div className="question-index">
                 <button id="sidebar-toggle-button" onClick={this.toggleSidebar}>
