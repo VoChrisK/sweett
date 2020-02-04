@@ -69,6 +69,7 @@ class CategoryShow extends React.Component {
 
   render() {
     this.state = this.props.category;
+    console.log(this.state, 'show cat state')
 
     if (!this.props.category) return null;
 

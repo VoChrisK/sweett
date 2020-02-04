@@ -27,7 +27,10 @@ class GoalForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        let newGoal = Object.assign({}, this.state.goal);
         this.props.processForm(this.state.goal)
+        this.setState({ goal: newGoal });
+
     }
     
     handleCheck() {
@@ -51,6 +54,7 @@ class GoalForm extends React.Component {
     }
 
     render() {
+        console.log(this.props, 'goal props')
         let goal = this.state.goal;
         let errors = this.props.errors
         return(

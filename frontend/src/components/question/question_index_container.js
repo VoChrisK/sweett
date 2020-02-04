@@ -11,14 +11,11 @@ const mapStateToProps = state => ({
     hardQuestions: Object.values(state.entities.questions).filter(question => question.difficulty === "Hard")
 });
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        addQuestion: () => dispatch(openModal("addQuestion")),
-        requestQuestions: categoryId => dispatch(requestQuestions(categoryId))
-    }
-}
+const mapDispatchToProps = dispatch => {
+  return {
+    addQuestion: () => dispatch(openModal("addQuestion")),
+    requestQuestions: categoryId => dispatch(requestQuestions(categoryId))
+  };
+};
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps,
-)(QuestionIndex);
+export default connect(mapStateToProps, mapDispatchToProps)(QuestionIndex);

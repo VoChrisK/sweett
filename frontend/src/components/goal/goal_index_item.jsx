@@ -30,6 +30,7 @@ class GoalIndexItem extends React.Component {
             })
     }
 
+
     decrement(e) {
         e.preventDefault();
         const newGoal = Object.assign({}, this.props.goal);
@@ -54,6 +55,7 @@ class GoalIndexItem extends React.Component {
     }
 
     render() {
+        console.log(this.props, 'goal props')
         let goal = this.props.goal
         let percentStyles;
         if (this.state.progress >= 60) {
@@ -73,6 +75,7 @@ class GoalIndexItem extends React.Component {
         }
         return (
             <div className="goal-index-item">
+                <div className="x-box" onClick={() => this.props.deleteGoal(this.state.goal._id)}></div>
                 <span className="goal-description">{goal.description}</span>
                 <br/>
                 <div className="row-me-up">

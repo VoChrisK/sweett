@@ -17,20 +17,23 @@ class QuestionIndexItem extends React.Component {
         this.handlePauseButton = this.handlePauseButton.bind(this);
     }
 
-    handleRecordButton(e) {
-        this.setState({ isRecording: true }, () => {
-            document.getElementsByClassName("question-stats")[this.props.idx].classList.remove("invisible");
-            this.recordTime();
-        });
-    }
+  handleRecordButton(e) {
+    this.setState({ isRecording: true }, () => {
+      document
+        .getElementsByClassName("question-stats")
+        [this.props.idx].classList.remove("invisible");
+      this.recordTime();
+    });
+  }
 
-    recordButton() {
-        return (
-            <button className="record-button" onClick={this.handleRecordButton}>
-
-            </button>
-        );
-    }
+  recordButton() {
+    return (
+      <button
+        className="record-button"
+        onClick={this.handleRecordButton}
+      ></button>
+    );
+  }
 
     expandQuestion() {
         document.getElementsByClassName("attempts-list")[this.props.idx].classList.toggle("invisible");
@@ -71,7 +74,15 @@ class QuestionIndexItem extends React.Component {
                     this.setState({ time: 0 });
                 });
         })
-    }
+        .then(() => {
+          this.props.recordQuestion(this.props.idx);
+          document
+            .getElementsByClassName("question-stats")
+            [this.props.idx].classList.add("invisible");
+          this.setState({ time: 0 });
+        });
+    };
+  
 
     stopPauseCancelButtons() {
         return (
@@ -82,21 +93,19 @@ class QuestionIndexItem extends React.Component {
         );
     }
 
-    timeTrackerButtons() {
-        const buttons = this.state.isRecording ? this.stopPauseCancelButtons() : this.recordButton()
+  timeTrackerButtons() {
+    const buttons = this.state.isRecording
+      ? this.stopPauseCancelButtons()
+      : this.recordButton();
 
-        return (
-            <div className="time-track-buttons">
-                {buttons}
-            </div>
-        );
-    }
+    return <div className="time-track-buttons">{buttons}</div>;
+  }
 
-    recordTime() {
-        this.interval = setInterval(() => {
-            this.setState({ time: this.state.time + 1});
-        }, 1000);
-    }
+  recordTime() {
+    this.interval = setInterval(() => {
+      this.setState({ time: this.state.time + 1 });
+    }, 1000);
+  }
 
     render() {
         return (

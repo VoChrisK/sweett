@@ -1,13 +1,13 @@
 import { connect } from "react-redux";
-import QuestionIndexItem from './question_index_item';
+import QuestionIndexItem from "./question_index_item";
 import { createAttempt } from "../../actions/attempt_actions";
 import { recordQuestion } from "../../actions/question_actions";
 import { requestQuestionAttempts } from './../../actions/attempt_actions';
 
 const mapStateToProps = (state, ownProps) => {
-    return ({
-        idx: ownProps.idx
-    });
+  return {
+    idx: ownProps.idx
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
