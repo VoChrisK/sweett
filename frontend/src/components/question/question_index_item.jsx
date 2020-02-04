@@ -14,6 +14,7 @@ class QuestionIndexItem extends React.Component {
 
         this.handleRecordButton = this.handleRecordButton.bind(this);
         this.handleStopButton = this.handleStopButton.bind(this);
+        this.handlePauseButton = this.handlePauseButton.bind(this);
     }
 
     handleRecordButton(e) {
@@ -45,6 +46,20 @@ class QuestionIndexItem extends React.Component {
         }
     }
 
+    handlePauseButton(e) {
+        // when pause button shown 
+        if (e.currentTarget.classList.length === 1) {
+            clearInterval(this.interval);
+        } 
+        // when play button shown
+        else {
+            this.recordTime();
+        }
+
+        // change icons
+        e.currentTarget.classList.toggle("play-button");
+    }
+
     handleStopButton(e) {
         e.currentTarget.parentElement.parentElement.parentElement.style.height = "40px";
         this.setState({ isRecording: false }, () => {
@@ -62,7 +77,7 @@ class QuestionIndexItem extends React.Component {
         return (
             <div className="stop-pause-cancel-buttons">
                 <button className="stop-button" onClick={this.handleStopButton}></button>
-                <button className="pause-button" onClick={() => clearInterval(this.interval)}></button>
+                <button className="pause-button" onClick={this.handlePauseButton}></button>
             </div>
         );
     }
@@ -96,7 +111,7 @@ class QuestionIndexItem extends React.Component {
                     </div>
                 </div>
                 <div className="question-stats invisible">
-                    <span>New attempt: </span>
+                    <span>New attempt </span>
                     <span>{formatTime(this.state.time)}</span>
                 </div>
                 
