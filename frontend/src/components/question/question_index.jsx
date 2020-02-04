@@ -16,6 +16,12 @@ class QuestionIndex extends React.Component {
         this.props.requestQuestions(this.props.match.params.categoryId);
     }
 
+    componentDidUpdate(prevProps) {
+        if (prevProps.questions.length !== this.props.questions.length) {
+            this.props.requestQuestions(this.props.match.params.categoryId)
+        }
+    }
+
     renderMoreQuestions(questions, length) {
         return questions.slice(3).map((question, idx) => <QuestionIndexItemContainer key={idx+3+length} question={question} idx={idx+3+length} />);
     }
@@ -57,7 +63,7 @@ class QuestionIndex extends React.Component {
     render() {
         const easyQuestionlength = this.props.easyQuestions.length;
         const mediumQuestionlength = this.props.mediumQuestions.length;
-
+        const easyQuestions = Object.values(this.props.questions).filter(question => question.difficulty === "Easy")
         return (
             <div className="question-index">
                 <button id="sidebar-toggle-button" onClick={this.toggleSidebar}>
@@ -76,7 +82,7 @@ class QuestionIndex extends React.Component {
                     <div className="question-container">
                         <p className="question-container-title">Easy</p>
                         {
-                            this.props.easyQuestions.slice(0, 3).map((question, idx) => <QuestionIndexItemContainer key={idx} question={question} idx={idx} />)
+                            easyQuestions.slice(0, 3).map((question, idx) => <QuestionIndexItemContainer key={idx} question={question} idx={idx} />)
                         }
                         {this.state.loadedEasyQuestions ? this.renderMoreQuestions(this.props.easyQuestions, 0) : this.renderLoadMore(this.props.easyQuestions.length, "loadedEasyQuestions")}
                     </div>
