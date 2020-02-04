@@ -2,7 +2,6 @@ import React from 'react';
 import { formatTime, formatDate } from './../../util/formats';
 
 const AttemptIndexItem = ({ attempt, deleteAttempt, idx }) => {
-    console.log(attempt)
     return (
         <div className="attempt">
             <strong className="attempt-number">Attempt {idx+1}</strong>
