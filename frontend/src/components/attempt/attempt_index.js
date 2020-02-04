@@ -5,14 +5,7 @@ class AttemptIndex extends React.Component {
     constructor(props) {
         super(props);
     }
-
-    // componentDidUpdate(preProps) {
-    //     if(this.props.attempts.length !== preProps.attempts.length) {
-    //         console.log(this.props.attempts.length);
-    //         this.props.requestQuestionAttempts(this.props.question._id);
-    //     }
-    // }
-
+    
     render() {
         if (!this.props.attempts)  return <ul className="attempts-list invisible"></ul>;
 

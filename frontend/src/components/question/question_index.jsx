@@ -5,10 +5,33 @@ import QuestionIndexItemContainer from './question_index_item_container';
 class QuestionIndex extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            loadedEasyQuestions: false,
+            loadedMediumQuestions: false,
+            loadedHardQuestions: false
+        }
     }
 
     componentDidMount() {
         this.props.requestQuestions(this.props.match.params.categoryId);
+    }
+
+    renderMoreQuestions(questions, length) {
+        return questions.slice(3).map((question, idx) => <QuestionIndexItemContainer key={idx+3+length} question={question} idx={idx+3+length} />);
+    }
+
+    handleLoadMore(input) {
+        this.setState({[input]: true});
+    }
+
+    renderLoadMore(length, input) {
+        if(length > 3) {
+            return (
+                <div onClick={event => this.handleLoadMore(input)} class="load-more">
+                    <h1>Load More</h1>
+                </div>  
+            );
+        }
     }
 
     toggleSidebar() {
@@ -32,6 +55,9 @@ class QuestionIndex extends React.Component {
     }
 
     render() {
+        const easyQuestionlength = this.props.easyQuestions.length;
+        const mediumQuestionlength = this.props.mediumQuestions.length;
+
         return (
             <div className="question-index">
                 <button id="sidebar-toggle-button" onClick={this.toggleSidebar}>
@@ -50,20 +76,23 @@ class QuestionIndex extends React.Component {
                     <div className="question-container">
                         <p className="question-container-title">Easy</p>
                         {
-                            this.props.easyQuestions.map((question, idx) => <QuestionIndexItemContainer key={idx} question={question} idx={idx} />)
+                            this.props.easyQuestions.slice(0, 3).map((question, idx) => <QuestionIndexItemContainer key={idx} question={question} idx={idx} />)
                         }
+                        {this.state.loadedEasyQuestions ? this.renderMoreQuestions(this.props.easyQuestions, 0) : this.renderLoadMore(this.props.easyQuestions.length, "loadedEasyQuestions")}
                     </div>
                     <div className="question-container">
                         <p className="question-container-title">Medium</p>
                         {
-                            this.props.mediumQuestions.map((question, idx) => <QuestionIndexItemContainer key={idx} question={question} idx={idx} />)
+                            this.props.mediumQuestions.slice(0, 3).map((question, idx) => <QuestionIndexItemContainer key={idx + easyQuestionlength} question={question} idx={idx + easyQuestionlength} />)
                         }
+                        {this.state.loadedMediumQuestions ? this.renderMoreQuestions(this.props.mediumQuestions, easyQuestionlength) : this.renderLoadMore(this.props.mediumQuestions.length, "loadedMediumQuestions")}
                     </div>
                     <div className="question-container">
                         <p className="question-container-title">Hard</p>
                         {
-                            this.props.hardQuestions.map((question, idx) => <QuestionIndexItemContainer key={idx} question={question} idx={idx} />)
+                            this.props.hardQuestions.slice(0, 3).map((question, idx) => <QuestionIndexItemContainer key={idx + easyQuestionlength + mediumQuestionlength} question={question} idx={idx + easyQuestionlength + mediumQuestionlength} />)
                         }
+                        {this.state.loadedHardQuestions ? this.renderMoreQuestions(this.props.hardQuestions, easyQuestionlength + mediumQuestionlength) : this.renderLoadMore(this.props.hardQuestions.length, "loadedHardQuestions")}
                     </div>
                 </div>
             </div>

@@ -18,13 +18,6 @@ router.get("/:id", (req, res) => {
         .catch(errors => res.status(404).json({ errors }));
 });
 
-// testing with a questions index
-// router.get("/", (req, res) => {
-//     Question.find({})
-//         .then(questions => res.json(questions))
-//         .catch(errors => res.status(404).json({ errors }));
-// });
-
 router.post("/", (req, res) => {
     const { errors, isValid } = validateQuestionInput(req.body);
 
@@ -35,7 +28,9 @@ router.post("/", (req, res) => {
     const question = new Question({ 
         name: req.body.name, 
         category_id: req.body.category_id, 
-        difficulty: req.body.difficulty 
+        difficulty: req.body.difficulty,
+        status: req.body.status,
+        time: req.body.time
     });
     question.save()
         .then(question => res.json(question))
@@ -54,6 +49,7 @@ router.patch("/:id", (req, res) => {
             question.name = req.body.name;
             question.status = req.body.status;
             question.difficulty = req.body.difficulty;
+            question.time = req.body.time;
             question.save()
                 .then(question => res.json(question))
                 .catch(errors => res.status(400).json({ errors }));

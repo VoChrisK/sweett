@@ -16,6 +16,11 @@ const QuestionSchema = new Schema({
         required: true,
         default: 'Incomplete'
     },
+    time: {
+        type: Number,
+        required: true,
+        default: 45
+    },
     difficulty: {
         type: String,
         required: true

@@ -6,8 +6,8 @@ class QuestionForm extends React.Component {
         super(props);
         this.state = {
             name: "",
-            difficulty: "",
-            categoryId: this.props.location.pathname.slice(12, -1)
+            difficulty: "Easy",
+            categoryId: this.props.location.pathname.slice(12)
         };
     }
 
@@ -23,7 +23,9 @@ class QuestionForm extends React.Component {
         let question = {
             name: this.state.name,
             difficulty: this.state.difficulty,
-            category_id: this.state.categoryId
+            status: "Incomplete",
+            category_id: this.state.categoryId,
+            time: 45
         };
 
         this.props.processForm(question).then(this.props.closeModal);
@@ -50,8 +52,8 @@ class QuestionForm extends React.Component {
                             <input 
                                 type="radio" 
                                 name="difficulty" 
-                                value="easy" 
-                                onChange={this.update("difficulty")}
+                                value="Easy" 
+                                onClick={this.update("difficulty")}
                                 defaultChecked={true}
                             />
                             Easy
@@ -60,8 +62,8 @@ class QuestionForm extends React.Component {
                             <input
                                 type="radio"
                                 name="difficulty"
-                                value="medium"
-                                onChange={this.update("difficulty")}
+                                value="Medium"
+                                onClick={this.update("difficulty")}
                             />
                             Medium
                         </label>
@@ -69,8 +71,8 @@ class QuestionForm extends React.Component {
                             <input
                                 type="radio"
                                 name="difficulty"
-                                value="hard"
-                                onChange={this.update("difficulty")}
+                                value="Hard"
+                                onClick={this.update("difficulty")}
                             />
                             Hard
                         </label>
