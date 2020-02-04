@@ -35,11 +35,9 @@ class QuestionIndexItem extends React.Component {
   }
 
     expandQuestion() {
-        console.log(document.getElementsByClassName("attempts-list"), "@@@");
         document.getElementsByClassName("attempts-list")[this.props.idx].classList.toggle("invisible");
 
         let caretClassList = document.getElementById("caret").classList;
-        console.log(this.props.idx)
 
         if (caretClassList[0] === "fa-caret-down") {
             caretClassList.remove("fa-caret-down");
