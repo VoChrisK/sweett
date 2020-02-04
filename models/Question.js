@@ -8,6 +8,7 @@ const QuestionSchema = new Schema({
     },
     category_id: {
         type: Schema.Types.ObjectId,
+        // type: String,
         ref: 'categories',
         required: true
     },
@@ -15,6 +16,11 @@ const QuestionSchema = new Schema({
         type: String,
         required: true,
         default: 'Incomplete'
+    },
+    time: {
+        type: Number,
+        required: true,
+        default: 45
     },
     difficulty: {
         type: String,

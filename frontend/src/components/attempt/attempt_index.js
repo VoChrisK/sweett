@@ -8,6 +8,7 @@ class AttemptIndex extends React.Component {
         this.handleDeleteQuestion = this.handleDeleteQuestion.bind(this);
     }
 
+
     // componentDidUpdate(preProps) {
     //     if(this.props.attempts.length !== preProps.attempts.length) {
     //         console.log(this.props.attempts.length);

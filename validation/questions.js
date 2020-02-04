@@ -6,7 +6,6 @@ module.exports = function validateQuestionsInput(data) {
     data.name = validText(data.name) ? data.name : "";
     data.status = validText(data.status) ? data.status : "";
     data.difficulty = validText(data.difficulty) ? data.difficulty : "";
-
     if (Validator.isEmpty(data.name)) {
         errors.name = "Name is required";
     }

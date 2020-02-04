@@ -28,6 +28,9 @@ function Modal({ modal, closeModal }) {
         case 'updateCategory':
             component = <CategoryEditFormContainer />;
             break;
+        // case 'updateCategory':
+        //     component = <CategoryEditFormContainer />;
+        //     break;
         default:
             return null;
     }
