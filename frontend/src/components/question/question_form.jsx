@@ -25,6 +25,7 @@ class QuestionForm extends React.Component {
             difficulty: this.state.difficulty,
             category_id: this.state.categoryId
         };
+
         this.props.processForm(question).then(this.props.closeModal);
     }
 

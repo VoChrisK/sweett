@@ -4,7 +4,6 @@ import { formatTime } from './../../util/formats';
 import { urlencoded } from 'body-parser';
 import AttemptIndexContainer from './../attempt/attempt_index_container';
 
-
 class QuestionIndexItem extends React.Component {
     constructor(props) {
         super(props);
@@ -33,7 +32,17 @@ class QuestionIndexItem extends React.Component {
     }
 
     expandQuestion() {
-        document.getElementsByClassName("attempts-list")[0].classList.remove("invisible");
+        document.getElementsByClassName("attempts-list")[this.props.idx].classList.toggle("invisible");
+
+        let caretClassList = document.getElementById("caret").classList;
+
+        if (caretClassList[0] === "fa-caret-down") {
+            caretClassList.remove("fa-caret-down");
+            caretClassList.add("fa-caret-up");
+        } else {
+            caretClassList.remove("fa-caret-up");
+            caretClassList.add("fa-caret-down");
+        }
     }
 
     handleStopButton(e) {
@@ -78,17 +87,19 @@ class QuestionIndexItem extends React.Component {
         return (
             <div className="question-index-item">
                 <div className="question">
-                    <p>question title</p>
-                    <div>
+                    <a className="question-link" href={`https://leetcode.com/problems/${this.props.question.name.toLowerCase().split(" ").join("-")}`}>
+                        {this.props.question.name}
+                    </a>
+                    <div className="question-btns">
                         {this.timeTrackerButtons()}
                         <i onClick={this.expandQuestion.bind(this)} className="fa fa-caret-down"></i>
                     </div>
-                    
                 </div>
                 <div className="question-stats invisible">
-                    <h1>Attempts: </h1>
-                    <h1>{formatTime(this.state.time)}</h1>
+                    <span>New attempt: </span>
+                    <span>{formatTime(this.state.time)}</span>
                 </div>
+                
                 <AttemptIndexContainer question={this.props.question} />
             </div>
         );

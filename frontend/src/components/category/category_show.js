@@ -1,6 +1,7 @@
 import React from 'react';
 import LeetCodeContainer from './../leetcode/leetcode_container';
 import SidebarContainer from "../sidebar/sidebar_container";
+import { calculateExpectedTime, calculateActualTime, calculateTotalProgress } from './../../util/calculations';
 
 class CategoryShow extends React.Component {
   constructor(props) {
@@ -8,8 +9,16 @@ class CategoryShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.requestCategory(this.props.match.params.categoryId);
-  }
+    this.props.requestCategory(this.props.match.params.categoryId)
+      .then(categoryData => this.props.requestCategoryAttempts(categoryData.category._id)
+        .then(attemptsData => {
+          categoryData.category.actual = calculateActualTime(attemptsData.attempts);
+          categoryData.category.expected = calculateExpectedTime([45], this.props.goals);
+          categoryData.category.progress = calculateTotalProgress(this.props.goals);
+          this.props.updateCategory(categoryData.category);
+        })
+      )
+    }
 
   handleEdit() {
     let form = document.getElementById("edit-form");

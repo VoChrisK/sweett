@@ -4,8 +4,7 @@ import { requestQuestionAttempts } from '../../actions/attempt_actions';
 
 const mapStateToProps = (state, ownProps) => {
     return ({
-        question: ownProps.question,
-        attempts: Object.values(state.entities.attempts)
+        attempts: Object.values(state.entities.attempts).filter(attempt => attempt.question_id === ownProps.question._id)
     });
 };
 

@@ -10,7 +10,7 @@ router.get("/questions/:question_id", (req, res) => {
         .catch(errors => res.status(400).json({ errors }));
 });
 
-// fetch all attempts in a category
+//fetch all attempts in a category
 router.get("/categories/:category_id", (req, res) => {
     Attempt.find({ category_id: req.params.category_id })
         .then(attempts => res.json(attempts))
