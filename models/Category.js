@@ -35,6 +35,11 @@ const CategorySchema = new Schema({
     date: {
         type: Date,
         default: Date.now
+    },
+    tasks: {
+        type: String,
+        required: false,
+        default: ""
     }
 });
 
