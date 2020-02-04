@@ -24,14 +24,9 @@ class QuestionForm extends React.Component {
       name: this.state.name,
       difficulty: this.state.difficulty,
       status: "Incomplete",
-
-<<<<<<< HEAD
       category_id: this.state.categoryId
     };
-=======
-        this.props.processForm(question).then(this.props.closeModal);
-    }
->>>>>>> e95053322307e7d00c246528ed03e0e10239f53d
+    this.props.processForm(question).then(this.props.closeModal);
 
     console.log(question, "!@#!@#!@#");
     this.props.processForm(question).then(this.props.closeModal);
