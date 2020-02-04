@@ -5,16 +5,17 @@ import { urlencoded } from 'body-parser';
 import AttemptIndexContainer from './../attempt/attempt_index_container';
 
 class QuestionIndexItem extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      time: 0,
-      isRecording: false
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            time: 0,
+            isRecording: false
+        }
 
-    this.handleRecordButton = this.handleRecordButton.bind(this);
-    this.handleStopButton = this.handleStopButton.bind(this);
-  }
+        this.handleRecordButton = this.handleRecordButton.bind(this);
+        this.handleStopButton = this.handleStopButton.bind(this);
+        this.handlePauseButton = this.handlePauseButton.bind(this);
+    }
 
   handleRecordButton(e) {
     this.setState({ isRecording: true }, () => {
@@ -48,16 +49,30 @@ class QuestionIndexItem extends React.Component {
         }
     }
 
-  handleStopButton(e) {
-    e.currentTarget.parentElement.parentElement.parentElement.style.height =
-      "40px";
-    this.setState({ isRecording: false }, () => {
-      clearInterval(this.interval);
-      this.props
-        .createAttempt({
-          question_id: this.props.question._id,
-          category_id: this.props.question.category_id,
-          time: this.state.time
+    handlePauseButton(e) {
+        // when pause button shown 
+        if (e.currentTarget.classList.length === 1) {
+            clearInterval(this.interval);
+        } 
+        // when play button shown
+        else {
+            this.recordTime();
+        }
+
+        // change icons
+        e.currentTarget.classList.toggle("play-button");
+    }
+
+    handleStopButton(e) {
+        e.currentTarget.parentElement.parentElement.parentElement.style.height = "40px";
+        this.setState({ isRecording: false }, () => {
+            clearInterval(this.interval);
+            this.props.createAttempt({ question_id: this.props.question._id, category_id: this.props.question.category_id, time: this.state.time })
+                .then(() => {
+                    this.props.recordQuestion(this.props.idx);
+                    document.getElementsByClassName("question-stats")[this.props.idx].classList.add("invisible");
+                    this.setState({ time: 0 });
+                });
         })
         .then(() => {
           this.props.recordQuestion(this.props.idx);
@@ -66,23 +81,17 @@ class QuestionIndexItem extends React.Component {
             [this.props.idx].classList.add("invisible");
           this.setState({ time: 0 });
         });
-    });
-  }
+    };
+  
 
-  stopPauseCancelButtons() {
-    return (
-      <div className="stop-pause-cancel-buttons">
-        <button
-          className="stop-button"
-          onClick={this.handleStopButton}
-        ></button>
-        <button
-          className="pause-button"
-          onClick={() => clearInterval(this.interval)}
-        ></button>
-      </div>
-    );
-  }
+    stopPauseCancelButtons() {
+        return (
+            <div className="stop-pause-cancel-buttons">
+                <button className="stop-button" onClick={this.handleStopButton}></button>
+                <button className="pause-button" onClick={this.handlePauseButton}></button>
+            </div>
+        );
+    }
 
   timeTrackerButtons() {
     const buttons = this.state.isRecording
@@ -111,7 +120,7 @@ class QuestionIndexItem extends React.Component {
                     </div>
                 </div>
                 <div className="question-stats invisible">
-                    <span>New attempt: </span>
+                    <span>New attempt </span>
                     <span>{formatTime(this.state.time)}</span>
                 </div>
                 
