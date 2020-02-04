@@ -42,7 +42,7 @@ export const requestQuestion = questionId => dispatch => {
 
 export const createQuestion = question => dispatch => {
     return QuestionsApiUtil.createQuestion(question)
-        .then(newQuestion => dispatch(receiveQuestion(newQuestion)))
+        .then(newQuestion => dispatch(receiveQuestion(newQuestion.data)))
 };
 
 export const updateQuestion = question => dispatch => {
