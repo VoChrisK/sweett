@@ -1,6 +1,7 @@
 .question-index {
     background-color: #f9f9f9;
     width: 64%;
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -231,4 +232,29 @@
 
 .load-more:hover {
     background-color: rgb(182, 182, 182);
+}
+
+.fa.fa-hourglass {
+    position: absolute;
+    right: 20px;
+    cursor: pointer;
+}
+
+.edit-time {
+    position: absolute;
+    top: 37px;
+    left: -122px;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    width: 250px;
+    font-size: 18px;
+    text-align: center;
+    border-radius: 7px;
+    line-height: 1.3;
+}
+
+#edit-time-input {
+    border-radius: 5px;
+    width: 45px;
 }

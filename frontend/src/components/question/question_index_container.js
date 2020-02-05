@@ -2,26 +2,30 @@ import { connect } from 'react-redux';
 import QuestionIndex from './question_index';
 import { openModal } from '../../actions/modal_actions'
 import { requestQuestions } from '../../actions/question_actions';
+import { receiveTime } from './../../actions/time_actions';
 import { calculateActualTime, calculateExpectedTime } from '../../util/calculations';
+import { updateCategory } from '../../actions/category_actions';
+import { withRouter } from 'react-router-dom'
 
-
-const mapStateToProps = state => ({
+const mapStateToProps = (state, ownProps) => ({
     questions: state.entities.questions,
     easyQuestions: Object.values(state.entities.questions).filter(question => question.difficulty === "Easy"),
     mediumQuestions: Object.values(state.entities.questions).filter(question => question.difficulty === "Medium"),
     hardQuestions: Object.values(state.entities.questions).filter(question => question.difficulty === "Hard"),
     actualTime: calculateActualTime(Object.values(state.entities.attempts)),
-    expectedTime: calculateExpectedTime([45], Object.values(state.entities.goals))
+    expectedTime: calculateExpectedTime(ownProps.category.timeLimit, Object.values(state.entities.goals))
 });
 
 const mapDispatchToProps = (dispatch) => {
     return {
         addQuestion: () => dispatch(openModal("addQuestion")),
-        requestQuestions: categoryId => dispatch(requestQuestions(categoryId))
+        requestQuestions: categoryId => dispatch(requestQuestions(categoryId)),
+        updateCategory: category => dispatch(updateCategory(category)),
+        editTimeLimit: time => dispatch(receiveTime(time))
     }
 }
 
-export default connect(
+export default withRouter(connect(
     mapStateToProps,
     mapDispatchToProps,
-)(QuestionIndex);
+)(QuestionIndex));

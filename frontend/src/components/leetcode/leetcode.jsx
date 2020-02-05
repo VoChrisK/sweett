@@ -14,7 +14,7 @@ class Leetcode extends React.Component {
         return (
             <div className="leetcode">
                 <SidebarContainer />
-                <QuestionIndexContainer />
+                <QuestionIndexContainer category={this.props.category} />
                 <GoalIndexContainer categoryId={this.props.category._id}/>
             </div>
         );
