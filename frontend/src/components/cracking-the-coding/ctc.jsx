@@ -1,11 +1,11 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom'
 import SidebarContainer from '../sidebar/sidebar_container';
-import QuestionIndexContainer from '../question/question_index_container';
+// import TaskIndexContainer from '../task/task_index_container';
 import GoalIndexContainer from '../goal/goal_index_container';
 
 
-class Leetcode extends React.Component {
+class CrackingTheCoding extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -14,11 +14,11 @@ class Leetcode extends React.Component {
         return (
             <div className="leetcode">
                 <SidebarContainer />
-                <QuestionIndexContainer category={this.props.category} />
-                <GoalIndexContainer categoryId={this.props.category._id}/>
+                {/* <TaskIndexContainer /> */}
+                <GoalIndexContainer categoryId={this.props.category._id} />
             </div>
         );
     }
 }
 
-export default withRouter(Leetcode);
+export default withRouter(CrackingTheCoding);

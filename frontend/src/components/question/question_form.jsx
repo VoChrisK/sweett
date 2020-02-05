@@ -6,7 +6,7 @@ class QuestionForm extends React.Component {
         super(props);
         this.state = {
             name: "",
-            difficulty: "Easy",
+            section: "Easy",
             categoryId: this.props.location.pathname.slice(12)
         };
     }
@@ -22,7 +22,7 @@ class QuestionForm extends React.Component {
         e.preventDefault();
         let question = {
             name: this.state.name,
-            difficulty: this.state.difficulty,
+            section: this.state.section,
             status: "Incomplete",
             category_id: this.state.categoryId,
             time: 45
@@ -46,37 +46,43 @@ class QuestionForm extends React.Component {
                         onChange={this.update("name")}
                         placeholder="ex) Two sum"
                     />
-                    <p>Difficulty</p>
-                    <div className="radio"> 
-                        <label>
-                            <input 
-                                type="radio" 
-                                name="difficulty" 
-                                value="Easy" 
-                                onClick={this.update("difficulty")}
-                                defaultChecked={true}
-                            />
-                            Easy
-                        </label>
-                        <label>
-                            <input
-                                type="radio"
-                                name="difficulty"
-                                value="Medium"
-                                onClick={this.update("difficulty")}
-                            />
-                            Medium
-                        </label>
-                        <label>
-                            <input
-                                type="radio"
-                                name="difficulty"
-                                value="Hard"
-                                onClick={this.update("difficulty")}
-                            />
-                            Hard
-                        </label>
-                    </div>
+                    <p>Section</p>
+                    {
+                        this.props.state.entities.categories[this.state.categoryId].title === "Leetcode" ? (
+                            <div className="radio"> 
+                                <label>
+                                    <input 
+                                        type="radio" 
+                                        name="section" 
+                                        value="Easy" 
+                                        onClick={this.update("section")}
+                                        defaultChecked={true}
+                                    />
+                                    Easy
+                                </label>
+                                <label>
+                                    <input
+                                        type="radio"
+                                        name="section"
+                                        value="Medium"
+                                        onClick={this.update("section")}
+                                    />
+                                    Medium
+                                </label>
+                                <label>
+                                    <input
+                                        type="radio"
+                                        name="section"
+                                        value="Hard"
+                                        onClick={this.update("section")}
+                                    />
+                                    Hard
+                                </label>
+                            </div>
+                        ) : (
+                            <input className="question-name-input" type="text" value={this.state.section} onChange={this.update("section")}/>
+                        )
+                    }
                     <input id="question-form-submit" type="submit" className="add-question-submit" value="Submit" />
                 </form>
             </div>
