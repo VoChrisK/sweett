@@ -5,10 +5,12 @@ import { requestCategory } from '../../actions/category_actions';
 import { openModal, closeModal } from "../../actions/modal_actions";
 import { updateCategory } from "../../actions/category_actions";
 import { requestCategoryAttempts } from '../../actions/attempt_actions';
+import { requestCategoryTasks } from '../../actions/task_actions';
 
 const mapStateToProps = (state, ownProps) => {
     return ({
         category: state.entities.categories[ownProps.match.params.categoryId],
+        tasks: state.entities.tasks,
         goals: Object.values(state.entities.goals)
     });
 }
@@ -16,6 +18,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => {
     return {
       edit: category => dispatch(updateCategory(category)),
+      requestCategoryTasks: categoryId => dispatch(requestCategoryTasks(categoryId)),
       requestCategory: categoryId => dispatch(requestCategory(categoryId)),
       requestCategoryAttempts: categoryId => dispatch(requestCategoryAttempts(categoryId)),
       updateCategory: category => dispatch(updateCategory(category)),
