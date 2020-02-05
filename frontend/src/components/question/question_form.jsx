@@ -6,7 +6,7 @@ class QuestionForm extends React.Component {
         super(props);
         this.state = {
             name: "",
-            section: "",
+            section: "Easy",
             categoryId: this.props.location.pathname.slice(12)
         };
     }
