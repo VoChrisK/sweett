@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import { requestGoal } from '../../actions/goal_actions';
 
 class SignupForm extends React.Component {
     constructor(props) {
@@ -34,6 +35,7 @@ class SignupForm extends React.Component {
         this.props.processForm(user, this.props.history)
         .then(() => {
             this.props.createCategory({title: "Leetcode"})
+            this.props.createCategory({title: "CrackingTheCode"})
             .then(() => {
                 this.props.history.push('/dashboard');
                 this.props.closeModal();

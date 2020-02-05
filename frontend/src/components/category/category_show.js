@@ -1,5 +1,6 @@
 import React from 'react';
 import LeetCodeContainer from './../leetcode/leetcode_container';
+import CrackingTheCodingContainer from './../cracking-the-coding/ctc_container';
 import SidebarContainer from "../sidebar/sidebar_container";
 import { calculateExpectedTime, calculateActualTime, calculateTotalProgress } from './../../util/calculations';
 
@@ -77,6 +78,8 @@ class CategoryShow extends React.Component {
 
     if (this.props.category.title === "Leetcode") {
       return <LeetCodeContainer category={this.props.category}/>;
+    } else if (this.props.category.title === "CrackingTheCode") {
+      return <CrackingTheCodingContainer category={this.props.category} />;
     } else {
       return (
         <div className="show-category">

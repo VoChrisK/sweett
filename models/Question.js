@@ -22,7 +22,7 @@ const QuestionSchema = new Schema({
         required: true,
         default: 45
     },
-    difficulty: {
+    section: {
         type: String,
         required: true
     },
