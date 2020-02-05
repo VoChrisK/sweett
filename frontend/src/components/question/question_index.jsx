@@ -12,9 +12,9 @@ class QuestionIndex extends React.Component {
         }
     }
 
-  componentDidMount() {
-    this.props.requestQuestions(this.props.match.params.categoryId);
-  }
+    componentDidMount() {
+        this.props.requestQuestions(this.props.match.params.categoryId);
+    }
 
     componentDidUpdate(prevProps) {
         if (prevProps.questions.length !== this.props.questions.length) {
