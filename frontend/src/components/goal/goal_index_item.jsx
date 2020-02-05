@@ -55,7 +55,6 @@ class GoalIndexItem extends React.Component {
     }
 
     render() {
-        console.log(this.props, 'goal props')
         let goal = this.props.goal
         let percentStyles;
         if (this.state.progress >= 60) {
