@@ -93,6 +93,7 @@ class GoalIndexItem extends React.Component {
                     </div>
                 </div>
                 <br/>
+                <button onClick={() => this.props.deleteGoal(this.props.goal._id)}>Delete Me Fam</button>
             </div>
         )
     }

@@ -63,7 +63,7 @@ class QuestionIndex extends React.Component {
     render() {
         const easyQuestionlength = this.props.easyQuestions.length;
         const mediumQuestionlength = this.props.mediumQuestions.length;
-        const easyQuestions = Object.values(this.props.questions).filter(question => question.difficulty === "Easy")
+        const easyQuestions = Object.values(this.props.questions).filter(question => question.section === "Easy")
         return (
             <div className="question-index">
                 <button id="sidebar-toggle-button" onClick={this.toggleSidebar}>

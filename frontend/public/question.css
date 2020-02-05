@@ -158,7 +158,7 @@
     height: 30px;
 }
 
-#question-form-name {
+.question-name-input {
     height: 32px;
     padding: 6px 16px;
     margin-bottom: 8px;
