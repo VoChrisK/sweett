@@ -15,9 +15,11 @@ class CategoryShow extends React.Component {
           categoryData.category.actual = calculateActualTime(attemptsData.attempts);
           categoryData.category.expected = calculateExpectedTime([45], this.props.goals);
           categoryData.category.progress = calculateTotalProgress(this.props.goals);
-          this.props.updateCategory(categoryData.category);
+          this.props.updateCategory(categoryData.category)
         })
       )
+      this.props.requestCategoryTasks(this.props.match.params.categoryId)
+        
     }
 
   handleEdit() {
@@ -69,7 +71,7 @@ class CategoryShow extends React.Component {
 
   render() {
     this.state = this.props.category;
-    console.log(this.state, 'show cat state')
+    console.log(this.props, 'show cat props')
 
     if (!this.props.category) return null;
 

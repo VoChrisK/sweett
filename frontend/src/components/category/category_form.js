@@ -5,8 +5,7 @@ class CategoryForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "",
-      tasks: ""
+      title: ""
     };
   }
 
@@ -20,8 +19,7 @@ class CategoryForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     let cat = {
-      title: this.state.title,
-      tasks: this.state.tasks
+      title: this.state.title
     };
     this.props.processForm(cat).then(this.props.closeModal);
   }
@@ -39,15 +37,6 @@ class CategoryForm extends React.Component {
             value={this.state.title}
             onChange={this.update("title")}
             placeholder="Title"
-          />
-          <br></br>
-          <h3>Tasks</h3>
-          <input
-            type="text"
-            className="cat-task-input"
-            value={this.state.tasks}
-            onChange={this.update("tasks")}
-            placeholder="Tasks"
           />
           <br></br>
           <input type="submit" className="add-cat-submit" value="Submit" />
