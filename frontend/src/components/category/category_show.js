@@ -1,5 +1,6 @@
 import React from 'react';
 import LeetCodeContainer from './../leetcode/leetcode_container';
+import CrackingTheCodingContainer from './../cracking-the-coding/ctc_container';
 import SidebarContainer from "../sidebar/sidebar_container";
 import { calculateExpectedTime, calculateActualTime, calculateTotalProgress } from './../../util/calculations';
 
@@ -15,9 +16,11 @@ class CategoryShow extends React.Component {
           categoryData.category.actual = calculateActualTime(attemptsData.attempts);
           categoryData.category.expected = calculateExpectedTime([45], this.props.goals);
           categoryData.category.progress = calculateTotalProgress(this.props.goals);
-          this.props.updateCategory(categoryData.category);
+          this.props.updateCategory(categoryData.category)
         })
       )
+      this.props.requestCategoryTasks(this.props.match.params.categoryId)
+        
     }
 
   handleEdit() {
@@ -69,11 +72,14 @@ class CategoryShow extends React.Component {
 
   render() {
     this.state = this.props.category;
+    console.log(this.props, 'show cat props')
 
     if (!this.props.category) return null;
 
     if (this.props.category.title === "Leetcode") {
       return <LeetCodeContainer category={this.props.category}/>;
+    } else if (this.props.category.title === "CrackingTheCode") {
+      return <CrackingTheCodingContainer category={this.props.category} />;
     } else {
       return (
         <div className="show-category">

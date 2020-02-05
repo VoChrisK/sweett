@@ -83,6 +83,11 @@
     margin-left: 6px;
 }
 
+.play-button {
+    background: transparent url("./icons/play.png") no-repeat top;
+
+}
+
 .question-title-description-add {
     display: flex;
     flex-direction: column;
@@ -101,6 +106,14 @@
 
 .question-link {
     text-decoration: none;
+    background-color: #005900;
+    color: white;
+    padding: 9px 0px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 1px;
+    width: 140px;
+    text-align: center;
 }
 
 .question-btns {
@@ -112,6 +125,7 @@
 
 .question-stats {
     padding: 16px;
+    color: red;
 }
 
 #question-add {
@@ -159,7 +173,7 @@
     height: 30px;
 }
 
-#question-form-name {
+.question-name-input {
     height: 32px;
     padding: 6px 16px;
     margin-bottom: 8px;
@@ -218,6 +232,32 @@
 
 }
 
+.question-delete-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.question-edit {
+    padding: 9px 0px;
+    margin: 16px;
+    background-color: blue;
+    color: white;
+    border-radius: 3px;
+    font-weight: bold;
+    width: 140px;
+}
+
+.question-delete {
+    padding: 9px 0px;
+    margin: 16px;
+    background-color: red;
+    color: white;
+    border-radius: 3px;
+    font-weight: bold;
+    width: 140px;
+
+}
 .load-more {
     display: flex;
     justify-content: center;
@@ -257,4 +297,24 @@
 #edit-time-input {
     border-radius: 5px;
     width: 45px;
+
+}
+
+.question-edit-form {
+    border: none;
+    font-size: 18px;
+    border-radius: 1px;
+    padding: 9px 0px;
+}
+
+.question-title-edit-form {
+    display: flex;
+}
+
+
+.question-edit-form-submit {
+    padding: 9px 15px;
+    border-radius: 2px;
+    font-weight: 500;
+    display: none;
 }

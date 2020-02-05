@@ -38,7 +38,7 @@ class CategoryForm extends React.Component {
             onChange={this.update("title")}
             placeholder="Title"
           />
-          <h3>Placeholder</h3>
+          <br></br>
           <input type="submit" className="add-cat-submit" value="Submit" />
         </form>
       </div>

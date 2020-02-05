@@ -19,6 +19,7 @@ class GoalIndex extends React.Component {
         e.preventDefault();
         let form = document.getElementsByClassName("goal-form-render")[0];
         form.classList.add('active')
+        
     }
 
     componentDidMount() {

@@ -57,6 +57,16 @@
     padding: 10px;
 }
 
+.goal-index-item:hover .x-box {
+    position: absolute;
+    align-self: flex-end;
+    height: 20px;
+    width: 20px;
+    background-image: url('real-ecks.png');
+    background-position: center;
+    background-size: contain;
+}
+
 .row-me-up {
     display: flex;
     flex-direction: row;
