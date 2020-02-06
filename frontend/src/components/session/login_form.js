@@ -52,8 +52,9 @@ class LoginForm extends React.Component {
             password: this.state.password
         };
         this.props.processForm(user)
-            .then(() => this.props.closeModal)
-            .catch(console.log("hello"))
+            .then(
+                this.props.closeModal
+            )
     }
 
     demo(user) {
