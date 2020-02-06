@@ -39,6 +39,14 @@ class CategoryForm extends React.Component {
             placeholder="Title"
           />
           <br></br>
+          <h3>Tasks:</h3>
+          <input
+            type="text"
+            className="cat-task-input"
+            value={this.state.task}
+            onChange={this.update("task")}
+            placeholder="Task"
+          />
           <input type="submit" className="add-cat-submit" value="Submit" />
         </form>
       </div>

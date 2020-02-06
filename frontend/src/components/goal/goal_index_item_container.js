@@ -3,8 +3,10 @@ import GoalIndexItem from './goal_index_item';
 import { updateGoal, deleteGoal, requestGoal } from '../../actions/goal_actions';
 import { updateCategory } from '../../actions/category_actions';
 
+
 const mapStateToProps = (state, ownProps) => {
     return ({
+        currentUser: state.session.user,
         goal: ownProps.goal,
         goals: Object.values(state.entities.goals),
         category_Id: ownProps.goal.category_Id,

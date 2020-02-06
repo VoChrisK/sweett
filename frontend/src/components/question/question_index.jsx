@@ -1,6 +1,5 @@
-import React from "react";
-import { withRouter } from "react-router-dom";
-import QuestionIndexItemContainer from "./question_index_item_container";
+import React from 'react';
+import QuestionIndexItemContainer from './question_index_item_container';
 
 class QuestionIndex extends React.Component {
     constructor(props) {
@@ -8,17 +7,22 @@ class QuestionIndex extends React.Component {
         this.state = {
             loadedEasyQuestions: false,
             loadedMediumQuestions: false,
-            loadedHardQuestions: false
+            loadedHardQuestions: false,
+            timeLimit: this.props.category.timeLimit
         }
+
+        console.log(this.props.expectedTime);
+
+        this.handleInput = this.handleInput.bind(this);
     }
 
     componentDidMount() {
-        this.props.requestQuestions(this.props.match.params.categoryId);
+        this.props.requestQuestions(this.props.category._id);
     }
 
     componentDidUpdate(prevProps) {
         if (prevProps.questions.length !== this.props.questions.length) {
-            this.props.requestQuestions(this.props.match.params.categoryId)
+            this.props.requestQuestions(this.props.category._id);
         }
     }
 
@@ -26,14 +30,37 @@ class QuestionIndex extends React.Component {
         return questions.slice(3).map((question, idx) => <QuestionIndexItemContainer key={idx+3+length} question={question} idx={idx+3+length} />);
     }
 
-    handleLoadMore(input) {
-        this.setState({[input]: true});
+    handleInput(input) {
+        this.setState({[input]: !this.state[input]});
+    }
+
+    handleTimeLimit(event) {
+        this.setState({ timeLimit: event.target.value });
+    }
+
+    handleSubmit(event) {
+        event.preventDefault();
+        let newCategory = Object.assign({}, this.props.category);
+        newCategory.timeLimit = this.state.timeLimit * 60;
+        this.props.updateCategory(newCategory)
+        .then(
+            () => document.getElementsByClassName("edit-time")[0].classList.remove("invisible")
+        );
+    }
+    
+    showForm(event) {
+        const editTime = document.getElementsByClassName("edit-time")[0];
+        if(editTime.classList.contains("invisible")) {
+            editTime.classList.remove("invisible");
+        } else {
+            editTime.classList.add("invisible");
+        }
     }
 
     renderLoadMore(length, input) {
         if(length > 3) {
             return (
-                <div onClick={event => this.handleLoadMore(input)} class="load-more">
+                <div onClick={event => this.handleInput(input)} class="load-more">
                     <h1>Load More</h1>
                 </div>  
             );
@@ -69,14 +96,22 @@ class QuestionIndex extends React.Component {
                 </button>
                 <div className="question-title-description-add">
                     <div className="question-title-description">
-                        <p className="question-index-title">QUESTIONS</p>
-                        <p className="question-index-description">37 / 90 minutes completed</p>
+                        <p className="question-index-title">
+                            QUESTIONS
+                            <i onClick={this.showForm.bind(this)} class="fa fa-hourglass">
+                                <form onSubmit={this.handleSubmit.bind(this)} class="edit-time invisible">
+                                    <label htmlFor="edit-time-input">Input the time limit per question for all questions: </label>
+                                    <input onClick={event => event.stopPropagation()} onChange={this.handleTimeLimit.bind(this)} type="number" id="edit-time-input" value={this.state.timeLimit} min="0" /><strong> minutes</strong>
+                                </form>
+                            </i>
+                        </p>
+                        <p className="question-index-description">{this.props.actualTime} / {this.props.expectedTime} minutes completed</p>
                     </div>
                     <div id="question-add" onClick={() => this.props.addQuestion()}>
-                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus-circle" className="svg-inline--fa fa-plus-circle fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm144 276c0 6.6-5.4 12-12 12h-92v92c0 6.6-5.4 12-12 12h-56c-6.6 0-12-5.4-12-12v-92h-92c-6.6 0-12-5.4-12-12v-56c0-6.6 5.4-12 12-12h92v-92c0-6.6 5.4-12 12-12h56c6.6 0 12 5.4 12 12v92h92c6.6 0 12 5.4 12 12v56z"></path></svg>
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" class="svg-inline--fa fa-plus fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg>
                     </div>
                 </div>
-
+                {/* Refactor to take in all sections */}
                 <div id="question-index-container">
                     <div className="question-container">
                         <p className="question-container-title">Easy</p>
@@ -104,4 +139,5 @@ class QuestionIndex extends React.Component {
         );
     }
 }
-export default withRouter(QuestionIndex);
+
+export default QuestionIndex;

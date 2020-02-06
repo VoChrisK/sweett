@@ -9,12 +9,15 @@ class QuestionIndexItem extends React.Component {
         super(props);
         this.state = {
             time: 0,
-            isRecording: false
+            isRecording: false,
+            title: this.props.question.name
         }
 
         this.handleRecordButton = this.handleRecordButton.bind(this);
         this.handleStopButton = this.handleStopButton.bind(this);
         this.handlePauseButton = this.handlePauseButton.bind(this);
+        this.updateTitle = this.updateTitle.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
   handleRecordButton(e) {
@@ -107,13 +110,38 @@ class QuestionIndexItem extends React.Component {
     }, 1000);
   }
 
+  updateTitle() {
+    return e => this.setState({
+      title: e.currentTarget.value
+    });
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    let question = this.props.question;
+    question.name = this.state.title;
+    this.props.updateQuestion(question);
+    const questionEdit = document.getElementsByClassName("question-edit-form")[this.props.idx];
+    const questionTitleSubmit = document.getElementsByClassName("question-edit-form-submit")[this.props.idx];
+    questionEdit.disabled = true;
+    questionEdit.style.backgroundColor = "transparent";
+    questionTitleSubmit.style.display = "none";
+  }
+
+  editTitleFrom() {
+    return(
+      <form className="question-title-edit-form" onSubmit={this.handleSubmit}>
+        <input type="text" className="question-edit-form" value={this.state.title} onChange={this.updateTitle()} disabled/>
+        <input type="submit" name="question-title-submit" value="SAVE TITLE" className="question-edit-form-submit" />
+      </form>
+    );
+  }
+
     render() {
         return (
             <div className="question-index-item">
                 <div className="question">
-                    <a className="question-link" href={`https://leetcode.com/problems/${this.props.question.name.toLowerCase().split(" ").join("-")}`}>
-                        {this.props.question.name}
-                    </a>
+                    {this.editTitleFrom()}
                     <div className="question-btns">
                         {this.timeTrackerButtons()}
                         <i onClick={this.expandQuestion.bind(this)} id="caret" class="fa fa-caret-down"></i>
@@ -124,7 +152,7 @@ class QuestionIndexItem extends React.Component {
                     <span>{formatTime(this.state.time)}</span>
                 </div>
                 
-                <AttemptIndexContainer question={this.props.question} />
+                <AttemptIndexContainer question={this.props.question} idx={this.props.idx}/>
             </div>
         );
     }
