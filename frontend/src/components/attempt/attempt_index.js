@@ -77,7 +77,7 @@ class AttemptIndex extends React.Component {
 
                 <div className="question-delete-container">   
                     <button id="question-edit-btn" className="question-edit" onClick={this.handleEditQuestion}>EDIT TITLE</button>
-                    <a className="question-link" href={`https://leetcode.com/problems/${this.props.question.name.toLowerCase().split(" ").join("-")}`}>
+                    <a className="question-link" target="_blank" href={`https://leetcode.com/problems/${this.props.question.name.toLowerCase().split(" ").join("-")}`}>
                         LEETCODE
                     </a>
                     <button className="question-delete" onClick={this.handleDeleteQuestion}>DELETE QUESTION</button>
