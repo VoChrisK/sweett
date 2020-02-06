@@ -185,8 +185,33 @@ i {
 }
 
 .category-tasks{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background: white;
     margin-top: 60px;
     position: relative;
+    width: 64%;
+    font-size: 28px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-s
+}
+
+#task-add {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: .2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#task-add:hover {
+    transform: scale(1.4);
+}
+
+.fa-plus {
+    width: 50px;
+    height: 50px;
 }
 

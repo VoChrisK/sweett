@@ -6,6 +6,7 @@ import { calculateExpectedTime, calculateActualTime, calculateTotalProgress } fr
 import QuestionIndexContainer from "../question/question_index_container";
 import GoalIndexContainer from "../goal/goal_index_container";
 import TaskIndexContainer from "../tasks/task_index_container"
+import DefaultCategoryContainer from '../category/default_category_container'
 
 class CategoryShow extends React.Component {
   constructor(props) {
@@ -26,6 +27,12 @@ class CategoryShow extends React.Component {
 
     }
 
+    componentDidUpdate(prevProps) {
+      if (this.props.match.params.categoryId !== prevProps.match.params.categoryId) {
+        this.props.requestCategoryTasks(this.props.match.params.categoryId).then(() => console.log('fuck'))
+      }
+    }
+
   render() {
     this.state = this.props.category;
 
@@ -36,14 +43,9 @@ class CategoryShow extends React.Component {
     } else if (this.props.category.title === "CrackingTheCode") {
       return <CrackingTheCodingContainer category={this.props.category} />;
     } else {
-      return (
-        <div className="leetcode">
-          <SidebarContainer />
-          <QuestionIndexContainer />
-          <GoalIndexContainer categoryId={this.props.category._id} />
-        </div>
-      );
+      return <DefaultCategoryContainer category={this.props.category}/>
     }
+    
     
   }
   // componentDidMount() {
