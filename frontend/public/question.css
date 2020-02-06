@@ -52,7 +52,7 @@
     display: flex;
     flex-direction: column;
     background-color: white;
-    margin: 16px;
+    margin: 16px; 
     padding: 8px 0px;
 }
 
@@ -64,6 +64,7 @@
     height: 32px;
     border: none;
     transition: .2s;
+    margin-left: 16px;
 }
 
 .stop-button {
@@ -305,10 +306,13 @@
     font-size: 18px;
     border-radius: 1px;
     padding: 9px 0px;
+    width: 100%;
+
 }
 
 .question-title-edit-form {
     display: flex;
+    width: 100%;
 }
 
 

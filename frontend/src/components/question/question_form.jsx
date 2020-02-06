@@ -1,4 +1,5 @@
 import React from "react";
+import { leetcode_question_titles } from '../../util/leetcode_questions';
 import { withRouter } from "react-router-dom";
 
 class QuestionForm extends React.Component {
@@ -20,15 +21,19 @@ class QuestionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        let question = {
-            name: this.state.name,
-            section: this.state.section,
-            status: "Incomplete",
-            category_id: this.state.categoryId,
-            time: 45
-        };
+        if (leetcode_question_titles.includes(this.state.name)) {
+            let question = {
+                name: this.state.name,
+                section: this.state.section,
+                status: "Incomplete",
+                category_id: this.state.categoryId,
+                time: 45
+            };
 
-        this.props.processForm(question).then(this.props.closeModal);
+            this.props.processForm(question).then(this.props.closeModal);
+        } else {
+            alert("You better match the leetcode title bitch");
+        }
     }
 
     render() {
