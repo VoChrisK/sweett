@@ -184,3 +184,9 @@ i {
     visibility: hidden;
 }
 
+.category-tasks{
+    background: white;
+    margin-top: 60px;
+    position: relative;
+}
+
