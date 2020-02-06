@@ -26,6 +26,9 @@ const QuestionSchema = new Schema({
         type: String,
         required: true
     },
+    note: {
+        type: String
+    },
     date: {
         type: Date,
         default: Date.now
