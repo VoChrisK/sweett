@@ -50,6 +50,7 @@ router.patch("/:id", (req, res) => {
             question.status = req.body.status;
             question.section = req.body.section;
             question.time = req.body.time;
+            question.note = req.body.note;
             question.save()
                 .then(question => res.json(question))
                 .catch(errors => res.status(400).json({ errors }));

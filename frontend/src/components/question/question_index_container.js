@@ -9,9 +9,9 @@ import { withRouter } from 'react-router-dom'
 
 const mapStateToProps = (state, ownProps) => ({
     questions: state.entities.questions,
-    easyQuestions: Object.values(state.entities.questions).filter(question => question.difficulty === "Easy"),
-    mediumQuestions: Object.values(state.entities.questions).filter(question => question.difficulty === "Medium"),
-    hardQuestions: Object.values(state.entities.questions).filter(question => question.difficulty === "Hard"),
+    easyQuestions: Object.values(state.entities.questions).filter(question => question.section === "Easy"),
+    mediumQuestions: Object.values(state.entities.questions).filter(question => question.section === "Medium"),
+    hardQuestions: Object.values(state.entities.questions).filter(question => question.section === "Hard"),
     actualTime: calculateActualTime(Object.values(state.entities.attempts)),
     expectedTime: calculateExpectedTime(ownProps.category.timeLimit, Object.values(state.entities.goals))
 });

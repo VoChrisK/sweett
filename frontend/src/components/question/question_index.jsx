@@ -17,7 +17,8 @@ class QuestionIndex extends React.Component {
     }
 
     componentDidMount() {
-        this.props.requestQuestions(this.props.category._id);
+        console.log(this.props.category, "######");
+        this.props.requestQuestions(this.props.category._id).then((data) => console.log(data, "@@@@@"));
     }
 
     componentDidUpdate(prevProps) {
