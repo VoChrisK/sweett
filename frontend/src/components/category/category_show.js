@@ -6,6 +6,7 @@ import { calculateExpectedTime, calculateActualTime, calculateTotalProgress } fr
 import QuestionIndexContainer from "../question/question_index_container";
 import GoalIndexContainer from "../goal/goal_index_container";
 import TaskIndexContainer from "../tasks/task_index_container"
+import DefaultCategoryContainer from '../category/default_category_container'
 
 class CategoryShow extends React.Component {
   constructor(props) {
@@ -26,30 +27,23 @@ class CategoryShow extends React.Component {
 
     }
 
+    componentDidUpdate(prevProps) {
+      if (this.props.match.params.categoryId !== prevProps.match.params.categoryId) {
+        this.props.requestCategoryTasks(this.props.match.params.categoryId).then(() => console.log('fuck'))
+      }
+    }
+
   render() {
+    console.log(this.props,'cat show props')
     if (!this.props.category) return null;
-    console.log(this.props, 'show props')
     if (this.props.category.title === "Leetcode") {
       return <LeetCodeContainer category={this.props.category}/>;
     } else if (this.props.category.title === "CrackingTheCode") {
       return <CrackingTheCodingContainer category={this.props.category} />;
     } else {
-      return (
-        <div className="leetcode">
-          <SidebarContainer />
-          <QuestionIndexContainer />
-          <GoalIndexContainer categoryId={this.props.category._id} />
-        </div>
-      );
-    } else {
-      return (
-        <div className="custom-cat">
-          <SidebarContainer />
-          <TaskIndexContainer />
-          <GoalIndexContainer categoryId={this.props.category._id} />
-        </div>
-      );
+      return <DefaultCategoryContainer category={this.props.category}/>
     }
+    
     
   }
   // componentDidMount() {

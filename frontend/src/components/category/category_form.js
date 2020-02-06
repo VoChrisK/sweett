@@ -21,7 +21,7 @@ class CategoryForm extends React.Component {
     let cat = {
       title: this.state.title
     };
-    this.props.processForm(cat).then(this.props.closeModal);
+    this.props.processCat(cat).then(this.props.closeModal);
   }
 
   render() {
