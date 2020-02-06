@@ -4,6 +4,7 @@ import ui from './ui_reducer';
 import errors from "./errors_reducer"
 import entities from "./entities_reducer";
 import record from './record_reducer';
+import tasks from './tasks_reducer'
 
 const RootReducer = combineReducers({
   entities,
