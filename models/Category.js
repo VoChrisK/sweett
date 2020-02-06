@@ -32,6 +32,11 @@ const CategorySchema = new Schema({
         required: true,
         default: false
     },
+    timeLimit: {
+        type: Number,
+        required: true,
+        default: 0
+    },
     date: {
         type: Date,
         default: Date.now

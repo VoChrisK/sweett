@@ -60,6 +60,7 @@ router.patch("/:id", (req, res) => {
         category.actual = req.body.actual;
         category.expected = req.body.expected;
         category.progress = req.body.progress;
+        category.timeLimit = req.body.timeLimit;
         category.save()
         .then(category => res.json(category));
     })

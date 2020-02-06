@@ -37,7 +37,7 @@ export const requestQuestions = categoryId => dispatch => {
 
 export const requestQuestion = questionId => dispatch => {
     return QuestionsApiUtil.fetchQuestion(questionId)
-        .then(question => dispatch(receiveQuestion(question)))
+        .then(question => dispatch(receiveQuestion(question.data)))
 };
 
 export const createQuestion = question => dispatch => {
@@ -47,7 +47,7 @@ export const createQuestion = question => dispatch => {
 
 export const updateQuestion = question => dispatch => {
     return QuestionsApiUtil.updateQuestion(question)
-        .then(updatedQuestion => dispatch(receiveQuestion(updatedQuestion)))
+        .then(updatedQuestion => dispatch(receiveQuestion(updatedQuestion.data)))
 };
 
 export const deleteQuestion = questionId => dispatch => {

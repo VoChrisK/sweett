@@ -28,7 +28,7 @@ router.post("/", (req, res) => {
     const question = new Question({ 
         name: req.body.name, 
         category_id: req.body.category_id, 
-        difficulty: req.body.difficulty,
+        section: req.body.section,
         status: req.body.status,
         time: req.body.time
     });
@@ -48,8 +48,9 @@ router.patch("/:id", (req, res) => {
         .then(question => {
             question.name = req.body.name;
             question.status = req.body.status;
-            question.difficulty = req.body.difficulty;
+            question.section = req.body.section;
             question.time = req.body.time;
+            question.note = req.body.note;
             question.save()
                 .then(question => res.json(question))
                 .catch(errors => res.status(400).json({ errors }));

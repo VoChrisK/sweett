@@ -9,7 +9,6 @@ export const fetchQuestion = questionId => {
 };
 
 export const createQuestion = question => {
-    console.log(question);
     return axios.post('/api/questions', question);
 };
 
