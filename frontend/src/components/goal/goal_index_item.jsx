@@ -1,5 +1,5 @@
 import React from 'react';
-import { calculateProgress, calculateTotalProgress } from "../../util/calculations"
+import { calculateProgress, calculateTotalProgress, calculateDays} from "../../util/calculations"
 import { library, icon, findIconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 
@@ -46,6 +46,16 @@ class GoalIndexItem extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
+        if (document.getElementsByClassName("days-counter")[0].innerHTML.split(" ")[1] !== (calculateDays(new Date(this.props.goal.date), Date.now())).toString()) {
+            let newGoal = Object.assign({}, this.state.goal)
+            newGoal.attempted = 0;
+            // grab currentUser
+            newGoal.date = this.props.currentUser.date;
+            this.props.updateGoal(newGoal)
+                .then((action) => {
+                    this.setState({ goal: action.goal})
+                })
+        }
         if (prevProps.goal.attempted !== this.props.goal.attempted) {
             this.props.requestGoal(this.props.goal._id)
                 .then((action) => {

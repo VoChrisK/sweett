@@ -27,8 +27,10 @@ class CategoryShow extends React.Component {
     }
 
   render() {
+    this.state = this.props.category;
+
     if (!this.props.category) return null;
-    console.log(this.props, 'show props')
+    
     if (this.props.category.title === "Leetcode") {
       return <LeetCodeContainer category={this.props.category}/>;
     } else if (this.props.category.title === "CrackingTheCode") {

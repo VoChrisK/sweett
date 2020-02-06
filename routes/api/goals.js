@@ -52,6 +52,7 @@ router.patch("/:id", (req, res) => {
             goal.description = req.body.description;
             goal.attempted = req.body.attempted
             goal.addToTotal = req.body.addToTotal;
+            goal.date = req.body.date;
             goal.save()
                 .then(goal => res.json(goal))
                 .catch(errors => res.status(400).json({ errors }));
