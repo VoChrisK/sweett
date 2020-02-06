@@ -11,8 +11,6 @@ class QuestionIndex extends React.Component {
             timeLimit: this.props.category.timeLimit
         }
 
-        console.log(this.props.expectedTime);
-
         this.handleInput = this.handleInput.bind(this);
     }
 
@@ -41,10 +39,10 @@ class QuestionIndex extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
         let newCategory = Object.assign({}, this.props.category);
-        newCategory.timeLimit = this.state.timeLimit * 60;
+        newCategory.timeLimit = this.state.timeLimit;
         this.props.updateCategory(newCategory)
         .then(
-            () => document.getElementsByClassName("edit-time")[0].classList.remove("invisible")
+            () => document.getElementsByClassName("edit-time")[0].classList.add("invisible")
         );
     }
     
@@ -90,9 +88,10 @@ class QuestionIndex extends React.Component {
         const easyQuestionlength = this.props.easyQuestions.length;
         const mediumQuestionlength = this.props.mediumQuestions.length;
         const easyQuestions = Object.values(this.props.questions).filter(question => question.section === "Easy")
+        
         return (
             <div className="question-index">
-                <button id="sidebar-toggle-button" onClick={this.toggleSidebar}>
+                <button id="sidebar-toggle-button" onClick={this.toggleSidepropsbar}>
                 </button>
                 <div className="question-title-description-add">
                     <div className="question-title-description">

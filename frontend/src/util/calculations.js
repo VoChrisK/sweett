@@ -4,10 +4,9 @@ export const calculateExpectedTime = (limit, goals) => {
         if (goals[i].addToTotal) totalQuestions += goals[i].expected;
     }
 
-    return Math.floor((totalQuestions * limit) / 60);
+    return Math.floor((totalQuestions * limit));
 };
 
-//add goals later for attempted q's
 export const calculateActualTime = (attempts) => {
     let totalTime = 0;
     for (let i = 0; i < attempts.length; i++) {
