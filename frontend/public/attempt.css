@@ -37,18 +37,17 @@
 .question-note-form {
     background-color: white;
     padding: 9px 16px;
-    /* min-height: 36px; */
     display: flex;
 }
 
 .question-note-input {
     padding: 8px 8px;
-    width: 100%;
     font-size: 14px;
     border: none;
     border-radius: 2px;
     background-color: rgba(0, 0, 0, 0.05);
     border: 1px solid white;
+    width: 100%;
 }
 
 .question-note-input:hover {
@@ -59,4 +58,8 @@
 .question-note-input:focus {
     outline: none;
     border: 1px solid lightgrey;
+}
+
+.question-note-submit {
+    padding: 9px 16px;
 }
