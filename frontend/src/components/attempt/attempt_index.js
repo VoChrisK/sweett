@@ -45,23 +45,23 @@ class AttemptIndex extends React.Component {
     }
 
     questionNote() {
+        // e.preventDefault();
         return (
-            <div className="question-note-form">
-                <textarea onChange={this.updateNote} rows="5" className="question-note-input" placeholder="Note for question" />
-            </div>
+            <form className="question-note-form" onSubmit={this.updateNote}>
+                <input type="textarea" className="question-note-input" placeholder="Note for question" />
+                <input className="question-note-submit" type="submit" value="SAVE NOTE" />
+            </form>
         );
     }
 
     updateNote(e) {
-            this.setState({
-                note: e.currentTarget.value
-            })
-            // .then(() => {
-                
-            // });
-        let newQuestion = this.state.question;
-        newQuestion.note = this.state.note;
-        this.props.updateQuestion(newQuestion);
+        this.setState({
+            note: e.currentTarget.value
+        }, () => {
+                let newQuestion = this.state.question;
+                newQuestion.note = this.state.note;
+                this.props.updateQuestion(newQuestion);
+        });
     }
 
     render() {
