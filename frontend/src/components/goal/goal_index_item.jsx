@@ -46,15 +46,14 @@ class GoalIndexItem extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
+        if (prevProps.match.params.categoryId !== this.props.match.params.categoryId) return
+        // below if statement fetches all goals when logging out and then relogging onto another user on the first render
         if (document.getElementsByClassName("days-counter")[0].innerHTML.split(" ")[1] !== (calculateDays(new Date(this.props.goal.date), Date.now())).toString()) {
-            let newGoal = Object.assign({}, this.state.goal)
+            let newGoal = Object.assign({}, this.props.goal)
             newGoal.attempted = 0;
             // grab currentUser
             newGoal.date = this.props.currentUser.date;
             this.props.updateGoal(newGoal)
-                .then((action) => {
-                    this.setState({ goal: action.goal})
-                })
         }
         if (prevProps.goal.attempted !== this.props.goal.attempted) {
             this.props.requestGoal(this.props.goal._id)

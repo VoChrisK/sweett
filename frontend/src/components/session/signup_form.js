@@ -1,6 +1,5 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import { requestGoal } from '../../actions/goal_actions';
 
 class SignupForm extends React.Component {
     constructor(props) {
