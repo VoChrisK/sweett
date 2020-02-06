@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { formatTime } from './../../util/formats';
 import { urlencoded } from 'body-parser';
+import { leetcode_question_titles } from '../../util/leetcode_questions';
 import AttemptIndexContainer from './../attempt/attempt_index_container';
 
 class QuestionIndexItem extends React.Component {
@@ -118,14 +119,19 @@ class QuestionIndexItem extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let question = this.props.question;
-    question.name = this.state.title;
-    this.props.updateQuestion(question);
-    const questionEdit = document.getElementsByClassName("question-edit-form")[this.props.idx];
-    const questionTitleSubmit = document.getElementsByClassName("question-edit-form-submit")[this.props.idx];
-    questionEdit.disabled = true;
-    questionEdit.style.backgroundColor = "transparent";
-    questionTitleSubmit.style.display = "none";
+    if (leetcode_question_titles.includes(this.state.title)) {
+      let question = this.props.question;
+      question.name = this.state.title;
+      this.props.updateQuestion(question);
+      const questionEdit = document.getElementsByClassName("question-edit-form")[this.props.idx];
+      const questionTitleSubmit = document.getElementsByClassName("question-edit-form-submit")[this.props.idx];
+      questionEdit.disabled = true;
+      questionEdit.style.backgroundColor = "transparent";
+      questionTitleSubmit.style.display = "none";
+    } else {
+      alert("Plase exatly match the title ex) Two Sum");
+    }
+    
   }
 
   editTitleFrom() {

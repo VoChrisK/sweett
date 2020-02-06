@@ -122,6 +122,7 @@
     justify-content: space-between;
     align-items: center;
     margin-right: 16px;
+    margin-left: 16px;
 }
 
 .question-stats {
@@ -312,7 +313,6 @@
     border-radius: 1px;
     padding: 9px 0px;
     width: 100%;
-
 }
 
 .question-title-edit-form {
@@ -326,4 +326,8 @@
     border-radius: 2px;
     font-weight: 500;
     display: none;
+}
+
+.stop-pause-cancel-buttons {
+    display: flex;
 }
