@@ -36,6 +36,14 @@ class CategoryShow extends React.Component {
           <GoalIndexContainer categoryId={this.props.category._id} />
         </div>
       );
+    } else {
+      return (
+        <div className="custom-cat">
+          <SidebarContainer />
+          <TaskIndexContainer />
+          <GoalIndexContainer categoryId={this.props.category._id} />
+        </div>
+      );
     }
     
   }

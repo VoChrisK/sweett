@@ -50,7 +50,6 @@ export const deleteCategory = categoryId => dispatch => {
     .then( response => {
         dispatch(removeCategory(categoryId))
     })
-    // .then(() => dispatch(removeCategory(categoryId)))
 };
 
 export const RECEIVE_CATEGORIES = "RECEIVE_CATEGORIES";
