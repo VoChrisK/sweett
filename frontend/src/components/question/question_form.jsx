@@ -32,7 +32,7 @@ class QuestionForm extends React.Component {
 
             this.props.processForm(question).then(this.props.closeModal);
         } else {
-            alert("You better match the leetcode title bitch");
+            alert("Please match the exact title ex) Two Sum");
         }
     }
 
@@ -49,7 +49,7 @@ class QuestionForm extends React.Component {
                         autoFocus="autofocus"
                         value={this.state.name}
                         onChange={this.update("name")}
-                        placeholder="ex) Two sum"
+                        placeholder="Please match the exact title ex) Two Sum"
                     />
                     <p>Section</p>
                     {
