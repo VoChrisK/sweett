@@ -228,6 +228,11 @@
     margin-bottom: 26px;
 }
 
+.fa.fa-hourglass {
+    text-align: center;
+    vertical-align: center;
+}
+
 .invisible {
     display: none;
 
