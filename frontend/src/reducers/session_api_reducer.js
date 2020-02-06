@@ -3,6 +3,7 @@ import {
     RECEIVE_USER_LOGOUT,
     RECEIVE_USER_SIGN_IN
 } from '../actions/session_actions';
+import { RECEIVE_USER } from './../actions/user_actions';
 
 const initialState = {
     isAuthenticated: false,
@@ -27,6 +28,10 @@ export default function (state = initialState, action) {
                 ...state,
                 isAuthenticated: true
             }
+        case RECEIVE_USER:
+            let nextState = Object.assign({}, state);
+            nextState["user"] = action.user;
+            return nextState;
         default:
             return state;
     }
