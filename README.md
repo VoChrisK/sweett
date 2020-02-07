@@ -44,45 +44,12 @@ This will help visualize and understand what areas users need to improve and spe
 
 ## Technologies and Challenges
 
-Sweett's core application is tracking time for each task and setting goals for each category. Upon logging in/signing up, users are greeted with a dashboard containing four default categories: Leetcode, Cracking the Coding Interview, Mock Interviews, and Side Projects. Users can create more categories as needed and can visit any one of them at anytime. Depending on the category, users can create, modify, and delete entries and goals, and time themselves and record them as attempts.
-
-Frontend: 
+Sweett's core application is the ability to track time for each task and set goals for each category. Upon logging in/signing up, users are greeted with a dashboard containing four default categories: Leetcode, Cracking the Coding Interview, Mock Interviews, and Side Projects. Users can create more categories as needed and can visit any one of them at anytime. Depending on the category, users can create, modify, and delete entries and goals, and time themselves and record them as attempts. 
 
 ## Group Members & Work Breakdown
 
 ## Team members:
 * **Chris Vo** - Team Lead
 * **Han Kim** - Frontend-focused, flex
-* **Brian Tran** - Flex
+* **Brian Tran** - Frontend-focused, flex
 * **Herman Xie** - Backend-focused, flex
-
-## Day 1 (01/21/20)
-* **Chris Vo** - Write database schema and prepare wireframes for dashboard and leetcode category
-* **Han Kim** - Build backend and UI for user authentication
-* **Brian Tran** - Build frontend for user authentication and begin working on dashboard
-* **Herman Xie** - Begin working on splash page
-
-## Day 2 (01/22/20)
-* **Chris Vo** - Manage pull requests and designed backend, Redux state management, and components for categories
-* **Han Kim** - Finish building UI for user authentication and fix bugs relating to it
-* **Brian Tran** - Work more on the dashboard
-* **Herman Xie** - Finish working on splash page and begin working on backend for categories
-
-## Day 3 (01/23/20)
-* **Chris Vo** - Assist team members on fixing bugs and prepared more wireframes
-* **Han Kim** - Begin working on UI for Leetcode category
-* **Brian Tran** - Incorporate categories to dashboard
-* **Herman Xie** - Work on incoporating backend for Goals, Questions, and Attempts
-
-## Day 4 (01/24/20)
-* **Chris Vo** - 
-* **Han Kim** - 
-* **Brian Tran** - Work on 
-* **Herman Xie** -
-
-## Day 5 (01/25/20)
-* **Chris Vo** - Create calculations for time and progression and begin working on attempts section
-* **Han Kim** - Finish implementing UI for Leetcode category and begin working questions section
-* **Herman Xie** - Finish implementing backend and work on goals section
-
-## Day 6 (01/26/20)

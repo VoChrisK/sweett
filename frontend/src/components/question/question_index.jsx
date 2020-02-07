@@ -11,6 +11,8 @@ class QuestionIndex extends React.Component {
             timeLimit: this.props.category.timeLimit
         }
 
+        // console.log(this.props.expectedTime);
+
         this.handleInput = this.handleInput.bind(this);
     }
 
@@ -58,7 +60,7 @@ class QuestionIndex extends React.Component {
     renderLoadMore(length, input) {
         if(length > 3) {
             return (
-                <div onClick={event => this.handleInput(input)} class="load-more">
+                <div onClick={event => this.handleInput(input)} className="load-more">
                     <h1>Load More</h1>
                 </div>  
             );
@@ -97,8 +99,8 @@ class QuestionIndex extends React.Component {
                     <div className="question-title-description">
                         <p className="question-index-title">
                             QUESTIONS
-                            <i onClick={this.showForm.bind(this)} class="fa fa-hourglass">
-                                <form onSubmit={this.handleSubmit.bind(this)} class="edit-time invisible">
+                            <i onClick={this.showForm.bind(this)} className="fa fa-hourglass">
+                                <form onSubmit={this.handleSubmit.bind(this)} className="edit-time invisible">
                                     <label htmlFor="edit-time-input">Input the time limit per question for all questions: </label>
                                     <input onClick={event => event.stopPropagation()} onChange={this.handleTimeLimit.bind(this)} type="number" id="edit-time-input" value={this.state.timeLimit} min="0" /><strong> minutes</strong>
                                 </form>
@@ -107,7 +109,7 @@ class QuestionIndex extends React.Component {
                         <p className="question-index-description">{this.props.actualTime} / {this.props.expectedTime} minutes completed</p>
                     </div>
                     <div id="question-add" onClick={() => this.props.addQuestion()}>
-                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" class="svg-inline--fa fa-plus fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg>
+                        <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" className="svg-inline--fa fa-plus fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg>
                     </div>
                 </div>
                 {/* Refactor to take in all sections */}

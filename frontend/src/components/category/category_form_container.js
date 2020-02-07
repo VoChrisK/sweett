@@ -11,7 +11,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    processForm: category => dispatch(createCategory(category)),
+    processCat: category => dispatch(createCategory(category)),
     closeModal: () => dispatch(closeModal()),
     addCat: () => dispatch(openModal("addCategory"))
   };
