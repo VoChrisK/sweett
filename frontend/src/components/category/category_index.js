@@ -28,7 +28,7 @@ class CategoryIndex extends React.Component {
 
     let addBox;
 
-    if (this.props.categories.length > 11) {
+    if (this.props.categories.length > 12) {
       addBox = null;
     } else {
       addBox = (
