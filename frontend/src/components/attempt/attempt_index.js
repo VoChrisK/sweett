@@ -16,7 +16,6 @@ class AttemptIndex extends React.Component {
     }
 
     componentDidMount() {
-        console.log("component did mount", "ComponentDidMount")
         this.setState({
             question: this.props.question
         })
