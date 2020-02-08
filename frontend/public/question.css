@@ -305,6 +305,7 @@
     font-size: 18px;
     border-radius: 1px;
     padding: 9px 0px;
+    background-color: transparent;
 }
 
 .question-title-edit-form {
