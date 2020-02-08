@@ -8,7 +8,6 @@ import { updateCategory } from '../../actions/category_actions';
 import { withRouter } from 'react-router-dom'
 
 const mapStateToProps = (state, ownProps) => {
-    console.log(state.entities.questions, "state.entities.questions")
     return({
         questions: state.entities.questions,
         easyQuestions: Object.values(state.entities.questions).filter(question => question.section === "Easy"),

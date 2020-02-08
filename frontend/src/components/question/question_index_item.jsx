@@ -119,8 +119,8 @@ class QuestionIndexItem extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let question = this.props.question;
-    question.name = this.props.question.name;
+    let question = this.state.question;
+    question.name = this.state.title;
     this.props.updateQuestion(question);
     const questionEdit = document.getElementsByClassName("question-edit-form")[this.props.idx];
     const questionTitleSubmit = document.getElementsByClassName("question-edit-form-submit")[this.props.idx];
@@ -132,7 +132,7 @@ class QuestionIndexItem extends React.Component {
   editTitleFrom() {
     return(
       <form className="question-title-edit-form" onSubmit={this.handleSubmit}>
-        <input type="text" className="question-edit-form" value={this.props.question.name} onChange={this.updateTitle()} disabled/>
+        <input type="text" className="question-edit-form" value={this.state.title} onChange={this.updateTitle()} disabled/>
         <input type="submit" name="question-title-submit" value="SAVE TITLE" className="question-edit-form-submit" />
       </form>
     );
