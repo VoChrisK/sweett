@@ -34,6 +34,7 @@ export const requestTask = taskId => dispatch => {
 };
 
 export const createTask = task => dispatch => {
+  console.log('task actions')
   return TasksApiUtil.createTask(task).then(newtask =>
     dispatch(receiveTask(newtask.data))
   );

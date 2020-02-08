@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import CategoryForm from './category_form'
 import { openModal, closeModal } from "../../actions/modal_actions";
 import { createCategory } from '../../actions/category_actions'
+import { createTask } from '../../actions/task_actions'
 
 const mapStateToProps = state => {
   return {
@@ -11,9 +12,10 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    processForm: category => dispatch(createCategory(category)),
+    processCat: category => dispatch(createCategory(category)),
     closeModal: () => dispatch(closeModal()),
-    addCat: () => dispatch(openModal("addCategory"))
+    addCat: () => dispatch(openModal("addCategory")),
+    addTask: task => dispatch(createTask(task))
   };
 };
 

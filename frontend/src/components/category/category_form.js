@@ -5,7 +5,8 @@ class CategoryForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: ""
+      title: "",
+      name: ""
     };
   }
 
@@ -17,12 +18,25 @@ class CategoryForm extends React.Component {
   }
 
   handleSubmit(e) {
+    console.log(this.props, 'submit propbs')
+    console.log(this.state,' submit state')
     e.preventDefault();
     let cat = {
       title: this.state.title
     };
-    this.props.processForm(cat).then(this.props.closeModal);
-  }
+    let task = {
+      name: this.state.name,
+      status: "Incomplete",
+      category_id: ""
+    }
+    this.props.processCat(cat)
+      .then((category) => {task.category_id = category.category.data._id
+        this.props.addTask(task)
+      })
+      .then(this.props.closeModal())
+    }
+
+  
 
   render() {
     return (
@@ -43,8 +57,8 @@ class CategoryForm extends React.Component {
           <input
             type="text"
             className="cat-task-input"
-            value={this.state.task}
-            onChange={this.update("task")}
+            value={this.state.name}
+            onChange={this.update("name")}
             placeholder="Task"
           />
           <input type="submit" className="add-cat-submit" value="Submit" />
@@ -53,5 +67,7 @@ class CategoryForm extends React.Component {
     );
   }
 }
+
+
 
 export default CategoryForm;

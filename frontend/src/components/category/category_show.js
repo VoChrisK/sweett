@@ -6,6 +6,7 @@ import { calculateExpectedTime, calculateActualTime, calculateTotalProgress } fr
 import QuestionIndexContainer from "../question/question_index_container";
 import GoalIndexContainer from "../goal/goal_index_container";
 import TaskIndexContainer from "../tasks/task_index_container"
+import DefaultCategoryContainer from '../category/default_category_container'
 
 class CategoryShow extends React.Component {
   constructor(props) {
@@ -16,14 +17,19 @@ class CategoryShow extends React.Component {
     this.props.requestCategory(this.props.match.params.categoryId)
       .then(categoryData => this.props.requestCategoryAttempts(categoryData.category._id)
         .then(attemptsData => {
-          // categoryData.category.actual = calculateActualTime(attemptsData.attempts);
-          categoryData.category.expected = calculateExpectedTime([45], this.props.goals);
+          categoryData.category.actual = calculateActualTime(attemptsData.attempts);
+          categoryData.category.expected = calculateExpectedTime(categoryData.category.timeLimit, this.props.goals);
           categoryData.category.progress = calculateTotalProgress(this.props.goals);
           this.props.updateCategory(categoryData.category)
         })
       )
-      this.props.requestCategoryTasks(this.props.match.params.categoryId)
+      this.props.requestCategoryTasks(this.props.match.params.categoryId)   
+    }
 
+    componentDidUpdate(prevProps) {
+      if (this.props.match.params.categoryId !== prevProps.match.params.categoryId) {
+        this.props.requestCategoryTasks(this.props.match.params.categoryId).then(() => console.log('fuck'))
+      }
     }
 
   render() {
@@ -36,14 +42,9 @@ class CategoryShow extends React.Component {
     } else if (this.props.category.title === "CrackingTheCode") {
       return <CrackingTheCodingContainer category={this.props.category} />;
     } else {
-      return (
-        <div className="leetcode">
-          <SidebarContainer />
-          <QuestionIndexContainer />
-          <GoalIndexContainer categoryId={this.props.category._id} />
-        </div>
-      );
+      return <DefaultCategoryContainer category={this.props.category}/>
     }
+    
     
   }
   // componentDidMount() {
