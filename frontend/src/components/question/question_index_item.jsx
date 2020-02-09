@@ -8,6 +8,7 @@ class QuestionIndexItem extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            question: this.props.question,
             time: 0,
             isRecording: false,
             title: this.props.question.name
@@ -118,7 +119,7 @@ class QuestionIndexItem extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    let question = this.props.question;
+    let question = this.state.question;
     question.name = this.state.title;
     this.props.updateQuestion(question);
     const questionEdit = document.getElementsByClassName("question-edit-form")[this.props.idx];
