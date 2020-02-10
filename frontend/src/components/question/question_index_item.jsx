@@ -14,6 +14,8 @@ class QuestionIndexItem extends React.Component {
             title: this.props.question.name
         }
 
+        console.log(this.props.question);
+
         this.handleRecordButton = this.handleRecordButton.bind(this);
         this.handleStopButton = this.handleStopButton.bind(this);
         this.handlePauseButton = this.handlePauseButton.bind(this);

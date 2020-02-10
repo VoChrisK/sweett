@@ -1,4 +1,5 @@
 import { RECEIVE_QUESTIONS, RECEIVE_QUESTION, REMOVE_QUESTION } from './../actions/question_actions';
+import { RECEIVE_USER_LOGOUT } from '../actions/session_actions';
 
 const questionsReducer = (state = {}, action) => {
     Object.freeze(state);
@@ -21,6 +22,8 @@ const questionsReducer = (state = {}, action) => {
             nextState = Object.assign({}, state);
             delete nextState[action.questionId];
             return nextState;
+        case RECEIVE_USER_LOGOUT:
+            return {};
         default:
             return state;
     }

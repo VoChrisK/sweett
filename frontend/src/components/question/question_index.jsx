@@ -10,6 +10,7 @@ class QuestionIndex extends React.Component {
             loadedHardQuestions: false,
             timeLimit: this.props.category.timeLimit
         }
+        console.log("hihihih");
 
         this.handleInput = this.handleInput.bind(this);
     }
@@ -87,6 +88,7 @@ class QuestionIndex extends React.Component {
     render() {
         const easyQuestionlength = this.props.easyQuestions.length;
         const mediumQuestionlength = this.props.mediumQuestions.length;
+        console.log(this.props.easyQuestions);
           return (
         
             <div className="question-index">
