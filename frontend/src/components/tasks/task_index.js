@@ -4,11 +4,36 @@ import { withRouter } from "react-router-dom";
 class TaskIndex extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      loadedChapterOneTasks: false,
+      loadedChapterTwoTasks: false,
+      loadedChapterThreeTasks: false,
+      loadedChapterFourTasks: false,
+      loadedChapterFiveTasks: false,
+      loadedChapterSixTasks: false,
+      loadedChapterSevenTasks: false,
+      loadedChapterEightTasks: false,
+      loadedChapterNineTasks: false,
+      loadedChapterTenTasks: false,
+      loadedChapterElevenTasks: false,
+      loadedChapterTwelveTasks: false,
+      loadedChapterThirteenTasks: false,
+      loadedChapterFourteenTasks: false,
+      loadedChapterFifteenTasks: false,
+      loadedChapterSixteenTasks: false,
+      timeLimit: this.props.category.timeLimit
+    }
   }
 
   componentDidMount() {
       this.props
         .requestCategoryTasks(this.props.match.params.categoryId)
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.tasks.length !== this.props.tasks.length && prevProps.session.user === this.props.session.user) {
+      this.props.requestQuestions(this.props.category._id);
+    }
   }
 
   toggleSidebar() {
@@ -52,3 +77,4 @@ class TaskIndex extends React.Component {
   }
 }
 export default withRouter(TaskIndex);
+
