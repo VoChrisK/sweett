@@ -15,19 +15,18 @@ class TaskForm extends React.Component {
     }
 
     handleSubmit(e) {
-        console.log(this.props, 'submit props')
         let tasks = Object.values(this.props.state.entities.tasks)
         e.preventDefault();
+        debugger
         let task = {
             name: this.state.name,
             status: "Incomplete",
-            category_id: tasks[0].category_id
+            category_id: this.props.location.pathname.split("/")[2]
         };
         this.props.processForm(task).then(this.props.closeModal);
     }
 
     render() {
-        console.log(this.props, 'task form props')
         return (
             <div className="task-modal">
                 <form className="task-form" onSubmit={this.handleSubmit.bind(this)}>
@@ -48,4 +47,4 @@ class TaskForm extends React.Component {
     }
 }
 
-export default TaskForm;
+export default withRouter(TaskForm);
