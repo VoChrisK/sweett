@@ -1,7 +1,5 @@
 import React from 'react';
 import { calculateProgress, calculateTotalProgress, calculateDays} from "../../util/calculations"
-import { library, icon, findIconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { fas } from '@fortawesome/free-solid-svg-icons';
 
 class GoalIndexItem extends React.Component {
     constructor(props) {

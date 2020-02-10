@@ -5,23 +5,6 @@ import SplashFooter from './splash_footer';
 
 
 class Splash extends React.Component {
-  constructor(props) {
-    super(props);
-
-  }
-
-
-  componentDidMount() {
-    //hide navbar
-    // let nav = document.getElementsByClassName("navbar")[0];
-    // nav.style.display = "none";
-  }
-
-  componentWillUnmount() {
-    //show navbar
-    // let nav = document.getElementsByClassName("navbar")[0];
-    // nav.style.display = "flex";
-  }
 
   render() {
     // https://vincentgarreau.com/particles.js/#bubble Custom made json from self input

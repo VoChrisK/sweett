@@ -17,7 +17,7 @@ class LoginForm extends React.Component {
         this.renderErrors = this.renderErrors.bind(this);
     }
 
-    componentWillReceiveProps(nextProps) {
+    UNSAFE_componentWillReceiveProps(nextProps) {
         if (nextProps.currentUser === true) {
             window.history.push('/dashboard');
         }

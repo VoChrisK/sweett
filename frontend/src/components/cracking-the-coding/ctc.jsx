@@ -6,9 +6,6 @@ import GoalIndexContainer from '../goal/goal_index_container';
 
 
 class CrackingTheCoding extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         return (

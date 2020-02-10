@@ -3,7 +3,6 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import NavBarContainer from './nav/navbar_container';
 import DashboardContainer from './dashboard/dashboard_container';
-import Splash from './splash/splash';
 import SplashContainer from './splash/splash_container'
 import CategoryShowContainer from './category/category_show_container';
 
