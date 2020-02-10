@@ -17,8 +17,8 @@ class CategoryShow extends React.Component {
     this.props.requestCategory(this.props.match.params.categoryId)
       .then(categoryData => this.props.requestCategoryAttempts(categoryData.category._id)
         .then(attemptsData => {
-          categoryData.category.actual = calculateActualTime(attemptsData.attempts);
-          categoryData.category.expected = calculateExpectedTime(categoryData.category.timeLimit, this.props.goals);
+          // categoryData.category.actual = calculateActualTime(attemptsData.attempts);
+          // categoryData.category.expected = calculateExpectedTime(categoryData.category.timeLimit, this.props.goals);
           categoryData.category.progress = calculateTotalProgress(this.props.goals);
           this.props.updateCategory(categoryData.category)
         })

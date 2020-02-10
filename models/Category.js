@@ -10,7 +10,7 @@ const CategorySchema = new Schema({
         type: Number,
         min: 0,
         max: 100,
-        required: true,
+        // required: true,
         default: 0
     },
     user: {
@@ -19,22 +19,22 @@ const CategorySchema = new Schema({
     },
     actual: {
         type: Number,
-        required: true,
+        // required: true,
         default: 0
     },
     expected: {
         type: Number,
-        required: true,
+        // required: true,
         default: 0
     },
     important: {
         type: Boolean,
-        required: true,
+        // required: true,
         default: false
     },
     timeLimit: {
         type: Number,
-        required: true,
+        // required: true,
         default: 0
     },
     date: {

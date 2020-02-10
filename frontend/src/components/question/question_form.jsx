@@ -1,5 +1,4 @@
 import React from "react";
-import { leetcode_question_titles } from '../../util/leetcode_questions';
 import { withRouter } from "react-router-dom";
 
 class QuestionForm extends React.Component {
@@ -21,19 +20,16 @@ class QuestionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        if (leetcode_question_titles.includes(this.state.name)) {
-            let question = {
-                name: this.state.name,
-                section: this.state.section,
-                status: "Incomplete",
-                category_id: this.state.categoryId,
-                time: 45
-            };
+        let question = {
+            name: this.state.name,
+            section: this.state.section,
+            status: "Incomplete",
+            category_id: this.state.categoryId,
+            time: 45
+        };
 
-            this.props.processForm(question).then(this.props.closeModal);
-        } else {
-            alert("Please match the exact title ex) Two Sum");
-        }
+        this.props.processForm(question).then(this.props.closeModal);
+        
     }
 
     render() {

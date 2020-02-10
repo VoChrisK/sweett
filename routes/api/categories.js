@@ -40,6 +40,7 @@ router.post("/",
         title: req.body.title,
         user: req.user.id
     });
+
     category.save()
     .then(category => res.json(category))
     .catch(errors => res.status(400).json({ errors }));

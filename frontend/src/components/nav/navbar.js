@@ -48,7 +48,6 @@ class NavBar extends React.Component {
 
     incrementDay() {
       let updatedUser = Object.assign({}, this.props.currentUser);
-      console.log(updatedUser);
       let newDate = new Date(updatedUser.date);
       newDate.setDate(newDate.getDate() - 1);
       updatedUser["date"] = JSON.parse(JSON.stringify(newDate));

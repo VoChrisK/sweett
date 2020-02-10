@@ -1,5 +1,6 @@
 import React from 'react';
 import AttemptIndexItemContainer from './attempt_index_item_container';
+import { leetcode_question_titles } from '../../util/leetcode_questions';
 
 class AttemptIndex extends React.Component {
     constructor(props) {
@@ -48,20 +49,22 @@ class AttemptIndex extends React.Component {
         }
     }
 
-    // questionNote() {
-    //     // e.preventDefault();
-    //     console.log(this.state.question, "this.state.question")
-    //     return (
-    //         <form className="question-note-form" onSubmit={this.updateQuestion}>
-    //             <input onChange={this.updateNote} type="textarea" className="question-note-input" placeholder="Note for question" value={this.state.question.note}/>
-    //             <input className="question-note-submit" type="submit" value="SAVE NOTE" />
-    //         </form>
-    //     );
-    // }
+    validateQuestionName() {
+        if (leetcode_question_titles.includes(this.state.question.name)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
-    updateQuestion(e) {
-        e.preventDefault();
-        this.props.updateQuestion(this.state.question)
+    questionNote() {
+        // e.preventDefault();
+        return (
+            <form className="question-note-form" onSubmit={this.updateNote}>
+                <input type="textarea" className="question-note-input" placeholder="Note for question" />
+                <input className="question-note-submit" type="submit" value="SAVE NOTE" />
+            </form>
+        );
     }
 
     updateNote(e) {
@@ -86,9 +89,7 @@ class AttemptIndex extends React.Component {
 
                 <div className="question-delete-container">   
                     <button id="question-edit-btn" className="question-edit" onClick={this.handleEditQuestion}>EDIT TITLE</button>
-                    <a className="question-link" target="_blank" href={`https://leetcode.com/problems/${this.props.question.name.toLowerCase().split(" ").join("-")}`}>
-                        LEETCODE
-                    </a>
+                    { this.validateQuestionName() ? <a className="question-link" target="_blank" href={`https://leetcode.com/problems/${this.props.question.name.toLowerCase().split(" ").join("-")}`}>LEETCODE</a> : null}
                     <button className="question-delete" onClick={this.handleDeleteQuestion}>DELETE QUESTION</button>
                 </div>
             </ul>
