@@ -11,8 +11,6 @@ class QuestionIndex extends React.Component {
             timeLimit: this.props.category.timeLimit
         }
 
-        // console.log(this.props.expectedTime);
-
         this.handleInput = this.handleInput.bind(this);
     }
 

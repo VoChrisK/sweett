@@ -1,5 +1,6 @@
 import React from 'react';
 import AttemptIndexItemContainer from './attempt_index_item_container';
+import { leetcode_question_titles } from '../../util/leetcode_questions';
 
 class AttemptIndex extends React.Component {
     constructor(props) {
@@ -44,6 +45,14 @@ class AttemptIndex extends React.Component {
         }
     }
 
+    validateQuestionName() {
+        if (leetcode_question_titles.includes(this.state.question.name)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     questionNote() {
         // e.preventDefault();
         return (
@@ -77,9 +86,7 @@ class AttemptIndex extends React.Component {
 
                 <div className="question-delete-container">   
                     <button id="question-edit-btn" className="question-edit" onClick={this.handleEditQuestion}>EDIT TITLE</button>
-                    <a className="question-link" target="_blank" href={`https://leetcode.com/problems/${this.props.question.name.toLowerCase().split(" ").join("-")}`}>
-                        LEETCODE
-                    </a>
+                    { this.validateQuestionName() ? <a className="question-link" target="_blank" href={`https://leetcode.com/problems/${this.props.question.name.toLowerCase().split(" ").join("-")}`}>LEETCODE</a> : null}
                     <button className="question-delete" onClick={this.handleDeleteQuestion}>DELETE QUESTION</button>
                 </div>
             </ul>

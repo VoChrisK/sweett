@@ -12,7 +12,7 @@ const mapStateToProps = (state, ownProps) => ({
     easyQuestions: Object.values(state.entities.questions).filter(question => question.section === "Easy"),
     mediumQuestions: Object.values(state.entities.questions).filter(question => question.section === "Medium"),
     hardQuestions: Object.values(state.entities.questions).filter(question => question.section === "Hard"),
-    actualTime: calculateActualTime(Object.values(state.entities.attempts)),
+    actualTime: calculateActualTime(ownProps.category.timeLimit, Object.values(state.entities.attempts), Object.values(state.entities.goals)),
     expectedTime: calculateExpectedTime(ownProps.category.timeLimit, Object.values(state.entities.goals))
 });
 
