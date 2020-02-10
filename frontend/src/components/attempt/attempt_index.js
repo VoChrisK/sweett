@@ -57,6 +57,11 @@ class AttemptIndex extends React.Component {
         }
     }
 
+    updateQuestion(e) {
+        e.preventDefault();
+        this.props.updateQuestion(this.state.question);
+    }
+
     questionNote() {
         // e.preventDefault();
         return (
