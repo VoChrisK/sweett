@@ -56,7 +56,6 @@ class NavBar extends React.Component {
                 ></img>
                 <div id="dropdown">
                   <ul className="dropdown-list">
-                    <li className="dropdown-profile">Profile</li>
                     <li className="dropdown-logout" onClick={this.logoutUser}>Logout</li>
                   </ul>
                 </div>

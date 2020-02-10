@@ -15,14 +15,6 @@ class AttemptIndex extends React.Component {
         this.updateNote = this.updateNote.bind(this);
     }
 
-
-    // componentDidUpdate(preProps) {
-    //     if(this.props.attempts.length !== preProps.attempts.length) {
-    //         console.log(this.props.attempts.length);
-    //         this.props.requestQuestionAttempts(this.props.question._id);
-    //     }
-    // }
-
     handleDeleteQuestion(e) {
         this.props.deleteQuestion(this.props.question._id);
     }
@@ -77,7 +69,7 @@ class AttemptIndex extends React.Component {
 
                 <div className="question-delete-container">   
                     <button id="question-edit-btn" className="question-edit" onClick={this.handleEditQuestion}>EDIT TITLE</button>
-                    <a className="question-link" target="_blank" href={`https://leetcode.com/problems/${this.props.question.name.toLowerCase().split(" ").join("-")}`}>
+                    <a className="question-link" target="_blank" rel="noopener noreferrer" href={`https://leetcode.com/problems/${this.props.question.name.toLowerCase().split(" ").join("-")}`}>
                         LEETCODE
                     </a>
                     <button className="question-delete" onClick={this.handleDeleteQuestion}>DELETE QUESTION</button>

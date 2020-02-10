@@ -5,7 +5,7 @@ const goalsReducer = (state = {}, action) => {
     let nextState;
     switch (action.type) {
         case RECEIVE_GOALS:
-            nextState = new Object()
+            nextState = {}
             action.goals.forEach(goal => {
                 nextState[goal._id] = goal
             })           

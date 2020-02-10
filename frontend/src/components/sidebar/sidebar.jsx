@@ -3,9 +3,6 @@ import { withRouter } from 'react-router-dom'
 
 
 class Sidebar extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     componentDidMount() {
         this.props.requestCategories(this.props.currentUserId);

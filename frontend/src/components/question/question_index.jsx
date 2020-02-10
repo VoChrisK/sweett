@@ -70,7 +70,7 @@ class QuestionIndex extends React.Component {
     toggleSidebar() {
         const sidebar = document.getElementById("sidebar");
         const questionIndex = document.getElementsByClassName("question-index")[0];
-        const goalIndex = document.getElementsByClassName("goal-index")[0];
+        // const goalIndex = document.getElementsByClassName("goal-index")[0];
         const sidebarToggleButton = document.getElementById("sidebar-toggle-button");
 
         // re-style question div
@@ -96,7 +96,7 @@ class QuestionIndex extends React.Component {
                 </button>
                 <div className="question-title-description-add">
                     <div className="question-title-description">
-                        <p className="question-index-title">
+                        <div className="question-index-title">
                             QUESTIONS
                             <i onClick={this.showForm.bind(this)} className="fa fa-hourglass">
                                 <form onSubmit={this.handleSubmit.bind(this)} className="edit-time invisible">
@@ -104,7 +104,7 @@ class QuestionIndex extends React.Component {
                                     <input onClick={event => event.stopPropagation()} onChange={this.handleTimeLimit.bind(this)} type="number" id="edit-time-input" value={this.state.timeLimit} min="0" /><strong> minutes</strong>
                                 </form>
                             </i>
-                        </p>
+                        </div>
                         <p className="question-index-description">{this.props.actualTime} / {this.props.expectedTime} minutes completed</p>
                     </div>
                     <div id="question-add" onClick={() => this.props.addQuestion()}>

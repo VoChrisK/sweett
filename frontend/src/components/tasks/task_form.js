@@ -1,10 +1,12 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
 
 class TaskForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = this.props
+        this.state = {
+            name: this.props.name,
+            status: "Incomplete",
+        }
     }
 
     update(field) {
@@ -20,14 +22,12 @@ class TaskForm extends React.Component {
         e.preventDefault();
         let task = {
             name: this.state.name,
-            status: "Incomplete",
             category_id: tasks[0].category_id
         };
         this.props.processForm(task).then(this.props.closeModal);
     }
 
     render() {
-        console.log(this.props, 'task form props')
         return (
             <div className="task-modal">
                 <form className="task-form" onSubmit={this.handleSubmit.bind(this)}>

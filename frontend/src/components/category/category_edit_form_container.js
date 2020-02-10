@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import CategoryEditForm from "./category_edit_form";
-import { openModal, closeModal } from "../../actions/modal_actions";
+import { closeModal } from "../../actions/modal_actions";
 import { updateCategory } from "../../actions/category_actions";
 
 const mapStateToProps = (state) => {
