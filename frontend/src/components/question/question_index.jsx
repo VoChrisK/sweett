@@ -10,6 +10,7 @@ class QuestionIndex extends React.Component {
             loadedHardQuestions: false,
             timeLimit: this.props.category.timeLimit
         }
+        console.log("hihihih");
 
         this.handleInput = this.handleInput.bind(this);
     }
@@ -68,7 +69,7 @@ class QuestionIndex extends React.Component {
     toggleSidebar() {
         const sidebar = document.getElementById("sidebar");
         const questionIndex = document.getElementsByClassName("question-index")[0];
-        const goalIndex = document.getElementsByClassName("goal-index")[0];
+        // const goalIndex = document.getElementsByClassName("goal-index")[0];
         const sidebarToggleButton = document.getElementById("sidebar-toggle-button");
 
         // re-style question div
@@ -81,20 +82,20 @@ class QuestionIndex extends React.Component {
             questionIndex.style.width = "80%";
             sidebarToggleButton.style.left = "0.2%";
         }
-    
-  }
+    }
 
     render() {
         const easyQuestionlength = this.props.easyQuestions.length;
         const mediumQuestionlength = this.props.mediumQuestions.length;
+        console.log(this.props.easyQuestions);
           return (
         
             <div className="question-index">
-                <button id="sidebar-toggle-button" onClick={this.toggleSidepropsbar}>
+                <button id="sidebar-toggle-button" onClick={this.toggleSidebar}>
                 </button>
                 <div className="question-title-description-add">
                     <div className="question-title-description">
-                        <p className="question-index-title">
+                        <div className="question-index-title">
                             QUESTIONS
                             <i onClick={this.showForm.bind(this)} className="fa fa-hourglass">
                                 <form onSubmit={this.handleSubmit.bind(this)} className="edit-time invisible">
@@ -102,7 +103,7 @@ class QuestionIndex extends React.Component {
                                     <input onClick={event => event.stopPropagation()} onChange={this.handleTimeLimit.bind(this)} type="number" id="edit-time-input" value={this.state.timeLimit} min="0" /><strong> minutes</strong>
                                 </form>
                             </i>
-                        </p>
+                        </div>
                         <p className="question-index-description">{this.props.actualTime} / {this.props.expectedTime} minutes completed</p>
                     </div>
                     <div id="question-add" onClick={() => this.props.addQuestion()}>

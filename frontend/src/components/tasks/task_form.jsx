@@ -1,10 +1,12 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
 
 class TaskForm extends React.Component {
     constructor(props) {
         super(props);
-        this.state = this.props
+        this.state = {
+            name: this.props.name,
+            status: "Incomplete",
+        }
     }
 
     update(field) {
@@ -19,7 +21,6 @@ class TaskForm extends React.Component {
         debugger
         let task = {
             name: this.state.name,
-            status: "Incomplete",
             category_id: this.props.location.pathname.split("/")[2]
         };
         this.props.processForm(task).then(this.props.closeModal);

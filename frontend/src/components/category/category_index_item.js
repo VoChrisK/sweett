@@ -1,10 +1,4 @@
 import React from 'react';
-import { fas } from "@fortawesome/free-solid-svg-icons";
-import {
-  library,
-  icon,
-  findIconDefinition
-} from "@fortawesome/fontawesome-svg-core";
 
 const CategoryIndexItem = ({ category, idx }) => {
     return (

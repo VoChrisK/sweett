@@ -1,7 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { formatTime } from './../../util/formats';
-import { urlencoded } from 'body-parser';
 import AttemptIndexContainer from './../attempt/attempt_index_container';
 
 class QuestionIndexItem extends React.Component {
@@ -13,6 +12,8 @@ class QuestionIndexItem extends React.Component {
             isRecording: false,
             title: this.props.question.name
         }
+
+        console.log(this.props.question);
 
         this.handleRecordButton = this.handleRecordButton.bind(this);
         this.handleStopButton = this.handleStopButton.bind(this);
@@ -145,7 +146,7 @@ class QuestionIndexItem extends React.Component {
                     {this.editTitleFrom()}
                     <div className="question-btns">
                         {this.timeTrackerButtons()}
-                        <i onClick={this.expandQuestion.bind(this)} id="caret" class="fa fa-caret-down"></i>
+                        <i onClick={this.expandQuestion.bind(this)} id="caret" className="fa fa-caret-down"></i>
                     </div>
                 </div>
                 <div className="question-stats invisible">
