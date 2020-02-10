@@ -81,8 +81,7 @@ class QuestionIndex extends React.Component {
             questionIndex.style.width = "80%";
             sidebarToggleButton.style.left = "0.2%";
         }
-    
-  }
+    }
 
     render() {
         const easyQuestionlength = this.props.easyQuestions.length;
@@ -90,7 +89,7 @@ class QuestionIndex extends React.Component {
           return (
         
             <div className="question-index">
-                <button id="sidebar-toggle-button" onClick={this.toggleSidepropsbar}>
+                <button id="sidebar-toggle-button" onClick={this.toggleSidebar}>
                 </button>
                 <div className="question-title-description-add">
                     <div className="question-title-description">

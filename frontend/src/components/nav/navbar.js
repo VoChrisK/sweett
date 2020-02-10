@@ -90,7 +90,7 @@ class NavBar extends React.Component {
       if (!!this.props.currentUser) {
         if (Object.keys(this.props.currentUser).length > 0) {
           clock = <h1 className="days-counter">Day: {this.state.day}</h1>
-          incrementDay = <i onClick={this.incrementDay.bind(this)} class="fa fa-plus-circle"></i>
+          incrementDay = <i onClick={this.incrementDay.bind(this)} className="fa fa-plus-circle"></i>
         }
       }
         return (
