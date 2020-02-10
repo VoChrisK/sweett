@@ -15,7 +15,6 @@ class TaskForm extends React.Component {
     }
 
     handleSubmit(e) {
-        let tasks = Object.values(this.props.state.entities.tasks)
         e.preventDefault();
         debugger
         let task = {
