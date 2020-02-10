@@ -37,7 +37,7 @@ router.post('/register', (req, res) => {
                         newUser.save()
                             .then((user) => {
                                 const payload = {
-                                    id: user.id,
+                                    _id: user._id,
                                     username: user.username,
                                     email: user.email,
                                     date: user.date
@@ -84,7 +84,7 @@ router.post('/login', (req, res) => {
                 .then(isMatch => {
                     if (isMatch) {
                         const payload = {
-                            id: user.id,
+                            _id: user._id,
                             username: user.username,
                             email: user.email,
                             date: user.date
@@ -106,5 +106,15 @@ router.post('/login', (req, res) => {
                 })
         })
 });
+
+router.patch('/:id', (req, res) => {
+    User.findById(req.params.id)
+    .then(user => {
+        user.date = req.body.date;
+        user.save()
+        .then(user => res.json(user))
+    })
+    .catch(errors => res.status(400).json({ errors }))
+})
 
 module.exports = router;

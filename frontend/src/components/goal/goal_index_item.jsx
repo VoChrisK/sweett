@@ -44,11 +44,14 @@ class GoalIndexItem extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (document.getElementsByClassName("days-counter")[0].innerHTML.split(" ")[1] !== (calculateDays(new Date(this.props.goal.date), Date.now())).toString()) {
+
+        let day1 = calculateDays(new Date(this.props.currentUser.date), Date.now());
+        let day2 = calculateDays(new Date(this.props.goal.date), Date.now());
+        if (day1 !== day2) {
             let newGoal = Object.assign({}, this.state.goal)
             newGoal.attempted = 0;
             // grab currentUser
-            newGoal.date = this.props.currentUser.date;
+            newGoal.date = JSON.parse(JSON.stringify(this.props.currentUser.date));
             this.props.updateGoal(newGoal)
                 .then((action) => {
                     this.setState({ goal: action.goal})

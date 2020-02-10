@@ -7,7 +7,7 @@ const mapStateToProps = (state) => {
 
     return ({
         categories: Object.values(state.entities.categories),
-        currentUserId: state.session.user.id
+        currentUserId: state.session.user._id
     });
 };
 
