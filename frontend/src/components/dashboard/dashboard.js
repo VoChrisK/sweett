@@ -3,11 +3,15 @@ import { withRouter } from 'react-router-dom'
 import CategoryIndexContainer from '../category/category_index_container';
 import { formatDate } from './../../util/formats';
 
+
 class Dashboard extends React.Component {
 
   componentDidMount() {
     this.startTime();
     // this.checkTime.bind(this);
+
+    // hide side bar toggle btn
+    document.getElementById("sidebar-toggle-button").style.display = "none";
   }
     
   startTime() {

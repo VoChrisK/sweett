@@ -84,6 +84,17 @@ class NavBar extends React.Component {
         }
     }
 
+  toggleSidebar() {
+    const sidebar = document.getElementById("sidebar");
+
+    // re-style question div
+    if (sidebar.style.display === "none") {
+      sidebar.style.display = "block";
+    } else {
+      sidebar.style.display = "none";
+    }
+  }
+
     render() {
       let clock;
       let incrementDay;
@@ -103,6 +114,8 @@ class NavBar extends React.Component {
             {clock}
             {incrementDay}
             {this.getLinks()}
+            <button id="sidebar-toggle-button" onClick={this.toggleSidebar}>
+            </button>
           </div>
         );
     }

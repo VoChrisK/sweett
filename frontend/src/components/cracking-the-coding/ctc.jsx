@@ -6,6 +6,14 @@ import GoalIndexContainer from '../goal/goal_index_container';
 
 
 class CrackingTheCoding extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    componentDidMount() {
+        // show side bar toggle btn
+        document.getElementById("sidebar-toggle-button").style.display = "block";
+    }
 
     render() {
         return (
