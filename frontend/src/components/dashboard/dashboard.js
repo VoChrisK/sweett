@@ -25,22 +25,21 @@ class Dashboard extends React.Component {
 }
 
   checkTime(i) {
-    if (i<10) {i = "0" + i};  // add zero in front of numbers < 10
-    return i;
-}
+      if (i<10) {i = "0" + i};  // add zero in front of numbers < 10
+      return i;
+  }
 
-    render() {
-        
-        return (
-          <div className="dashboard">
-            <div className="dashboard-header">
-                <h1 className="todays-date">Today is {formatDate()}. The time is <p id="txt"></p></h1>
-                <h1 className="categories-header">Here are your categories:</h1>
-              </div>
-            <CategoryIndexContainer />
-          </div>
-        );
-    }
+  render() {
+      return (
+        <div className="dashboard">
+          <div className="dashboard-header">
+              <h1 className="todays-date">Today is {formatDate()}. The time is <p id="txt"></p></h1>
+              <h1 className="categories-header">Here are your categories:</h1>
+            </div>
+          <CategoryIndexContainer />
+        </div>
+      );
+  }
 }
 
 export default withRouter(Dashboard);

@@ -1,5 +1,4 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
 
 class CategoryForm extends React.Component {
   constructor(props) {
@@ -18,8 +17,6 @@ class CategoryForm extends React.Component {
   }
 
   handleSubmit(e) {
-    console.log(this.props, 'submit propbs')
-    console.log(this.state,' submit state')
     e.preventDefault();
     let cat = {
       title: this.state.title

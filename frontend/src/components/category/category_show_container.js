@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import CategoryShow from './category_show';
 import { requestCategory } from '../../actions/category_actions';
-import { openModal, closeModal } from "../../actions/modal_actions";
+import { openModal } from "../../actions/modal_actions";
 import { updateCategory } from "../../actions/category_actions";
 import { requestCategoryAttempts } from '../../actions/attempt_actions';
 import { requestCategoryTasks } from '../../actions/task_actions';
