@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import GoalIndexItem from './goal_index_item';
 import { updateGoal, deleteGoal, requestGoal } from '../../actions/goal_actions';
 import { updateCategory } from '../../actions/category_actions';
+import { withRouter } from "react-router-dom"
 
 
 const mapStateToProps = (state, ownProps) => {
@@ -23,7 +24,7 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(
+export default withRouter(connect(
     mapStateToProps,
     mapDispatchToProps,
-)(GoalIndexItem);
+)(GoalIndexItem));

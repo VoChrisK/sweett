@@ -106,3 +106,7 @@
 .onsplash {
     background-color: transparent;
 }
+
+.fa.fa-plus-circle {
+    cursor: pointer;
+}

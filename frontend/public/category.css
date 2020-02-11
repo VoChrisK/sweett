@@ -215,3 +215,19 @@ i {
     height: 50px;
 }
 
+.single-task {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.task-remove {
+    background: transparent url("../icons/remove.png") no-repeat;
+    background-size: 100%;
+    width: 20px;
+    height: 20px;
+    border: none;
+    transition: .2s;
+    margin-left: 50px;
+}
+

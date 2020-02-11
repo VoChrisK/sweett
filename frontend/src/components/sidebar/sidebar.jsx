@@ -5,6 +5,7 @@ import { withRouter } from 'react-router-dom'
 class Sidebar extends React.Component {
 
     componentDidMount() {
+        console.log(this.props, 'mount state')
         this.props.requestCategories(this.props.currentUserId);
     }
 
@@ -20,6 +21,7 @@ class Sidebar extends React.Component {
     }
 
     render() {
+        console.log(this.props, 'render state')
         return (
             <div id="sidebar">
                 {this.categories()}

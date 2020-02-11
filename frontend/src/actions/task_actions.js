@@ -1,4 +1,10 @@
 import * as TasksApiUtil from "./../util/tasks_util";
+export const recordTask = idx => {
+  return ({
+    type: RECORD_TASK,
+    idx
+  });
+}
 
 const receiveTasks = tasks => {
   return {
@@ -34,7 +40,6 @@ export const requestTask = taskId => dispatch => {
 };
 
 export const createTask = task => dispatch => {
-  console.log('task actions')
   return TasksApiUtil.createTask(task).then(newtask =>
     dispatch(receiveTask(newtask.data))
   );
@@ -55,3 +60,4 @@ export const deleteTask = taskId => dispatch => {
 export const RECEIVE_TASKS = "RECEIVE_TASKS";
 export const RECEIVE_TASK = "RECEIVE_TASK";
 export const REMOVE_TASK = "REMOVE_TASK";
+export const RECORD_TASK = "RECORD_TASK";

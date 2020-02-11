@@ -1,13 +1,13 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { formatTime } from './../../util/formats';
-import { leetcode_question_titles } from '../../util/leetcode_questions';
 import AttemptIndexContainer from './../attempt/attempt_index_container';
 
 class QuestionIndexItem extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            question: this.props.question,
             time: 0,
             isRecording: false,
             title: this.props.question.name
@@ -118,19 +118,14 @@ class QuestionIndexItem extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    if (leetcode_question_titles.includes(this.state.title)) {
-      let question = this.props.question;
-      question.name = this.state.title;
-      this.props.updateQuestion(question);
-      const questionEdit = document.getElementsByClassName("question-edit-form")[this.props.idx];
-      const questionTitleSubmit = document.getElementsByClassName("question-edit-form-submit")[this.props.idx];
-      questionEdit.disabled = true;
-      questionEdit.style.backgroundColor = "transparent";
-      questionTitleSubmit.style.display = "none";
-    } else {
-      alert("Plase exatly match the title ex) Two Sum");
-    }
-    
+    let question = this.state.question;
+    question.name = this.state.title;
+    this.props.updateQuestion(question);
+    const questionEdit = document.getElementsByClassName("question-edit-form")[this.props.idx];
+    const questionTitleSubmit = document.getElementsByClassName("question-edit-form-submit")[this.props.idx];
+    questionEdit.disabled = true;
+    questionEdit.style.backgroundColor = "transparent";
+    questionTitleSubmit.style.display = "none";
   }
 
   editTitleFrom() {

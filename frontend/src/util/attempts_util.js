@@ -4,6 +4,10 @@ export const fetchQuestionAttempts = questionId => {
     return axios.get(`/api/attempts/questions/${questionId}`);
 };
 
+export const fetchTaskAttempts = taskId => {
+    return axios.get(`/api/attempts/tasks/${taskId}`);
+};
+
 export const fetchCategoryAttempts = categoryId => {
     return axios.get(`/api/attempts/categories/${categoryId}`);
 };
