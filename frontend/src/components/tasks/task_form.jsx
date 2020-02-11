@@ -1,4 +1,5 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 
 class TaskForm extends React.Component {
     constructor(props) {
@@ -17,12 +18,10 @@ class TaskForm extends React.Component {
     }
 
     handleSubmit(e) {
-        console.log(this.props, 'submit props')
-        let tasks = Object.values(this.props.state.entities.tasks)
         e.preventDefault();
         let task = {
             name: this.state.name,
-            category_id: tasks[0].category_id
+            category_id: this.props.location.pathname.split("/")[2]
         };
         this.props.processForm(task).then(this.props.closeModal);
     }
@@ -48,4 +47,4 @@ class TaskForm extends React.Component {
     }
 }
 
-export default TaskForm;
+export default withRouter(TaskForm);

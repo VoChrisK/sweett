@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import TaskForm from './task_form'
 import { openModal, closeModal } from "../../actions/modal_actions";
-import { createTask } from '../../actions/task_actions'
+import { createTask } from '../../actions/task_actions';
 
 const mapStateToProps = state => {
     return {
