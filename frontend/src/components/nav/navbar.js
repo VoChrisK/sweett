@@ -13,6 +13,17 @@ class NavBar extends React.Component {
         this.getLinks = this.getLinks.bind(this);
     }
 
+    componentDidMount() {
+      // dropdown off onclick outside
+      let dropdown = document.getElementById("dropdown"); 
+      let dropdownParent = document.getElementsByClassName("dropdown-parent")[0];
+      document.addEventListener('mouseup', e => {
+        if ((e.target !== dropdownParent) && (!Array.from(dropdownParent.children).includes(e.target))) {
+          dropdown.style.display = "none";
+        }
+      })
+    }
+
     componentDidUpdate(preProps) {
       if(this.props.location.path !== preProps.location.path) {
         if (!this.props.loggedIn) {
