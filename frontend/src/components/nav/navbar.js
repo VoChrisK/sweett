@@ -14,7 +14,7 @@ class NavBar extends React.Component {
     }
 
     componentDidMount() {
-      // dropdown off onclick outside
+      // Close dropdown onclick outside
       let dropdown = document.getElementById("dropdown"); 
       let dropdownParent = document.getElementsByClassName("dropdown-parent")[0];
       document.addEventListener('mouseup', e => {
