@@ -26,6 +26,11 @@ export const requestQuestionAttempts = questionId => dispatch => {
         .then(attempts => dispatch(receiveAttempts(attempts.data)))
 };
 
+export const requestTaskAttempts = taskId => dispatch => {
+    return AttemptsApiUtil.fetchTaskAttempts(taskId)
+        .then(attempts => dispatch(receiveAttempts(attempts.data)))
+};
+
 export const requestCategoryAttempts = categoryId => dispatch => {
     return AttemptsApiUtil.fetchCategoryAttempts(categoryId)
         .then(attempts => dispatch(receiveAttempts(attempts.data)))

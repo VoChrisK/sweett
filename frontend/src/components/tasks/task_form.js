@@ -18,15 +18,18 @@ class TaskForm extends React.Component {
     }
 
     handleSubmit(e) {
-        e.preventDefault();
-        let task = {
-            name: this.state.name,
-            category_id: this.props.location.pathname.split("/")[2]
-        };
-        this.props.processForm(task).then(this.props.closeModal);
+            e.preventDefault();
+            let task = {
+                name: this.state.name,
+                status: "Incomplete",
+                category_id: this.props.location.pathname.split("/")[2]
+            };
+            this.props.processForm(task).then(this.props.closeModal);
+        
     }
 
     render() {
+        console.log(this.props, 'render props')
         return (
             <div className="task-modal">
                 <form className="task-form" onSubmit={this.handleSubmit.bind(this)}>
