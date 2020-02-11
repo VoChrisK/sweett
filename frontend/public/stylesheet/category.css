@@ -14,6 +14,10 @@
     /* padding-bottom: 40px; */
 }
 
+.cat-body:visited {
+    color: inherit;
+}
+
 .x-box:hover {
     cursor: pointer;
 }
