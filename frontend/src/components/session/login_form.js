@@ -51,10 +51,11 @@ class LoginForm extends React.Component {
             email: this.state.email,
             password: this.state.password
         };
-        this.props.processForm(user)
-            .then(
-                this.props.closeModal
-            )
+        this.props.processForm(user).then(() => {
+            if(this.state.errors.length === 0) {
+                this.props.closeModal();
+            }
+        });
     }
 
     demo(user) {
@@ -105,7 +106,7 @@ class LoginForm extends React.Component {
     // Render the session errors if there are any
     renderErrors() {
         return (
-            <ul>
+            <ul className="errors">
                 {Object.keys(this.state.errors).map((error, i) => (
                     <li key={`error-${i}`}>
                         {this.state.errors[error]}
