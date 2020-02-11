@@ -35,7 +35,7 @@ export const signup = user => dispatch => (
     dispatch(receiveCurrentUser(decoded))
     // dispatch(receiveUserSignIn())
   })
-    .catch(err => dispatch(receiveErrors(err.response.data)))
+  .catch(err => dispatch(receiveErrors(err.response.data)))
 );
 
 export const login = user => dispatch => (

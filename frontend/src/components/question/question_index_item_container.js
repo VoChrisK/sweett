@@ -6,8 +6,7 @@ import { requestQuestionAttempts } from './../../actions/attempt_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    idx: ownProps.idx,
-    question: ownProps.question
+    idx: ownProps.idx
   };
 };
 
