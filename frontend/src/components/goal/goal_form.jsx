@@ -22,15 +22,22 @@ class GoalForm extends React.Component {
 
     handleCancel(e) {
         e.preventDefault();
+        this.setState({ goal: this.props.goal });
+        this.setState({ errors: { description: '', expected: '' }})
         document.getElementsByClassName("goal-form-render")[0].classList.remove("active");
     }
 
     handleSubmit(e) {
         e.preventDefault();
-        let newGoal = Object.assign({}, this.state.goal);
         this.props.processForm(this.state.goal)
-        this.setState({ goal: newGoal });
-
+            .then(res => {
+                if (!res) {
+                    this.setState({ goal: this.props.goal });
+                } else {
+                    this.setState({ errors: this.props.errors });
+                }
+            })
+        
     }
     
     handleCheck() {
@@ -55,7 +62,7 @@ class GoalForm extends React.Component {
 
     render() {
         let goal = this.state.goal;
-        let errors = this.props.errors
+        let errors = this.state.errors
         return(
             <div className="goal-form-container goal-index-item">
                 <form className="goal-form">

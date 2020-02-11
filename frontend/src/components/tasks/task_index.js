@@ -1,11 +1,42 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+// import TaskIndexItemContainer from "./task_index_item_container";
 
 class TaskIndex extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      loadedChapterOneTasks: false,
+      loadedChapterTwoTasks: false,
+      loadedChapterThreeTasks: false,
+      loadedChapterFourTasks: false,
+      loadedChapterFiveTasks: false,
+      loadedChapterSixTasks: false,
+      loadedChapterSevenTasks: false,
+      loadedChapterEightTasks: false,
+      loadedChapterNineTasks: false,
+      loadedChapterTenTasks: false,
+      loadedChapterElevenTasks: false,
+      loadedChapterTwelveTasks: false,
+      loadedChapterThirteenTasks: false,
+      loadedChapterFourteenTasks: false,
+      loadedChapterFifteenTasks: false,
+      loadedChapterSixteenTasks: false,
+      timeLimit: this.props.category.timeLimit
+    }
+
+    this.handleInput = this.handleInput.bind(this);
+  }
 
   componentDidMount() {
       this.props
         .requestCategoryTasks(this.props.match.params.categoryId)
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.tasks.length !== this.props.tasks.length) {
+      this.props.requestCategoryTasks(this.props.category._id);
+    }
   }
 
   toggleSidebar() {
@@ -27,8 +58,66 @@ class TaskIndex extends React.Component {
     }
   }
 
+  // renderMoreTasks(tasks, length) {
+  //   return tasks.slice(3).map((task, idx) => <TaskIndexItemContainer key={idx + 3 + length} task={task} idx={idx + 3 + length} />);
+  // }
+
+  handleInput(input) {
+    this.setState({ [input]: !this.state[input] });
+  }
+
+  handleTimeLimit(event) {
+    this.setState({ timeLimit: event.target.value });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    let newCategory = Object.assign({}, this.props.category);
+    newCategory.timeLimit = this.state.timeLimit;
+    this.props.updateCategory(newCategory)
+      .then(
+        () => document.getElementsByClassName("edit-time")[0].classList.add("invisible")
+      );
+  }
+
+  showForm(event) {
+    const editTime = document.getElementsByClassName("edit-time")[0];
+    if (editTime.classList.contains("invisible")) {
+      editTime.classList.remove("invisible");
+    } else {
+      editTime.classList.add("invisible");
+    }
+  }
+
+  renderLoadMore(length, input) {
+    if (length > 3) {
+      return (
+        <div onClick={event => this.handleInput(input)} className="load-more">
+          <h1>Load More</h1>
+        </div>
+      );
+    }
+  }
+
   render() {
       const catTasks = this.props.tasks
+      const chapterOneTaskLength = this.props.chapterOneTasks.length;
+      const chapterTwoTaskLength = this.props.chapterTwoTasks.length;
+      const chapterThreeTaskLength = this.props.chapterThreeTasks.length;
+      const chapterFourTaskLength = this.props.chapterFourTasks.length;
+      const chapterFiveTaskLength = this.props.chapterFiveTasks.length;
+      const chapterSixTaskLength = this.props.chapterSixTasks.length;
+      const chapterSevenTaskLength = this.props.chapterSevenTasks.length;
+      const chapterEightTaskLength = this.props.chapterEightTasks.length;
+      const chapterNineTaskLength = this.props.chapterNineTasks.length;
+      const chapterTenTaskLength = this.props.chapterTenTasks.length;
+      const chapterElevenTaskLength = this.props.chapterElevenTasks.length;
+      const chapterTwelveTaskLength = this.props.chapterTwelveTasks.length;
+      const chapterThirteenTaskLength = this.props.chapterThirteenTasks.length;
+      const chapterFourteenTaskLength = this.props.chapterFourteenTasks.length;
+      const chapterFifteenTaskLength = this.props.chapterFifteenTasks.length;
+      const chapterSixteenTaskLength = this.props.chapterSixteenTasks.length;
+
       if (this.props.tasks.length === 0) {
         return <div className="category-tasks"> Tasks 
          <div id="task-add" onClick={() => this.props.addTask()}>
@@ -49,3 +138,4 @@ class TaskIndex extends React.Component {
   }
 }
 export default withRouter(TaskIndex);
+
