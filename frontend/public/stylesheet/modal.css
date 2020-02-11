@@ -18,7 +18,7 @@
 
 /* task modal */
 .cat-modal {
-    background-color: white;
+    background-color: rgb(185, 211, 253);
     height: 400px;
     width: 300px;
     border: 2px lightgray solid;
@@ -30,14 +30,14 @@
 }
 
 .cat-modal h1 {
-    color: #3aaf9f;
+    color: white;
     font-family: 'Alata', sans-serif;
     padding-bottom: 20px;
 
 }
 
 .cat-modal h3 {
-    color: #3aaf9f;
+    color: white;
     font-family: 'Alata', sans-serif;
     padding-bottom: 20px;
 }
