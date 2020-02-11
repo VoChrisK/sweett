@@ -10,7 +10,6 @@ class QuestionIndex extends React.Component {
             loadedHardQuestions: false,
             timeLimit: this.props.category.timeLimit
         }
-        console.log("hihihih");
 
         this.handleInput = this.handleInput.bind(this);
     }
@@ -20,6 +19,13 @@ class QuestionIndex extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
+        if(this.props.day !== prevProps.day) {
+            let newCategory = Object.assign({}, this.props.category);
+            newCategory.expected += this.props.expectedTime;
+            newCategory.actual += this.props.actualTime;
+            this.props.updateCategory(newCategory);
+        }
+
         if (prevProps.questions.length !== this.props.questions.length && prevProps.session.user === this.props.session.user) {
             this.props.requestQuestions(this.props.category._id);
         }

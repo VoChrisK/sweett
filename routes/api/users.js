@@ -7,6 +7,7 @@ const jwt = require("jsonwebtoken");
 const passport = require("../../config/passport");
 const validateRegisterInput = require('../../validation/register');
 const validateLoginInput = require('../../validation/login');
+const passport2 = require("passport");
 
 router.get("/test", (req, res) => {
     res.json({ msg: "This is the user route" });
@@ -107,10 +108,11 @@ router.post('/login', (req, res) => {
         })
 });
 
-router.patch('/:id', (req, res) => {
+router.patch('/:id',
+ (req, res) => {
     User.findById(req.params.id)
     .then(user => {
-        user.date = req.body.date;
+        user.date = new Date(req.body.date);
         user.save()
         .then(user => res.json(user))
     })

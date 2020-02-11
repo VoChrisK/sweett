@@ -13,7 +13,8 @@ const mapStateToProps = (state, ownProps) => ({
     mediumQuestions: Object.values(state.entities.questions).filter(question => question.section === "Medium"),
     hardQuestions: Object.values(state.entities.questions).filter(question => question.section === "Hard"),
     actualTime: calculateActualTime(ownProps.category.timeLimit, Object.values(state.entities.attempts), Object.values(state.entities.goals)),
-    expectedTime: calculateExpectedTime(ownProps.category.timeLimit, Object.values(state.entities.goals))
+    expectedTime: calculateExpectedTime(ownProps.category.timeLimit, Object.values(state.entities.goals)),
+    day: state.entities.time.day
 });
 
 const mapDispatchToProps = (dispatch) => {
