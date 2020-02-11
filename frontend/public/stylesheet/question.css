@@ -59,7 +59,7 @@
 
 
 .record-button {
-    background: transparent url("./icons/record.png") no-repeat top;
+    background: transparent url("../icons/record.png") no-repeat top;
     width: 32px;
     height: 32px;
     border: none;
@@ -68,7 +68,7 @@
 }
 
 .stop-button {
-    background: transparent url("./icons/stop.png") no-repeat top;
+    background: transparent url("../icons/stop.png") no-repeat top;
     width: 32px;
     height: 32px;
     border: none;
@@ -76,7 +76,7 @@
 }
 
 .pause-button {
-    background: transparent url("./icons/pause.png") no-repeat top;
+    background: transparent url("../icons/pause.png") no-repeat top;
     width: 32px;
     height: 32px;
     border: none;
@@ -85,7 +85,7 @@
 }
 
 .play-button {
-    background: transparent url("./icons/play.png") no-repeat top;
+    background: transparent url("../icons/play.png") no-repeat top;
 
 }
 
