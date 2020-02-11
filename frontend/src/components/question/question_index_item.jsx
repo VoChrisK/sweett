@@ -44,8 +44,8 @@ class QuestionIndexItem extends React.Component {
         document.getElementsByClassName("attempts-list")[this.props.idx].classList.toggle("invisible");
 
         let caretClassList = document.getElementsByClassName("caret")[this.props.idx].classList;
-
-        if (caretClassList[1] === "fa-caret-down") {
+        console.log(caretClassList, "@@@");
+        if (caretClassList[2] === "fa-caret-down") {
             caretClassList.remove("fa-caret-down");
             caretClassList.add("fa-caret-up");
         } else {
@@ -146,7 +146,7 @@ class QuestionIndexItem extends React.Component {
                     {this.editTitleFrom()}
                     <div className="question-btns">
                         {this.timeTrackerButtons()}
-                <i onClick={this.expandQuestion.bind(this)} className="fa fa-caret-down caret"></i>
+                <i onClick={this.expandQuestion.bind(this)} className="caret fa fa-caret-down"></i>
                     </div>
                 </div>
                 <div className="question-stats invisible">
