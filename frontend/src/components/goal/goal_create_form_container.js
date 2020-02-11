@@ -6,7 +6,7 @@ const mapStateToProps = (state, ownProps) => {
     return ({
         goal: {
             description: '',
-            expected: '',
+            expected: '1',
             addToTotal: false,
             category_id: ownProps.categoryId
         },

@@ -9,9 +9,6 @@ import {
 import { fas } from "@fortawesome/free-solid-svg-icons";
 
 class CategoryIndex extends React.Component {
-  constructor(props) {
-    super(props)
-  }
 
   componentDidUpdate(prevProps) {
     if (prevProps.categories.length !== this.props.categories.length) {
@@ -19,7 +16,6 @@ class CategoryIndex extends React.Component {
     }
 
     if (this.props.categories.length >= 12) {
-
         document.getElementsByClassName("plus-box")[0].style.visibility ="hidden";
     }
 
@@ -29,7 +25,7 @@ class CategoryIndex extends React.Component {
 
     let addBox;
 
-    if (this.props.categories.length > 11) {
+    if (this.props.categories.length > 12) {
       addBox = null;
     } else {
       addBox = (
@@ -48,12 +44,7 @@ class CategoryIndex extends React.Component {
         prefix: "fas",
         iconName: "plus-circle"
       });
-      const ecks = findIconDefinition({
-        prefix: "fas",
-        iconName: "times-circle"
-      });
       const plusIcon = icon(plus);
-      const ecksButton = icon(ecks);
       if (
         this.props.categories.length > 0 &&
         this.props.categories.length < 32
@@ -70,7 +61,7 @@ class CategoryIndex extends React.Component {
   deleteCat(e) {
     e.preventDefault();
     
-    if (e.target.id > 0) {
+    if (e.target.id > 2) {
       this.props.delCat(this.props.categories[e.target.id]._id).then(() => {
         this.forceUpdate();
       });

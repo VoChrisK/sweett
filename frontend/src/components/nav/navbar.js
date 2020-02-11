@@ -6,6 +6,9 @@ import { calculateDays } from './../../util/calculations';
 class NavBar extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+          day: calculateDays(new Date(this.props.currentUser.date), Date.now())
+        }
         this.logoutUser = this.logoutUser.bind(this);
         this.getLinks = this.getLinks.bind(this);
     }
@@ -43,6 +46,15 @@ class NavBar extends React.Component {
       }
     }
 
+    incrementDay() {
+      let updatedUser = Object.assign({}, this.props.currentUser);
+      let newDate = new Date(updatedUser.date);
+      newDate.setDate(newDate.getDate() - 1);
+      updatedUser["date"] = JSON.parse(JSON.stringify(newDate));
+      this.props.updateUser(updatedUser)
+        .then(data => this.setState({ day: calculateDays(new Date(data.user.date), Date.now()) }));
+    }
+
     // Selectively render links dependent on whether the user is logged in
     getLinks() {
         if (this.props.loggedIn) {
@@ -56,7 +68,6 @@ class NavBar extends React.Component {
                 ></img>
                 <div id="dropdown">
                   <ul className="dropdown-list">
-                    <li className="dropdown-profile">Profile</li>
                     <li className="dropdown-logout" onClick={this.logoutUser}>Logout</li>
                   </ul>
                 </div>
@@ -75,9 +86,11 @@ class NavBar extends React.Component {
 
     render() {
       let clock;
+      let incrementDay;
       if (!!this.props.currentUser) {
         if (Object.keys(this.props.currentUser).length > 0) {
-          clock = <h1 className="days-counter">Day: {calculateDays(new Date(this.props.currentUser.date), Date.now())}</h1>
+          clock = <h1 className="days-counter">Day: {this.state.day}</h1>
+          incrementDay = <i onClick={this.incrementDay.bind(this)} className="fa fa-plus-circle"></i>
         }
       }
         return (
@@ -88,6 +101,7 @@ class NavBar extends React.Component {
 
             <Modal />
             {clock}
+            {incrementDay}
             {this.getLinks()}
           </div>
         );

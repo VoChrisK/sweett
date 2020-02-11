@@ -1,0 +1,36 @@
+import React from 'react';
+import { withRouter } from 'react-router-dom'
+import SidebarContainer from '../sidebar/sidebar_container';
+import TaskIndexContainer from '../tasks/task_index_container';
+import GoalIndexContainer from '../goal/goal_index_container';
+
+
+class DefaultCategory extends React.Component {
+    toggleSidebar() {
+        const sidebar = document.getElementById("sidebar");
+        const categoryTask = document.getElementsByClassName("category-tasks")[0];
+
+        // re-style question div
+        if (sidebar.style.display === "none") {
+            sidebar.style.display = "block";
+            categoryTask.style.width = "64%";
+        } else {
+            sidebar.style.display = "none";
+            categoryTask.style.width = "80%";
+        }
+    }
+
+    render() {
+        return (
+            <div className="leetcode">
+                <button id="sidebar-toggle-button" onClick={this.toggleSidebar}>
+                </button>
+                <SidebarContainer />
+                <TaskIndexContainer category={this.props.category} />
+                <GoalIndexContainer categoryId={this.props.category._id} />
+            </div>
+        );
+    }
+}
+
+export default withRouter(DefaultCategory);

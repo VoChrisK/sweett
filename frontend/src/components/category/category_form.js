@@ -1,11 +1,11 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
 
 class CategoryForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: ""
+      title: "",
+      name: ""
     };
   }
 
@@ -21,8 +21,19 @@ class CategoryForm extends React.Component {
     let cat = {
       title: this.state.title
     };
-    this.props.processForm(cat).then(this.props.closeModal);
-  }
+    let task = {
+      name: this.state.name,
+      status: "Incomplete",
+      category_id: ""
+    }
+    this.props.processCat(cat)
+      .then((category) => {task.category_id = category.category.data._id
+        this.props.addTask(task)
+      })
+      .then(this.props.closeModal())
+    }
+
+  
 
   render() {
     return (
@@ -38,12 +49,22 @@ class CategoryForm extends React.Component {
             onChange={this.update("title")}
             placeholder="Title"
           />
-          <h3>Placeholder</h3>
+          <br></br>
+          <h3>Tasks:</h3>
+          <input
+            type="text"
+            className="cat-task-input"
+            value={this.state.name}
+            onChange={this.update("name")}
+            placeholder="Task"
+          />
           <input type="submit" className="add-cat-submit" value="Submit" />
         </form>
       </div>
     );
   }
 }
+
+
 
 export default CategoryForm;

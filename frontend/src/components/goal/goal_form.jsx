@@ -22,12 +22,22 @@ class GoalForm extends React.Component {
 
     handleCancel(e) {
         e.preventDefault();
+        this.setState({ goal: this.props.goal });
+        this.setState({ errors: { description: '', expected: '' }})
         document.getElementsByClassName("goal-form-render")[0].classList.remove("active");
     }
 
     handleSubmit(e) {
         e.preventDefault();
         this.props.processForm(this.state.goal)
+            .then(res => {
+                if (!res) {
+                    this.setState({ goal: this.props.goal });
+                } else {
+                    this.setState({ errors: this.props.errors });
+                }
+            })
+        
     }
     
     handleCheck() {
@@ -52,15 +62,15 @@ class GoalForm extends React.Component {
 
     render() {
         let goal = this.state.goal;
-        let errors = this.props.errors
+        let errors = this.state.errors
         return(
-            <div className="goal-form-container">
+            <div className="goal-form-container goal-index-item">
                 <form className="goal-form">
                     <input placeholder="Description" className="bottom-margin" type="text" value={goal.description} onChange={this.handleDescChange}/>
                     <span className="bottom-margin error-text">{errors.description}</span>
                     <div className="bottom-margin">
-                        <input placeholder="Expected" className="expected-input" type="text" value={goal.expected} onChange={this.handleExpectedChange}/>
-                        <span>Attempts</span>
+                        <input min="1" max="1/0" className="expected-input" type="number" value={goal.expected} onChange={this.handleExpectedChange}/>
+                        <span> Expected Attempts</span>
                     </div>
                     <span className="bottom-margin error-text">{errors.expected}</span>
                     <div className="bottom-margin">
@@ -68,8 +78,8 @@ class GoalForm extends React.Component {
                         <input onClick={this.handleCheck} type="checkbox"/>
                     </div>
                     <div className="submit-or-cancel">
-                        <input onClick={this.handleSubmit} type="submit" value="Create Goal"/>
-                        <button onClick={this.handleCancel}>Cancel</button>
+                        <button className="goal-button" onClick={this.handleSubmit}>Create Goal</button>
+                        <button className="goal-button" onClick={this.handleCancel}>Cancel</button>
                     </div>
                 </form>
             </div>

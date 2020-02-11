@@ -6,15 +6,27 @@ import GoalIndexContainer from '../goal/goal_index_container';
 
 
 class Leetcode extends React.Component {
-    constructor(props) {
-        super(props);
+    toggleSidebar() {
+        const sidebar = document.getElementById("sidebar");
+        const questionIndex = document.getElementsByClassName("question-index")[0];
+
+        // re-style question div
+        if (sidebar.style.display === "none") {
+            sidebar.style.display = "block";
+            questionIndex.style.width = "64%";
+        } else {
+            sidebar.style.display = "none";
+            questionIndex.style.width = "80%";
+        }
     }
 
     render() {
         return (
             <div className="leetcode">
+                <button id="sidebar-toggle-button" onClick={this.toggleSidebar}>
+                </button>
                 <SidebarContainer />
-                <QuestionIndexContainer />
+                <QuestionIndexContainer category={this.props.category} />
                 <GoalIndexContainer categoryId={this.props.category._id}/>
             </div>
         );

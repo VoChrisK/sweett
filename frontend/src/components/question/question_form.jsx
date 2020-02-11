@@ -6,26 +6,30 @@ class QuestionForm extends React.Component {
         super(props);
         this.state = {
             name: "",
-            difficulty: "",
-            categoryId: this.props.location.pathname.slice(12, -1)
+            section: "Easy",
+            categoryId: this.props.location.pathname.slice(12)
         };
     }
 
-    update(field) {
-        return e =>
-            this.setState({
-                [field]: e.currentTarget.value
-            });
-    }
+  update(field) {
+    return e =>
+      this.setState({
+        [field]: e.currentTarget.value
+      });
+  }
 
     handleSubmit(e) {
         e.preventDefault();
         let question = {
             name: this.state.name,
-            difficulty: this.state.difficulty,
-            category_id: this.state.categoryId
+            section: this.state.section,
+            status: "Incomplete",
+            category_id: this.state.categoryId,
+            time: 45
         };
+
         this.props.processForm(question).then(this.props.closeModal);
+        
     }
 
     render() {
@@ -41,39 +45,45 @@ class QuestionForm extends React.Component {
                         autoFocus="autofocus"
                         value={this.state.name}
                         onChange={this.update("name")}
-                        placeholder="ex) Two sum"
+                        placeholder="Please match the exact title ex) Two Sum"
                     />
-                    <p>Difficulty</p>
-                    <div className="radio"> 
-                        <label>
-                            <input 
-                                type="radio" 
-                                name="difficulty" 
-                                value="easy" 
-                                onChange={this.update("difficulty")}
-                                defaultChecked={true}
-                            />
-                            Easy
-                        </label>
-                        <label>
-                            <input
-                                type="radio"
-                                name="difficulty"
-                                value="medium"
-                                onChange={this.update("difficulty")}
-                            />
-                            Medium
-                        </label>
-                        <label>
-                            <input
-                                type="radio"
-                                name="difficulty"
-                                value="hard"
-                                onChange={this.update("difficulty")}
-                            />
-                            Hard
-                        </label>
-                    </div>
+                    <p>Section</p>
+                    {
+                        this.props.state.entities.categories[this.state.categoryId].title === "Leetcode" ? (
+                            <div className="radio"> 
+                                <label>
+                                    <input 
+                                        type="radio" 
+                                        name="section" 
+                                        value="Easy" 
+                                        onClick={this.update("section")}
+                                        defaultChecked={true}
+                                    />
+                                    Easy
+                                </label>
+                                <label>
+                                    <input
+                                        type="radio"
+                                        name="section"
+                                        value="Medium"
+                                        onClick={this.update("section")}
+                                    />
+                                    Medium
+                                </label>
+                                <label>
+                                    <input
+                                        type="radio"
+                                        name="section"
+                                        value="Hard"
+                                        onClick={this.update("section")}
+                                    />
+                                    Hard
+                                </label>
+                            </div>
+                        ) : (
+                            <input className="question-name-input" type="text" value={this.state.section} onChange={this.update("section")}/>
+                        )
+                    }
                     <input id="question-form-submit" type="submit" className="add-question-submit" value="Submit" />
                 </form>
             </div>

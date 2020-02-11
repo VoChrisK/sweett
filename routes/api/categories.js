@@ -35,12 +35,11 @@ router.post("/",
     if(!isValid) {
         return res.status(400).json(errors);
     }
-
-
     const category = new Category({ 
         title: req.body.title,
         user: req.user.id
     });
+
     category.save()
     .then(category => res.json(category))
     .catch(errors => res.status(400).json({ errors }));
@@ -57,44 +56,15 @@ router.patch("/:id", (req, res) => {
     Category.findById(req.params.id)
     .then(category => {
         category.title = req.body.title;
+        category.actual = req.body.actual;
+        category.expected = req.body.expected;
+        category.progress = req.body.progress;
+        category.timeLimit = req.body.timeLimit;
         category.save()
         .then(category => res.json(category));
     })
     .catch(errors => res.status(400).json({ errors }));
 });
-
-//updates actual completion time of category
-router.patch("/:id/actual"), (req, res) => {
-    Category.findById(req.params.id)
-        .then(category => {
-            category.actual = req.body.actual;
-            category.save()
-                .then(category => res.json(category));
-        })
-        .catch(errors => res.status(400).json({ errors }));
-}
-
-//updates expected completion time of category
-// router.patch("/expected/:id/"), (req, res) => {
-//     Category.findById(req.params.id)
-//         .then(category => {
-//             category.expected = req.body.expected;
-//             category.save()
-//                 .then(category => res.json(category));
-//         })
-//         .catch(errors => res.status(400).json({ errors }));
-// }
-
-// //updates progress of category
-// router.patch("/:id/actual"), (req, res) => {
-//     Category.findById(req.params.id)
-//         .then(category => {
-//             category.progress = req.body.progress;
-//             category.save()
-//                 .then(category => res.json(category));
-//         })
-//         .catch(errors => res.status(400).json({ errors }));
-// }
 
 router.delete("/:id", (req, res) => {
     Category.deleteOne({ _id: req.params.id })

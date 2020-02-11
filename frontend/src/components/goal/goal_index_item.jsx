@@ -1,7 +1,5 @@
 import React from 'react';
-import { calculateProgress, calculateTotalProgress } from "../../util/calculations"
-import { library, icon, findIconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { fas } from '@fortawesome/free-solid-svg-icons';
+import { calculateProgress, calculateTotalProgress, calculateDays} from "../../util/calculations"
 
 class GoalIndexItem extends React.Component {
     constructor(props) {
@@ -19,30 +17,46 @@ class GoalIndexItem extends React.Component {
     increment(e) {
         e.preventDefault();
         const newGoal = Object.assign({}, this.props.goal);
+        if (newGoal.attempted === newGoal.expected) return;
         newGoal.attempted += 1;
         this.props.updateGoal(newGoal)
             .then(goal => {
                 const newCategory = Object.assign({}, this.props.category)
                 newCategory["progress"] = calculateTotalProgress(this.props.goals)
                 this.props.updateCategory(newCategory)
-                    .then(() => this.setState({ progress: calculateProgress(goal) }))
+                    // .then(() => this.setState({ progress: calculateProgress(goal) }))
             })
     }
+
 
     decrement(e) {
         e.preventDefault();
         const newGoal = Object.assign({}, this.props.goal);
+        if (newGoal.attempted === 0) return
         newGoal.attempted -= 1;
         this.props.updateGoal(newGoal)
             .then(goal => {
                 const newCategory = Object.assign({}, this.props.category)
                 newCategory["progress"] = calculateTotalProgress(this.props.goals)
                 this.props.updateCategory(newCategory)
-                    .then(() => this.setState({ progress: calculateProgress(goal) }))
+                    // .then(() => this.setState({ progress: calculateProgress(goal) }))
             })
     }
 
     componentDidUpdate(prevProps) {
+
+        let day1 = calculateDays(new Date(this.props.currentUser.date), Date.now());
+        let day2 = calculateDays(new Date(this.props.goal.date), Date.now());
+        if (day1 !== day2) {
+            let newGoal = Object.assign({}, this.state.goal)
+            newGoal.attempted = 0;
+            // grab currentUser
+            newGoal.date = JSON.parse(JSON.stringify(this.props.currentUser.date));
+            this.props.updateGoal(newGoal)
+                .then((action) => {
+                    this.setState({ goal: action.goal})
+                })
+        }
         if (prevProps.goal.attempted !== this.props.goal.attempted) {
             this.props.requestGoal(this.props.goal._id)
                 .then((action) => {
@@ -53,11 +67,25 @@ class GoalIndexItem extends React.Component {
 
     render() {
         let goal = this.props.goal
+        let percentStyles;
+        if (this.state.progress >= 60) {
+            percentStyles = {
+                color: "white"
+            }
+        } else {
+            percentStyles = {
+                color: "black"
+            }
+        }
+        let percent = <h1 style={percentStyles} className="percent">
+            {this.state.progress}%
+        </h1>
         let styles = {  
             width: `${ this.state.progress }%`
         }
         return (
             <div className="goal-index-item">
+                <div className="x-box" onClick={() => this.props.deleteGoal(this.state.goal._id)}></div>
                 <span className="goal-description">{goal.description}</span>
                 <br/>
                 <div className="row-me-up">
@@ -73,10 +101,12 @@ class GoalIndexItem extends React.Component {
                 </div>
                 <br/>
                 <div className="progress-bar">
+                    {percent}
                     <div className="progress-completed" style={styles}>
                     </div>
                 </div>
                 <br/>
+                <button onClick={() => this.props.deleteGoal(this.props.goal._id)}>Delete Me Fam</button>
             </div>
         )
     }

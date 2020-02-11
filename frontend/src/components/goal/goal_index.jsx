@@ -19,6 +19,7 @@ class GoalIndex extends React.Component {
         e.preventDefault();
         let form = document.getElementsByClassName("goal-form-render")[0];
         form.classList.add('active')
+        
     }
 
     componentDidMount() {
@@ -30,7 +31,7 @@ class GoalIndex extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (prevProps.goals.length !== this.props.goals.length) {
+        if (prevProps.goals.length !== this.props.goals.length && (prevProps.match.params.categoryId === this.props.match.params.categoryId)) {
             this.props.requestGoals(this.props.match.params.categoryId)
         }
     }
@@ -44,13 +45,15 @@ class GoalIndex extends React.Component {
                     {
                         (!!this.props.goals) ? (
                             Object.values(this.props.goals).map((goal, idx) => {
-                                return <GoalIndexItemContainer deleteGoal={this.props.deleteGoal} goal={goal} key={`goal-${idx}`} />
+                                return (
+                                    <GoalIndexItemContainer deleteGoal={this.props.deleteGoal} goal={goal} key={`goal-${idx}`} />
+                                )
                             })
                         ) : ('')
                     }
-                <li className="goal-form-render">
-                    <GoalCreateFormContainer categoryId={this.props.categoryId}/>
-                </li>
+                    <li className="goal-form-render">
+                        <GoalCreateFormContainer categoryId={this.props.categoryId}/>
+                    </li>
                 </ul>   
             </div>
         );
