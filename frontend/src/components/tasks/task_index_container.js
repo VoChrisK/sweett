@@ -1,7 +1,7 @@
 import { connect } from "react-redux";
 import TaskIndex from "./task_index";
 import { openModal } from "../../actions/modal_actions";
-import { requestCategoryTasks } from "../../actions/task_actions";
+import { requestCategoryTasks, deleteTask } from "../../actions/task_actions";
 import { receiveTime } from './../../actions/time_actions';
 import { calculateActualTime, calculateExpectedTime } from '../../util/calculations';
 import { updateCategory } from '../../actions/category_actions';
@@ -33,7 +33,8 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = dispatch => {
   return {
     addTask: () => dispatch(openModal("addTask")),
-    requestCategoryTasks: categoryId => dispatch(requestCategoryTasks(categoryId))
+    requestCategoryTasks: categoryId => dispatch(requestCategoryTasks(categoryId)),
+    delTask: taskId => dispatch(deleteTask(taskId))
   };
 };
 

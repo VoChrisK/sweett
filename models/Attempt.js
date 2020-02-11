@@ -10,12 +10,17 @@ const AttemptSchema = new Schema({
     question_id: {
         type: Schema.Types.ObjectId,
         ref: 'questions',
-        required: true
+        // required: true
+    },
+    task_id: {
+        type: Schema.Types.ObjectId,
+        ref: 'tasks',
+        // required: true
     },
     category_id: {
         type: Schema.Types.ObjectId,
         ref: 'categories',
-        required: true
+        // required: true
     },
     date: {
         type: Date,
