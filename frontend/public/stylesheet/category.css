@@ -38,7 +38,7 @@
 .cat-header:hover .x-box {
     height: 20px;
     width: 20px;
-    background-image: url('real-ecks.png');
+    background-image: url('../image/real-ecks.png');
     background-position: center;
     background-size: contain;
 }
@@ -46,7 +46,7 @@
 .cat-header:hover .penciru {
     height: 20px;
     width: 20px;
-    background-image: url('penciru.png');
+    background-image: url('../image/penciru.png');
     background-position: center;
     background-size: contain;
     color: gray;
@@ -68,30 +68,13 @@
     padding: 10px;
 }
 
-.cat-modal {
-    background-color: white;
-    height: 400px;
-    width: 300px;
-    border: 2px lightgray solid;
-    border-radius: 5px;
-}
+
 
 .cat-form {
     padding: 20px;
 }
 
-.cat-modal h1 {
-    color: #3aaf9f;
-    font-family: 'Alata', sans-serif;
-    padding-bottom: 20px;
 
-}
-
-.cat-modal h3 {
-    color: #3aaf9f;
-    font-family: 'Alata', sans-serif;
-    padding-bottom: 20px;
-}
 
 
 i {
@@ -213,5 +196,21 @@ i {
 .fa-plus {
     width: 50px;
     height: 50px;
+}
+
+.single-task {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.task-remove {
+    background: transparent url("../icons/remove.png") no-repeat;
+    background-size: 100%;
+    width: 20px;
+    height: 20px;
+    border: none;
+    transition: .2s;
+    margin-left: 50px;
 }
 

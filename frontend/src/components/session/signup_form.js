@@ -16,6 +16,15 @@ class SignupForm extends React.Component {
         this.clearedErrors = false;
     }
 
+  UNSAFE_componentWillReceiveProps(nextProps) {
+    if (nextProps.currentUser === true) {
+      window.history.push('/dashboard');
+    }
+
+    // Set or clear errors
+    this.setState({ errors: nextProps.errors })
+  }
+
     update(field) {
         return e => this.setState({
             [field]: e.currentTarget.value
@@ -30,16 +39,17 @@ class SignupForm extends React.Component {
             password: this.state.password,
             password2: this.state.password2
         };
-        
         this.props.processForm(user, this.props.history)
         .then(() => {
-            this.props.createCategory({title: "Leetcode"})
-            this.props.createCategory({title: "CrackingTheCode"})
-            .then(() => {
-                this.props.history.push('/dashboard');
-                this.props.closeModal();
-            })
-        })
+            if(this.state.errors.length === 0) {
+              this.props.createCategory({ title: "Leetcode" });
+              this.props.createCategory({ title: "CrackingTheCode" })
+                .then(() => {
+                  this.props.history.push('/dashboard');
+                  this.props.closeModal();
+                });
+            }
+        });
     }
 
     renderErrors() {
