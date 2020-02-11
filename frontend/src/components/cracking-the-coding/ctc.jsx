@@ -11,7 +11,7 @@ class CrackingTheCoding extends React.Component {
         return (
             <div className="leetcode">
                 <SidebarContainer />
-                <TaskIndexContainer />
+                <TaskIndexContainer category={this.props.category}/>
                 <GoalIndexContainer categoryId={this.props.category._id} />
             </div>
         );

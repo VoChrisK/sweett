@@ -1,4 +1,5 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 
 class TaskForm extends React.Component {
     constructor(props) {
@@ -18,7 +19,6 @@ class TaskForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        debugger
         let task = {
             name: this.state.name,
             category_id: this.props.location.pathname.split("/")[2]
