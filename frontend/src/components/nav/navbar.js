@@ -14,17 +14,29 @@ class NavBar extends React.Component {
     }
 
     componentDidMount() {
-      // Close dropdown onclick outside
+      // Makes event listener to close dropdown onclick of document when refreshing page
       let dropdown = document.getElementById("dropdown"); 
       let dropdownParent = document.getElementsByClassName("dropdown-parent")[0];
-      document.addEventListener('mouseup', e => {
-        if ((e.target !== dropdownParent) && (!Array.from(dropdownParent.children).includes(e.target))) {
-          dropdown.style.display = "none";
-        }
-      })
+      if(!!dropdownParent) {
+        document.addEventListener('mouseup', e => {
+          if ((e.target !== dropdownParent) && (!Array.from(dropdownParent.children).includes(e.target))) {
+            dropdown.style.display = "none";
+          }
+        })
+      }
     }
 
     componentDidUpdate(preProps) {
+      // Makes event listener to close dropdown onclick of document when navigating back to page
+      let dropdown = document.getElementById("dropdown");
+      let dropdownParent = document.getElementsByClassName("dropdown-parent")[0];
+      if (!!dropdownParent) {
+        document.addEventListener('mouseup', e => {
+          if ((e.target !== dropdownParent) && (!Array.from(dropdownParent.children).includes(e.target))) {
+            dropdown.style.display = "none";
+          }
+        })
+      }
       if(this.props.location.path !== preProps.location.path) {
         if (!this.props.loggedIn) {
           document.getElementsByClassName("navbar")[0].classList.add("onsplash");

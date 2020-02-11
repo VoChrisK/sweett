@@ -16,11 +16,34 @@ class QuestionIndex extends React.Component {
 
     componentDidMount() {
         this.props.requestQuestions(this.props.category._id);
+        // Close dropdown onclick outside
+        let dropdown = document.getElementsByClassName("edit-time")[0];
+        let dropdownParent = document.getElementsByClassName("fa-hourglass")[0];
+        if (!!dropdownParent) {
+            document.addEventListener('mouseup', e => {
+                if ((e.target !== dropdownParent) && 
+                    (!Array.from(dropdownParent.children).includes(e.target)) && 
+                    (!Array.from(dropdown.children).includes(e.target))) {
+                    dropdown.classList.add("invisible");
+                }
+            })
+        }
     }
 
     componentDidUpdate(prevProps) {
         if (prevProps.questions.length !== this.props.questions.length && prevProps.session.user === this.props.session.user) {
             this.props.requestQuestions(this.props.category._id);
+        }
+        let dropdown = document.getElementsByClassName("edit-time")[0];
+        let dropdownParent = document.getElementsByClassName("fa-hourglass")[0];
+        if (!!dropdownParent) {
+            document.addEventListener('mouseup', e => {
+                if ((e.target !== dropdownParent) &&
+                    (!Array.from(dropdownParent.children).includes(e.target)) &&
+                    (!Array.from(dropdown.children).includes(e.target))) {
+                    dropdown.classList.add("invisible");
+                }
+            })
         }
     }
 
@@ -47,11 +70,15 @@ class QuestionIndex extends React.Component {
     }
     
     showForm(event) {
-        const editTime = document.getElementsByClassName("edit-time")[0];
-        if(editTime.classList.contains("invisible")) {
-            editTime.classList.remove("invisible");
-        } else {
-            editTime.classList.add("invisible");
+        event.preventDefault();
+        let editTime = document.getElementsByClassName("edit-time")[0];
+        let hourglass = document.getElementsByClassName("fa-hourglass")[0];
+        if (event.target === hourglass) {
+            if(editTime.classList.contains("invisible")) {
+                editTime.classList.remove("invisible");
+            } else {
+                editTime.classList.add("invisible");
+            }
         }
     }
 
@@ -78,7 +105,7 @@ class QuestionIndex extends React.Component {
                             <i onClick={this.showForm.bind(this)} className="fa fa-hourglass">
                                 <form onSubmit={this.handleSubmit.bind(this)} className="edit-time invisible">
                                     <label htmlFor="edit-time-input">Input the time limit per question for all questions: </label>
-                                    <input onClick={event => event.stopPropagation()} onChange={this.handleTimeLimit.bind(this)} type="number" id="edit-time-input" value={this.state.timeLimit} min="0" /><strong> minutes</strong>
+                                    <input onChange={this.handleTimeLimit.bind(this)} type="number" id="edit-time-input" value={this.state.timeLimit} min="0" /><strong> minutes</strong>
                                 </form>
                             </i>
                         </div>

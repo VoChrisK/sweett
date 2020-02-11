@@ -30,6 +30,33 @@ class TaskIndex extends React.Component {
 
   componentDidMount() {
     this.props.requestCategoryTasks(this.props.category._id);
+    // Close dropdown onclick outside
+    let dropdown = document.getElementsByClassName("edit-time")[0];
+    let dropdownParent = document.getElementsByClassName("fa-hourglass")[0];
+    if (!!dropdownParent) {
+      document.addEventListener('mouseup', e => {
+        if ((e.target !== dropdownParent) &&
+          (!Array.from(dropdownParent.children).includes(e.target)) &&
+          (!Array.from(dropdown.children).includes(e.target))) {
+          dropdown.classList.add("invisible");
+        }
+      })
+    }
+  }
+
+  // For when hourglass is working
+  componentDidUpdate() {
+    let dropdown = document.getElementsByClassName("edit-time")[0];
+    let dropdownParent = document.getElementsByClassName("fa-hourglass")[0];
+    if (!!dropdownParent) {
+      document.addEventListener('mouseup', e => {
+        if ((e.target !== dropdownParent) &&
+          (!Array.from(dropdownParent.children).includes(e.target)) &&
+          (!Array.from(dropdown.children).includes(e.target))) {
+          dropdown.classList.add("invisible");
+        }
+      })
+    }
   }
 
   handleInput(input) {
