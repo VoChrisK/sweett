@@ -68,30 +68,13 @@
     padding: 10px;
 }
 
-.cat-modal {
-    background-color: white;
-    height: 400px;
-    width: 300px;
-    border: 2px lightgray solid;
-    border-radius: 5px;
-}
+
 
 .cat-form {
     padding: 20px;
 }
 
-.cat-modal h1 {
-    color: #3aaf9f;
-    font-family: 'Alata', sans-serif;
-    padding-bottom: 20px;
 
-}
-
-.cat-modal h3 {
-    color: #3aaf9f;
-    font-family: 'Alata', sans-serif;
-    padding-bottom: 20px;
-}
 
 
 i {
