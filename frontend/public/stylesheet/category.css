@@ -174,7 +174,7 @@ i {
     background: white;
     margin-top: 60px;
     position: relative;
-    width: 64%;
+    width: 100%;
     font-size: 28px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-s
 }
@@ -201,7 +201,7 @@ i {
 .single-task {
     display: flex;
     width: 100%;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .task-remove {
@@ -213,4 +213,56 @@ i {
     transition: .2s;
     margin-left: 50px;
 }
+
+.task-header {
+    font-size: 22px;
+    margin: 16px;
+}
+
+/* task modal css */
+
+.task-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 16px;
+    width: 400px;
+    background-color: white;
+    border-radius: 6px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.add-task-submit {
+    width: 160px;
+    height: 40px;
+    background-color: black;
+    padding: 12px 55px;
+    color: white;
+    border-radius: 25px;
+    text-align: center;
+    align-self: center;
+    margin-top: 54px;
+    margin-bottom: 0px;
+}
+
+.task-name-input {
+    margin-bottom: 20px;
+    height: 30px;
+    padding: 6px 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f7f7f7;
+}
+
+.task-form h1 {
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 32px;
+}
+
+.task-form h3 {
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
 

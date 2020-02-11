@@ -75,6 +75,7 @@ class TaskIndexItem extends React.Component {
                     this.props.recordTask(this.props.idx);
                     document.getElementsByClassName("question-stats")[this.props.idx].classList.add("invisible");
                     this.setState({ time: 0 });
+                    this.props.addEntry();
                 });
         })
     };

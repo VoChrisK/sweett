@@ -32,43 +32,6 @@ class TaskIndex extends React.Component {
     this.props.requestCategoryTasks(this.props.category._id);
   }
 
-  handleInput(input) {
-    this.setState({ [input]: !this.state[input] });
-  }
-
-  handleTimeLimit(event) {
-    this.setState({ timeLimit: event.target.value });
-  }
-
-  handleSubmit(event) {
-    event.preventDefault();
-    let newCategory = Object.assign({}, this.props.category);
-    newCategory.timeLimit = this.state.timeLimit;
-    this.props.updateCategory(newCategory)
-      .then(
-        () => document.getElementsByClassName("edit-time")[0].classList.add("invisible")
-      );
-  }
-
-  showForm(event) {
-    const editTime = document.getElementsByClassName("edit-time")[0];
-    if (editTime.classList.contains("invisible")) {
-      editTime.classList.remove("invisible");
-    } else {
-      editTime.classList.add("invisible");
-    }
-  }
-
-  // renderLoadMore(length, input) {
-  //   if (length > 3) {
-  //     return (
-  //       <div onClick={event => this.handleInput(input)} className="load-more">
-  //         <h1>Load More</h1>
-  //       </div>
-  //     );
-  //   }
-  // }
-
   toggleSidebar() {
     const sidebar = document.getElementById("sidebar");
     const questionIndex = document.getElementsByClassName("question-index")[0];
@@ -87,10 +50,6 @@ class TaskIndex extends React.Component {
     }
 
   }
-
-  // renderMoreTasks(tasks, length) {
-  //   return tasks.slice(3).map((task, idx) => <TaskIndexItemContainer key={idx + 3 + length} task={task} idx={idx + 3 + length} />);
-  // }
 
   handleInput(input) {
     this.setState({ [input]: !this.state[input] });
@@ -171,7 +130,8 @@ class TaskIndex extends React.Component {
         </div>
         {/* Refactor to take in all sections */}
         <div id="question-index-container">
-          <div className="question-container"> Tasks
+          <div className="question-container"> 
+            <p className="task-header">YOUR TASKS:</p>
             <div className="category-tasks">
             {catTasks.map((task, idx) => 
               <div className="single-task" key={idx}>

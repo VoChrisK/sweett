@@ -29,6 +29,7 @@ router.post("/", (req, res) => {
     name: req.body.name,
     category_id: req.body.category_id,
     status: req.body.status,
+    section: req.body.section
   });
   task
     .save()

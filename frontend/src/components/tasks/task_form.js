@@ -7,6 +7,7 @@ class TaskForm extends React.Component {
         this.state = {
             name: this.props.name,
             status: "Incomplete",
+            section: ""
         }
     }
 
@@ -22,7 +23,8 @@ class TaskForm extends React.Component {
             let task = {
                 name: this.state.name,
                 status: "Incomplete",
-                category_id: this.props.location.pathname.split("/")[2]
+                category_id: this.props.location.pathname.split("/")[2],
+                section: this.state.section
             };
             this.props.processForm(task).then(this.props.closeModal);
         
@@ -42,6 +44,14 @@ class TaskForm extends React.Component {
                         value={this.state.name}
                         onChange={this.update("name")}
                         placeholder="Name"
+                    />
+                    <h3>Section:</h3>
+                    <input
+                        type="text"
+                        className="task-name-input"
+                        value={this.state.section}
+                        onChange={this.update("section")}
+                        placeholder="Section"
                     />
                     <input type="submit" className="add-task-submit" value="Submit" />
                 </form>
