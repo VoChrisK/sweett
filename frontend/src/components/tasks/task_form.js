@@ -31,7 +31,6 @@ class TaskForm extends React.Component {
     }
 
     render() {
-        console.log(this.props, 'render props')
         return (
             <div className="task-modal">
                 <form className="task-form" onSubmit={this.handleSubmit.bind(this)}>

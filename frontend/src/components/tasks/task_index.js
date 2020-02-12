@@ -109,7 +109,6 @@ class TaskIndex extends React.Component {
   renderTasks() {
     let start = 0;
     let flag = true;
-
     return (
       <div id="question-index-container">
         {
@@ -130,6 +129,7 @@ class TaskIndex extends React.Component {
                         }
                         return null;
                       } else {
+                        console.log(task2)
                         return (
                           <TaskIndexItemContainer key={idx2 + idx1} task={task2} idx={idx2 + idx1} />
                         )

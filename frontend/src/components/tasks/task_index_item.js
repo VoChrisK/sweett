@@ -20,6 +20,12 @@ class TaskIndexItem extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    componentDidUpdate(prevProps) {
+        if(Object.values(prevProps.task) !== Object.values(this.props.task)) {
+            this.props.receiveTask
+        }   
+    }
+
     handleRecordButton(e) {
         this.setState({ isRecording: true }, () => {
             document
@@ -132,6 +138,8 @@ class TaskIndexItem extends React.Component {
     }
 
     render() {
+        console.log(this.props.task, "Props")
+        console.log(this.state.task, "State")
         return (
             <div className="question-index-item">
                 <div className="question">

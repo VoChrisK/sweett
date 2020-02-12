@@ -3,6 +3,7 @@ import {
   RECEIVE_TASKS,
   REMOVE_TASK
 } from "./../actions/task_actions";
+import { RECEIVE_USER_LOGOUT } from '../actions/session_actions';
 
 const tasksReducer = (state = {}, action) => {
   Object.freeze(state);
@@ -13,10 +14,8 @@ const tasksReducer = (state = {}, action) => {
       action.tasks.forEach(task => {
         nextState[task._id] = task;
       });
-      debugger
       return nextState;
     case RECEIVE_TASK:
-      console.log('task reducer')
       nextState = Object.assign({}, state);
       nextState[action.task._id] = action.task;
       return nextState;
@@ -24,6 +23,8 @@ const tasksReducer = (state = {}, action) => {
       nextState = Object.assign({}, state);
       delete nextState[action.taskId];
       return nextState;
+    case RECEIVE_USER_LOGOUT:
+      return {};
     default:
       return state;
   }
