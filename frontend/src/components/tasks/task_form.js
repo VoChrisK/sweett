@@ -48,7 +48,7 @@ class TaskForm extends React.Component {
                     <input 
                         type="radio" 
                         name="section" 
-                        value="Easy" 
+                        value="1. Easy" 
                         onClick={this.update("section")}
                     />
                     Easy
@@ -57,7 +57,7 @@ class TaskForm extends React.Component {
                     <input
                         type="radio"
                         name="section"
-                        value="Medium"
+                        value="2. Medium"
                         onClick={this.update("section")}
                     />
                     Medium
@@ -66,7 +66,7 @@ class TaskForm extends React.Component {
                     <input
                         type="radio"
                         name="section"
-                        value="Hard"
+                        value="3. Hard"
                         onClick={this.update("section")}
                     />
                     Hard
@@ -78,23 +78,23 @@ class TaskForm extends React.Component {
     renderCTCISections() {
         return (
             <select className="dropdown-list" onChange={this.update("section")}>
-                <option value="Chapter 1">Chapter 1</option>
-                <option value="Chapter 2">Chapter 2</option>
-                <option value="Chapter 3">Chapter 3</option>
-                <option value="Chapter 4">Chapter 4</option>
-                <option value="Chapter 5">Chapter 5</option>
-                <option value="Chapter 6">Chapter 6</option>
-                <option value="Chapter 7">Chapter 7</option>
-                <option value="Chapter 8">Chapter 8</option>
-                <option value="Chapter 9">Chapter 9</option>
-                <option value="Chapter 10">Chapter 10</option>
-                <option value="Chapter 11">Chapter 11</option>
-                <option value="Chapter 12">Chapter 12</option>
-                <option value="Chapter 13">Chapter 13</option>
-                <option value="Chapter 14">Chapter 14</option>
-                <option value="Chapter 15">Chapter 15</option>
-                <option value="Chapter 16">Chapter 16</option>
-                <option value="Chapter 17">Chapter 17</option>
+                <option value="1. Chapter 1">Chapter 1</option>
+                <option value="2. Chapter 2">Chapter 2</option>
+                <option value="3. Chapter 3">Chapter 3</option>
+                <option value="4. Chapter 4">Chapter 4</option>
+                <option value="5. Chapter 5">Chapter 5</option>
+                <option value="6. Chapter 6">Chapter 6</option>
+                <option value="7. Chapter 7">Chapter 7</option>
+                <option value="8. Chapter 8">Chapter 8</option>
+                <option value="9. Chapter 9">Chapter 9</option>
+                <option value="10. Chapter 10">Chapter 10</option>
+                <option value="11. Chapter 11">Chapter 11</option>
+                <option value="12. Chapter 12">Chapter 12</option>
+                <option value="13. Chapter 13">Chapter 13</option>
+                <option value="14. Chapter 14">Chapter 14</option>
+                <option value="15. Chapter 15">Chapter 15</option>
+                <option value="16. Chapter 16">Chapter 16</option>
+                <option value="17. Chapter 17">Chapter 17</option>
             </select>
         )
     }
