@@ -80,7 +80,6 @@ class AttemptIndex extends React.Component {
     }
     
     render() {
-        console.log(this.props.attempts);
         if (!this.props.attempts)  return <ul className="attempts-list invisible"></ul>;
 
         return (
