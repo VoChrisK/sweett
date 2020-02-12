@@ -28,9 +28,9 @@ function Modal({ modal, closeModal }) {
         case 'updateCategory':
             component = <CategoryEditFormContainer />;
             break;
-        case 'addEntry':
-            component = <EntryFormContainer />;
-            break;
+        // case 'addEntry':
+        //     component = <EntryFormContainer />;
+        //     break;
         // case 'updateCategory':
         //     component = <CategoryEditFormContainer />;
         //     break;
