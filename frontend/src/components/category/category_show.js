@@ -29,15 +29,15 @@ class CategoryShow extends React.Component {
 
   toggleSidebar() {
     const sidebar = document.getElementById("sidebar");
-    const categoryTask = document.getElementsByClassName("category-tasks")[0];
+    const main = document.getElementsByClassName("question-index")[0];
 
     // re-style question div
     if (sidebar.style.display === "none") {
       sidebar.style.display = "block";
-      categoryTask.style.width = "64%";
+      main.style.width = "64%";
     } else {
       sidebar.style.display = "none";
-      categoryTask.style.width = "80%";
+      main.style.width = "80%";
     }
   }
 
@@ -46,7 +46,7 @@ class CategoryShow extends React.Component {
     
     // if (this.props.category.title === "Leetcode") {
     //   return <LeetCodeContainer category={this.props.category}/>;
-    // } else if (this.props.category.title === "CrackingTheCode") {
+    // } else if (this.props.category.title === "Cracking The Coding Interview") {
     //   return <CrackingTheCodingContainer category={this.props.category} />;
     // } else {
       return (

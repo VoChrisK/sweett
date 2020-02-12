@@ -14,25 +14,33 @@ class TaskIndex extends React.Component {
 
   componentDidMount() {
     this.props.requestCategoryTasks(this.props.category._id);
+    // Close dropdown onclick outside
+    let dropdown = document.getElementsByClassName("edit-time")[0];
+    let dropdownParent = document.getElementsByClassName("fa-hourglass")[0];
+    if (!!dropdownParent) {
+      document.addEventListener('mouseup', e => {
+        if ((e.target !== dropdownParent) &&
+          (!Array.from(dropdownParent.children).includes(e.target)) &&
+          (!Array.from(dropdown.children).includes(e.target))) {
+          dropdown.classList.add("invisible");
+        }
+      })
+    }
   }
 
-  toggleSidebar() {
-    const sidebar = document.getElementById("sidebar");
-    const questionIndex = document.getElementsByClassName("question-index")[0];
-    // const goalIndex = document.getElementsByClassName("goal-index")[0];
-    const sidebarToggleButton = document.getElementById("sidebar-toggle-button");
-
-    // re-style question div
-    if (sidebar.style.display === "none") {
-      sidebar.style.display = "block";
-      questionIndex.style.width = "64%";
-      sidebarToggleButton.style.left = "0.2%";
-    } else {
-      sidebar.style.display = "none";
-      questionIndex.style.width = "80%";
-      sidebarToggleButton.style.left = "0.2%";
+  // For when hourglass is working
+  componentDidUpdate() {
+    let dropdown = document.getElementsByClassName("edit-time")[0];
+    let dropdownParent = document.getElementsByClassName("fa-hourglass")[0];
+    if (!!dropdownParent) {
+      document.addEventListener('mouseup', e => {
+        if ((e.target !== dropdownParent) &&
+          (!Array.from(dropdownParent.children).includes(e.target)) &&
+          (!Array.from(dropdown.children).includes(e.target))) {
+          dropdown.classList.add("invisible");
+        }
+      })
     }
-
   }
 
   handleInput(input) {
@@ -135,7 +143,6 @@ class TaskIndex extends React.Component {
   render() {
     return (
       <div className="question-index">
-        <button id="sidebar-toggle-button" onClick={this.toggleSidebar}></button>
           {this.renderHeader()}
           {this.renderTasks()}
       </div>
