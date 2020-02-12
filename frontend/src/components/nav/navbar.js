@@ -131,7 +131,7 @@ class NavBar extends React.Component {
         return (
           <div className="navbar">
             <h1 className="logo" onClick={this.handleClick.bind(this)}>
-              Sweett
+              SWEETT
             </h1>
 
             <Modal />

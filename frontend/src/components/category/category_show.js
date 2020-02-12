@@ -45,8 +45,6 @@ class CategoryShow extends React.Component {
 
   render() {
     if (!this.props.category) return null;
-    
-    if (this.props.category.title === "Leetcode") {
       return (
         <div className="leetcode">
           <button id="sidebar-toggle-button" onClick={this.toggleSidebar}>
@@ -55,13 +53,7 @@ class CategoryShow extends React.Component {
           <TaskIndexContainer category={this.props.category} />
           <GoalIndexContainer categoryId={this.props.category._id} />
         </div>
-      )    } else if (this.props.category.title === "CrackingTheCode") {
-      return <CrackingTheCodingContainer category={this.props.category} />;
-    } else {
-      return <DefaultCategoryContainer category={this.props.category} />;
-    }
-    
-    
+      )   
   }
 }
 

@@ -35,7 +35,7 @@ const CategorySchema = new Schema({
     timeLimit: {
         type: Number,
         // required: true,
-        default: 0
+        default: 45
     },
     date: {
         type: Date,

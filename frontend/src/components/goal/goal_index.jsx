@@ -36,7 +36,7 @@ class GoalIndex extends React.Component {
         }
 
         if (prevProps.goals.length !== this.props.goals.length && (prevProps.match.params.categoryId === this.props.match.params.categoryId)) {
-            this.props.requestGoals(this.props.match.params.categoryId)
+            this.props.requestGoals(this.props.match.params.categoryId);
         }
     }
 
