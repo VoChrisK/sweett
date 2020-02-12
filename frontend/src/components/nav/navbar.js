@@ -96,10 +96,11 @@ class NavBar extends React.Component {
                   onClick={this.handleDropdown.bind(this)}
                   className="thumbnail"
                   alt=""
-                  src="https://en.meming.world/images/en/thumb/2/2c/Surprised_Pikachu_HD.jpg/300px-Surprised_Pikachu_HD.jpg"
+                  src="../../../image/pfp.png"
                 ></img>
                 <div id="dropdown">
                   <ul className="dropdown-list">
+                    <li className='dropdown-name'>Welcome, {this.props.currentUser.username}</li>
                     <li className="dropdown-logout" onClick={this.logoutUser}>Logout</li>
                   </ul>
                 </div>
@@ -117,6 +118,8 @@ class NavBar extends React.Component {
     }
 
     render() {
+      console.log(this.state, 'nav state')
+      console.log(this.props, 'nav props')
       let clock;
       let incrementDay;
       if (!!this.props.currentUser) {

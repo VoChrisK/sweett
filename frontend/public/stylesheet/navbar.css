@@ -22,9 +22,9 @@
 }
 
 .thumbnail {
-    height: 50px;
-    width: 50px;
-    margin-top: 5px;
+    height: 40px;
+    width: 40px;
+    margin-top: 10px;
     margin-right: 30px;
     border-radius: 25px;
 }
@@ -34,6 +34,13 @@
 }
 
 .dropdown-logout {
+    padding: 12px;
+    background: white;
+    font-size: 16px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
+}
+.dropdown-name {
+    border-bottom: 1px solid lightgray;
     padding: 12px;
     background: white;
     font-size: 16px;
@@ -63,7 +70,7 @@
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
-.dropdown-list li:hover {
+.dropdown-logout:hover {
     color: red;
     cursor: pointer;
 }

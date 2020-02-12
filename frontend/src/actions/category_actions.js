@@ -22,26 +22,37 @@ const removeCategory = categoryId => {
     });
 }
 
+const receiveErrors = errors => {
+    return ({
+        type: RECEIVE_CATEGORY_ERRORS,
+        errors
+    })
+}
+
 export const requestCategories = userId => dispatch => {
     return CategoriesApiUtil.fetchCategories(userId)
     .then(categories => {
 
         dispatch(receiveCategories(categories.data))})
+        .catch(errors => dispatch(receiveErrors(errors.response.data)))
 };
 
 export const requestCategory = categoryId => dispatch => {
     return CategoriesApiUtil.fetchCategory(categoryId)
     .then(category => dispatch(receiveCategory(category.data)))
+        .catch(errors => dispatch(receiveErrors(errors.response.data)))
 };
 
 export const createCategory = category => dispatch => {
     return CategoriesApiUtil.createCategory(category)
     .then(newCategory => dispatch(receiveCategory(newCategory)))
+        .catch(errors => dispatch(receiveErrors(errors.response.data)))
 };
 
 export const updateCategory = category => dispatch => {
     return CategoriesApiUtil.updateCategory(category)
     .then(updatedCategory => dispatch(receiveCategory(updatedCategory.data)))
+        .catch(errors => dispatch(receiveErrors(errors.response.data)))
 };
 
 export const deleteCategory = categoryId => dispatch => {
@@ -49,9 +60,11 @@ export const deleteCategory = categoryId => dispatch => {
     return CategoriesApiUtil.deleteCategory(categoryId)
     .then( response => {
         dispatch(removeCategory(categoryId))
+            .catch(errors => dispatch(receiveErrors(errors.response.data)))
     })
 };
 
 export const RECEIVE_CATEGORIES = "RECEIVE_CATEGORIES";
 export const RECEIVE_CATEGORY = "RECEIVE_CATEGORY";
 export const REMOVE_CATEGORY = "REMOVE_CATEGORY";
+export const RECEIVE_CATEGORY_ERRORS = "RECEIVE_CATEGORY_ERRORS";
