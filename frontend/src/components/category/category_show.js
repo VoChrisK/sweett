@@ -5,6 +5,7 @@ import { calculateExpectedTime, calculateActualTime, calculateTotalProgress } fr
 import SidebarContainer from './../sidebar/sidebar_container';
 import TaskIndexContainer from './../tasks/task_index_container';
 import GoalIndexContainer from './../goal/goal_index_container';
+import { withRouter } from 'react-router-dom';
 
 class CategoryShow extends React.Component {
 
@@ -64,4 +65,4 @@ class CategoryShow extends React.Component {
   }
 }
 
-export default CategoryShow;
+export default withRouter(CategoryShow);

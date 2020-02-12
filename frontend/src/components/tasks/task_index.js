@@ -30,13 +30,11 @@ class TaskIndex extends React.Component {
 
   // For when hourglass is working
   componentDidUpdate(prevProps) {
-    if (
-      (prevProps.tasks.length !== this.props.tasks.length) &&
-      (prevProps.session.user === this.props.session.user) &&
-      (prevProps.match.params.categoryId !== this.props.match.params.categoryId)
-    ){
+    if (this.props.match.params.categoryId !== prevProps.match.params.categoryId) {
+      console.log("requesting tasks")
       this.props.requestCategoryTasks(this.props.category._id);
     }
+
     let dropdown = document.getElementsByClassName("edit-time")[0];
     let dropdownParent = document.getElementsByClassName("fa-hourglass")[0];
     if (!!dropdownParent) {

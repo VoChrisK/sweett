@@ -94,6 +94,7 @@ class TaskForm extends React.Component {
                 <option value="Chapter 14">Chapter 14</option>
                 <option value="Chapter 15">Chapter 15</option>
                 <option value="Chapter 16">Chapter 16</option>
+                <option value="Chapter 17">Chapter 17</option>
             </select>
         )
     }
