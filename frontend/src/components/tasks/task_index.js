@@ -119,7 +119,7 @@ class TaskIndex extends React.Component {
               return null;
             } else {
               return (
-                <div className="question-container">
+                <div className="question-container" key={idx1}>
                   <p className="question-container-title">{task1.section}</p>
                   {
                     this.props.tasks.slice(idx1).map((task2, idx2) => {
