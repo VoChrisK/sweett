@@ -10,16 +10,28 @@ export const calculateExpectedTime = (limit, goals) => {
 export const calculateActualTime = (limit, attempts, goals) => {
     let totalTime = 0;
     let totalSeconds = 0;
-
-    for(let i = 0; i < goals.length; i++) {
-        if (goals[i].addToTotal) {
-            totalTime += limit * goals[i].attempted;
+    let totalAttemptedGoals = goals.reduce((acc, goal) => {
+        if (goal.addToTotal) {
+            return acc + goal.attempted;
+        } else {
+            return acc
         }
-    }
+    }, 0);
+    let totalExpectedGoals = goals.reduce((acc, goal) => {
+        if(goal.addToTotal) {
+            return acc + goal.expected;
+        } else {
+            return acc
+        }
+    }, 0);
 
-    for (let i = 0; i < attempts.length; i++) {
-        if(calculateDays(new Date(attempts[i].date), Date.now()) === 1) {
-            totalSeconds += attempts[i].time;
+    totalTime += limit * totalAttemptedGoals;
+    
+    if (totalAttemptedGoals !== totalExpectedGoals) {
+        for (let i = 0; i < attempts.length; i++) {
+            if(calculateDays(new Date(attempts[i].date), Date.now()) === 1) {
+                totalSeconds += attempts[i].time;
+            }
         }
     }
 

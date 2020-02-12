@@ -9,8 +9,11 @@ class NavBar extends React.Component {
         this.state = {
           day: calculateDays(new Date(this.props.currentUser.date), Date.now())
         }
+        this.props.saveDay({ day: this.state.day });
         this.logoutUser = this.logoutUser.bind(this);
         this.getLinks = this.getLinks.bind(this);
+
+        console.log(this.props.currentUser.date);
     }
 
     componentDidMount() {
@@ -75,12 +78,14 @@ class NavBar extends React.Component {
     }
 
     incrementDay() {
-      let updatedUser = Object.assign({}, this.props.currentUser);
+      let updatedUser = this.props.currentUser;
       let newDate = new Date(updatedUser.date);
       newDate.setDate(newDate.getDate() - 1);
-      updatedUser["date"] = JSON.parse(JSON.stringify(newDate));
+      updatedUser.date = newDate;
       this.props.updateUser(updatedUser)
-        .then(data => this.setState({ day: calculateDays(new Date(data.user.date), Date.now()) }));
+        .then(data => {
+          this.setState({ day: calculateDays(new Date(data.user.date), Date.now()) }, () => this.props.saveDay({ day: this.state.day }))
+      });
     }
 
     // Selectively render links dependent on whether the user is logged in

@@ -33,7 +33,7 @@ router.get("/:id", (req, res) => {
 
 router.post("/", (req, res) => {
     const attempt = new Attempt({
-        question_id: req.body.question_id,
+        task_id: req.body.task_id,
         category_id: req.body.category_id,
         time: req.body.time
     });
