@@ -96,7 +96,7 @@ class TaskIndex extends React.Component {
             } else {
               return (
                 <div className="question-container">
-                  {task1.section}
+                  <p className="question-container-title">{task1.section}</p>
                   {
                     this.props.tasks.slice(idx1).map((task2, idx2) => {
                       if(task1.section !== task2.section) {

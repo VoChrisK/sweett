@@ -26,6 +26,9 @@ class TaskForm extends React.Component {
             category_id: this.props.location.pathname.split("/")[2],
             section: this.state.section
         };
+        if (task.section === '' && this.props.category.title === "Cracking The Coding Interview") {
+            task.section = "Chapter 1"
+        }
         this.props.processForm(task).then(this.props.closeModal);
     }
 
