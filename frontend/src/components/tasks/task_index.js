@@ -31,10 +31,6 @@ class TaskIndex extends React.Component {
   // For when hourglass is working
   componentDidUpdate(prevProps) {
     if (this.props.match.params.categoryId !== prevProps.match.params.categoryId) {
-<<<<<<< HEAD
-      this.props.requestCategoryTasks(this.props.match.params.categoryId)
-      console.log('updated')
-=======
       console.log("requesting tasks")
       this.props.requestCategoryTasks(this.props.category._id);
     }
@@ -49,7 +45,6 @@ class TaskIndex extends React.Component {
           dropdown.classList.add("invisible");
         }
       })
->>>>>>> 7362d21e770b2fa602b22c36ee34252dfedb31d9
     }
     // let dropdown = document.getElementsByClassName("edit-time")[0];
     // let dropdownParent = document.getElementsByClassName("fa-hourglass")[0];
