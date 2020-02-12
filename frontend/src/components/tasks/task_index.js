@@ -28,10 +28,8 @@ class TaskIndex extends React.Component {
     }
   }
 
-  // For when hourglass is working
   componentDidUpdate(prevProps) {
     if (this.props.match.params.categoryId !== prevProps.match.params.categoryId) {
-      console.log("requesting tasks")
       this.props.requestCategoryTasks(this.props.category._id);
     }
 
@@ -108,7 +106,6 @@ class TaskIndex extends React.Component {
                         }
                         return null;
                       } else {
-                        console.log(task2)
                         return (
                           <TaskIndexItemContainer key={idx2 + idx1} task={task2} idx={idx2 + idx1} />
                         )
