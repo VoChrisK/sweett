@@ -30,7 +30,8 @@ class GoalForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        this.state.goal.category_id = this.props.match.params.categoryId
+        let goal = this.state.goal
+        goal.category_id = this.props.match.params.categoryId
         this.props.processForm(this.state.goal)
             .then(res => {
                 if (!res) {
