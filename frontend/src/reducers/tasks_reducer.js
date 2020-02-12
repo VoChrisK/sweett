@@ -13,6 +13,7 @@ const tasksReducer = (state = {}, action) => {
       action.tasks.forEach(task => {
         nextState[task._id] = task;
       });
+      debugger
       return nextState;
     case RECEIVE_TASK:
       console.log('task reducer')
