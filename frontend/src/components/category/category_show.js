@@ -6,6 +6,7 @@ import SidebarContainer from './../sidebar/sidebar_container';
 import TaskIndexContainer from './../tasks/task_index_container';
 import GoalIndexContainer from './../goal/goal_index_container';
 import { withRouter } from 'react-router-dom';
+import DefaultCategoryContainer from './../category/default_category_container'
 
 class CategoryShow extends React.Component {
 
@@ -57,7 +58,7 @@ class CategoryShow extends React.Component {
       )    } else if (this.props.category.title === "CrackingTheCode") {
       return <CrackingTheCodingContainer category={this.props.category} />;
     } else {
-      return null;
+      return <DefaultCategoryContainer category={this.props.category} />;
     }
     
     

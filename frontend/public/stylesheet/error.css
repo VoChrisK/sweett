@@ -2,9 +2,9 @@
     width: 268px;
 }
 
-.error {
+.errors li {
     color: red;
-    text-align: left;
+    text-align: center;
     font-size: 12px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 

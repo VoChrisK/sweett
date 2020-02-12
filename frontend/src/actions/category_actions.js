@@ -31,9 +31,7 @@ const receiveErrors = errors => {
 
 export const requestCategories = userId => dispatch => {
     return CategoriesApiUtil.fetchCategories(userId)
-    .then(categories => {
-
-        dispatch(receiveCategories(categories.data))})
+    .then(categories => dispatch(receiveCategories(categories.data)))
         .catch(errors => dispatch(receiveErrors(errors.response.data)))
 };
 
@@ -58,10 +56,8 @@ export const updateCategory = category => dispatch => {
 export const deleteCategory = categoryId => dispatch => {
     
     return CategoriesApiUtil.deleteCategory(categoryId)
-    .then( response => {
-        dispatch(removeCategory(categoryId))
+    .then( () => dispatch(removeCategory(categoryId)))
             .catch(errors => dispatch(receiveErrors(errors.response.data)))
-    })
 };
 
 export const RECEIVE_CATEGORIES = "RECEIVE_CATEGORIES";
