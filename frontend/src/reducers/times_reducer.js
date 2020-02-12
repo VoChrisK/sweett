@@ -1,7 +1,7 @@
 import { RECEIVE_TIME } from './../actions/time_actions';
 
 const defaultTime = {
-    limit: 0
+    day: 0
 };
 
 const timeReducer = (state = defaultTime, action) => {

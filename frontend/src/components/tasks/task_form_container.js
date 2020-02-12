@@ -2,10 +2,12 @@ import { connect } from "react-redux";
 import TaskForm from './task_form'
 import { openModal, closeModal } from "../../actions/modal_actions";
 import { createTask } from '../../actions/task_actions';
+import { withRouter } from 'react-router-dom';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
     return {
-        state
+        state,
+        category: state.entities.categories[ownProps.location.pathname.split("/")[2]]
     };
 };
 
@@ -17,4 +19,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TaskForm);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(TaskForm));

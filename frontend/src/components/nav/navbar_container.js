@@ -4,6 +4,7 @@ import { logout } from '../../actions/session_actions';
 import NavBar from './navbar';
 import { openModal } from '../../actions/modal_actions';
 import { updateUser } from '../../actions/user_actions';
+import { receiveTime } from '../../actions/time_actions';
 
 const mapStateToProps = state => ({
     loggedIn: state.session.isAuthenticated,
@@ -15,7 +16,8 @@ const mapDispatchToProps = (dispatch) => {
         login: () => dispatch(openModal("login")),
         signup: () => dispatch(openModal("signup")),
         logout: () => dispatch(logout()),
-        updateUser: user => dispatch(updateUser(user))
+        updateUser: user => dispatch(updateUser(user)),
+        saveDay: day => dispatch(receiveTime(day))
     }
 }
 

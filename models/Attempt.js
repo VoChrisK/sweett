@@ -7,11 +7,6 @@ const AttemptSchema = new Schema({
         required: true,
         default: 0
     },
-    question_id: {
-        type: Schema.Types.ObjectId,
-        ref: 'questions',
-        // required: true
-    },
     task_id: {
         type: Schema.Types.ObjectId,
         ref: 'tasks',

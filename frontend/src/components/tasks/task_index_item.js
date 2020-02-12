@@ -7,9 +7,9 @@ class TaskIndexItem extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            // question: this.props.question,
-            // time: 0,
-            // isRecording: false,
+            task: this.props.task,
+            time: 0,
+            isRecording: false,
             title: this.props.task.name
         }
 
@@ -38,19 +38,19 @@ class TaskIndexItem extends React.Component {
         );
     }
 
-    // expandQuestion() {
-    //     document.getElementsByClassName("attempts-list")[this.props.idx].classList.toggle("invisible");
+    expandTask() {
+        document.getElementsByClassName("attempts-list")[this.props.idx].classList.toggle("invisible");
 
-    //     let caretClassList = document.getElementById("caret").classList;
+        let caretClassList = document.getElementById("caret").classList;
 
-    //     if (caretClassList[1] === "fa-caret-down") {
-    //         caretClassList.remove("fa-caret-down");
-    //         caretClassList.add("fa-caret-up");
-    //     } else {
-    //         caretClassList.remove("fa-caret-up");
-    //         caretClassList.add("fa-caret-down");
-    //     }
-    // }
+        if (caretClassList[1] === "fa-caret-down") {
+            caretClassList.remove("fa-caret-down");
+            caretClassList.add("fa-caret-up");
+        } else {
+            caretClassList.remove("fa-caret-up");
+            caretClassList.add("fa-caret-down");
+        }
+    }
 
     handlePauseButton(e) {
         // when pause button shown 
@@ -138,7 +138,7 @@ class TaskIndexItem extends React.Component {
                     {this.editTitleFrom()}
                     <div className="question-btns">
                         {this.timeTrackerButtons()}
-                        {/* <i onClick={this.expandQuestion.bind(this)} id="caret" class="fa fa-caret-down"></i> */}
+                        <i onClick={this.expandTask.bind(this)} id="caret" class="fa fa-caret-down"></i>
                     </div>
                 </div>
                 <div className="question-stats invisible">
@@ -146,7 +146,7 @@ class TaskIndexItem extends React.Component {
                     <span>{formatTime(this.state.time)}</span>
                 </div>
 
-                {/* <AttemptIndexContainer task={this.props.task} idx={this.props.idx} /> */}
+                {<AttemptIndexContainer task={this.props.task} idx={this.props.idx} />}
             </div>
         );
     }

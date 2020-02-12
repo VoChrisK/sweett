@@ -11,15 +11,6 @@ router.get("/user/:user_id", (req, res) => {
     .catch(errors => res.status(400).json({ errors }));
 });
 
-router.get("/user/:user_id", (req, res) => {
-  Tweet.find({ user: req.params.user_id })
-    .sort({ date: -1 })
-    .then(tweets => res.json(tweets))
-    .catch(err =>
-      res.status(404).json({ notweetsfound: "No tweets found from that user" })
-    );
-});
-
 router.get("/:id", (req, res) => {
     Category.findById(req.params.id)
     .then(category => res.json(category))
@@ -37,6 +28,7 @@ router.post("/",
     }
     const category = new Category({ 
         title: req.body.title,
+        taskName: req.body.taskName,
         user: req.user.id
     });
 

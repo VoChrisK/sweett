@@ -7,32 +7,32 @@ class AttemptIndex extends React.Component {
         super(props);
 
         this.state = {
-            question: this.props.question,
+            task: this.props.task,
         }
 
-        this.handleDeleteQuestion = this.handleDeleteQuestion.bind(this);
-        this.handleEditQuestion = this.handleEditQuestion.bind(this);
+        this.handleDeleteTask = this.handleDeleteTask.bind(this);
+        this.handleEditTask = this.handleEditTask.bind(this);
         this.updateNote = this.updateNote.bind(this);
-        this.updateQuestion = this.updateQuestion.bind(this);
+        this.updateTask = this.updateTask.bind(this);
     }
 
     componentDidMount() {
         this.setState({
-            question: this.props.question
+            task: this.props.task
         })
     }
 
     componentDidUpdate(preProps) {
         if(this.props.attempts.length !== preProps.attempts.length) {
-            this.props.requestQuestionAttempts(this.props.question._id);
+            this.props.requestTaskAttempts(this.props.task._id);
         }
     }
 
-    handleDeleteQuestion(e) {
-        this.props.deleteQuestion(this.props.question._id);
+    handleDeleteTask(e) {
+        this.props.deleteTask(this.props.task._id);
     }
 
-    handleEditQuestion(e) {
+    handleEditTask(e) {
         const questionEdit = document.getElementsByClassName("question-edit-form")[this.props.idx];
         const questionTitleSubmit = document.getElementsByClassName("question-edit-form-submit")[this.props.idx];
         // able
@@ -49,17 +49,17 @@ class AttemptIndex extends React.Component {
         }
     }
 
-    validateQuestionName() {
-        if (leetcode_question_titles.includes(this.state.question.name)) {
+    validateTaskName() {
+        if (leetcode_question_titles.includes(this.state.task.name)) {
             return true;
         } else {
             return false;
         }
     }
 
-    updateQuestion(e) {
+    updateTask(e) {
         e.preventDefault();
-        this.props.updateQuestion(this.state.question);
+        this.props.updateTask(this.state.task);
     }
 
     questionNote() {
@@ -74,28 +74,30 @@ class AttemptIndex extends React.Component {
 
     updateNote(e) {
         e.preventDefault();
-        let newQuestion = Object.assign({}, this.state.question)
-        newQuestion.note = e.currentTarget.value;
-        this.setState({ question: newQuestion })
+        let newTask = Object.assign({}, this.state.question)
+        newTask.note = e.currentTarget.value;
+        this.setState({ task: newTask })
     }
-
+    
     render() {
+        console.log(this.props.attempts);
         if (!this.props.attempts)  return <ul className="attempts-list invisible"></ul>;
+
         return (
             <ul className="attempts-list invisible">
 
                 {
                     this.props.attempts.map((attempt, idx) => <AttemptIndexItemContainer key={idx} attempt={attempt} idx={idx} />)
                 }
-                <form className="question-note-form" onSubmit={this.updateQuestion}>
-                    <input onChange={this.updateNote} type="textarea" className="question-note-input" placeholder="Note for question" value={this.state.question.note} />
+                <form className="question-note-form" onSubmit={this.updateTask}>
+                    <input onChange={this.updateNote} type="textarea" className="question-note-input" placeholder="Note for question" value={this.state.task.note} />
                     <input className="question-note-submit" type="submit" value="SAVE NOTE" />
                 </form>
 
                 <div className="question-delete-container">   
-                    <button id="question-edit-btn" className="question-edit" onClick={this.handleEditQuestion}>EDIT TITLE</button>
-                    { this.validateQuestionName() ? <a className="question-link" target="_blank" href={`https://leetcode.com/problems/${this.props.question.name.toLowerCase().split(" ").join("-")}`}>LEETCODE</a> : null}
-                    <button className="question-delete" onClick={this.handleDeleteQuestion}>DELETE QUESTION</button>
+                    <button id="question-edit-btn" className="question-edit" onClick={this.handleEditTask}>EDIT TITLE</button>
+                    { this.validateTaskName() ? <a className="question-link" target="_blank" href={`https://leetcode.com/problems/${this.props.task.name.toLowerCase().split(" ").join("-")}`}>LEETCODE</a> : null}
+                    <button className="question-delete" onClick={this.handleDeleteTask}>DELETE TASK</button>
                 </div>
             </ul>
         );

@@ -9,7 +9,6 @@ export const fetchTask = categoryId => {
 };
 
 export const createTask = task => {
-  console.log('task util')
   return axios.post("/api/tasks", task);
 };
 
