@@ -53,7 +53,6 @@ class NavBar extends React.Component {
       if(this.props.currentUser && preProps.currentUser) {
         if(this.props.currentUser.date !== preProps.currentUser.date) {
           this.setState({ day: calculateDays(new Date(this.props.currentUser.date), Date.now())} )
-          console.log("test");
         }
       }
     }
@@ -123,8 +122,6 @@ class NavBar extends React.Component {
     }
 
     render() {
-      console.log(this.state, 'nav state')
-      console.log(this.props, 'nav props')
       let clock;
       let incrementDay;
       if (!!this.props.currentUser) {

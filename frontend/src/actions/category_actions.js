@@ -34,7 +34,6 @@ export const requestCategories = userId => dispatch => {
     .then(categories => {
         dispatch(receiveCategories(categories.data))})
         .catch(errors => {
-            console.log(errors);
             dispatch(receiveErrors(errors.response.data))
         })
 };
