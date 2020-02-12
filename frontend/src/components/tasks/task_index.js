@@ -115,7 +115,7 @@ class TaskIndex extends React.Component {
       <div className="question-title-description-add">
         <div className="question-title-description">
           <div className="question-index-title">
-            TASKS
+            {this.props.category.taskName}
                 <i onClick={this.showForm.bind(this)} className="fa fa-hourglass">
               <form onSubmit={this.handleSubmit.bind(this)} className="edit-time invisible">
                 <label htmlFor="edit-time-input">Input the time limit per question for all questions: </label>

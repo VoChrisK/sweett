@@ -28,6 +28,7 @@ router.post("/",
     }
     const category = new Category({ 
         title: req.body.title,
+        taskName: req.body.taskName,
         user: req.user.id
     });
 
