@@ -78,22 +78,22 @@ class TaskForm extends React.Component {
     renderCTCISections() {
         return (
             <select className="dropdown-list" onChange={this.update("section")}>
-                <option value="chapter-1">Chapter 1</option>
-                <option value="chapter-">Chapter 2</option>
-                <option value="chapter-">Chapter 3</option>
-                <option value="chapter-">Chapter 4</option>
-                <option value="chapter-">Chapter 5</option>
-                <option value="chapter-">Chapter 6</option>
-                <option value="chapter-">Chapter 7</option>
-                <option value="chapter-">Chapter 8</option>
-                <option value="chapter-">Chapter 9</option>
-                <option value="chapter-">Chapter 10</option>
-                <option value="chapter-">Chapter 11</option>
-                <option value="chapter-">Chapter 12</option>
-                <option value="chapter-">Chapter 13</option>
-                <option value="chapter-">Chapter 14</option>
-                <option value="chapter-">Chapter 15</option>
-                <option value="chapter-">Chapter 16</option>
+                <option value="Chapter 1">Chapter 1</option>
+                <option value="Chapter 2">Chapter 2</option>
+                <option value="Chapter 3">Chapter 3</option>
+                <option value="Chapter 4">Chapter 4</option>
+                <option value="Chapter 5">Chapter 5</option>
+                <option value="Chapter 6">Chapter 6</option>
+                <option value="Chapter 7">Chapter 7</option>
+                <option value="Chapter 8">Chapter 8</option>
+                <option value="Chapter 9">Chapter 9</option>
+                <option value="Chapter 10">Chapter 10</option>
+                <option value="Chapter 11">Chapter 11</option>
+                <option value="Chapter 12">Chapter 12</option>
+                <option value="Chapter 13">Chapter 13</option>
+                <option value="Chapter 14">Chapter 14</option>
+                <option value="Chapter 15">Chapter 15</option>
+                <option value="Chapter 16">Chapter 16</option>
             </select>
         )
     }
@@ -113,7 +113,7 @@ class TaskForm extends React.Component {
                         placeholder="Name"
                     />
                     <h3>Section:</h3>
-                    { this.props.category.title === "Leetcode" ? this.renderLeetCodeSections() : this.renderSections() }
+                    { this.props.category.title === "Leetcode" ? this.renderLeetCodeSections() : this.props.category.title === "Cracking The Coding Interview" ? this.renderCTCISections() : this.renderSections() }
                     <input type="submit" className="add-task-submit" value="Submit" />
                 </form>
             </div>
