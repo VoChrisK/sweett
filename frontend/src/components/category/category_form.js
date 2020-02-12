@@ -33,8 +33,6 @@ class CategoryForm extends React.Component {
       .then(this.props.closeModal())
     }
 
-  
-
   render() {
     return (
       <div className="cat-modal">

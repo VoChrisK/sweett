@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import LoginFormContainer from '../session/login_form_container';
 import SignupFormContainer from '../session/signup_form_container';
 import CategoryFormContainer from '../category/category_form_container';
-import QuestionFormContainer from '../question/question_form_container';
 import CategoryEditFormContainer from '../category/category_edit_form_container'
 import TaskFormContainer from '../tasks/task_form_container'
 
@@ -22,9 +21,6 @@ function Modal({ modal, closeModal }) {
             break;
         case 'addCategory':
             component = <CategoryFormContainer />;
-            break;
-        case 'addQuestion':
-            component = <QuestionFormContainer />;
             break;
         case 'addTask':
             component = <TaskFormContainer />;

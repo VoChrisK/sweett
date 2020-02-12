@@ -42,8 +42,8 @@ class SignupForm extends React.Component {
         this.props.processForm(user, this.props.history)
         .then(() => {
             if(this.state.errors.length === 0) {
-              this.props.createCategory({ title: "Leetcode" });
-              this.props.createCategory({ title: "CrackingTheCode" })
+              this.props.createCategory({ title: "Leetcode", taskName: "Questions" });
+              this.props.createCategory({ title: "CrackingTheCode", taskName: "Questions" })
                 .then(() => {
                   this.props.history.push('/dashboard');
                   this.props.closeModal();
