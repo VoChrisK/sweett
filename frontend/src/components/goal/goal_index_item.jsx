@@ -1,5 +1,5 @@
 import React from 'react';
-import { calculateProgress, calculateTotalProgress, calculateDays} from "../../util/calculations"
+import { calculateProgress, calculateTotalProgress } from "../../util/calculations"
 
 class GoalIndexItem extends React.Component {
     constructor(props) {
@@ -45,20 +45,19 @@ class GoalIndexItem extends React.Component {
 
     componentDidUpdate(prevProps) {
 
-        let day1 = calculateDays(new Date(this.props.currentUser.date), Date.now());
-        let day2 = calculateDays(new Date(this.props.goal.date), Date.now());
-        if (day1 !== day2) {
-            let newGoal = Object.assign({}, this.state.goal)
-            newGoal.attempted = 0;
-            // grab currentUser
-            newGoal.date = JSON.parse(JSON.stringify(this.props.currentUser.date));
-            this.props.updateGoal(newGoal)
-                .then((action) => {
-                    this.setState({ goal: action.goal})
-                })
-        }
+        // let day1 = calculateDays(new Date(this.props.currentUser.date), Date.now());
+        // let day2 = calculateDays(new Date(this.props.goal.date), Date.now());
+        // if (day1 !== day2) {
+        //     let newGoal = Object.assign({}, this.state.goal)
+        //     newGoal.attempted = 0;
+        //     // grab currentUser
+        //     newGoal.date = JSON.parse(JSON.stringify(this.props.currentUser.date));
+        //     this.props.updateGoal(newGoal)
+        //         .then((action) => {
+        //             this.setState({ goal: action.goal})
+        //         })
+        // }
         if (prevProps.goal.attempted !== this.props.goal.attempted) {
-            console.log("hi");
             this.props.requestGoal(this.props.goal._id)
                 .then((action) => {
                     this.setState({ progress: calculateProgress(action.goal) })

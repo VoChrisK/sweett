@@ -144,7 +144,7 @@ class TaskIndexItem extends React.Component {
                     {this.editTitleFrom()}
                     <div className="question-btns">
                         {this.timeTrackerButtons()}
-                        <i onClick={this.expandTask.bind(this)} id="caret" class="fa fa-caret-down"></i>
+                        <i onClick={this.expandTask.bind(this)} id="caret" className="fa fa-caret-down"></i>
                     </div>
                 </div>
                 <div className="question-stats invisible">
