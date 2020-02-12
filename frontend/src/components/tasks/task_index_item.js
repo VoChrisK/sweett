@@ -120,7 +120,6 @@ class TaskIndexItem extends React.Component {
         e.preventDefault();
         let task = Object.assign({}, this.state.task);
         task.name = this.state.title;
-        console.log(task);
         this.props.updateTask(task);
         const taskEdit = document.getElementsByClassName("question-edit-form")[this.props.idx];
         const taskTitleSubmit = document.getElementsByClassName("question-edit-form-submit")[this.props.idx];
@@ -139,8 +138,6 @@ class TaskIndexItem extends React.Component {
     }
 
     render() {
-        console.log(this.props.task, "Props")
-        console.log(this.state.task, "State")
         return (
             <div className="question-index-item">
                 <div className="question">
