@@ -139,6 +139,8 @@ class TaskIndexItem extends React.Component {
     }
 
     render() {
+        console.log(this.props.task, "Props")
+        console.log(this.state.task, "State")
         return (
             <div className="question-index-item">
                 <div className="question">

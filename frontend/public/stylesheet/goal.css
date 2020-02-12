@@ -8,6 +8,10 @@
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; 
 }
 
+.no-wrap {
+    white-space: nowrap;
+}
+
 .goal-index p {
     margin-top: 16px;
     font-size: 28px;
