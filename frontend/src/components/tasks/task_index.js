@@ -28,7 +28,6 @@ class TaskIndex extends React.Component {
     }
   }
 
-  // For when hourglass is working
   componentDidUpdate(prevProps) {
     if (this.props.match.params.categoryId !== prevProps.match.params.categoryId) {
       this.props.requestCategoryTasks(this.props.category._id);
@@ -121,7 +120,7 @@ class TaskIndex extends React.Component {
             } else {
               return (
                 <div className="question-container">
-                  {task1.section}
+                  <p className="question-container-title">{task1.section}</p>
                   {
                     this.props.tasks.slice(idx1).map((task2, idx2) => {
                       if(task1.section !== task2.section) {
@@ -150,7 +149,7 @@ class TaskIndex extends React.Component {
       <div className="question-title-description-add">
         <div className="question-title-description">
           <div className="question-index-title">
-            {this.props.category.taskName}
+            {this.props.category.title}
                 <i onClick={this.showForm.bind(this)} className="fa fa-hourglass">
               <form onClick={event => event.stopPropagation()} onSubmit={this.handleSubmit.bind(this)} className="edit-time invisible">
                 <label onClick={event => event.stopPropagation()} htmlFor="edit-time-input">Input the time limit per question for all questions: </label>
