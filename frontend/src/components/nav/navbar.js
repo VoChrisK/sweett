@@ -16,14 +16,42 @@ class NavBar extends React.Component {
         console.log(this.props.currentUser.date);
     }
 
+    componentDidMount() {
+      // Makes event listener to close dropdown onclick of document when refreshing page
+      let dropdown = document.getElementById("dropdown"); 
+      let dropdownParent = document.getElementsByClassName("dropdown-parent")[0];
+      if(!!dropdownParent) {
+        document.addEventListener('mouseup', e => {
+          if ((e.target !== dropdownParent) && (!Array.from(dropdownParent.children).includes(e.target))) {
+            dropdown.style.display = "none";
+          }
+        })
+      }
+      if (!this.props.loggedIn) {
+        document.getElementsByClassName("navbar")[0].classList.add("onsplash");
+      } else {
+        document.getElementsByClassName("navbar")[0].classList.remove("onsplash");
+      }
+    }
+
     componentDidUpdate(preProps) {
-      if(this.props.location.path !== preProps.location.path) {
+      // Makes event listener to close dropdown onclick of document when navigating back to page
+      let dropdown = document.getElementById("dropdown");
+      let dropdownParent = document.getElementsByClassName("dropdown-parent")[0];
+      if (!!dropdownParent) {
+        document.addEventListener('mouseup', e => {
+          if ((e.target !== dropdownParent) && (!Array.from(dropdownParent.children).includes(e.target))) {
+            dropdown.style.display = "none";
+          }
+        })
+      }
+      // if(this.props.location.path !== preProps.location.path) {
         if (!this.props.loggedIn) {
           document.getElementsByClassName("navbar")[0].classList.add("onsplash");
         } else {
           document.getElementsByClassName("navbar")[0].classList.remove("onsplash");
         }
-      }
+      // }
     }
 
     logoutUser(e) {
@@ -94,8 +122,8 @@ class NavBar extends React.Component {
       let incrementDay;
       if (!!this.props.currentUser) {
         if (Object.keys(this.props.currentUser).length > 0) {
-          clock = <h1 className="days-counter">Day: {this.state.day}</h1>
           incrementDay = <i onClick={this.incrementDay.bind(this)} className="fa fa-plus-circle"></i>
+        clock = <h1 className="days-counter">Day: {this.state.day} {incrementDay}</h1>
         }
       }
         return (
@@ -106,7 +134,6 @@ class NavBar extends React.Component {
 
             <Modal />
             {clock}
-            {incrementDay}
             {this.getLinks()}
           </div>
         );

@@ -43,7 +43,7 @@ class SignupForm extends React.Component {
         .then(() => {
             if(this.state.errors.length === 0) {
               this.props.createCategory({ title: "Leetcode", taskName: "Questions" });
-              this.props.createCategory({ title: "CrackingTheCode", taskName: "Questions" })
+              this.props.createCategory({ title: "Cracking The Coding Interview", taskName: "Questions" })
                 .then(() => {
                   this.props.history.push('/dashboard');
                   this.props.closeModal();
