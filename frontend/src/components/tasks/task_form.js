@@ -40,7 +40,6 @@ class TaskForm extends React.Component {
             category_id: this.props.location.pathname.split("/")[2],
             section: this.state.section
         };
-        console.log(task, 'submit task')
         this.props.processForm(task)
             .then(task => {
                 
@@ -124,7 +123,6 @@ class TaskForm extends React.Component {
     }
 
     render() {
-        console.log(this.state, 'form error state')
         return (
             <div className="task-modal">
                 <form className="task-form" onSubmit={this.handleSubmit.bind(this)}>
