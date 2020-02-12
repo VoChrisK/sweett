@@ -20,11 +20,11 @@ class TaskIndexItem extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    componentDidUpdate(prevProps) {
-        if(Object.values(prevProps.task) !== Object.values(this.props.task)) {
-            this.props.receiveTask
-        }   
-    }
+    // componentDidUpdate(prevProps) {
+    //     if(Object.values(prevProps.task) !== Object.values(this.props.task)) {
+    //         this.props.receiveTask
+    //     }   
+    // }
 
     handleRecordButton(e) {
         this.setState({ isRecording: true }, () => {

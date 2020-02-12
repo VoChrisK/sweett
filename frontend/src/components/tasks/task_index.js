@@ -20,8 +20,8 @@ class TaskIndex extends React.Component {
     if (!!dropdownParent) {
       document.addEventListener('mouseup', e => {
         if ((e.target !== dropdownParent) &&
-          (!Array.from(dropdownParent.children).includes(e.target)) &&
-          (!Array.from(dropdown.children).includes(e.target))) {
+           (!Array.from(dropdownParent.children).includes(e.target)) &&
+           (!Array.from(dropdown.children).includes(e.target))) {
           dropdown.classList.add("invisible");
         }
       })
@@ -132,9 +132,9 @@ class TaskIndex extends React.Component {
           <div className="question-index-title">
             {this.props.category.taskName}
                 <i onClick={this.showForm.bind(this)} className="fa fa-hourglass">
-              <form onSubmit={this.handleSubmit.bind(this)} className="edit-time invisible">
-                <label htmlFor="edit-time-input">Input the time limit per question for all questions: </label>
-                {/* <input onClick={event => event.stopPropagation()} onChange={this.handleTimeLimit.bind(this)} type="number" id="edit-time-input" value={this.state.timeLimit} min="0" /><strong> minutes</strong> */}
+              <form onClick={event => event.stopPropagation()} onSubmit={this.handleSubmit.bind(this)} className="edit-time invisible">
+                <label onClick={event => event.stopPropagation()} htmlFor="edit-time-input">Input the time limit per question for all questions: </label>
+                <input onClick={(event) => event.stopPropagation()} onChange={this.handleTimeLimit.bind(this)} type="number" id="edit-time-input" value={this.state.timeLimit} min="0" /><strong> minutes</strong>
               </form>
             </i>
           </div>

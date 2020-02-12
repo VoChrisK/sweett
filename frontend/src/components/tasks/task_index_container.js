@@ -16,7 +16,8 @@ const mapDispatchToProps = dispatch => {
   return {
     addTask: () => dispatch(openModal("addTask")),
     requestCategoryTasks: categoryId => dispatch(requestCategoryTasks(categoryId)),
-    delTask: taskId => dispatch(deleteTask(taskId))
+    delTask: taskId => dispatch(deleteTask(taskId)),
+    updateCategory: category => dispatch(updateCategory(category))
   };
 };
 

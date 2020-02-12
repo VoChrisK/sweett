@@ -70,7 +70,7 @@ class GoalForm extends React.Component {
                     <span className="bottom-margin error-text">{errors.description}</span>
                     <div className="bottom-margin">
                         <input min="1" max="1/0" className="expected-input" type="number" value={goal.expected} onChange={this.handleExpectedChange}/>
-                        <span> Expected Attempts</span>
+                        <span className="no-wrap"> Expected Attempts</span>
                     </div>
                     <span className="bottom-margin error-text">{errors.expected}</span>
                     <div className="bottom-margin">
