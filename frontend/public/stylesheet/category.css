@@ -12,10 +12,16 @@
     border-radius: 5px;
     /* margin-bottom: 40px; */
     /* padding-bottom: 40px; */
+    color:inherit;
+    text-align: center;
 }
 
 .cat-body:visited {
     color: inherit;
+}
+
+.cat-body:hover {
+    animation: ease-out 3s;
 }
 
 .x-box:hover {
@@ -60,6 +66,10 @@
     font-size: 36px;
     padding-top: 20px;
     padding-bottom: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .cat-time {
@@ -169,6 +179,13 @@ i {
 
 #edit-form {
     visibility: hidden;
+}
+
+.category {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .category-tasks{
