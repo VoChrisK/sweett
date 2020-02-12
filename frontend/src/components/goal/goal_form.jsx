@@ -7,10 +7,7 @@ class GoalForm extends React.Component {
         this.state = {
             goal: this.props.goal,
             formType: this.props.formType,
-            errors: {
-                description: '',
-                expected: ''
-            }
+            errors: {}
         }
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -33,6 +30,7 @@ class GoalForm extends React.Component {
             .then(res => {
                 if (!res) {
                     this.setState({ goal: this.props.goal });
+                    this.setState({ errors: {}});
                 } else {
                     this.setState({ errors: this.props.errors });
                 }

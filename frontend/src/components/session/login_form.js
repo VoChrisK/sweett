@@ -147,7 +147,7 @@ class LoginForm extends React.Component {
                         <span>Hello, Friend!</span>
                     </p>
                     <p className="auth-description">
-                        <span>Enter your personal details and start journey with us</span>
+                        <span>Enter your personal details and start your journey with us</span>
                     </p>
                     {this.props.otherForm}
                 </div>

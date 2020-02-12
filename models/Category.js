@@ -42,7 +42,8 @@ const CategorySchema = new Schema({
         default: Date.now
     },
     taskName: {
-        type: String
+        type: String,
+        required: true
     }
 });
 
