@@ -44,7 +44,6 @@ class CategoryShow extends React.Component {
 
   render() {
     if (!this.props.category) return null;
-
       return (
         <div className="leetcode">
           <button id="sidebar-toggle-button" onClick={this.toggleSidebar}>
@@ -53,10 +52,7 @@ class CategoryShow extends React.Component {
           <TaskIndexContainer category={this.props.category} />
           <GoalIndexContainer categoryId={this.props.category._id} />
         </div>
-      )
-    // }
-    
-    
+      )   
   }
 }
 

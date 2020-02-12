@@ -6,7 +6,8 @@ import { createTask } from '../../actions/task_actions'
 
 const mapStateToProps = state => {
   return {
-      state
+      state,
+      errors: state.errors
   };
 };
 
