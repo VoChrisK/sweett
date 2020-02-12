@@ -50,25 +50,6 @@ class TaskIndex extends React.Component {
     }
   }
 
-  toggleSidebar() {
-    const sidebar = document.getElementById("sidebar");
-    const questionIndex = document.getElementsByClassName("question-index")[0];
-    // const goalIndex = document.getElementsByClassName("goal-index")[0];
-    const sidebarToggleButton = document.getElementById("sidebar-toggle-button");
-
-    // re-style question div
-    if (sidebar.style.display === "none") {
-      sidebar.style.display = "block";
-      questionIndex.style.width = "64%";
-      sidebarToggleButton.style.left = "0.2%";
-    } else {
-      sidebar.style.display = "none";
-      questionIndex.style.width = "80%";
-      sidebarToggleButton.style.left = "0.2%";
-    }
-
-  }
-
   handleInput(input) {
     this.setState({ [input]: !this.state[input] });
   }
@@ -149,7 +130,7 @@ class TaskIndex extends React.Component {
       <div className="question-title-description-add">
         <div className="question-title-description">
           <div className="question-index-title">
-            TASKS
+            {this.props.category.taskName}
                 <i onClick={this.showForm.bind(this)} className="fa fa-hourglass">
               <form onSubmit={this.handleSubmit.bind(this)} className="edit-time invisible">
                 <label htmlFor="edit-time-input">Input the time limit per question for all questions: </label>
@@ -169,7 +150,6 @@ class TaskIndex extends React.Component {
   render() {
     return (
       <div className="question-index">
-        <button id="sidebar-toggle-button" onClick={this.toggleSidebar}></button>
           {this.renderHeader()}
           {this.renderTasks()}
       </div>
