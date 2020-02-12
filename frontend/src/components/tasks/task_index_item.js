@@ -20,6 +20,12 @@ class TaskIndexItem extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    componentDidUpdate(prevProps) {
+        if (this.props.task.name !== prevProps.task.name) {
+            this.setState({task: this.props.task, title: this.props.task.name });
+        }
+    }
+
     handleRecordButton(e) {
         this.setState({ isRecording: true }, () => {
             document
@@ -112,8 +118,9 @@ class TaskIndexItem extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        let task = this.state.task;
+        let task = Object.assign({}, this.state.task);
         task.name = this.state.title;
+        console.log(task);
         this.props.updateTask(task);
         const taskEdit = document.getElementsByClassName("question-edit-form")[this.props.idx];
         const taskTitleSubmit = document.getElementsByClassName("question-edit-form-submit")[this.props.idx];
@@ -132,6 +139,8 @@ class TaskIndexItem extends React.Component {
     }
 
     render() {
+        console.log(this.props.task, "Props")
+        console.log(this.state.task, "State")
         return (
             <div className="question-index-item">
                 <div className="question">

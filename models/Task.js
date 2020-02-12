@@ -16,7 +16,8 @@ const TaskSchema = new Schema({
     default: Date.now
   },
   section: {
-    type: String
+    type: String,
+    required: true
   },
   status: {
     type: String,
