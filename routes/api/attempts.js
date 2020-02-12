@@ -4,8 +4,8 @@ const Attempt = require("../../models/Attempt");
 const passport = require("passport");
 
 //fetch all attempts based on question id into an array
-router.get("/questions/:question_id", (req, res) => {
-    Attempt.find({ question_id: req.params.question_id })
+router.get("/tasks/:task_id", (req, res) => {
+    Attempt.find({ task_id: req.params.task_id })
         .then(attempts => res.json(attempts))
         .catch(errors => res.status(400).json({ errors }));
 });

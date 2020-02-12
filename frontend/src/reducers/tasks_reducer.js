@@ -15,7 +15,6 @@ const tasksReducer = (state = {}, action) => {
       });
       return nextState;
     case RECEIVE_TASK:
-      console.log('task reducer')
       nextState = Object.assign({}, state);
       nextState[action.task._id] = action.task;
       return nextState;

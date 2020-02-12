@@ -37,6 +37,25 @@ router.post("/", (req, res) => {
     .catch(errors => res.status(400).json({ errors }));
 });
 
+router.patch("/:id", (req, res) => {
+  const { errors, isValid } = validateTaskInput(req.body);
+
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
+
+  Task.findById(req.params.id)
+    .then(task => {
+      task.name = req.body.name;
+      task.section = req.body.section;
+      task.note = req.body.note;
+      task.save()
+        .then(task => res.json(task))
+        .catch(errors => res.status(400).json({ errors }));
+    })
+    .catch(errors => res.status(400).json({ errors }));
+});
+
 //deletes task
 router.delete("/:id", (req, res) => {
   Task.deleteOne({ _id: req.params.id })

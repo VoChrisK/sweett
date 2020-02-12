@@ -17,15 +17,16 @@ class AttemptIndex extends React.Component {
     }
 
     componentDidMount() {
+        this.props.requestTaskAttempts(this.props.task._id);
         this.setState({
             task: this.props.task
         })
     }
 
     componentDidUpdate(preProps) {
-        if(this.props.attempts.length !== preProps.attempts.length) {
-            this.props.requestTaskAttempts(this.props.task._id);
-        }
+        // if(this.props.attempts.length !== preProps.attempts.length) {
+        //     this.props.requestTaskAttempts(this.props.task._id);
+        // }
     }
 
     handleDeleteTask(e) {
@@ -80,7 +81,6 @@ class AttemptIndex extends React.Component {
     }
     
     render() {
-        console.log(this.props.attempts);
         if (!this.props.attempts)  return <ul className="attempts-list invisible"></ul>;
 
         return (
