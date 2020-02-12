@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 class GoalForm extends React.Component {
     constructor(props) {
@@ -26,6 +27,8 @@ class GoalForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        let goal = this.state.goal
+        goal.category_id = this.props.match.params.categoryId
         this.props.processForm(this.state.goal)
             .then(res => {
                 if (!res) {
@@ -85,4 +88,4 @@ class GoalForm extends React.Component {
     }
 }
 
-export default GoalForm;
+export default withRouter(GoalForm);

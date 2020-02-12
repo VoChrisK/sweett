@@ -96,7 +96,7 @@ class AttemptIndex extends React.Component {
 
                 <div className="question-delete-container">   
                     <button id="question-edit-btn" className="question-edit" onClick={this.handleEditTask}>EDIT TITLE</button>
-                    { this.validateTaskName() ? <a className="question-link" target="_blank" href={`https://leetcode.com/problems/${this.props.task.name.toLowerCase().split(" ").join("-")}`}>LEETCODE</a> : null}
+                    { this.validateTaskName() ? <a className="question-link" rel="noopener noreferrer" target="_blank" href={`https://leetcode.com/problems/${this.props.task.name.toLowerCase().split(" ").join("-")}`}>LEETCODE</a> : null}
                     <button className="question-delete" onClick={this.handleDeleteTask}>DELETE TASK</button>
                 </div>
             </ul>
