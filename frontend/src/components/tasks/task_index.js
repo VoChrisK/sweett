@@ -44,6 +44,17 @@ class TaskIndex extends React.Component {
         }
       })
     }
+    // let dropdown = document.getElementsByClassName("edit-time")[0];
+    // let dropdownParent = document.getElementsByClassName("fa-hourglass")[0];
+    // if (!!dropdownParent) {
+    //   document.addEventListener('mouseup', e => {
+    //     if ((e.target !== dropdownParent) &&
+    //       (!Array.from(dropdownParent.children).includes(e.target)) &&
+    //       (!Array.from(dropdown.children).includes(e.target))) {
+    //       dropdown.classList.add("invisible");
+    //     }
+    //   })
+    // }
   }
 
   handleInput(input) {
@@ -84,6 +95,8 @@ class TaskIndex extends React.Component {
   }
  // <button className="task-remove" onClick={() => this.props.delTask(task2._id)}></button>
   renderTasks() {
+    console.log(this.props, 'task props')
+    console.log(this.state, 'task state')
     let start = 0;
     let flag = true;
     return (

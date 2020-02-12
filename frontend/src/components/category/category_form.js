@@ -5,8 +5,10 @@ class CategoryForm extends React.Component {
     super(props);
     this.state = {
       title: "",
-      name: ""
+      name: "",
+      errors: {}
     };
+    this.renderErrors = this.renderErrors.bind(this);
   }
 
   update(field) {
@@ -27,13 +29,37 @@ class CategoryForm extends React.Component {
       category_id: ""
     }
     this.props.processCat(cat)
-      .then((category) => {task.category_id = category.category.data._id
-        this.props.addTask(task)
-      })
-      .then(this.props.closeModal())
+    .then((category) => 
+    {
+      if (category.errors.length === 0) {
+        this.props.addTask(task);
+      }})
+
+      // .then((category) => {task.category_id = category.category.data._id
+      //   this.props.addTask(task)
+      //       if (this.state.errors.length === 0) {
+      //         this.props.closeModal();
+      //       }
+      // })
     }
+    
+  
+  
+
+  renderErrors() {
+    return (
+      <ul className="errors">
+        {Object.keys(this.state.errors).map((error, i) => (
+          <li key={`error-${i}`}>
+            {this.state.errors[error]}
+          </li>
+        ))}
+      </ul>
+    );
+  }
 
   render() {
+    console.log(this.state, 'cat error state')
     return (
       <div className="cat-modal">
         <form className="cat-form" onSubmit={this.handleSubmit.bind(this)}>
@@ -48,6 +74,7 @@ class CategoryForm extends React.Component {
             placeholder="Title"
           />
           <br></br>
+          {this.renderErrors()}
           <h3>Tasks:</h3>
           <input
             type="text"

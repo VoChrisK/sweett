@@ -17,34 +17,55 @@
 }
 
 /* task modal */
-.cat-modal {
-    background-color: rgb(185, 211, 253);
-    height: 400px;
-    width: 300px;
-    border: 2px lightgray solid;
-    border-radius: 5px;
+.cat-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 16px;
+    width: 400px;
+    background-color: white;
+    border-radius: 6px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.cat-form {
-    padding: 20px;
+.add-cat-submit {
+    width: 160px;
+    height: 40px;
+    background-color: black;
+    padding: 12px 55px;
+    color: white;
+    border-radius: 25px;
+    text-align: center;
+    align-self: center;
+    margin-top: 54px;
+    margin-bottom: 0px;
+}
+
+.cat-title-input {
+    margin-bottom: 20px;
+    height: 30px;
+    padding: 6px 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f7f7f7;
+}
+
+.cat-task-input {
+    margin-bottom: 20px;
+    height: 30px;
+    padding: 6px 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f7f7f7;
 }
 
 .cat-modal h1 {
-    color: white;
-    font-family: 'Alata', sans-serif;
-    padding-bottom: 20px;
-
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 32px;
 }
 
 .cat-modal h3 {
-    color: white;
-    font-family: 'Alata', sans-serif;
-    padding-bottom: 20px;
-}
-
-
-i {
-    font-size: 50px;
-    height: 40px;
-    width: 40px;
+    margin-bottom: 20px;
+    font-size: 16px;
 }
