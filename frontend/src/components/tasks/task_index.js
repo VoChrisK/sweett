@@ -33,6 +33,19 @@ class TaskIndex extends React.Component {
       this.props.requestCategoryTasks(this.props.category._id);
     }
 
+    
+    if(this.props.expectedTime !== prevProps.expectedTime) {
+      let newCategory = Object.assign({}, this.props.category);
+      newCategory.expected = this.props.expectedTime;
+      this.props.updateCategory(newCategory);
+    }
+
+    if (this.props.actualTime !== prevProps.actualTime) {
+      let newCategory = Object.assign({}, this.props.category);
+      newCategory.actual = this.props.actualTime;
+      this.props.updateCategory(newCategory);
+    }
+
     let dropdown = document.getElementsByClassName("edit-time")[0];
     let dropdownParent = document.getElementsByClassName("fa-hourglass")[0];
     if (!!dropdownParent) {
@@ -95,8 +108,6 @@ class TaskIndex extends React.Component {
   }
  // <button className="task-remove" onClick={() => this.props.delTask(task2._id)}></button>
   renderTasks() {
-    console.log(this.props, 'task props')
-    console.log(this.state, 'task state')
     let start = 0;
     let flag = true;
     return (
