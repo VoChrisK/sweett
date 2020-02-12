@@ -7,8 +7,21 @@ class TaskForm extends React.Component {
         this.state = {
             name: this.props.name,
             status: "Incomplete",
-            section: ""
+            section: "",
+            errors: {}
         }
+        this.renderErrors = this.renderErrors.bind(this);
+    }
+    renderErrors() {
+        return (
+            <ul className="errors">
+                {Object.keys(this.state.errors).map((error, i) => (
+                    <li key={`error-${i}`}>
+                        {this.state.errors[error]}
+                    </li>
+                ))}
+            </ul>
+        );
     }
 
     update(field) {
@@ -20,17 +33,23 @@ class TaskForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        this.setState({ errors: this.props.errors })
         let task = {
             name: this.state.name,
             status: "Incomplete",
             category_id: this.props.location.pathname.split("/")[2],
             section: this.state.section
         };
-        if (task.section === '' && this.props.category.title === "Cracking The Coding Interview") {
-            task.section = "Chapter 1"
-        }
-        console.log(task);
-        this.props.processForm(task).then(this.props.closeModal);
+        console.log(task, 'submit task')
+        this.props.processForm(task)
+            .then(task => {
+                
+                if (task.errors) {
+                    this.setState({ errors: this.props.errors })
+                } else {
+                    this.props.closeModal()
+                }
+            })
     }
 
     renderSections() {
@@ -104,6 +123,7 @@ class TaskForm extends React.Component {
     }
 
     render() {
+        console.log(this.state, 'form error state')
         return (
             <div className="task-modal">
                 <form className="task-form" onSubmit={this.handleSubmit.bind(this)}>
@@ -119,6 +139,8 @@ class TaskForm extends React.Component {
                     />
                     <h3>Section:</h3>
                     { this.props.category.title === "Leetcode" ? this.renderLeetCodeSections() : this.props.category.title === "Cracking The Coding Interview" ? this.renderCTCISections() : this.renderSections() }
+
+                    {this.renderErrors()}
                     <input type="submit" className="add-task-submit" value="Submit" />
                 </form>
             </div>
