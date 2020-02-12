@@ -10,6 +10,10 @@ module.exports = function validateTaskInput(data) {
     errors.name = "Name field is required.";
   }
 
+  if (Validator.isEmpty(data.section)) {
+    errors.section = "Section field is required.";
+  }
+
   return {
     errors,
     isValid: Object.keys(errors).length === 0

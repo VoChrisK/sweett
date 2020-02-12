@@ -7,7 +7,8 @@ import { withRouter } from 'react-router-dom';
 const mapStateToProps = (state, ownProps) => {
     return {
         state,
-        category: state.entities.categories[ownProps.location.pathname.split("/")[2]]
+        category: state.entities.categories[ownProps.location.pathname.split("/")[2]],
+        errors: state.errors.tasks
     };
 };
 

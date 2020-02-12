@@ -18,30 +18,47 @@ class CategoryForm extends React.Component {
       });
   }
 
+  // handleSubmit(e) {
+  //   e.preventDefault();
+  //   let cat = {
+  //     title: this.state.title
+  //   };
+  //   let task = {
+  //     name: this.state.name,
+  //     status: "Incomplete",
+  //     category_id: ""
+  //   }
+  //   this.props.processCat(cat)
+  //   .then((category) => 
+  //   {
+  //     console.log(category, 'category')
+  //     if (category.errors.length === 0) {
+  //       this.props.addTask(task);
+  //     } else { this.setState({ errors: this.props.errors })}})
+
+  //     // .then((category) => {task.category_id = category.category.data._id
+  //     //   this.props.addTask(task)
+  //     //       if (this.state.errors.length === 0) {
+  //     //         this.props.closeModal();
+  //     //       }
+  //     // })
+  //   }
+
   handleSubmit(e) {
     e.preventDefault();
+    this.setState({ errors: this.props.errors })
     let cat = {
       title: this.state.title
     };
-    let task = {
-      name: this.state.name,
-      status: "Incomplete",
-      category_id: ""
-    }
     this.props.processCat(cat)
-    .then((category) => 
-    {
-      if (category.errors.length === 0) {
-        this.props.addTask(task);
-      }})
-
-      // .then((category) => {task.category_id = category.category.data._id
-      //   this.props.addTask(task)
-      //       if (this.state.errors.length === 0) {
-      //         this.props.closeModal();
-      //       }
-      // })
-    }
+      .then(category => {
+        if (category.errors) {
+          this.setState({ errors: this.props.errors })
+        } else {
+          this.props.closeModal()
+        }
+      })
+  }
     
   
   
@@ -59,7 +76,6 @@ class CategoryForm extends React.Component {
   }
 
   render() {
-    console.log(this.state, 'cat error state')
     return (
       <div className="cat-modal">
         <form className="cat-form" onSubmit={this.handleSubmit.bind(this)}>
@@ -75,14 +91,7 @@ class CategoryForm extends React.Component {
           />
           <br></br>
           {this.renderErrors()}
-          <h3>Tasks:</h3>
-          <input
-            type="text"
-            className="cat-task-input"
-            value={this.state.name}
-            onChange={this.update("name")}
-            placeholder="Task"
-          />
+          <br></br>
           <input type="submit" className="add-cat-submit" value="Submit" />
         </form>
       </div>
