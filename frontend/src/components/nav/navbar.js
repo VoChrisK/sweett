@@ -12,7 +12,6 @@ class NavBar extends React.Component {
         this.props.saveDay({ day: this.state.day });
         this.logoutUser = this.logoutUser.bind(this);
         this.getLinks = this.getLinks.bind(this);
-
     }
 
     componentDidMount() {
@@ -44,13 +43,19 @@ class NavBar extends React.Component {
           }
         })
       }
-      // if(this.props.location.path !== preProps.location.path) {
-        if (!this.props.loggedIn) {
-          document.getElementsByClassName("navbar")[0].classList.add("onsplash");
-        } else {
-          document.getElementsByClassName("navbar")[0].classList.remove("onsplash");
+
+      if (!this.props.loggedIn) {
+        document.getElementsByClassName("navbar")[0].classList.add("onsplash");
+      } else {
+        document.getElementsByClassName("navbar")[0].classList.remove("onsplash");
+      }
+
+      if(this.props.currentUser && preProps.currentUser) {
+        if(this.props.currentUser.date !== preProps.currentUser.date) {
+          this.setState({ day: calculateDays(new Date(this.props.currentUser.date), Date.now())} )
+          console.log("test");
         }
-      // }
+      }
     }
 
     logoutUser(e) {
