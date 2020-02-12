@@ -26,6 +26,7 @@ class TaskForm extends React.Component {
             category_id: this.props.location.pathname.split("/")[2],
             section: this.state.section
         };
+        console.log(task);
         this.props.processForm(task).then(this.props.closeModal);
     }
 

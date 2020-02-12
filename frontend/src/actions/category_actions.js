@@ -32,9 +32,11 @@ const receiveErrors = errors => {
 export const requestCategories = userId => dispatch => {
     return CategoriesApiUtil.fetchCategories(userId)
     .then(categories => {
-
         dispatch(receiveCategories(categories.data))})
-        .catch(errors => dispatch(receiveErrors(errors.response.data)))
+        .catch(errors => {
+            console.log(errors);
+            dispatch(receiveErrors(errors.response.data))
+        })
 };
 
 export const requestCategory = categoryId => dispatch => {

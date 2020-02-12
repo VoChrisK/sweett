@@ -109,8 +109,6 @@ class TaskIndex extends React.Component {
   }
  // <button className="task-remove" onClick={() => this.props.delTask(task2._id)}></button>
   renderTasks() {
-    console.log(this.props, 'task props')
-    console.log(this.state, 'task state')
     let start = 0;
     let flag = true;
     return (

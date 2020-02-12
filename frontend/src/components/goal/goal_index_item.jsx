@@ -58,6 +58,7 @@ class GoalIndexItem extends React.Component {
                 })
         }
         if (prevProps.goal.attempted !== this.props.goal.attempted) {
+            console.log("hi");
             this.props.requestGoal(this.props.goal._id)
                 .then((action) => {
                     this.setState({ progress: calculateProgress(action.goal) })
