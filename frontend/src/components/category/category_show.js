@@ -1,12 +1,9 @@
 import React from 'react';
-import LeetCodeContainer from './../leetcode/leetcode_container';
-import CrackingTheCodingContainer from './../cracking-the-coding/ctc_container';
-import { calculateExpectedTime, calculateActualTime, calculateTotalProgress } from './../../util/calculations';
+import { calculateTotalProgress } from './../../util/calculations';
 import SidebarContainer from './../sidebar/sidebar_container';
 import TaskIndexContainer from './../tasks/task_index_container';
 import GoalIndexContainer from './../goal/goal_index_container';
 import { withRouter } from 'react-router-dom';
-import DefaultCategoryContainer from './../category/default_category_container'
 
 class CategoryShow extends React.Component {
 
@@ -20,13 +17,25 @@ class CategoryShow extends React.Component {
           this.props.updateCategory(categoryData.category)
         })
       )
-      this.props.requestCategoryTasks(this.props.match.params.categoryId)   
+      this.props.requestCategoryTasks(this.props.match.params.categoryId);
+      const sidebar = document.getElementById("sidebar");
+      if (sidebar) {
+        this.toggleSidebar();
+      }
+      console.log("mpunt");
     }
 
     componentDidUpdate(prevProps) {
       if (this.props.match.params.categoryId !== prevProps.match.params.categoryId) {
         this.props.requestCategoryTasks(this.props.match.params.categoryId)
       }
+      // const sidebar = document.getElementById("sidebar");
+      // if (sidebar) {
+      //   this.toggleSidebar();
+      //   console.log("@@@");
+      // }
+      console.log("update");
+
     }
 
   toggleSidebar() {
@@ -45,6 +54,8 @@ class CategoryShow extends React.Component {
 
   render() {
     if (!this.props.category) return null;
+    
+    // if (this.props.category.title === "Leetcode") {
       return (
         <div className="leetcode">
           <button id="sidebar-toggle-button" onClick={this.toggleSidebar}>
@@ -53,7 +64,12 @@ class CategoryShow extends React.Component {
           <TaskIndexContainer category={this.props.category} />
           <GoalIndexContainer categoryId={this.props.category._id} />
         </div>
-      )   
+      )
+      // )    } else if (this.props.category.title === "CrackingTheCode") {
+      // return <CrackingTheCodingContainer category={this.props.category} />;
+      // } else {
+        // return null;
+    // }
   }
 }
 

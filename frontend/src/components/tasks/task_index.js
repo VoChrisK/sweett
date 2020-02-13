@@ -120,7 +120,7 @@ class TaskIndex extends React.Component {
               return null;
             } else {
               return (
-                <div className="question-container">
+                <div className="question-container" key={idx1}>
                   <p className="question-container-title">{task1.section}</p>
                   {
                     this.props.tasks.slice(idx1).map((task2, idx2) => {
@@ -151,7 +151,7 @@ class TaskIndex extends React.Component {
         <div className="question-title-description">
           <div className="question-index-title">
             {this.props.category.title}
-            <h1 className="task-name">{this.props.category.taskName}</h1>
+                <h1 className="task-name">{this.props.category.taskName}</h1>
                 <i onClick={this.showForm.bind(this)} className="fa fa-hourglass">
               <form onClick={event => event.stopPropagation()} onSubmit={this.handleSubmit.bind(this)} className="edit-time invisible">
                 <label onClick={event => event.stopPropagation()} htmlFor="edit-time-input">Input the time limit per question for all questions: </label>

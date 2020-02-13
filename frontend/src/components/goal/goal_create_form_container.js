@@ -8,7 +8,6 @@ const mapStateToProps = (state, ownProps) => {
             description: '',
             expected: '1',
             addToTotal: false,
-            category_id: ownProps.categoryId
         },
         formType: 'Create',
         errors: state.errors.goals

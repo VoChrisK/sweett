@@ -1,5 +1,5 @@
 import React from 'react';
-import { calculateProgress, calculateTotalProgress, calculateDays} from "../../util/calculations"
+import { calculateProgress, calculateTotalProgress } from "../../util/calculations"
 
 class GoalIndexItem extends React.Component {
     constructor(props) {

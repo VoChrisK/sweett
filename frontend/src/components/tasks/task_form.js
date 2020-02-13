@@ -5,7 +5,7 @@ class TaskForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: this.props.name,
+            name: '',
             status: "Incomplete",
             section: "",
             errors: {}
@@ -40,7 +40,6 @@ class TaskForm extends React.Component {
             category_id: this.props.location.pathname.split("/")[2],
             section: this.state.section
         };
-
         this.props.processForm(task)
             .then(task => {
                 
@@ -101,6 +100,7 @@ class TaskForm extends React.Component {
     renderCTCISections() {
         return (
             <select className="dropdown-list" onChange={this.update("section")}>
+                <option value="">---</option>
                 <option value="1. Chapter 1">Chapter 1</option>
                 <option value="2. Chapter 2">Chapter 2</option>
                 <option value="3. Chapter 3">Chapter 3</option>

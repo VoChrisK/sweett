@@ -1,7 +1,6 @@
 import { connect } from 'react-redux';
 import AttemptIndex from './attempt_index';
-import { deleteQuestion, updateQuestion } from "../../actions/question_actions";
-import { requestQuestionAttempts, requestTaskAttempts } from '../../actions/attempt_actions';
+import { requestTaskAttempts } from '../../actions/attempt_actions';
 import { deleteTask, updateTask } from '../../actions/task_actions';
 
 const mapStateToProps = (state, ownProps) => {
