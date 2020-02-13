@@ -10,7 +10,12 @@
 }
 
 .question-index-title {
+    text-align: center;
     font-size: 28px;
+}
+
+.task-name {
+    margin-top: 10px;
 }
 
 .question-title-description {

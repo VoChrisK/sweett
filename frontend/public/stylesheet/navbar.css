@@ -78,10 +78,11 @@
 .days-counter {
     position: absolute;
     top: 50%;
-    right: 150px;
+    right: 100px;
     transform: translateY(-50%);
     font-family: 'Bebas Neue', 'Lucida Sans';
     font-size: 32px;
+    height: 30px;
 }
 
 .login-signup {

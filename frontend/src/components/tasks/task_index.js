@@ -31,6 +31,7 @@ class TaskIndex extends React.Component {
   componentDidUpdate(prevProps) {
     if (this.props.match.params.categoryId !== prevProps.match.params.categoryId) {
       this.props.requestCategoryTasks(this.props.category._id);
+      this.setState({ timeLimit: this.props.category.timeLimit })
     }
 
     
@@ -150,6 +151,7 @@ class TaskIndex extends React.Component {
         <div className="question-title-description">
           <div className="question-index-title">
             {this.props.category.title}
+            <h1 className="task-name">{this.props.category.taskName}</h1>
                 <i onClick={this.showForm.bind(this)} className="fa fa-hourglass">
               <form onClick={event => event.stopPropagation()} onSubmit={this.handleSubmit.bind(this)} className="edit-time invisible">
                 <label onClick={event => event.stopPropagation()} htmlFor="edit-time-input">Input the time limit per question for all questions: </label>

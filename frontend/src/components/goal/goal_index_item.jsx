@@ -44,21 +44,20 @@ class GoalIndexItem extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-
-        let day1 = calculateDays(new Date(this.props.currentUser.date), Date.now());
-        let day2 = calculateDays(new Date(this.props.goal.date), Date.now());
-        if (day1 !== day2) {
-            let newGoal = Object.assign({}, this.state.goal)
-            newGoal.attempted = 0;
-            // grab currentUser
-            newGoal.date = JSON.parse(JSON.stringify(this.props.currentUser.date));
-            this.props.updateGoal(newGoal)
-                .then((action) => {
-                    this.setState({ goal: action.goal})
-                })
-        }
+        // fix later - problems with async
+        // let day1 = calculateDays(new Date(this.props.currentUser.date), Date.now());
+        // let day2 = calculateDays(new Date(this.props.goal.date), Date.now());
+        // if (day1 !== day2) {
+        //     let newGoal = Object.assign({}, this.state.goal)
+        //     newGoal.attempted = 0;
+        //     // grab currentUser
+        //     newGoal.date = JSON.parse(JSON.stringify(this.props.currentUser.date));
+        //     this.props.updateGoal(newGoal)
+        //         .then((action) => {
+        //             this.setState({ goal: action.goal})
+        //         })
+        // }
         if (prevProps.goal.attempted !== this.props.goal.attempted) {
-            console.log("hi");
             this.props.requestGoal(this.props.goal._id)
                 .then((action) => {
                     this.setState({ progress: calculateProgress(action.goal) })
@@ -106,8 +105,6 @@ class GoalIndexItem extends React.Component {
                     <div className="progress-completed" style={styles}>
                     </div>
                 </div>
-                <br/>
-                <button onClick={() => this.props.deleteGoal(this.props.goal._id)}>Delete Me Fam</button>
             </div>
         )
     }
