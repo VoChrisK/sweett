@@ -22,7 +22,6 @@ class CategoryShow extends React.Component {
       if (sidebar) {
         this.toggleSidebar();
       }
-      console.log("mpunt");
     }
 
     componentDidUpdate(prevProps) {
@@ -34,7 +33,6 @@ class CategoryShow extends React.Component {
       //   this.toggleSidebar();
       //   console.log("@@@");
       // }
-      console.log("update");
 
     }
 

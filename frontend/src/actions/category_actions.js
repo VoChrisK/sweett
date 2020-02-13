@@ -51,6 +51,7 @@ export const createCategory = category => dispatch => {
 };
 
 export const updateCategory = category => dispatch => {
+    console.log(category);
     return CategoriesApiUtil.updateCategory(category)
     .then(updatedCategory => dispatch(receiveCategory(updatedCategory.data)))
         .catch(errors => dispatch(receiveErrors(errors.response.data)))

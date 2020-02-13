@@ -12,6 +12,11 @@ class SplashFooter extends React.Component {
     handleGithub(e) {
         e.preventDefault();
         window.open("https://github.com/VoChrisK/sweett", '_blank');
+        window.open("https://github.com/VoChrisK", 'test');
+    }
+
+    handleLinkedIn(e) {
+        e.preventDefault();
     }
 
     componentDidMount() {
