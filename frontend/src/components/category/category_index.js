@@ -61,7 +61,7 @@ class CategoryIndex extends React.Component {
   deleteCat(e) {
     e.preventDefault();
     
-    if (e.target.id > 2) {
+    if (e.target.id > 1) {
       this.props.delCat(this.props.categories[e.target.id]._id).then(() => {
         this.forceUpdate();
       });
@@ -78,10 +78,14 @@ class CategoryIndex extends React.Component {
   
 
   render() {
-    if (this.props.categories.length === 0) return null;
+    if (this.props.categories.length < 2) return null;
     let noDel = document.getElementById('header0')
+    let noDel1 = document.getElementById('header1')
     if (noDel) {
       noDel.style.visibility = "hidden"
+    }
+    if (noDel1) {
+      noDel1.style.visibility = "hidden"
     }
 
 

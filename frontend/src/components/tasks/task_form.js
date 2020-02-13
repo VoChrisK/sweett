@@ -100,6 +100,7 @@ class TaskForm extends React.Component {
     renderCTCISections() {
         return (
             <select className="dropdown-list" onChange={this.update("section")}>
+                <option value="">---</option>
                 <option value="1. Chapter 1">Chapter 1</option>
                 <option value="2. Chapter 2">Chapter 2</option>
                 <option value="3. Chapter 3">Chapter 3</option>

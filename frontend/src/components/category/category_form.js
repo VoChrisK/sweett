@@ -5,7 +5,7 @@ class CategoryForm extends React.Component {
     super(props);
     this.state = {
       title: "",
-      name: "",
+      taskName: "",
       errors: {}
     };
     this.renderErrors = this.renderErrors.bind(this);
@@ -48,7 +48,8 @@ class CategoryForm extends React.Component {
     e.preventDefault();
     this.setState({ errors: this.props.errors })
     let cat = {
-      title: this.state.title
+      title: this.state.title,
+      taskName: this.state.taskName
     };
     this.props.processCat(cat)
       .then(category => {
@@ -90,6 +91,14 @@ class CategoryForm extends React.Component {
             placeholder="Title"
           />
           <br></br>
+          <h3>Task Name:</h3>
+          <input
+            type="text"
+            className="task-title-input"
+            value={this.state.taskName}
+            onChange={this.update("taskName")}
+            placeholder="Title"
+          />
           {this.renderErrors()}
           <br></br>
           <input type="submit" className="add-cat-submit" value="Submit" />

@@ -44,7 +44,7 @@ class GoalIndexItem extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-
+        // fix later - problems with async
         // let day1 = calculateDays(new Date(this.props.currentUser.date), Date.now());
         // let day2 = calculateDays(new Date(this.props.goal.date), Date.now());
         // if (day1 !== day2) {
@@ -105,8 +105,6 @@ class GoalIndexItem extends React.Component {
                     <div className="progress-completed" style={styles}>
                     </div>
                 </div>
-                <br/>
-                <button onClick={() => this.props.deleteGoal(this.props.goal._id)}>Delete Me Fam</button>
             </div>
         )
     }

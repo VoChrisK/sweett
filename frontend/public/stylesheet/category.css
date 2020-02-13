@@ -275,6 +275,16 @@ i {
     background-color: #f7f7f7;
 }
 
+.task-title-input {
+    margin-bottom: 20px;
+    height: 30px;
+    padding: 6px 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f7f7f7;
+}
+
+
 .task-form h1 {
     font-weight: bold;
     font-size: 24px;

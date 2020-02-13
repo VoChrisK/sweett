@@ -9,7 +9,7 @@ const goalsReducer = (state = {}, action) => {
             nextState = {}
             action.goals.forEach(goal => {
                 nextState[goal._id] = goal
-            })           
+            })
             return nextState;
         case RECEIVE_GOAL:
             nextState = Object.assign({}, state);

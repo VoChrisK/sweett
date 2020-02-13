@@ -17,13 +17,23 @@ class CategoryShow extends React.Component {
           this.props.updateCategory(categoryData.category)
         })
       )
-      this.props.requestCategoryTasks(this.props.match.params.categoryId)   
+      this.props.requestCategoryTasks(this.props.match.params.categoryId);
+      const sidebar = document.getElementById("sidebar");
+      if (sidebar) {
+        this.toggleSidebar();
+      }
     }
 
     componentDidUpdate(prevProps) {
       if (this.props.match.params.categoryId !== prevProps.match.params.categoryId) {
         this.props.requestCategoryTasks(this.props.match.params.categoryId)
       }
+      // const sidebar = document.getElementById("sidebar");
+      // if (sidebar) {
+      //   this.toggleSidebar();
+      //   console.log("@@@");
+      // }
+
     }
 
   toggleSidebar() {
