@@ -43,7 +43,9 @@ The app will help job seekers visualize and understand what areas they need to i
 
 ## Technologies and Challenges
 
-Sweett's core application is the ability to track time for each task and set goals for each category. Upon logging in/signing up, users are greeted with a dashboard containing three default categories: Leetcode, _Cracking the Coding Interview_, and languages/technologies. Users will have their own set of categories independent of others, including default ones. Users can create, modify, and delete tasks and goals for each category, and time themselves and record them as attempts/reports. Users can create more categories as needed and can visit any one of them at anytime. All CRUD operations for categories, tasks, goals, and attempts/reports are handled using MongoDB for the NoSQL database, Express.js for the router, and Node.js for the runtime environment. The app's visual presentation and UI are handled using React and Redux.
+Sweett's core application is the ability to track time for each task and set goals for each category. Upon logging in/signing up, users are greeted with a dashboard containing three default categories: Leetcode, _Cracking the Coding Interview_, and languages/technologies. Users will have their own set of categories independent of others, including default ones. Users can create, modify, and delete tasks and goals for each category, and time themselves and record them as attempts/reports. Users can create more categories as needed and can visit any one of them at anytime. 
+
+Each component and collection are designed with modularity and reusability in mind. Storing categories, tasks, goals, and attempts/reports are handled using MongoDB for the NoSQL database, and their CRUD operations are handled using Express.js for the router and Node.js for the runtime environment. The app's overall visual presentation and user experience are handled using React and Redux. Calculating differences in dates and daily resets are handled using Moment.js and by manipulating the native JavaScript Date object.
 
 ### Technologies
 * MongoDB Atlas
@@ -60,7 +62,7 @@ Handling goals is an important feature of the app. Sometimes, users will add goa
 
 ### Time Tracker
 
-Since the app's main focus is time tracking, there are two sections for time: expected time and actual time. Expected time is the time you need to complete a category while actual time is the time you currently accumulated. Calculating the expected and actual time was a challenge. We originally planned to have users change the time limit for each task. However, calculating the expected time by adding the total time of tasks based on goals was very variable. Instead, we decided to have users change the time limit per task for all tasks. This made it easier to calculate the actual time and dynamically change it based on the goals. We calculate the expected time based on a combination of goals and attempts/reports. Each point towards completing a goal will count towards the full duration of a task. If there are partially completed goals, the app takes _daily_ attempts/reports to account.
+Since the app's main focus is time tracking, there are two sections for time: expected time and actual time. Expected time is the time you need to complete a category while actual time is the time you currently accumulated. Calculating the expected and actual time was a challenge. We originally planned to have users change the time limit for each task. However, calculating the expected time by adding the total time of tasks based on goals was very variable. Instead, we decided to have users change the time limit per task for all tasks. This made it easier to calculate the actual time and dynamically change it based on the goals. We calculate the expected time based on a combination of goals and attempts/reports. Each point towards completing a goal will count as the full duration of a task. If there are partially completed goals, the app takes _daily_ attempts/reports to account.
 
 ### Daily Resets
 
@@ -68,14 +70,31 @@ Daily resets provide a way to alert users what categories they might be lacking 
 
 We also provided a button in the navbar to increment the day counter by one. This allows users to experiment this functionality without the need to wait for the next day.
 
-### Backend (MongoDB/Express.js)
+## Wireframes
 
-### Frontend (React/Redux/Node.js)
+Wireframes were created using Adobe XD.
 
-## Group Members
+**The app's dashboard.**
 
-## Team members:
-* **Chris Vo** - Team Lead
-* **Han Kim** - Frontend-focused, flex
-* **Brian Tran** - Frontend-focused, flex
-* **Herman Xie** - Backend-focused, flex
+![alt text](https://i.imgur.com/tKDa8kR.png)
+
+This page shows all of the current user's categories and their time and progression for each one. After a day has elapsed, the time and progression for tasks and goals will add on to the category's total time and progression. If a category has <50% progression or time completed, then it will be highlighted, indicating that the user did not put enough time for it the day prior. Clicking on a category box will redirect the user to the respective category show page.
+
+
+
+
+
+
+
+**The app's category show page, particularly the Leetcode category.**
+
+![alt text](https://i.imgur.com/K8MJlMP.png)
+
+Each question/task will have a button to record an entry, as well as to pause, resume, and stop. Each question/task can also be categorized based on section. In this case, questions are categorized by difficulty. Aside from the questions/tasks container, there are two sidebars: one to navigate to other categories and another to handle goals. This interface is used for all categories' show pages.
+
+## Team Members
+
+* [Chris Vo](https://github.com/vochrisk) - Team Lead
+* [Han Kim](https://github.com/kimhandole) - Frontend-focused, flex
+* [Brian Tran](https://github.com/btran1994) - Frontend-focused, flex
+* [Herman Xie](https://github.com/hxie3) - Backend-focused, flex
