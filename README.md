@@ -27,25 +27,13 @@ The app will help job seekers visualize and understand what areas they need to i
 
 * Users can add, edit, or delete problems in the book _Cracking the Coding Interview_. Like the Leetcode category, they can time themselves to answer a question and save it as an attempt. They can also set goals that counts towards the time to complete this category per day.
 
-* Users can record their studies on specific languages and technologies. They can keep track of the time they spent on each one and record what part of the language/technology have they done as reports.
-
 * Users can create, modify, and delete custom categories. Not only can they set the name of the category and the task associated with it, they can set goals and time limit for them. They can create up to nine custom categories, excluding the default three.
-
-### Bonus Features
-
-* Keeping track of applications sent and replies. Showing graphs/charts of activity and response:rejection ratio.
-
-* Two more default categories: side projects and mock interviews.
-
-* Mobile friendly.
-
-* Getting it to the App Store.
 
 ## Technologies and Challenges
 
 Sweett's core application is the ability to track time for each task and set goals for each category. Upon logging in/signing up, users are greeted with a dashboard containing three default categories: Leetcode, _Cracking the Coding Interview_, and languages/technologies. Users will have their own set of categories independent of others, including default ones. Users can create, modify, and delete tasks and goals for each category, and time themselves and record them as attempts/reports. Users can create more categories as needed and can visit any one of them at anytime. 
 
-Each component and collection are designed with modularity and reusability in mind. Storing categories, tasks, goals, and attempts/reports are handled using MongoDB for the NoSQL database, and their CRUD operations are handled using Express.js for the router and Node.js for the runtime environment. The app's overall visual presentation and user experience are handled using React and Redux. Calculating differences in dates and daily resets are handled using Moment.js and by manipulating the native JavaScript Date object.
+Each component and collection are designed with modularity and reusability in mind. Storing categories, tasks, goals, and attempts/reports are handled using MongoDB for the NoSQL database, and their CRUD operations are handled using Express.js for the router and Node.js for the runtime environment. The app's overall visual presentation and user experience are handled using React and Redux. Calculating differences in dates and daily resets are handled by manipulating the native JavaScript Date object.
 
 ### Technologies
 * MongoDB Atlas
@@ -63,12 +51,6 @@ Handling goals is an important feature of the app. Sometimes, users will add goa
 ### Time Tracker
 
 Since the app's main focus is time tracking, there are two sections for time: expected time and actual time. Expected time is the time you need to complete a category while actual time is the time you currently accumulated. Calculating the expected and actual time was a challenge. We originally planned to have users change the time limit for each task. However, calculating the expected time by adding the total time of tasks based on goals was very variable. Instead, we decided to have users change the time limit per task for all tasks. This made it easier to calculate the actual time and dynamically change it based on the goals. We calculate the expected time based on a combination of goals and attempts/reports. Each point towards completing a goal will count as the full duration of a task. If there are partially completed goals, the app takes _daily_ attempts/reports to account.
-
-### Daily Resets
-
-Daily resets provide a way to alert users what categories they might be lacking in. After each day have elapsed, goals for each category will reset to zero. Defined time limits will be added to each category's total time and progress.
-
-We also provided a button in the navbar to increment the day counter by one. This allows users to experiment this functionality without the need to wait for the next day.
 
 ## Wireframes
 
