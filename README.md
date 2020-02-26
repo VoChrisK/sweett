@@ -19,6 +19,15 @@ and other self-studying related materials are crucial for a successful job searc
 
 The app will help job seekers visualize and understand what areas they need to improve and spend more time on. It will also promote organization and time management during the job search. Ultimately, it will provide a better job search experience for those who plan to enter the world of software development.
 
+## Technologies Used
+* MongoDB Atlas
+* Mongoose 5.8.9
+* Express.js 4.17.1
+* React 16.12.0
+* Redux 4.0.5
+* Node.js 8.10.0
+* Heroku
+
 ## Functionality and MVP
 
 * Upon signing up, users will start with threes default categories that cannot be modified and deleted: Leetcode, Cracking the Coding Interview, and Languages/Technologies. Categories that were not completed the day prior will be highlighted to alert users that they need to spend more time on them.
@@ -29,20 +38,11 @@ The app will help job seekers visualize and understand what areas they need to i
 
 * Users can create, modify, and delete custom categories. Not only can they set the name of the category and the task associated with it, they can set goals and time limit for them. They can create up to nine custom categories, excluding the default three.
 
-## Technologies and Challenges
+## Technicalities and Challenges
 
 Sweett's core application is the ability to track time for each task and set goals for each category. Upon logging in/signing up, users are greeted with a dashboard containing three default categories: Leetcode, _Cracking the Coding Interview_, and languages/technologies. Users will have their own set of categories independent of others, including default ones. Users can create, modify, and delete tasks and goals for each category, and time themselves and record them as attempts/reports. Users can create more categories as needed and can visit any one of them at anytime. 
 
 Each component and collection are designed with modularity and reusability in mind. Storing categories, tasks, goals, and attempts/reports are handled using MongoDB for the NoSQL database, and their CRUD operations are handled using Express.js for the router and Node.js for the runtime environment. The app's overall visual presentation and user experience are handled using React and Redux. Calculating differences in dates and daily resets are handled by manipulating the native JavaScript Date object.
-
-### Technologies
-* MongoDB Atlas
-* Mongoose 5.8.9
-* Express.js 4.17.1
-* React 16.12.0
-* Redux 4.0.5
-* Node.js 8.10.0
-* Heroku
 
 ### Goals Setting
 
