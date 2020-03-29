@@ -39,7 +39,7 @@ router.post("/",
 
 //updates title of category
 router.patch("/:id", (req, res) => {
-    const { errors, isValid } = validateCategoryInput({ title: req.body.title });
+    const { errors, isValid } = validateCategoryInput(req.body);
 
     if (!isValid) {
         return res.status(400).json(errors);
