@@ -44,7 +44,9 @@ class GoalIndex extends React.Component {
         return (
             <div className="goal-index">
                 <p>GOALS</p>
-                <div onClick={this.handleGoalForm} className="add-goal-button"/>
+                <div onClick={this.handleGoalForm} className="add-goal-button tooltip">
+                    <span className="tooltiptext">Add a goal</span>
+                </div>
                 <ul className="goal-ul">
                     {
                         (!!this.props.goals) ? (
