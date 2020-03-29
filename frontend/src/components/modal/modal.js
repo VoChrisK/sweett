@@ -6,6 +6,7 @@ import SignupFormContainer from '../session/signup_form_container';
 import CategoryFormContainer from '../category/category_form_container';
 import CategoryEditFormContainer from '../category/category_edit_form_container'
 import TaskFormContainer from '../tasks/task_form_container'
+import Tutorial from '../tutorial/tutorial';
 
 function Modal({ modal, closeModal }) {
     if (!modal) {

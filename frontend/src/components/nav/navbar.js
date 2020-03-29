@@ -124,12 +124,12 @@ class NavBar extends React.Component {
     render() {
       let clock;
       let incrementDay;
-      if (!!this.props.currentUser) {
-        if (Object.keys(this.props.currentUser).length > 0) {
-          incrementDay = <i onClick={this.incrementDay.bind(this)} className="fa fa-plus-circle"></i>
-        clock = <h1 className="days-counter">Day: {this.state.day} {incrementDay}</h1>
-        }
-      }
+      // if (!!this.props.currentUser) {
+      //   if (Object.keys(this.props.currentUser).length > 0) {
+      //     incrementDay = <i onClick={this.incrementDay.bind(this)} className="fa fa-plus-circle"></i>
+        // clock = <h1 className="days-counter">Day: {this.state.day} {incrementDay}</h1>
+      //   }
+      // }
         return (
           <div className="navbar">
             <h1 className="logo" onClick={this.handleClick.bind(this)}>
@@ -137,7 +137,7 @@ class NavBar extends React.Component {
             </h1>
 
             <Modal />
-            {clock}
+            <h1 className="days-counter">Day: {this.state.day} {incrementDay}</h1>
             {this.getLinks()}
           </div>
         );

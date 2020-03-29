@@ -1,4 +1,4 @@
-.modal-background {
+.modal-background, .tutorial-background {
   position: fixed;
   top: 0;
   bottom: 0;

@@ -339,3 +339,16 @@
 .stop-pause-cancel-buttons {
     display: flex;
 }
+
+.fas.fa-arrow-left {
+    position: absolute;
+    top: 144px;
+    margin-left: 150px;
+    font-size: 22px;
+    width: 250px;
+}
+
+@keyframes hover {
+    50% { transform: translateY(5px) }
+    100% { transform: translateY(-5px) }
+}

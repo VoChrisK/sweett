@@ -22,7 +22,8 @@ const mapDispatchToProps = (dispatch) => {
       requestCategory: categoryId => dispatch(requestCategory(categoryId)),
       requestCategoryAttempts: categoryId => dispatch(requestCategoryAttempts(categoryId)),
       updateCategory: category => dispatch(updateCategory(category)),
-      editCat: () => dispatch(openModal("updateCategory"))
+      editCat: () => dispatch(openModal("updateCategory")),
+      openTutorial: () => dispatch(openModal("openTutorial"))
     };
 };
 
