@@ -151,8 +151,9 @@ class TaskIndex extends React.Component {
         <div className="question-title-description">
           <div className="question-index-title">
             {this.props.category.title}
-                <h1 className="task-name">{this.props.category.taskName}</h1>
-                <i onClick={this.showForm.bind(this)} className="fa fa-hourglass">
+            <h1 className="task-name">{this.props.category.taskName}</h1>
+            <i onClick={this.showForm.bind(this)} className="fa fa-hourglass tooltip">
+              <span className="tooltiptext">Edit time limit</span>
               <form onClick={event => event.stopPropagation()} onSubmit={this.handleSubmit.bind(this)} className="edit-time invisible">
                 <label onClick={event => event.stopPropagation()} htmlFor="edit-time-input">Input the time limit per task for all tasks: </label>
                 <input onClick={(event) => event.stopPropagation()} onChange={this.handleTimeLimit.bind(this)} type="number" id="edit-time-input" value={this.state.timeLimit} min="0" /><strong> minutes</strong>

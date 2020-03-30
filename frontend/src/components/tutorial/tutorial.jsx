@@ -35,7 +35,7 @@ const Tutorial = ({ hideTutorial }) => {
 
     const stepSeven = <div className="tutorial-description seven">
         <img className="circle" src={require("./../../assets/images/circle.png")} />
-        <h1 className="tutorial-message">This button is to modify the time limit for each task.</h1>
+        <h1 className="tutorial-message">This button is to modify the time limit for each task. Goals that track time will rely on this time limit.</h1>
     </div>
 
     const stepEight = <div className="tutorial-description eight">

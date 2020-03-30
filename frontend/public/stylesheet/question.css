@@ -240,6 +240,10 @@
     vertical-align: center;
 }
 
+.fa.fa-hourglass > .tooltiptext {
+    margin-bottom: 8px;
+}
+
 .invisible {
     display: none !important;
 }

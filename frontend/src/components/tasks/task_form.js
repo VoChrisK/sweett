@@ -126,7 +126,7 @@ class TaskForm extends React.Component {
         return (
             <div className="task-modal">
                 <form className="task-form" onSubmit={this.handleSubmit.bind(this)}>
-                    <h1>Add a Task</h1>
+                    <h1>Add a Task for {this.props.category.title}</h1>
                     <h3>Name:</h3>
                     <input
                         type="text"

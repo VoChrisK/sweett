@@ -7,6 +7,15 @@
     .eight { left: 460px; }
 }
 
+@media only screen and (min-width: 1600px) {
+    .three { top: 355px; margin-left: 130px; }
+    .four { top: 355px; margin-left: 158px; }
+    .five { top: 142px; left: 1207px; }
+    .six { left: 1226px; }
+    .seven { margin-left: 220px; }
+    .eight { left: 430px; }
+}
+
 @media only screen and (min-width: 1920px) {
     .three { top: 353px; margin-left: 205px; }
     .four { top: 353px; margin-left: 233px; }
@@ -14,6 +23,14 @@
     .six { left: 1515px; }
     .seven { margin-left: 314px; }
     .eight { left: 480px; }
+}
+
+@media only screen and (max-width: 1440px) {
+    .three { top: 355px; margin-left: 85px; }
+    .four { top: 355px; margin-left: 113px; }
+    .five { left: 1063px; }
+    .six { left: 1082px; }
+    .seven { margin-left: 171px; }
 }
 
 @media only screen and (max-width: 1280px) {
