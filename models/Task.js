@@ -23,6 +23,10 @@ const TaskSchema = new Schema({
     type: String,
     required: true,
     default: "Incomplete"
+  },
+  note: {
+    type: String,
+    default: ""
   }
 });
 

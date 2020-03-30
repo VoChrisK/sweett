@@ -2,6 +2,7 @@ import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { formatTime } from './../../util/formats';
 import AttemptIndexContainer from './../attempt/attempt_index_container';
+import { leetcode_question_titles } from '../../util/leetcode_questions';
 
 class TaskIndexItem extends React.Component {
     constructor(props) {
@@ -10,7 +11,7 @@ class TaskIndexItem extends React.Component {
             task: this.props.task,
             time: 0,
             isRecording: false,
-            title: this.props.task.name
+            title: this.props.task.name,
         }
 
         this.handleRecordButton = this.handleRecordButton.bind(this);
@@ -18,6 +19,11 @@ class TaskIndexItem extends React.Component {
         this.handlePauseButton = this.handlePauseButton.bind(this);
         this.updateTitle = this.updateTitle.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.updateTask = this.updateTask.bind(this);
+        this.updateNote = this.updateNote.bind(this);
+        this.handleEditTask = this.handleEditTask.bind(this);
+        this.validateTaskName = this.validateTaskName.bind(this);
+        this.handleDeleteTask = this.handleDeleteTask.bind(this);
     }
 
     componentDidUpdate(prevProps) {
@@ -46,6 +52,11 @@ class TaskIndexItem extends React.Component {
 
     expandTask() {
         document.getElementsByClassName("attempts-list")[this.props.idx].classList.toggle("invisible");
+        document.getElementsByClassName("question-note-form")[this.props.idx].classList.toggle("invisible");
+        document.getElementsByClassName("question-delete-container")[this.props.idx].classList.toggle("invisible");
+        if (document.getElementById(`task-${this.props.task._id}`)) {
+            document.getElementById(`task-${this.props.task._id}`).style.animation = "none";
+        }
 
         let caretClassList = document.getElementById("caret").classList;
 
@@ -137,6 +148,52 @@ class TaskIndexItem extends React.Component {
         );
     }
 
+    updateTask(e) {
+        e.preventDefault();
+        this.props.updateTask(this.state.task);
+        document.getElementById(`task-${this.state.task._id}`).style.animation = "none"
+        setTimeout(() => {
+            document.getElementById(`task-${this.state.task._id}`).style.animation = "fadeOut 3s"
+        }, 10)
+    }
+
+    updateNote(e) {
+        e.preventDefault();
+        let newTask = Object.assign({}, this.state.task)
+        newTask.note = e.currentTarget.value;
+        this.setState({ task: newTask })
+    }
+
+    handleEditTask(e) {
+        const questionEdit = document.getElementsByClassName("question-edit-form")[this.props.idx];
+        const questionTitleSubmit = document.getElementsByClassName("question-edit-form-submit")[this.props.idx];
+        // able
+        if (questionEdit.disabled) {
+            questionEdit.disabled = false;
+            questionEdit.style.backgroundColor = "lightgrey";
+            questionTitleSubmit.style.display = "block";
+        }
+        // disable
+        else {
+            questionEdit.disabled = true;
+            questionEdit.style.backgroundColor = "transparent";
+            questionTitleSubmit.style.display = "none";
+        }
+    }
+
+    validateTaskName() {
+        if (leetcode_question_titles.includes(this.state.task.name)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    handleDeleteTask(e) {
+        this.props.deleteTask(this.props.task._id);
+    }
+
     render() {
         return (
             <div className="question-index-item">
@@ -152,7 +209,20 @@ class TaskIndexItem extends React.Component {
                     <span>{formatTime(this.state.time)}</span>
                 </div>
 
-                {<AttemptIndexContainer task={this.props.task} idx={this.props.idx} />}
+                {<AttemptIndexContainer note={this.state.task.note} task={this.props.task} idx={this.props.idx} />}
+                <form className="question-note-form invisible" onSubmit={this.updateTask}>
+                    <div className="question-note-form-row">
+                        <input onChange={this.updateNote} type="textarea" className="question-note-input" placeholder="Note for question" value={this.state.task.note} />
+                        <input className="question-note-submit" type="submit" value="SAVE NOTE" />
+                    </div>
+                    <div id={`task-${this.state.task._id}`} className="question-note-saved hidden">Note Saved</div>
+                </form>
+
+                <div className="question-delete-container invisible">
+                    <button id="question-edit-btn" className="question-edit" onClick={this.handleEditTask}>EDIT TITLE</button>
+                    {this.validateTaskName() ? <a className="question-link" rel="noopener noreferrer" target="_blank" href={`https://leetcode.com/problems/${this.props.task.name.toLowerCase().split(" ").join("-")}`}>LEETCODE</a> : null}
+                    <button className="question-delete" onClick={this.handleDeleteTask}>DELETE TASK</button>
+                </div>
             </div>
         );
     }
