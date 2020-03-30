@@ -8,7 +8,8 @@ import { receiveTime } from '../../actions/time_actions';
 
 const mapStateToProps = state => ({
     loggedIn: state.session.isAuthenticated,
-    currentUser: state.session.user
+    currentUser: state.session.user,
+    status: state.ui.tutorial
 });
 
 const mapDispatchToProps = (dispatch) => {

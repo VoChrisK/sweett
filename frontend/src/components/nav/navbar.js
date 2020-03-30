@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from '../modal/modal';
+import Tutorial from '../tutorial/tutorial';
 import { withRouter } from 'react-router-dom';
 import { calculateDays } from './../../util/calculations';
 
@@ -137,6 +138,7 @@ class NavBar extends React.Component {
             </h1>
 
             <Modal />
+            {this.props.status === "show" ? <Tutorial /> : null}
             <h1 className="days-counter">Day: {this.state.day} {incrementDay}</h1>
             {this.getLinks()}
           </div>

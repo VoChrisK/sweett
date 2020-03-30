@@ -6,12 +6,14 @@ import { openModal } from "../../actions/modal_actions";
 import { updateCategory } from "../../actions/category_actions";
 import { requestCategoryAttempts } from '../../actions/attempt_actions';
 import { requestCategoryTasks } from '../../actions/task_actions';
+import { showTutorial } from '../../actions/tutorial_actions';
 
 const mapStateToProps = (state, ownProps) => {
     return ({
         category: state.entities.categories[ownProps.match.params.categoryId],
         tasks: state.entities.tasks,
-        goals: Object.values(state.entities.goals)
+        goals: Object.values(state.entities.goals),
+        status: state.ui.tutorial
     });
 }
 
@@ -23,7 +25,7 @@ const mapDispatchToProps = (dispatch) => {
       requestCategoryAttempts: categoryId => dispatch(requestCategoryAttempts(categoryId)),
       updateCategory: category => dispatch(updateCategory(category)),
       editCat: () => dispatch(openModal("updateCategory")),
-      openTutorial: () => dispatch(openModal("openTutorial"))
+      showTutorial: () => dispatch(showTutorial())
     };
 };
 

@@ -1,8 +1,12 @@
-const TutorialReducer = (state = {}, action) => {
+import { SHOW, HIDE } from './../actions/tutorial_actions';
+
+const TutorialReducer = (state = "sleep", action) => {
     Object.freeze(action.type);
     switch(action.type) {
-        case "step 1":
-            return action.step;
+        case "SHOW":
+            return "show";
+        case "HIDE":
+            return "hide";
         default:
             return state;
     }  

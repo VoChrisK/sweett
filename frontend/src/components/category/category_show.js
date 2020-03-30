@@ -8,6 +8,7 @@ import { withRouter } from 'react-router-dom';
 class CategoryShow extends React.Component {
 
   componentDidMount() {
+    if(this.props.status !== "hide") this.props.showTutorial();
     this.props.requestCategory(this.props.match.params.categoryId)
       .then(categoryData => this.props.requestCategoryAttempts(categoryData.category._id)
         .then(attemptsData => {

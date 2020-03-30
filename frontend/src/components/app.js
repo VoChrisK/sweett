@@ -5,12 +5,9 @@ import NavBarContainer from './nav/navbar_container';
 import DashboardContainer from './dashboard/dashboard_container';
 import SplashContainer from './splash/splash_container'
 import CategoryShowContainer from './category/category_show_container';
-import Tutorial from './tutorial/tutorial';
-
 
 const App = () => (
   <div className="app">
-    <Tutorial />
     <NavBarContainer />
     <Switch>
       <ProtectedRoute path="/categories/:categoryId" component={CategoryShowContainer} />
