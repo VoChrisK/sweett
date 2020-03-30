@@ -1,3 +1,24 @@
+.splash-page {
+  height: 100vh;
+}
+
+.hero-section {
+  min-height: 100%;
+}
+
+.about-header {
+  padding: 100px 0;
+  text-align: center;
+  font-size: 42px;
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+}
+
+.about-section {
+  min-height: 100%;
+  background-color: rgb(185, 211, 253);
+}
+
 .splash-text {
     font-family: inherit;
     color: white;
@@ -108,6 +129,48 @@
   font-size: 50px;
   margin-right: 25px;
   cursor: pointer;
+}
+
+.profiles {
+  display: grid;
+  grid-template-rows: 50% 50%;
+  grid-template-columns: 50% 50%;
+  row-gap: 100px;
+  justify-items: center;
+}
+
+.profile {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  height: 100%;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 30px;
+  margin-top: 20px;
+}
+
+.profile-info a {
+  margin: 0 11px;
+  color: black;
+}
+
+.profile-name {
+  font-size: 36px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-family: 'Lato', sans-serif;
+}
+
+.profile-image {
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  border-radius: 50px;
+  width: 300px;
+  height: 300px;
 }
 
 @keyframes fadeIn1 {

@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { openModal } from "../../actions/modal_actions";
-import Splash from "./splash";
+import Hero from "./hero";
 
 const mapStateToProps = state => {
   return state;
@@ -12,4 +12,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Splash);
+export default connect(mapStateToProps, mapDispatchToProps)(Hero);

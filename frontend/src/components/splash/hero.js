@@ -3,8 +3,7 @@ import Particles from "react-particles-js";
 import Background from './splash.png';
 import SplashFooter from './splash_footer';
 
-
-class Splash extends React.Component {
+class Hero extends React.Component {
 
   render() {
     // https://vincentgarreau.com/particles.js/#bubble Custom made json from self input
@@ -110,7 +109,7 @@ class Splash extends React.Component {
       retina_detect: false
     };
     return (
-      <div>
+      <div className="hero-section">
         <div className="first-title">
           <div className="second-title">
             <div className="splash-title">Software Engineering</div>
@@ -139,10 +138,10 @@ class Splash extends React.Component {
             backgroundImage: `url(${Background})`
           }}
         />
-        <SplashFooter />
+        {/* <SplashFooter /> */}
       </div>
     );
   }
 }
 
-export default Splash;
+export default Hero;
