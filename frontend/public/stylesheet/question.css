@@ -340,7 +340,6 @@
     display: flex;
 }
 
-<<<<<<< HEAD
 .fas.fa-arrow-left {
     position: absolute;
     top: 144px;
@@ -352,7 +351,8 @@
 @keyframes hover {
     50% { transform: translateY(5px) }
     100% { transform: translateY(-5px) }
-=======
+}
+
 .tooltip .tooltiptext {
     visibility: hidden;
     width: 120px;
@@ -385,5 +385,4 @@
 .tooltip:hover .tooltiptext {
   visibility: visible;
   opacity: 1;
->>>>>>> e671beb9520f92625c15d73a5a15938a68560f64
 }
