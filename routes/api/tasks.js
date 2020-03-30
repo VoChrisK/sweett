@@ -12,11 +12,11 @@ router.get("/categories/:category_id", (req, res) => {
 });
 
 //fetches an task object
-// router.get("/:id", (req, res) => {
-//   Task.findById(req.params.id)
-//     .then(task => res.json(task))
-//     .catch(errors => res.status(404).json({ errors }));
-// });
+router.get("/:id", (req, res) => {
+  Task.findById(req.params.id)
+    .then(task => res.json(task))
+    .catch(errors => res.status(404).json({ errors }));
+});
 
 router.post("/", (req, res) => {
   const { errors, isValid } = validateTaskInput(req.body);

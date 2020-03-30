@@ -241,8 +241,7 @@
 }
 
 .invisible {
-    display: none;
-
+    display: none !important;
 }
 
 .question-delete-container {
