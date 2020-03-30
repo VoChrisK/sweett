@@ -1,7 +1,7 @@
 .navbar {
     display: flex;
     background: rgb(161, 161, 161);
-    box-shadow: 3px 2px 5px black;
+    /* box-shadow: 3px 2px 5px black; */
     justify-content: space-between;
     position: fixed;
     width: 100vw;
