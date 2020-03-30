@@ -61,9 +61,9 @@ class AttemptIndex extends React.Component {
     updateTask(e) {
         e.preventDefault();
         this.props.updateTask(this.state.task);
-        document.getElementsByClassName("question-note-saved")[0].style.animation = "none"
+        document.getElementById(`task-${this.state.task._id}`).style.animation = "none"
         setTimeout(() => {
-            document.getElementsByClassName("question-note-saved")[0].style.animation = "fadeOut 3s"
+            document.getElementById(`task-${this.state.task._id}`).style.animation = "fadeOut 3s"
         }, 10)
     }
 
@@ -98,7 +98,7 @@ class AttemptIndex extends React.Component {
                         <input onChange={this.updateNote} type="textarea" className="question-note-input" placeholder="Note for question" value={this.state.task.note} />
                         <input className="question-note-submit" type="submit" value="SAVE NOTE" />
                     </div>
-                    <div className="question-note-saved hidden">Note Saved</div>
+                    <div id={`task-${this.state.task._id}`} className="question-note-saved hidden">Note Saved</div>
                 </form>
 
                 <div className="question-delete-container">   
