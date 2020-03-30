@@ -67,7 +67,7 @@ class GoalForm extends React.Component {
         return(
             <div className="goal-form-container goal-index-item">
                 <form className="goal-form">
-                    <input placeholder="Description" className="bottom-margin" type="text" value={goal.description} onChange={this.handleDescChange}/>
+                    <input placeholder="Goal Description" className="bottom-margin" type="text" value={goal.description} onChange={this.handleDescChange}/>
                     <span className="bottom-margin error-text">{errors.description}</span>
                     <div className="bottom-margin">
                         <input min="1" max="1/0" className="expected-input" type="number" value={goal.expected} onChange={this.handleExpectedChange}/>
@@ -75,7 +75,7 @@ class GoalForm extends React.Component {
                     </div>
                     <span className="bottom-margin error-text">{errors.expected}</span>
                     <div className="bottom-margin">
-                        <span>Add to Total?</span>
+                        <span>Track Time?</span>
                         <input onClick={this.handleCheck} type="checkbox"/>
                     </div>
                     <div className="submit-or-cancel">

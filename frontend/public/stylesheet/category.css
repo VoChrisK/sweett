@@ -3,13 +3,12 @@
     text-decoration: none;
     -moz-box-shadow: 3px 3px 5px 6px rgb(41, 41, 41);
     -webkit-box-shadow: 3px 3px 5px 6px rgb(41, 41, 41);
-    box-shadow: 3px 3px 5px 6px rgb(39, 39, 39);
+    box-shadow: 3px 3px 5px 6px rgba(39, 39, 39, 0.2);
     background: rgb(185, 211, 253);
     /* padding: 10px; */
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-radius: 5px;
     /* margin-bottom: 40px; */
     /* padding-bottom: 40px; */
     color:inherit;
