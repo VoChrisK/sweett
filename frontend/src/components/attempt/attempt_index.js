@@ -61,13 +61,17 @@ class AttemptIndex extends React.Component {
     updateTask(e) {
         e.preventDefault();
         this.props.updateTask(this.state.task);
+        document.getElementsByClassName("question-note-saved")[0].style.animation = "none"
+        setTimeout(() => {
+            document.getElementsByClassName("question-note-saved")[0].style.animation = "fadeOut 3s"
+        }, 10)
     }
 
     questionNote() {
         // e.preventDefault();
         return (
             <form className="question-note-form" onSubmit={this.updateNote}>
-                <input type="textarea" className="question-note-input" placeholder="Note for question" />
+                <input onChange={this.updateNote} value={this.state.task.note} type="textarea" className="question-note-input" placeholder="Note for question" />
                 <input className="question-note-submit" type="submit" value="SAVE NOTE" />
             </form>
         );
@@ -75,7 +79,7 @@ class AttemptIndex extends React.Component {
 
     updateNote(e) {
         e.preventDefault();
-        let newTask = Object.assign({}, this.state.question)
+        let newTask = Object.assign({}, this.state.task)
         newTask.note = e.currentTarget.value;
         this.setState({ task: newTask })
     }
@@ -90,8 +94,11 @@ class AttemptIndex extends React.Component {
                     this.props.attempts.map((attempt, idx) => <AttemptIndexItemContainer key={idx} attempt={attempt} idx={idx} />)
                 }
                 <form className="question-note-form" onSubmit={this.updateTask}>
-                    <input onChange={this.updateNote} type="textarea" className="question-note-input" placeholder="Note for question" value={this.state.task.note} />
-                    <input className="question-note-submit" type="submit" value="SAVE NOTE" />
+                    <div className="question-note-form-row">
+                        <input onChange={this.updateNote} type="textarea" className="question-note-input" placeholder="Note for question" value={this.state.task.note} />
+                        <input className="question-note-submit" type="submit" value="SAVE NOTE" />
+                    </div>
+                    <div className="question-note-saved hidden">Note Saved</div>
                 </form>
 
                 <div className="question-delete-container">   
