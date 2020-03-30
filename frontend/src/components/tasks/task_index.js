@@ -154,7 +154,7 @@ class TaskIndex extends React.Component {
                 <h1 className="task-name">{this.props.category.taskName}</h1>
                 <i onClick={this.showForm.bind(this)} className="fa fa-hourglass">
               <form onClick={event => event.stopPropagation()} onSubmit={this.handleSubmit.bind(this)} className="edit-time invisible">
-                <label onClick={event => event.stopPropagation()} htmlFor="edit-time-input">Input the time limit per question for all questions: </label>
+                <label onClick={event => event.stopPropagation()} htmlFor="edit-time-input">Input the time limit per task for all tasks: </label>
                 <input onClick={(event) => event.stopPropagation()} onChange={this.handleTimeLimit.bind(this)} type="number" id="edit-time-input" value={this.state.timeLimit} min="0" /><strong> minutes</strong>
               </form>
             </i>
@@ -162,7 +162,7 @@ class TaskIndex extends React.Component {
           <p className="question-index-description">{this.props.actualTime} / {this.props.expectedTime} minutes completed</p>
         </div>
         <div id="question-add" className="tooltip" onClick={() => this.props.addTask()}>
-          <span className="tooltiptext">Add a task</span>
+          {/* <span className="tooltiptext">Add a task</span> */}
           <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" className="svg-inline--fa fa-plus fa-w-14" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg>
         </div>
       </div>

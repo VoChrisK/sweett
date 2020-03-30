@@ -20,9 +20,6 @@ class CategoryShow extends React.Component {
       )
       this.props.requestCategoryTasks(this.props.match.params.categoryId);
       const sidebar = document.getElementById("sidebar");
-      if (sidebar) {
-        this.toggleSidebar();
-      }
     }
 
     componentDidUpdate(prevProps) {
