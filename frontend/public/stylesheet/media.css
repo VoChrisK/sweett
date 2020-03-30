@@ -1,0 +1,26 @@
+@media only screen and (min-width: 1537px) {
+    .three { top: 350px; margin-left: 160px; }
+    .four { top: 350px; margin-left: 188px; }
+    .five { top: 167px; left: 1125px; }
+    .six { left: 1356px; }
+    .seven { margin-left: 264px; }
+    .eight { left: 460px; }
+}
+
+@media only screen and (min-width: 1920px) {
+    .three { top: 353px; margin-left: 205px; }
+    .four { top: 353px; margin-left: 233px; }
+    .five { top: 137px; left: 1495px; }
+    .six { left: 1515px; }
+    .seven { margin-left: 314px; }
+    .eight { left: 480px; }
+}
+
+@media only screen and (max-width: 1280px) {
+    .three { top: 355px; margin-left: 31px; }
+    .four { top: 355px; margin-left: 59px; }
+    .five { left: 920px; }
+    .six { left: 933px; }
+    .seven { margin-left: 125px; }
+    .eight { left: 375px; }
+}

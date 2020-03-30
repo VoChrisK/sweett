@@ -114,8 +114,15 @@
 }
 
 .fa-arrow-circle-left {
-    /* position: absolute; */
+    position: absolute;
+    bottom: 6px;
+    left: -50px;
     cursor: pointer;
     color: rgb(185, 211, 253);
     font-size: 24px;
+}
+
+.fa-arrow-circle-left > .tooltiptext {
+    margin-bottom: 8px;
+    left: 12px;
 }

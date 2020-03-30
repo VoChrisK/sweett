@@ -79,11 +79,15 @@ const Tutorial = ({ hideTutorial }) => {
         nextCircle.classList.add("fa-circle");
     }
 
+    console.log(window.innerWidth);
+
     return (
         <div className="tutorial-background" onClick={increment}>
             {steps[counter]}
             <div className="step-circles">
-                {counter > 0 ? <i className="fas fa-arrow-circle-left" onClick={decrement}></i> : null}
+                {counter > 0 ? <i className="fas fa-arrow-circle-left tooltip" onClick={decrement}>
+                    <span className="tooltiptext">Go back a step</span>
+                </i> : null}
                 <i className="fas fa-circle"></i>
                 <i className="far fa-circle"></i>
                 <i className="far fa-circle"></i>
