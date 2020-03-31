@@ -13,7 +13,7 @@ export const han = {
 };
 
 export const brian = {
-    image: "",
+    image: require("./../../assets/images/brian-tran.jpeg"),
     name: "Brian Tran",
     github: "https://github.com/btran1994",
     linkedin: "https://www.linkedin.com/in/brian-tran-7ab0261a1/"

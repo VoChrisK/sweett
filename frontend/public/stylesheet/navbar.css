@@ -1,7 +1,7 @@
 .navbar {
     display: flex;
     background: rgb(161, 161, 161);
-    /* box-shadow: 3px 2px 5px black; */
+    box-shadow: 3px 2px 5px black;
     justify-content: space-between;
     position: fixed;
     width: 100vw;
@@ -12,9 +12,14 @@
 .logo {
     font-size: 36px;
     /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;    */
-    font-family: 'Alata', 'Lucida Sans';
+    font-family: 'Righteous', 'Lucida Sans';
+    color: black;
     margin-top: 10px; 
     margin-left: 15px;
+}
+
+.logo.altcolor {
+    color: rgb(30, 107, 233);
 }
 
 .logo:hover {
@@ -92,7 +97,8 @@
     top: 50%;
     right: 30px;
     transform: translateY(-50%);
-    font-family: 'Alata', sans-serif;
+    font-family: 'Lato', sans-serif;
+    color: rgb(30, 107, 233);
 }
 
 .login, .signup {

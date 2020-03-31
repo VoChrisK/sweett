@@ -9,6 +9,7 @@ const About = () => {
             <section className="profiles">
                 <Profile image={chris.image} name={chris.name} github={chris.github} linkedin={chris.linkedin} />
                 <Profile image={han.image} name={han.name} github={han.github} linkedin={han.linkedin} />
+                <Profile image={brian.image} name={brian.name} github={brian.github} linkedin={brian.linkedin} />
                 <Profile image={herman.image} name={herman.name} github={herman.github} linkedin={herman.linkedin} />
             </section>
         </div>

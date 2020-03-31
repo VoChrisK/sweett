@@ -28,8 +28,10 @@ class NavBar extends React.Component {
       }
       if (!this.props.loggedIn) {
         document.getElementsByClassName("navbar")[0].classList.add("onsplash");
+        document.getElementsByClassName("logo")[0].classList.add("altcolor");
       } else {
         document.getElementsByClassName("navbar")[0].classList.remove("onsplash");
+        document.getElementsByClassName("logo")[0].classList.remove("altcolor");
       }
     }
 
@@ -47,8 +49,10 @@ class NavBar extends React.Component {
 
       if (!this.props.loggedIn) {
         document.getElementsByClassName("navbar")[0].classList.add("onsplash");
+        document.getElementsByClassName("logo")[0].classList.add("altcolor");
       } else {
         document.getElementsByClassName("navbar")[0].classList.remove("onsplash");
+        document.getElementsByClassName("logo")[0].classList.remove("altcolor");
       }
 
       if(this.props.currentUser && preProps.currentUser) {
@@ -139,7 +143,7 @@ class NavBar extends React.Component {
 
             <Modal />
             {this.props.status === "show" ? <Tutorial /> : null}
-            <h1 className="days-counter">Day: {this.state.day} {incrementDay}</h1>
+            {this.props.location.pathname === "/" ? null : <h1 className="days-counter">Day: {this.state.day} {incrementDay}</h1>}
             {this.getLinks()}
           </div>
         );

@@ -1,7 +1,6 @@
 import React from "react";
 import Particles from "react-particles-js";
 import Background from './splash.png';
-import SplashFooter from './splash_footer';
 
 class Hero extends React.Component {
 
@@ -127,6 +126,12 @@ class Hero extends React.Component {
               Get Started
             </button>
           </div>
+
+          <div className="scroll-down">
+            <i className="fas fa-arrow-down"></i>
+            <i>Scroll down for more info</i>
+            <i className="fas fa-arrow-down"></i>
+          </div>
         </div>
         <Particles
           params={particleOpt}
@@ -138,7 +143,6 @@ class Hero extends React.Component {
             backgroundImage: `url(${Background})`
           }}
         />
-        {/* <SplashFooter /> */}
       </div>
     );
   }
