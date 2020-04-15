@@ -15,11 +15,18 @@ class Dashboard extends React.Component {
     let h = today.getHours();
     let m = today.getMinutes();
     let s = today.getSeconds();
+    let ampm = "a.m.";
+
+    if (h > 12) {
+      h -= 12;
+      ampm = "p.m.";
+    }
+
     m = this.checkTime(m);
     s = this.checkTime(s);
     let clock = document.getElementById('txt')
     if (clock) {
-      clock.innerHTML = h + ":" + m + ":" + s;
+      clock.innerHTML = h + ":" + m + ":" + s + " " + ampm;
       setTimeout(this.startTime.bind(this),1000);
     }
 }

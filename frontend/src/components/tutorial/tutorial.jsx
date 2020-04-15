@@ -79,7 +79,7 @@ const Tutorial = ({ hideTutorial }) => {
         nextCircle.classList.add("fa-circle");
     }
 
-    console.log(window.innerWidth);
+    // console.log(window.innerWidth);
 
     return (
         <div className="tutorial-background" onClick={increment}>

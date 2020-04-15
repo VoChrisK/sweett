@@ -120,7 +120,7 @@ class Hero extends React.Component {
             <div className="float-down-1 splash-text">Floating aimlessly?</div>
             <div className="float-down-2 splash-text">Get on track now!</div>
             <button
-              onClick={this.props.signup}
+              onClick={this.props.login}
               className="float-down-3 splash-text"
             >
               Get Started
