@@ -114,6 +114,7 @@
 }
 
 .splash-title {
+    margin-bottom: 12px;
     animation: fadeIn3 9s;
     font-size: 65px;
     white-space: nowrap;
@@ -148,7 +149,7 @@
 }
 
 .column div {
-    margin: 10px;
+    /* margin: 10px; */
 }
 
 .hidden {
@@ -157,6 +158,7 @@
 
 .float-down-1 {
     animation: fadeIn1 3s;
+    margin-bottom: 12px;
 }
 
 .float-down-2 {
@@ -171,6 +173,7 @@
     background-color: rgb(30, 107, 233);
     border: none;
     cursor: pointer;
+    margin-top: 12px;
 }
 
 .footer {
@@ -197,9 +200,16 @@
 
 .footer-icons {
   display: flex;
-  width: 100%;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-content: center;
+  width: 100%;
+  padding: 8px 16px;
+}
+
+.footer-icons > span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .github {
@@ -207,7 +217,6 @@
   justify-content: center;
   align-items: center;
   font-size: 50px;
-  margin-right: 25px;
   cursor: pointer;
 }
 
