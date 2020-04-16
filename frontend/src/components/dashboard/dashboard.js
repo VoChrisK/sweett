@@ -8,6 +8,8 @@ class Dashboard extends React.Component {
   componentDidMount() {
     this.startTime();
     // this.checkTime.bind(this);
+
+    setTimeout( this.updateText, 2500);
   }
     
   startTime() {
@@ -36,12 +38,17 @@ class Dashboard extends React.Component {
       return i;
   }
 
+  updateText() {
+    let header = document.getElementsByClassName("categories-header")[0];
+    header.innerHTML = "Please select one from your categories:";
+  }
+
   render() {
       return (
         <div className="dashboard">
           <div className="dashboard-header">
               <h1 className="todays-date">Today is {formatDate()}. The time is <p id="txt"></p></h1>
-              <h1 className="categories-header">Here are your categories:</h1>
+              <h1 className="categories-header">Welcome to SWEETT!</h1>
             </div>
           <CategoryIndexContainer />
         </div>
