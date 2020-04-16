@@ -47,6 +47,9 @@ class TaskForm extends React.Component {
                     this.setState({ errors: this.props.errors })
                 } else {
                     this.props.closeModal()
+                    if(this.props.status != "hide") {
+                        document.getElementsByClassName("tutorial-background")[0].classList.remove("hide");
+                    }
                 }
             })
     }

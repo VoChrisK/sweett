@@ -8,7 +8,8 @@ const mapStateToProps = (state, ownProps) => {
     return {
         state,
         category: state.entities.categories[ownProps.location.pathname.split("/")[2]],
-        errors: state.errors.tasks
+        errors: state.errors.tasks,
+        status: state.ui.tutorial
     };
 };
 

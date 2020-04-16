@@ -33,9 +33,9 @@ class SplashFooter extends React.Component {
     render() {
         return(
             <footer className="footer">
+                <div className="copyright">2020 SWEETT</div>
                 <div className="footer-icons">
                     <div onClick={this.handleGithub} className="github footer-icon"></div>
-                    <div className='linkedIn footer-icon'></div>
                 </div>
             </footer>
         )

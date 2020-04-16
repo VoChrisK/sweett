@@ -8,7 +8,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    signup: () => dispatch(openModal("signup"))
+    login: () => dispatch(openModal("login"))
   };
 };
 

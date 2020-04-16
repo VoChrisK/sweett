@@ -95,7 +95,7 @@
 .first {
     z-index: 1;
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 50%;
 }
 
@@ -108,14 +108,9 @@
 .first-title {
     z-index: 1;
     position: absolute;
-    top: 25%;
     left: 50%;
-}
-
-.second-title {
-    position: relative;
-    top: -25%;
-    left: -50%;
+    top: 25%;
+    transform: translateX(-50%) translateY(-25%);
 }
 
 .splash-title {
@@ -124,13 +119,12 @@
     white-space: nowrap;
     color: white;
     font-family: 'Lato', sans-serif;
-    display: flex;
-    justify-content: center;
+    text-align: center;
 }
 
 .scroll-down {
   position: relative;
-  top: 350px;
+  bottom: -225px;
   left: -250px;
   color: white;
   font-family: 'Lato', sans-serif;
@@ -171,6 +165,7 @@
 
 .float-down-3 {
     animation: fadeIn3 9s;
+    margin-top: 20px;
     padding: 10px;
     border-radius: 15px;
     background-color: rgb(30, 107, 233);
@@ -190,6 +185,14 @@
     -moz-box-shadow: 5px 6px 3px 3px #ccc;
     -webkit-box-shadow: 5px 6px 3px 3px #ccc;
     box-shadow: 5px 6px 3px 3px rgb(77, 77, 77);
+}
+
+.copyright {
+  
+}
+
+.copyright::before {
+  content: "©";
 }
 
 .footer-icons {

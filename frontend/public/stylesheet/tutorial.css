@@ -37,7 +37,7 @@
     font-family: 'Lato', sans-serif;
 }
 
-.two {
+.two, .three {
     top: 222px;
     margin-left: 175px;
 }
@@ -46,57 +46,57 @@
     margin-left: -81px;
 }
 
-.three {
-    margin-left: 100px;
-}
-
-.three > .circle {
-    top: 15px;
-    margin-left: 362px;
-}
-
 .four {
-    margin-left: 130px;
+    margin-left: 100px;
 }
 
 .four > .circle {
     top: 15px;
+    margin-left: 362px;
+}
+
+.six {
+    margin-left: 130px;
+}
+
+.six > .circle {
+    top: 15px;
     margin-left: 372px;
 }
 
-.five {
+.seven, .eight {
     top: 140px;
     left: 1150px;
 }
 
-.five > .circle {
+.seven > .circle {
     top: 13px;
     left: 365px;
 }
 
-.six {
+.nine {
     top: 250px;
     left: 1170px;
 }
 
-.six > .circle {
+.nine > .circle {
     width: 125px;
     height: 125px;
     top: -25px;
     left: 345px;
 }
 
-.seven {
+.ten, .eleven {
     top: 170px;
     margin-left: 200px;
 }
 
-.seven > .circle {
+.ten > .circle {
     top: 1px;
     left: 353px;
 }
 
-.eight {
+.twelve {
     top: 200px;
     left: 425px;
 }
@@ -125,4 +125,8 @@
 .fa-arrow-circle-left > .tooltiptext {
     margin-bottom: 8px;
     left: 12px;
+}
+
+.hide {
+    display: none;
 }

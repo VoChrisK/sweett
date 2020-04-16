@@ -142,7 +142,7 @@ class NavBar extends React.Component {
             </h1>
 
             <Modal />
-            {this.props.status === "show" ? <Tutorial /> : null}
+            {this.props.status === "show" && this.props.category ? <Tutorial category={this.props.category} /> : null}
             {this.props.location.pathname === "/" ? null : <h1 className="days-counter">Day: {this.state.day} {incrementDay}</h1>}
             {this.getLinks()}
           </div>
