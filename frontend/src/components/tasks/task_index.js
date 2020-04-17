@@ -85,7 +85,12 @@ class TaskIndex extends React.Component {
     newCategory.timeLimit = this.state.timeLimit;
     this.props.updateCategory(newCategory)
       .then(
-        () => document.getElementsByClassName("edit-time")[0].classList.add("invisible")
+        () => {
+          if (this.props.status != "hide") {
+            document.getElementsByClassName("tutorial-background")[0].classList.remove("hide");
+          }
+          document.getElementsByClassName("edit-time")[0].classList.add("invisible");
+        }
       );
   }
 

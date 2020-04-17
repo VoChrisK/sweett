@@ -90,6 +90,9 @@ class TaskIndexItem extends React.Component {
             this.props.createAttempt({ task_id: this.props.task._id, category_id: this.props.task.category_id, time: this.state.time })
                 .then(() => {
                     this.props.recordTask(this.props.idx);
+                    if(this.props.status != "hide") {
+                        document.getElementsByClassName("tutorial-background")[0].classList.remove("hide");
+                    }
                     document.getElementsByClassName("question-stats")[this.props.idx].classList.add("invisible");
                     this.setState({ time: 0 });
                     this.props.addEntry();

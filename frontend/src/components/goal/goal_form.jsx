@@ -32,6 +32,9 @@ class GoalForm extends React.Component {
         this.props.processForm(this.state.goal)
             .then(res => {
                 if (!res) {
+                    if (this.props.status != "hide") {
+                        document.getElementsByClassName("tutorial-background")[0].classList.remove("hide");
+                    }
                     this.setState({ goal: this.props.goal });
                     this.setState({ errors: {}});
                 } else {

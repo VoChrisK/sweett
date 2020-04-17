@@ -190,14 +190,6 @@
     box-shadow: 5px 6px 3px 3px rgb(77, 77, 77);
 }
 
-.copyright {
-  
-}
-
-.copyright::before {
-  content: "©";
-}
-
 .footer-icons {
   display: flex;
   justify-content: space-between;

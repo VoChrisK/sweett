@@ -10,7 +10,8 @@ const mapStateToProps = (state, ownProps) => {
             addToTotal: false,
         },
         formType: 'Create',
-        errors: state.errors.goals
+        errors: state.errors.goals,
+        status: state.ui.tutorial
     })
 };
 

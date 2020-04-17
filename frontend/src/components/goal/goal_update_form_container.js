@@ -10,7 +10,8 @@ const mapStateToProps = (state, ownProps) => {
             expected: goal.expected,
             addToTotal: goal.addToTotal
         },
-        formType: "Update"
+        formType: "Update",
+        status: state.ui.tutorial
     })
 };
 

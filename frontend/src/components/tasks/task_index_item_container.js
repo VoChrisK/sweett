@@ -8,7 +8,8 @@ import { openModal } from '../../actions/modal_actions'
 const mapStateToProps = (state, ownProps) => {
     return {
         idx: ownProps.idx,
-        task: ownProps.task
+        task: ownProps.task,
+        status: state.ui.tutorial
     };
 };
 

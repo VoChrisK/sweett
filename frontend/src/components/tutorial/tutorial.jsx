@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { hideTutorial } from '../../actions/tutorial_actions';
+const pluralize = require("pluralize");
 
 const Tutorial = ({ hideTutorial, category }) => {
     const stepOne = <div className="tutorial-description big">
@@ -14,7 +15,7 @@ const Tutorial = ({ hideTutorial, category }) => {
     </div>
 
     const stepThree = <div className="tutorial-description three">
-        <h1 className="tutorial-message">{`Let's go ahead and click on this button to create a(n) ${category.taskName} for ${category.title}. Once you are done, the tutorial will resume.`}</h1>
+        <h1 className="tutorial-message">{`Let's go ahead and click on this button to create a(n) ${pluralize.singular(category.taskName.toLowerCase())} for ${category.title}. Once you are done, the tutorial will resume.`}</h1>
     </div>
 
     const stepFour = <div className="tutorial-description four">
@@ -67,11 +68,11 @@ const Tutorial = ({ hideTutorial, category }) => {
 
     const increment = () => {
         if(counter >= steps.length - 1) {
-            hideTutorial();}
-        // } else if(counter === 2) {
-        //     document.getElementsByClassName("tutorial-background")[0].classList.add("hide");
-        //     setCounter(counter + 1);
-        // }
+            hideTutorial();
+        } else if([2,4,7,10].includes(counter)) {
+            document.getElementsByClassName("tutorial-background")[0].classList.add("hide");
+            setCounter(counter + 1);
+        }
         else {
             updateCircle(counter);
             setCounter(counter + 1);
