@@ -4,7 +4,7 @@ S.W.E.E.T.T. (**S**oft**w**are **E**ngineering **E**mployment **T**ime **T**rack
 
 [Live Site](https://sweett-gs.herokuapp.com/)
 
-![sweett](https://github.com/VoChrisK/personal-website/blob/master/images/personal-website-gif-2.gif)
+![sweett](https://github.com/VoChrisK/personal-website/blob/master/src/images/personal-website-gif-2.gif)
 
 ## Background and Overview
 
